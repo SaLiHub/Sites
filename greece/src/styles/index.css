@@ -2,6 +2,14 @@
 
 @import 'variables.css';
 @import 'blocks/body.css';
+@import 'blocks/section-greece.css';
+@import 'blocks/section-hotels.css';
+@import 'blocks/section-places.css';
+@import 'blocks/section-search.css';
+@import 'blocks/header.css';
+
+
+
 
 /*@import 'blocks/header-nav.css';
 @import 'blocks/social.css';

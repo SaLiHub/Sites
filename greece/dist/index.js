@@ -1,1 +1,1 @@
-"use strict";
+"use strict";document.querySelectorAll("input").forEach((t=>t.setAttribute("autocomplete","off")));
