@@ -1,0 +1,19 @@
+/* Global */
+
+@import 'variables.css';
+@import 'blocks/body.css';
+
+/*@import 'blocks/header-nav.css';
+@import 'blocks/social.css';
+@import 'blocks/search.css';
+@import 'blocks/btn.css';
+@import 'blocks/copy.css';
+@import 'blocks/text.css';
+@import 'blocks/btn-to-top.css';
+@import 'blocks/logo.css';*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }

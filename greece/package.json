@@ -24,6 +24,5 @@
     "postcss-csso": "^4.0.0",
     "postcss-import": "^12.0.1",
     "postcss-media-minmax": "^4.0.0"
-  },
-  "name": "greece"
+  }
 }

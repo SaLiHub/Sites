@@ -1,0 +1,33 @@
+.section_banner {
+    margin-bottom: 0;
+  }
+  
+  .banner__content {
+    display: grid;
+  }
+  
+  .section_banner {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding-top: 17%;
+    padding-bottom: 13%;
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+  }
+  
+  .banner__title {
+    text-transform: uppercase;
+    color: #017dfb;
+    font-weight: 600;
+    letter-spacing: 0.5em;
+    padding: 2em 0 2em 0;
+    justify-self: center;
+  }
+  
+  .banner__button {
+    justify-self: center;
+}
