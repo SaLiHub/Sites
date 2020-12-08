@@ -1,5 +1,53 @@
-.porular-places__content {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-gap: 30px;
+.popular-places {
+    height: 100%;
 }
+.pupular-places__card_title {
+    font-size: 25px;
+    color: #fff;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+
+.popular-places__content {
+    width: 100%;
+    display: grid;
+    grid-template-areas:'first second second third'
+                        'fourth second second fifth'
+                        'sixth sixth seventh seventh';
+    grid-gap: 30px;
+    
+}
+
+#place1 { grid-area: first; }
+#place2 { grid-area: second; }
+#place3 { grid-area: third; }
+#place4 { grid-area: fourth; }
+#place5  { grid-area: fifth; }
+#place6  { grid-area: sixth; }
+#place7  { grid-area: seventh; }
+
+
+.popular-places__wrapper img{ 
+    width: 100%;
+    height: 100%;
+}
+
+.pupular-places__card {
+    position: relative;
+}
+
+.popular-places__wrapper { 
+    display: block;
+    height: 100%;
+}
+
+
+
+.popular-places__fourth-block  {
+    display: flex;
+    flex-direction: row;
+}
+
+
