@@ -1,12 +1,8 @@
-.section_hotels  {
+.hotels  {
     background-color: #F9F9F9;
 }
   
-.section__content {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+
 
 .cards {
     display: grid;

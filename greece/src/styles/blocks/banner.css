@@ -1,12 +1,9 @@
-.section_banner {
-    margin-bottom: 0;
-  }
-  
-  .banner__content {
+ .banner__content {
     display: grid;
-  }
+}
   
-  .section_banner {
+  .banner {
+    margin-bottom: 0;
     display: grid;
     justify-items: center;
     align-items: center;

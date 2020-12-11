@@ -2,10 +2,10 @@
 
 @import 'variables.css';
 @import 'blocks/body.css';
-@import 'blocks/section-greece.css';
-@import 'blocks/section-hotels.css';
-@import 'blocks/section-places.css';
-@import 'blocks/section-search.css';
+@import 'blocks/banner.css';
+@import 'blocks/hotels.css';
+@import 'blocks/popular-places.css';
+@import 'blocks/search.css';
 @import 'blocks/header.css';
 
 
