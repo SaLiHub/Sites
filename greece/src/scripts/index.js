@@ -12,13 +12,13 @@
     // Jquery 
 
     //  hiding .places-card__title when hover.
-    var n;
-    $( ".places-card" )
-        .mouseover(function() {
-             n = $( this ).find( ".hidden__title" ).text();
-        $( this ).find( ".places-card__title" ).text( "" );
-        }).mouseleave(function() {
+    // var n;
+    // $( ".places-card" )
+    //     .mouseover(function() {
+    //          n = $( this ).find( ".hidden__title" ).text();
+    //     $( this ).find( ".places-card__title" ).text( "" );
+    //     }).mouseleave(function() {
 
-        $( this ).find( ".places-card__title" ).text(n);
-        });
+    //     $( this ).find( ".places-card__title" ).text(n);
+    //     });
      
