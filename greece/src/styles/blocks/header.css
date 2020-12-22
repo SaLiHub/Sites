@@ -27,12 +27,12 @@
     grid-area: 1/3/1/4;
   }
   
-  .header__nav-links {
+  .menu__links {
     display: flex;
     list-style: none;
     justify-content: space-between;
   }
   
-  .header__nav-links a {
+  .menu__links a {
     color: #BEC5D3;
   }

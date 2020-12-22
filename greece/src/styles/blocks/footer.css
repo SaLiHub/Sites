@@ -10,7 +10,7 @@
     margin-top: 1rem;
 }
 
-.footer .logo {
+.footer .logo__text {
     font-family: 'Molle', cursive;
     color: #ccc;
     font-size: 2rem;

@@ -96,7 +96,7 @@
 .places-card:hover .wrapper__title {
     top: 50%;
     transition: all .7s ease-in;
-    transform: translateY(-100%);
+    transform: translateY(-120%);
 }
 
 .places-card:hover .wrapper__buttons {
@@ -105,14 +105,20 @@
     transition: all .7s ease-in;
 }
 
+.wrapper__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 
 .places-card .button {
     background: none;
     border: 2px solid #5abffd;
-    width: 30%;
-    height: 80%;
+    width: 25%;
+    /* height: 80%; */
     color: #FFF;
+    margin-right: 1rem;
 }
 
 
