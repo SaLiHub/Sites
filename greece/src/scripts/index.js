@@ -18,6 +18,7 @@
 
 
     // 
+    
     let placesCards = document.querySelectorAll(".places-card")
     // let hightOfElement = document.querySelectorAll(".places-card")
     

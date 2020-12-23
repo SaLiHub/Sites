@@ -7,9 +7,9 @@ a {
 	text-decoration: none;
 }
 
-a:visited {
+/* a:visited {
 	color: #017dfb;
-}
+} */
 
 .button {
 	color: #017dfb;
