@@ -25,8 +25,8 @@
     
     for (i = 0; i < placesCards.length; i++) {
        console.log(wraperTitles[i].style.fontSize)
-       wraperTitles[i].style.fontSize  = `${placesCards[i].offsetHeight / 10}px`
-       placesCardsTitles[i].style.fontSize  = `${placesCards[i].offsetHeight / 10}px`
+       wraperTitles[i].style.fontSize  = `${placesCards[i].offsetHeight / 8}px`
+       placesCardsTitles[i].style.fontSize  = `${placesCards[i].offsetHeight / 8}px`
        console.log(wraperTitles[i].style.fontSize )
     }
  

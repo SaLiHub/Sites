@@ -8,11 +8,11 @@
     grid-template-rows: 1fr 2fr 1fr;
     align-items: center;
   }
-  
+
 .header__logo {
     margin-left: 10em;
 }
-  
+
 .header__button {
   margin-left: 4em;
 }
@@ -41,6 +41,8 @@
   transition: 1s;
   align-self: center;
   padding: 5px 10px;
+  animation: bounceInDown;
+  animation-duration: 1s;
 }
 
 .header .link:hover {
@@ -70,7 +72,7 @@
   position: absolute;
   height: 2px;
   background-color: blue;
-  bottom: 0;
+  bottom: 5px;
   left: -1px;
   width: 100%;
   transform: translateX(-100%);

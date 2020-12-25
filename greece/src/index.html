@@ -5,8 +5,11 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
+
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 	<link rel="stylesheet" href="styles/index.css">
 	
 	
@@ -16,12 +19,12 @@
 	<header class="header">
 
 		<div class="header__logo logo">
-			<img src="images/Atis.png" alt="Atic" class="logo__img">
+			<img src="images/Atis.png" alt="Atic" class="logo__img animate__animated animate__heartBeat">
 		</div>
 		<div class="header__menu menu">
 			<ul class="menu__links menu-links">
 				<li><a href="#" class="menu-links__link link">Flights</a></li>
-				<li><a href="#" class="menu-links__link link">Hotels</a></li>
+				<li><a href="#hotels" class="menu-links__link link">Hotels</a></li>
 				<li><a href="#" class="menu-links__link link">Explore</a></li>
 				<li><a href="#" class="menu-links__link link">Restaurants</a></li>
 				<li><a href="#" class="menu-links__link link">Things to do</a></li>
@@ -41,7 +44,7 @@
 	<section class="section banner" style="background-image: url('images/Image2.jpg')">
 		<div class="banner__content">
 			<div class="banner__image">
-				<img class="banner__image_mod" src="images/Greece.png" alt="Greece">
+				<img class="banner__image_mod animate__animated animate__jello" src="images/Greece.png" alt="Greece">
 			</div>
 			<div class="banner__title">Welcome to haven</div>
 			<div class="banner__button">
@@ -68,6 +71,7 @@
 				<label for="City" class="form__label">
 					<img class="form__img" src="images/Search-icon1.png" alt="">
 					<span class="form__name">City</span>
+					<div class="form__stars"></div>
 				</label>
 			</div>
 			<!-- 2 -->
@@ -141,7 +145,7 @@
 
 							<div class="places-card"  id="Thessaloniki">
 								<a href="#" class="places-card__background">
-									<img src="images/places.png" alt="">
+									<img src="images/Thessaloniki.png" alt="">
 								</a>
 								<h3 class="places-card__title">Thessaloniki</h3>
 								<div class="places-card__wrapper wrapper">
@@ -159,7 +163,7 @@
 
 							<div class="places-card" id="Crete">
 								<a href="#" class="places-card__background">
-									<img src="images/places.png" alt="">
+									<img src="images/Crete.jpg" alt="">
 								</a>
 								
 								<h3 class="places-card__title">Crete</h3>
@@ -178,7 +182,7 @@
 
 							<div class="places-card" id="Halkidiki">
 								<a href="#" class="places-card__background">
-									<img src="images/places.png" class="stretch" alt="">
+									<img src="images/Halkidiki.jpg" class="stretch" alt="">
 								</a>
 								<h3 class="places-card__title">Halkidiki</h3>
 								<div class="places-card__wrapper wrapper">
@@ -198,7 +202,7 @@
 						
 							<div class="places-card" id="Athens">
 								<a href="#" class="places-card__background">
-									<img src="images/places.png" alt="">
+									<img src="images/Athens.jpg" alt="">
 								</a>
 								<h3 class="places-card__title">Athens</h3>
 								<div class="places-card__wrapper wrapper">
@@ -216,7 +220,7 @@
 
 							<div class="places-card" id="Mykonos">
 								<a href="#" class="places-card__background">
-									<img src="images/places.png" alt="">
+									<img src="images/Mykonos.jpg" alt="">
 								</a>
 								<h3 class="places-card__title">Mykonos</h3>
 								<div class="places-card__wrapper wrapper">
@@ -234,7 +238,7 @@
 						    
 							<div class="places-card " id="Meteora">
 								<a href="#" class="places-card__background">
-									<img src="images/places.png" alt="">
+									<img src="images/Meteora.jpg" alt="">
 								</a>
 								<h3 class="places-card__title">Meteora</h3>
 								<div class="places-card__wrapper wrapper">
@@ -252,7 +256,7 @@
 
 							<div class="places-card" id="Myrtos-Beach">
 								<a href="#" class="places-card__background">
-									<img src="images/places.png" alt="">
+									<img src="images/Myrtos.jpg" alt="">
 								</a>
 								<h3 class="places-card__title">Myrtos Beach</h3>
 								<div class="places-card__wrapper wrapper">
@@ -279,7 +283,7 @@
 
 	<!-- Start: Section Hotels -->
 
-	<section class="section hotels">
+	<section class="section hotels" id="hotels">
 
 		<h2 class="section__title">Most Popular Places</h2>
 
@@ -372,7 +376,7 @@
 		
 			<div class="swiper-container">
 				<div class="swiper-wrapper" >
-					<div class="swiper-slide" style="background-image: url(images/444971541.jpg);">
+					<div class="swiper-slide" style="background-image: url(images/444971541.webp);">
 						<div class="swiper-slide__wrapper"></div>
 						<div class="slide-content swiper-slide__content"> 
 							<h3 class="title slide-content__title">And then God said<br>
@@ -388,7 +392,7 @@
 						
 						</div>
 					</div>
-					<div class="swiper-slide" style="background-image: url(images/444971541.jpg);">
+					<div class="swiper-slide" style="background-image: url(images/444971541.webp);">
 						<div class="swiper-slide__wrapper"></div>
 						<div class="slide-content swiper-slide__content"> 
 							<h3 class="title slide-content__title">And then God said<br>
@@ -404,7 +408,7 @@
 						
 						</div>
 					</div>
-					<div class="swiper-slide" style="background-image: url(images/444971541.jpg);">
+					<div class="swiper-slide" style="background-image: url(images/444971541.webp);">
 						<div class="swiper-slide__wrapper"></div>
 						<div class="slide-content swiper-slide__content"> 
 							<h3 class="title slide-content__title">And then God said<br>
