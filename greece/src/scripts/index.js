@@ -17,19 +17,6 @@
     
 
 
-    // 
-    
-    let placesCards = document.querySelectorAll(".places-card")
-    // let hightOfElement = document.querySelectorAll(".places-card")
-    
-    
-    for (i = 0; i < placesCards.length; i++) {
-       console.log(wraperTitles[i].style.fontSize)
-       wraperTitles[i].style.fontSize  = `${placesCards[i].offsetHeight / 8}px`
-       placesCardsTitles[i].style.fontSize  = `${placesCards[i].offsetHeight / 8}px`
-       console.log(wraperTitles[i].style.fontSize )
-    }
- 
 
     // import Swiper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
 

@@ -28,14 +28,8 @@
 
 }
 
-.places-card__title {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-   
-    color: #fff;
-    transition: 1s;
-}
+
+
 
 
 
@@ -77,6 +71,17 @@
     background-color: rgb(1, 125, 251, 0.5);  
 }
 
+.places-card__title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 2.5rem;
+    color: #fff;
+    transition: 1s;
+    
+}
+
+
 
 .wrapper__title {
     position: absolute;
@@ -84,6 +89,8 @@
     transform: translateY(-100%);
     transition: .7s;
     color: #fff;
+    font-size: 4rem;
+    letter-spacing: 1rem;
 }
 
 .wrapper__buttons {
@@ -97,6 +104,8 @@
     top: 50%;
     transition: all .7s ease-in;
     transform: translateY(-120%);
+    font-size: 2.5rem;
+    letter-spacing: normal;
 }
 
 .places-card:hover .wrapper__buttons {
@@ -123,3 +132,13 @@
 
 
 
+@media (max-width: 600px) {
+    .places-card__title {
+      
+    }
+
+    .wrapper__title {
+        
+    }
+
+  }

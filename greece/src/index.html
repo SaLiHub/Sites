@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html class="page" lang="ru">
+<html class="page" lang="en">
 <head>
     <title>Test</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
 
+	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 	<link rel="stylesheet" href="styles/index.css">
@@ -21,16 +22,16 @@
 		<div class="header__logo logo">
 			<img src="images/Atis.png" alt="Atic" class="logo__img animate__animated animate__heartBeat">
 		</div>
-		<div class="header__menu menu">
+		<nav class="header__menu menu">
 			<ul class="menu__links menu-links">
-				<li><a href="#" class="menu-links__link link">Flights</a></li>
-				<li><a href="#hotels" class="menu-links__link link">Hotels</a></li>
-				<li><a href="#" class="menu-links__link link">Explore</a></li>
-				<li><a href="#" class="menu-links__link link">Restaurants</a></li>
-				<li><a href="#" class="menu-links__link link">Things to do</a></li>
-				<li><a href="#" class="menu-links__link link">About Greece</a></li>
+				<li><a href="#places" class="menu-links__link link">Flights</a></li>
+				<li><a href="#places" class="menu-links__link link">Hotels</a></li>
+				<li><a href="#search" class="menu-links__link link">Explore</a></li>
+				<li><a href="#places" class="menu-links__link link">Restaurants</a></li>
+				<li><a href="#slider" class="menu-links__link link">Things to do</a></li>
+				<li><a href="#slider" class="menu-links__link link">About Greece</a></li>
 			</ul>
-		</div>
+		</nav>
 		<button class="header__button button">
 			Become a host
 		</button>
@@ -61,7 +62,7 @@
 
 	<!-- Start: Section Search -->
 
-	<section class="section search">
+	<section class="section search" id="search">
 		<div class="line"></div>
 		<form class="form">
 
@@ -139,7 +140,7 @@
 
 
 			<!-- Start: Section Places -->
-				<section class="section popular-places">
+				<section class="section popular-places" id="places">
 					<h2 class="section__title ">Most Popular Places</h2>
 					<div class="popular-places__content">
 
@@ -285,7 +286,7 @@
 
 	<section class="section hotels" id="hotels">
 
-		<h2 class="section__title">Most Popular Places</h2>
+		<h2 class="section__title">Most Popular Hotels</h2>
 
 		<div class="section__content">
 			<div class="cards">
@@ -372,7 +373,7 @@
 
 	<!-- Start: Slider -->
 	
-	<section class="section slider">
+	<section class="section slider" id="slider">
 		
 			<div class="swiper-container">
 				<div class="swiper-wrapper" >
