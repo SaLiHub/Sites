@@ -1,14 +1,19 @@
 /* Global */
 
+@import 'blocks/button.css';
+@import 'blocks/icons.css';
 @import 'variables.css';
 @import 'blocks/body.css';
-@import 'blocks/banner.css';
+@import 'blocks/banner.css';    
 @import 'blocks/hotels.css';
 @import 'blocks/popular-places.css';
 @import 'blocks/search.css';
 @import 'blocks/header.css';
 @import 'blocks/slider.css';
 @import 'blocks/footer.css';
+
+
+
 
 
 
@@ -24,8 +29,3 @@
 @import 'blocks/btn-to-top.css';
 @import 'blocks/logo.css';*/
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }

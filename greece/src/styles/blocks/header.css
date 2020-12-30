@@ -7,25 +7,28 @@
     justify-content: space-between;
   }
 
+
+
+/* Logo */
+
 .header__logo {
     margin-left: 10%;
 }
 
+/* Button */
+
 .header__button {
-  margin-left: 4em;
+    transition: .7s;
+    margin-left: 4em;
 }
-.header .button {
-    position: relative;
-    -webkit-box-shadow: 0px 0px 20px 2px rgba(1,125,251,0.25);
-    -moz-box-shadow: 0px 0px 20px 2px rgba(1,125,251,0.25);
-    box-shadow: 0px 0px 20px 2px rgba(1,125,251,0.25);
-}
-  
-.header .menu {
+
+/* Menu */
+
+.header__menu {
   margin-left: auto;
 }
 
-.menu-links {
+.header__links {
   display: flex;
   list-style: none;
   justify-content: space-between;
@@ -38,9 +41,8 @@
   transition: 1s;
 }
 
-.menu-links li {
+.header__links li {
   margin-right: 2%;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,7 +50,7 @@
   width: 8rem;
 }
 
-.menu-links__link {
+.header .link {
   color: #BEC5D3;
   transition: 1s;
   /* width: 100%; */
@@ -59,14 +61,13 @@
   overflow: hidden;
 }
 
+/* animation of links */
 
-.menu-links li:hover .link::after {
+.header__links li:hover .link::after {
   transform: translateX(100%);
   transition: all .4s ease-out;
   background-color: #fff;
 }
-
-
 
 
 .header .link::after {
@@ -87,7 +88,9 @@
   box-shadow: 0 0 0 5px #CCC;
 }
 
-.button:focus {
-  outline: none;
-  box-shadow: 0 0 0 5px #CCC;
+
+@media screen and (min-width: 900px) {
+  .header {
+    
+  }
 }

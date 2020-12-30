@@ -22,17 +22,17 @@
 		<div class="header__logo logo">
 			<img src="images/Atis.png" alt="Atic" class="logo__img animate__animated animate__heartBeat">
 		</div>
-		<nav class="header__menu menu">
-			<ul class="menu__links menu-links">
-				<li><a href="#places" class="menu-links__link link">Flights</a></li>
-				<li><a href="#places" class="menu-links__link link">Hotels</a></li>
-				<li><a href="#search" class="menu-links__link link">Explore</a></li>
-				<li><a href="#places" class="menu-links__link link">Restaurants</a></li>
-				<li><a href="#slider" class="menu-links__link link">Things to do</a></li>
-				<li><a href="#slider" class="menu-links__link link">About Greece</a></li>
+		<nav class="header__menu">
+			<ul class="header__links ">
+				<li><a href="#places" class="link">Flights</a></li>
+				<li><a href="#places" class="link">Hotels</a></li>
+				<li><a href="#search" class="link">Explore</a></li>
+				<li><a href="#places" class="link">Restaurants</a></li>
+				<li><a href="#slider" class="link">Things to do</a></li>
+				<li><a href="#slider" class="link">About Greece</a></li>
 			</ul>
 		</nav>
-		<button class="header__button button">
+		<button class="header__button button button-shadow">
 			Become a host
 		</button>
 
@@ -47,14 +47,9 @@
 			<div class="banner__image">
 				<img class="banner__image_mod animate__animated animate__jello" src="images/Greece.png" alt="Greece">
 			</div>
-			<div class="banner__title">Welcome to haven</div>
-			<div class="banner__button">
-				<button class="button">Check offer</button>
-			</div>
-
-		</div>
-		<!-- <div class="img" style="url('images/photo1.jpg')">
-		 </div>  -->
+			<h1 class="banner__title">Welcome to haven</h1>
+			
+			<button class="banner__button button button-shadow">Check offer</button>
 
 	</section>
 
@@ -70,63 +65,80 @@
 			<div class="form__field">
 				<input type="text" name="City" class="form__input">
 				<label for="City" class="form__label">
-					<img class="form__img" src="images/Search-icon1.png" alt="">
+					<svg class="form__img" aria-label="location">
+						<use xlink:href="images/icons.svg#placeholder"/>
+					</svg>
 					<span class="form__name">City</span>
-					<div class="form__stars"></div>
+					
 				</label>
 			</div>
 			<!-- 2 -->
 			<div class="form__field">
-				<input type="text" class="form__input">
+				<input type="text" name="CheckIn" class="form__input">
 				<label class="form__label">
-					<img class="form__img" src="images/Search-icon2.png" alt="">
+					<svg class="form__img" aria-label="calendar">
+						<use xlink:href="images/icons.svg#date"/>
+					</svg>
 					<span class="form__name">Check in</span>
 				</label>
 			</div>
 			<!-- 3 -->
 			<div class="form__field">
-				<input type="text" class="form__input">
+				<input type="text" name="CheckOut" class="form__input">
 				<label class="form__label">
-					<img class="form__img" src="images/Search-icon2.png" alt="">
+					<svg class="form__img" aria-label="calendar">
+						<use xlink:href="images/icons.svg#date"/>
+					</svg>
 					<span class="form__name">Check out</span>
 				</label>
 			</div>
 			<!-- 4 -->
 			<div class="form__field">
-				<input type="text" class="form__input">
+				<input type="text" name="Rooms" class="form__input">
 				<label class="form__label">
-					<img class="form__img" src="images/Search-icon3.png" alt="">
+					<svg class="form__img" aria-label="house">
+						<use xlink:href="images/icons.svg#home"/>
+					</svg>
 					<span class="form__name">Rooms</span>
 				</label>
 			</div>
 			<!-- 5 -->
 			<div class="form__field">
-				<input type="text" class="form__input">
+				<input type="text" name="Adults" class="form__input">
 				<label class="form__label">
-					<img class="form__img" src="images/Search-icon4.png" alt="">
+					<svg class="form__img" aria-label="Adult">
+						<use xlink:href="images/icons.svg#user"/>
+					</svg>
 					<span class="form__name">Adults</span>
 				</label>
 			</div>
 			<!-- 6 -->
 			<div class="form__field">
-				<input type="text" class="form__input">
+				<input type="text" name="Stars" class="form__input">
 				<label class="form__label">
-					<img class="form__img" src="images/Star.png" alt="">
-					<span class="form__name">Children</span>
+					<svg class="form__img" aria-label="star">
+						<use xlink:href="images/icons.svg#star"/>
+					</svg>
+					<span class="form__name">Stars</span>
 				</label>
 			</div>
 			<!-- 7 -->
 			<div class="form__field">
-				<input type="text" class="form__input">
+				<input type="text" name="Children" class="form__input">
 				<label class="form__label">
-					<img class="form__img" src="images/Search-icon5.png" alt="">
-					<span class="form__name">Stars</span>
+					<svg class="form__img" aria-label="Chlid">
+						<use xlink:href="images/icons.svg#baby-boy"/>
+					</svg>
+					<span class="form__name">Children</span>
 				</label>
 			</div>
 			<!-- 8 -->
 			<div class="form__field">
-				<button class="form__submit " type="submit">
-					<img class="form__img" src="images/Search-icon6.png" alt="Search">
+				<button class="form__submit" name="Search" type="submit">
+					<!-- <img class="form__img" src="images/loupe.svg" alt="Search"> -->
+					<svg class="form__img" aria-label="search">
+						<use xlink:href="images/icons.svg#loupe"/>
+					</svg>
 				</button>
 			</div>
 
@@ -152,7 +164,7 @@
 								<div class="places-card__wrapper wrapper">
 
 									<h3 class="wrapper__title"></h3>
-									<div class="wrapper__buttons">
+										<div class="wrapper__buttons">
 										<button class="button"><span id="Thessaloniki-flights">11</span> Flights</button>
 										<button class="button"><span id="Thessaloniki-restaurants">48</span> Restaurants</button>
 										<button class="button"><span id="Thessaloniki-hotels">32</span> Hotels</button>
@@ -442,7 +454,12 @@
 			<div class="footer__logo logo">
 				<p class="logo__text">Atis</p>
 			</div>
-			<div class="footer__copyright copyright"><img class="copyright__icon" src="images/copyright.svg"></img><p class="copyright__text">2016. All rights reserved by symo.co</p></div>
+			<div class="footer__copyright">
+				<svg class="icon" aria-label="copyright">
+					<use xlink:href="images/icons.svg#copyright"/>
+				</svg>
+				<p class="copyright-text">2016. All rights reserved by symo.co</p>
+			</div>
 			
 		</div>
 	</footer>

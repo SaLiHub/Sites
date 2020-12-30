@@ -2,7 +2,7 @@
     display: grid;
 }
   
-  .banner {
+.banner {
     margin-bottom: 0;
     display: grid;
     justify-items: center;
@@ -14,25 +14,22 @@
     background-repeat: no-repeat;
     /* Do not repeat the image */
     background-size: cover;
-  }
+}
   
-  .banner__title {
+.banner__title {
     text-transform: uppercase;
     color: #017dfb;
     font-weight: 600;
     letter-spacing: 0.5em;
     padding: 2em 0 2em 0;
     justify-self: center;
-  }
+    font-size: 1rem;
+}
   
-  .banner__button {
+.banner__button {
     justify-self: center;
-    
 }
 
-.banner__button .button{
-  box-shadow: 0 0 20px 2px rgba(1,125,251,.25);
-}
 
 .banner {
   background-attachment: fixed;

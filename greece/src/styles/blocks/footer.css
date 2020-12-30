@@ -8,6 +8,7 @@
 .footer__copyright {
     color: #ccc;
     margin-top: 1rem;
+    display: flex;
 }
 
 .footer .logo__text {
@@ -21,18 +22,6 @@
     text-align: center;
 }
 
-.copyright__icon {
-    
-    width: 1rem;
-    height: 1rem;
-    
-}
-
-.copyright {
-    display: flex;
-}
-
-.copyright__icon {
-    margin-top: .1rem;
-    margin-right: .2rem;
+.copyright-text {
+    margin-left: .2rem;
 }
