@@ -18,7 +18,9 @@
 <body class="page__body">
 
 	<header class="header">
-
+		<div class="header__hamburger-wrapper">
+			<div class="hamburger"></div>
+		</div>
 		<div class="header__logo logo">
 			<img src="images/Atis.png" alt="Atic" class="logo__img animate__animated animate__heartBeat">
 		</div>
@@ -32,7 +34,7 @@
 				<li><a href="#slider" class="link">About Greece</a></li>
 			</ul>
 		</nav>
-		<button class="header__button button button-shadow">
+		<button class="header__button button button-shadow" type='button'>
 			Become a host
 		</button>
 
@@ -49,7 +51,7 @@
 			</div>
 			<h1 class="banner__title">Welcome to haven</h1>
 			
-			<button class="banner__button button button-shadow">Check offer</button>
+			<button class="banner__button button button-shadow" type='button'>Check offer</button>
 
 	</section>
 
@@ -63,80 +65,88 @@
 
 			<!-- 1 -->
 			<div class="form__field">
-				<input type="text" name="City" class="form__input">
+				<input type="text" name="City" class="form__input"  placeholder="City" id="city">
 				<label for="City" class="form__label">
 					<svg class="form__img" aria-label="location">
 						<use xlink:href="images/icons.svg#placeholder"/>
 					</svg>
-					<span class="form__name">City</span>
+					
+					<div class="form__line1"></div>
+					<div class="form__line2"></div>
 					
 				</label>
 			</div>
 			<!-- 2 -->
 			<div class="form__field">
-				<input type="text" name="CheckIn" class="form__input">
+				<input type="text" name="CheckIn" class="form__input" placeholder="Check in">
 				<label class="form__label">
 					<svg class="form__img" aria-label="calendar">
 						<use xlink:href="images/icons.svg#date"/>
 					</svg>
-					<span class="form__name">Check in</span>
+					<div class="form__line1"></div>
+					<div class="form__line2"></div>
 				</label>
 			</div>
 			<!-- 3 -->
 			<div class="form__field">
-				<input type="text" name="CheckOut" class="form__input">
+				<input type="text" name="CheckOut" class="form__input" placeholder="Check out">
 				<label class="form__label">
 					<svg class="form__img" aria-label="calendar">
 						<use xlink:href="images/icons.svg#date"/>
 					</svg>
-					<span class="form__name">Check out</span>
+					<div class="form__line1"></div>
+					<div class="form__line2"></div>
 				</label>
 			</div>
 			<!-- 4 -->
 			<div class="form__field">
-				<input type="text" name="Rooms" class="form__input">
+				<input type="text" name="Rooms" class="form__input" placeholder="Rooms">
 				<label class="form__label">
 					<svg class="form__img" aria-label="house">
 						<use xlink:href="images/icons.svg#home"/>
 					</svg>
-					<span class="form__name">Rooms</span>
+					<div class="form__line1"></div>
+					<div class="form__line2"></div>
 				</label>
 			</div>
 			<!-- 5 -->
 			<div class="form__field">
-				<input type="text" name="Adults" class="form__input">
+				<input type="text" name="Adults" class="form__input" placeholder="Adults"> 
 				<label class="form__label">
 					<svg class="form__img" aria-label="Adult">
 						<use xlink:href="images/icons.svg#user"/>
 					</svg>
-					<span class="form__name">Adults</span>
+					<div class="form__line1"></div>
+					<div class="form__line2"></div>
 				</label>
 			</div>
 			<!-- 6 -->
 			<div class="form__field">
-				<input type="text" name="Stars" class="form__input">
+				<input type="text" name="Stars" class="form__input" placeholder="Stars">
 				<label class="form__label">
 					<svg class="form__img" aria-label="star">
 						<use xlink:href="images/icons.svg#star"/>
 					</svg>
-					<span class="form__name">Stars</span>
+					<div class="form__line1"></div>
+					<div class="form__line2"></div>
 				</label>
 			</div>
 			<!-- 7 -->
 			<div class="form__field">
-				<input type="text" name="Children" class="form__input">
+				<input type="text" name="Children" class="form__input" placeholder="Children">
 				<label class="form__label">
 					<svg class="form__img" aria-label="Chlid">
 						<use xlink:href="images/icons.svg#baby-boy"/>
 					</svg>
-					<span class="form__name">Children</span>
+					<div class="form__line1"></div>
+					<div class="form__line2"></div>
 				</label>
 			</div>
 			<!-- 8 -->
 			<div class="form__field">
 				<button class="form__submit" name="Search" type="submit">
 					<!-- <img class="form__img" src="images/loupe.svg" alt="Search"> -->
-					<svg class="form__img" aria-label="search">
+					<svg class="form__img lupa" aria-label="search">
 						<use xlink:href="images/icons.svg#loupe"/>
 					</svg>
 				</button>
