@@ -68,3 +68,17 @@
     justify-content: center;
     align-items: center;
 }
+
+@media screen and (max-width: 1750px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+}

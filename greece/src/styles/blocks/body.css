@@ -29,6 +29,7 @@ a {
 .section {
 	margin: 0 2rem 2rem;
 	height: 100%;
+	overflow: hidden;
 }
 
 .section__content {
@@ -38,7 +39,8 @@ a {
 }
 
 @media screen and (max-width: 1350px) {
-	.section {
-		margin: 0;
-	}
+	/* .section {
+		
+		
+	} */
   }

@@ -17,38 +17,41 @@
 </head>
 <body class="page__body">
 
-	<header class="header">
-		<div class="header__hamburger-wrapper">
-			<div class="hamburger"></div>
-		</div>
-		<div class="header__logo logo">
-			<img src="images/Atis.png" alt="Atic" class="logo__img animate__animated animate__heartBeat">
-		</div>
-		<nav class="header__menu">
-			<ul class="header__links ">
-				<li><a href="#places" class="link">Flights</a></li>
-				<li><a href="#places" class="link">Hotels</a></li>
-				<li><a href="#search" class="link">Explore</a></li>
-				<li><a href="#places" class="link">Restaurants</a></li>
-				<li><a href="#slider" class="link">Things to do</a></li>
-				<li><a href="#slider" class="link">About Greece</a></li>
-			</ul>
-		</nav>
-		<button class="header__button button button-shadow" type='button'>
-			Become a host
-		</button>
-
-	</header>
+	
 
 	<!-- End: header -->
 
 	<!-- Start: Section Greece -->
-
 	<section class="section banner" style="background-image: url('images/Image2.jpg')">
-		<div class="banner__content">
-			<div class="banner__image">
-				<img class="banner__image_mod animate__animated animate__jello" src="images/Greece.png" alt="Greece">
+		<header class="header">
+			<div class="header__hamburger-wrapper">
+				<div class="hamburger"></div>
 			</div>
+			<div class="header__logo logo">
+				<img src="images/Atis.png" alt="Atic" class="logo__img animate__animated animate__heartBeat">
+			</div>
+			<nav class="header__menu">
+				<ul class="header__links ">
+					<li><a href="#places" class="link">Flights</a></li>
+					<li><a href="#places" class="link">Hotels</a></li>
+					<li><a href="#search" class="link">Explore</a></li>
+					<li><a href="#places" class="link">Restaurants</a></li>
+					<li><a href="#slider" class="link">Things to do</a></li>
+					<li><a href="#slider" class="link">About Greece</a></li>
+				</ul>
+			</nav>
+			<button class="header__button button button-shadow" type='button'>
+				Become a host
+			</button>
+	
+		</header>
+		<div class="banner__content">
+			<picture class="banner__image animate__animated animate__jello">
+				<source srcset="images/greece/Greece@0,33x.png" media="(max-width: 500px)">
+				<source srcset="images/greece/Greece@0,5x.png" media="(max-width: 650px)">
+				<source srcset="images/greece/Greece@0,75x.png" media="(max-width: 1000px)">
+				<img src="images/greece/Greece.png" alt="Greece">
+			</picture>
 			<h1 class="banner__title">Welcome to haven</h1>
 			
 			<button class="banner__button button button-shadow" type='button'>Check offer</button>

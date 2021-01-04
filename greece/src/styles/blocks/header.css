@@ -1,8 +1,10 @@
 .header {
     height: 240px;
     width: 100%;
-    padding: 2rem 2rem 0;
+    /* margin: 2rem 2rem 0; */
     position: absolute;
+    left: 0;
+    top: 40px;
     display: flex;
     justify-content: space-between;
   }
@@ -12,6 +14,7 @@
 /* Logo */
 
 .header__logo {
+    margin-top: .2rem;
     margin-left: 10%;
 }
 
@@ -20,6 +23,8 @@
 .header__button {
     transition: .7s;
     margin-left: 4em;
+    margin-right: 1rem;
+    
 }
 
 /* Menu */
@@ -32,7 +37,7 @@
   display: flex;
   list-style: none;
   justify-content: space-between;
-  height: 40px;
+  height: 50px;
 }
 
 
@@ -63,10 +68,10 @@
 
 /* animation of links */
 
-.header__links li:hover .link::after {
-  transform: translateX(100%);
+.header__links li:hover  .link::after {
+  transform: translateX(103%);
   transition: all .4s ease-out;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 
@@ -74,7 +79,7 @@
   content: "";
   position: absolute;
   height: 2px;
-  background-color: blue;
+  background-color: var(--blue);
   bottom: 0;
   left: -1px;
   width: 100%;
@@ -96,13 +101,14 @@
   height: 40px;
   display: none;
   position: relative;
+  margin-left: .5rem;
 }
 
 .hamburger {
   margin: auto 0;
   width: 100%;  
   height: 5px;
-  background-color: #000;
+  background-color:var(--blue);
   border-radius: 3px;
 }
 
@@ -113,7 +119,7 @@
   left: 0;
   width: 100%;
   height: 5px;
-  background-color: #000;
+  background-color: var(--blue);
   border-radius: 3px;
 }
 
@@ -124,7 +130,7 @@
   left: 0;
   width: 100%;
   height: 5px;
-  background-color: #000;
+  background-color: var(--blue);
   border-radius: 3px;
 }
 
@@ -132,16 +138,20 @@
 
 @media screen and (max-width: 1350px) {
 
-  .header {
-    justify-content: center ;
-  }
+  
 
   .header__button {
-    margin-left: auto;
+    position: absolute;
+    right: 2rem;
+   
   }
 
   .header__logo {
-    margin-left: auto;
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0;
   }
   .header__hamburger-wrapper {
     display: flex;
@@ -151,4 +161,16 @@
     display: none;
   }
 
+}
+
+@media  screen and (max-width: 800px) { 
+  .header__button {
+    display: none;
+  }
+  .header__logo {
+   
+   left: 100%;
+   transform: translateX(-100%);
+   margin-left: 0;
+  }
 }

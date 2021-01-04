@@ -9,10 +9,11 @@
     align-items: center;
     padding-top: 17%;
     padding-bottom: 13%;
-    background-position: center;
-    /* Center the image */
+    position: relative;
+    margin-top: 2rem;
+    background-position: center center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
-    /* Do not repeat the image */
     background-size: cover;
 }
   
@@ -33,4 +34,8 @@
 
 .banner {
   background-attachment: fixed;
+}
+
+.banner__image {
+    margin: 0 auto;
 }
