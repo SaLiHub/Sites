@@ -7,7 +7,7 @@
 .cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr ;
     grid-column-gap: 30px;
     grid-row-gap: 60px;
 }
@@ -32,7 +32,7 @@
 .card__title {
     color: #6D7C9C;
 }
-.card__prise {
+.card__price {
     color: #808DA9;
     font-size: 30px;
     font-family: 'Quicksand', sans-serif;
@@ -72,13 +72,13 @@
 @media screen and (max-width: 1750px) {
     .cards {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr ;
     }
 }
 
 @media screen and (max-width: 1350px) {
     .cards {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr ;
     }
 }

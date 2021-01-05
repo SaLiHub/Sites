@@ -1,5 +1,5 @@
 .header {
-    height: 240px;
+    height: 50px;
     width: 100%;
     /* margin: 2rem 2rem 0; */
     position: absolute;
@@ -14,9 +14,9 @@
 /* Logo */
 
 .header__logo {
-    margin-top: .2rem;
-    margin-left: 10%;
+    margin: .2rem 0 auto 10%;
 }
+
 
 /* Button */
 
@@ -31,13 +31,14 @@
 
 .header__menu {
   margin-left: auto;
+  height: 100%;
 }
 
 .header__links {
   display: flex;
   list-style: none;
   justify-content: space-between;
-  height: 50px;
+  height: 100%;
 }
 
 
@@ -96,44 +97,37 @@
 
 /* hamburger */
 
-.header__hamburger-wrapper {
-  width: 40px;
-  height: 40px;
-  display: none;
+
+
+.header__hamburger {
+  height: 23px;
+  width: 30px;
   position: relative;
-  margin-left: .5rem;
+  margin-left: 15px;
+  display: none;
 }
 
-.hamburger {
-  margin: auto 0;
-  width: 100%;  
-  height: 5px;
-  background-color:var(--blue);
-  border-radius: 3px;
-}
-
-.hamburger::before {
-  content: "";
+.header__checkbox {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 5px;
-  background-color: var(--blue);
-  border-radius: 3px;
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
 }
 
-.hamburger::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.header__hamburger span {
+  display: block;
+  position: relative;
+  margin-bottom: 7px;
+  height: 3px;
   width: 100%;
-  height: 5px;
   background-color: var(--blue);
-  border-radius: 3px;
+  z-index: 1;
+  border-radius: 10px;
 }
-
 
 
 @media screen and (max-width: 1350px) {
@@ -147,14 +141,13 @@
   }
 
   .header__logo {
-    position: absolute;
+    position: relative;
 
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: 0;
+    margin: 0 auto;
+    
   }
-  .header__hamburger-wrapper {
-    display: flex;
+  .header__hamburger {
+    display: block;
   }
 
   .header__menu {
@@ -163,14 +156,26 @@
 
 }
 
-@media  screen and (max-width: 800px) { 
+@media  screen and (max-width: 950px) { 
   .header__button {
     display: none;
   }
   .header__logo {
-   
-   left: 100%;
-   transform: translateX(-100%);
-   margin-left: 0;
+   margin-right: 2rem;
+   margin-left: auto;
+   margin-top: .4rem;
   }
 }
+
+
+/* @media  screen and (max-width: 600px) { 
+  .header__button {
+    display: none;
+  }
+  .header__logo {
+   margin-right: 2rem;
+   margin-left: auto;
+   margin-top: .4rem;
+  }
+} */
+  

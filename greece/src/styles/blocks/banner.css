@@ -8,11 +8,11 @@
     justify-items: center;
     align-items: center;
     padding-top: 17%;
-    padding-bottom: 13%;
+    padding-bottom: 10%;
     position: relative;
     margin-top: 2rem;
     background-position: center center;
-    background-attachment: fixed;
+   
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -31,11 +31,22 @@
     justify-self: center;
 }
 
-
-.banner {
-  background-attachment: fixed;
-}
-
 .banner__image {
     margin: 0 auto;
+}
+
+.banner__title {
+    text-align: center;
+}
+
+
+@media screen and (max-width: 500px) {
+    .banner__title {
+        font-size: .8rem;
+    }
+
+    .banner__image {
+        margin-top: 50px;
+    }
+    
 }

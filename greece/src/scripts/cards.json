@@ -1,0 +1,60 @@
+{
+    "cardInfo" : [
+        {
+            "title" : "El Grece",
+            "price" : "225$",
+            "button-text" : "View More",
+            "background-image" : "url(images/card1.jpg)"
+        },
+        {
+            "title" : "Zhytomyr",
+            "price" : "230$",
+            "button-text" : "View More",
+            "background-image" : "url(images/card1.jpg)"
+        },
+        {
+            "title" : "Ioannina",
+            "price" : "235$",
+            "button-text" : "View More",
+            "background-image" : "url(images/card1.jpg)"
+        },
+        {
+            "title" : "Peristeri",
+            "price" : "240$",
+            "button-text" : "View More",
+            "background-image" : "url(images/card1.jpg)"
+        },
+        {
+            "title" : "Galatsi",
+            "price" : "245$",
+            "button-text" : "View More",
+            "background-image" : "url(images/card1.jpg)"
+        },
+        {
+            "title" : "Palaio Faliro",
+            "price" : "250$",
+            "button-text" : "View More",
+            "background-image" : "url(images/card1.jpg)"
+        },
+        {
+            "title" : "Lamia",
+            "price" : "255$",
+            "button-text" : "View More",
+            "background-image" : "url(images/card1.jpg)"
+        },
+        {
+            "title" : "Katerini",
+            "price" : "260$",
+            "button-text" : "View More",
+            "background-image" : "url(images/card1.jpg)"
+        },
+        {
+            "title" : "Chania",
+            "price" : "265$",
+            "button-text" : "View More",
+            "background-image" : "url(images/card1.jpg)"
+        }
+
+    ]
+    
+}

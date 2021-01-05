@@ -28,11 +28,11 @@
   transition: all 1s ease;
   height: 21px;
   width: 21px;
-  /* margin-right: .2rem; */
 }
 
+/* img end */
 
-/* label */
+/* label start*/
 
 .form__label {
   overflow: hidden;
@@ -42,51 +42,28 @@
   display: flex;
   align-items: center;
   width: 100%;
+  height: 21px;
 }
 
-
-/* form line */
-
-.form__line1 {
+.form__label::after {
+  display: block;
+  content: "";
   position: absolute;
   bottom: 0;
-  width: 50%;
   height: 2px;
-  overflow: hidden;
-}
-
-.form__line2 {
-  position: absolute;
-  bottom: 0;
-  width: 50%;
-  left: 50%;
-  height: 2px;
-  overflow: hidden;
-}
-
-
-.form__line1::after {
-  position: absolute;
-  height: 100%;
+  background-color: #1B8AFB;
   width: 100%;
-  content: "";
-  background-color: #3D99F7;
-  transition: .5s;
-  transform: translateX(101%);
+  align-self: center;
+  transform: scaleX(0);
+  transition: all .4s;
 }
 
-.form__line2::before {
-  position: absolute;
-  content: "";
-  height: 100%;
-  width: 100%;
-  background-color: #3D99F7;
-  transition: .5s;
-  transform: translateX(-101%);
-}
+/* label end */
+
+
+/* input start */
 
 .form__input {
-  
   font-family: inherit;
   font-size: inherit;
   background-color: #017dfb;
@@ -94,7 +71,10 @@
   width: 100%;
   padding-left: 25px;
   color: #fff;
+  height: 21px;
 }
+
+/* input end */
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #fff;
@@ -108,27 +88,16 @@
   
 }
 
-.form__input:focus + .form__label{
-  transition: .4s;
-  align-items: start;
+.form__input:focus + .form__label::after {
+  transform: scaleX(1);
 }
 
-.form__input:focus + .form__label::before,
-.form__input:focus + .form__label::after{
-  width: 100%;
-  opacity: 1;
-}
 
 .form__input:focus + .form__label .form__img{
   transform: translateY(-101%);
   opacity: 0;
 }
 
-.form__input:focus + .form__label .form__line1::after,
-.form__input:focus + .form__label .form__line2::before {
-  transform: translateX(0);
-  transition: .2s;
-}
 
 
 .form__submit:focus {
