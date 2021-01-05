@@ -39,8 +39,8 @@ a {
 }
 
 @media screen and (max-width: 1350px) {
-	/* .section {
+	.section {
+		margin: 0;
 		
-		
-	} */
+	}
   }
