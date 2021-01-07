@@ -136,8 +136,6 @@
           
           cards.appendChild(element)
         }
-        
-        
       }
       cardIndex += 4;
     }
@@ -146,4 +144,16 @@
       viewAllOffers.addEventListener('click', cardCreate)
 
 
-    
+      // toggle menu
+
+      let toggleMenuLinks = document.querySelectorAll('.link')
+      let hamRotate = document.querySelector('.hamRotate');
+      for (let i = 0; i < toggleMenuLinks.length; i++) {
+        toggleMenuLinks[i].addEventListener('click', () => {
+          hamRotate.classList.remove("active");
+          
+        })
+
+        
+        
+      }

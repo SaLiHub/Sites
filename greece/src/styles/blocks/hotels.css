@@ -72,13 +72,27 @@
 @media screen and (max-width: 1750px) {
     .cards {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr ;
+      
     }
 }
 
 @media screen and (max-width: 1350px) {
     .cards {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 1fr ;
+        
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .card {
+        height: 350px;
+        width: 280px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .cards {
+        grid-template-columns:  1fr;
+        
     }
 }
