@@ -1,8 +1,4 @@
 
-.slider {
-    
-}
-
 .swiper-slide {
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -10,7 +6,7 @@
    
 }
 
-.slide-content {
+.swiper-slide__content {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -34,18 +30,12 @@
     font-size: 3rem;
     font-weight: 500;
     line-height: 3.2rem;
-}
-
-.slide-content .title {
     width: 50%;
 }
 
 .slide-content__description {
     margin-top: 1rem;
     font-size: 0.9rem;
-}
-
-.slide-content .description {
     width: 50%;
 }
 
@@ -56,12 +46,9 @@
 }
 
 
-
-
-.title__greece {
+.slide-content__title-greece {
     font-family: 'Molle', cursive;
     color: #0DCFFF;
-    font-size: 3.5rem;
 }
 
 
@@ -81,4 +68,26 @@
 
 .swiper-button-next, .swiper-button-prev {
     color: #fff;
+}
+
+
+@media screen and (max-width: 789px) {
+    .slide-content__title {
+        font-size: 2rem;
+        line-height: 2rem;
+        width: 70%;
+    }
+    
+    .slide-content__description {
+       
+        font-size: 0.7rem;
+        
+    }   
+}
+
+@media screen and (max-width: 420px) {
+    .slide-content__title {
+        
+        width: 80%;
+    }
 }

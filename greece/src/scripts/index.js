@@ -151,7 +151,7 @@
       let placesCard = document.querySelectorAll('.places-card');
       function loopingPlacesCards() {
         for (let i = 0; i < placesCard.length; i++) {
-          placesCardButons[i].style.fontSize = `${placesCard[i].offsetHeight / 50 + 6}px`
+          placesCardButons[i].style.fontSize = `${placesCard[i].offsetHeight / 50 + 10}px`
           placesCardTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 5}px`
           wraperTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 5}px`
          }
