@@ -154,6 +154,10 @@
   z-index: 10;
   display: none;
 }
+
+.ham:focus {
+  outline: #4CAF50 solid 10px;
+}
 .hamRotate.active {
   transform: rotate(45deg);
 }

@@ -4,20 +4,15 @@
     inputs.forEach(input => input.setAttribute("autocomplete","off"));
 
     // .wrapper__title innerHTML
-    let placesCardsTitles = document.querySelectorAll(".places-card__title"),
-    wraperTitles = document.querySelectorAll(".wrapper__title"),
+    let placesCardTitles = document.querySelectorAll(".places-card__title"),
+    wraperTitles = document.querySelectorAll(".places-card-wrapper__title"),
     i;
-    for(i = 0; i < placesCardsTitles.length; i++) {
-      wraperTitles[i].innerHTML = placesCardsTitles[i].innerHTML
+    for(i = 0; i < placesCardTitles.length; i++) {
+      wraperTitles[i].innerHTML = placesCardTitles[i].innerHTML
     }
+    
 
 
-  // autocomplite script
-
-    let el = document.getElementById('city');
-    el.addEventListener('click', function() {
-      
-    })
 
 
 
@@ -39,14 +34,6 @@
       });
 
 
-      // view-All-Offers
-
-      // let viewAllOffers = document.querySelector(".more-cards")
-      // let viewAllOffersButton = document.querySelector(".more-cards__button")
-
-      // viewAllOffersButton.addEventListener('click', function() {
-
-      // })
 
       // cards
 
@@ -157,3 +144,22 @@
         
         
       }
+
+      // places cards
+
+      let placesCardButons = document.querySelectorAll('.places-card-buttons');
+      let placesCard = document.querySelectorAll('.places-card');
+      function loopingPlacesCards() {
+        for (let i = 0; i < placesCard.length; i++) {
+          placesCardButons[i].style.fontSize = `${placesCard[i].offsetHeight / 50 + 6}px`
+          placesCardTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 5}px`
+          wraperTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 5}px`
+         }
+         console.log('luck')
+      }
+      loopingPlacesCards()
+
+  
+    
+      window.addEventListener('resize', loopingPlacesCards);
+      
