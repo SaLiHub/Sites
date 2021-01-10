@@ -24,7 +24,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 
 }
 
@@ -112,12 +112,12 @@
     background: none;
     border: 2px solid #5abffd;
     height: 20%;
-    padding: 5px 0;
+    padding: 5px;
     min-width: 20%;
-    max-width: 30%;
+    max-width: 70%;
     color: #FFF;
     margin-right: 1rem;
-    
+    margin-bottom: .2rem;
 }
 
 
@@ -158,3 +158,29 @@
     
 
   }
+
+  @media (max-width: 1400px) {
+    .popular-places__content {
+        grid-template-areas:'Thessaloniki Halkidiki'
+        'Athens Mykonos'
+        'Crete Crete'
+        'Meteora Myrtos-Beach';
+    }
+
+    
+
+  }
+
+/* 
+  @media (max-width: 876px) {
+    
+    .places-card-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .places-card-buttons__button {
+        margin-right: 0;
+    }
+     */
+/* 
+  } */

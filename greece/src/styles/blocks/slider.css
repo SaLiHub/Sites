@@ -88,6 +88,6 @@
 @media screen and (max-width: 420px) {
     .slide-content__title {
         
-        width: 80%;
+        width: 100%;
     }
 }
