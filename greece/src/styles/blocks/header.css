@@ -16,7 +16,11 @@
 
 .header__logo {
     margin: 2rem 0 auto 10%;
+    height: 50px;
+    width: 50px;
 }
+
+
 
 
 /* Button */
@@ -75,7 +79,6 @@
 .header__links li:hover  .link::after {
   transform: translateX(103%);
   transition: all .4s ease-out;
-  /* background-color: #fff; */
 }
 
 

@@ -1,0 +1,14 @@
+.logo {
+    font-family: 'Molle', cursive;
+    font-weight: 400; 
+    font-style: normal;
+    font-size: 2rem;
+}
+
+.logo_color_blue {
+    color: var(--blue);
+}
+
+.logo_color_grey {
+    color: #ccc;
+}

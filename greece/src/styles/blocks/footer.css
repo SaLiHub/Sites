@@ -11,13 +11,6 @@
     display: flex;
 }
 
-.footer .logo__text {
-    font-family: 'Molle', cursive;
-    font-weight: 400; 
-    font-style: normal;
-    color: #ccc;
-    font-size: 2rem;
-}
 
 .footer__content {
     margin: 2rem 0 4rem;

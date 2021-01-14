@@ -49,12 +49,19 @@
 			</nav>
 				
 			
-			<picture class="header__logo logo  animate__animated animate__heartBeat">
-				<source srcset="images/atis/Atis@0,5x.png" media="(max-width: 600px)">
-				<img src="images/Atis.png" alt="Atic">
-			</picture>
+
+				<!-- <source srcset="images/atis/Atis@0,5x.png" media="(max-width: 600px)"> -->
+				<!-- <img class="header__logo logo header__logo_color_blue  animate__animated animate__heartBeat" src="images/atis/Atis1.svg" alt="Atic"> -->
+		
+<!-- 
+			<svg class="header__logo logo  animate__animated animate__heartBeat" viewBox="0 0 300 100" xmlns="images/atis/Atis1.svg" stroke="red" fill="grey">
+				<use href="#Atis"></use>
+			</svg> -->
+			
+			<p class="header__logo logo logo_color_blue animate__animated animate__heartBeat">Atis</p>
+
 			<nav class="header__menu">
-				<ul class="header__links ">
+				<ul class="header__links">
 					<li><a href="#places" class="link">Flights</a></li>
 					<li><a href="#places" class="link">Hotels</a></li>
 					<li><a href="#search" class="link">Explore</a></li>
@@ -69,13 +76,14 @@
 	
 		</header>
 		<div class="banner__content">
-			<picture class="banner__image animate__animated animate__jello">
+			<!-- <picture class="banner__image animate__animated animate__jello">
 				<source srcset="images/greece/Greece@0,33x.png" media="(max-width: 500px)">
 				<source srcset="images/greece/Greece@0,5x.png" media="(max-width: 650px)">
 				<source srcset="images/greece/Greece@0,75x.png" media="(max-width: 1000px)">
 				<img src="images/greece/Greece.png" alt="Greece">
-			</picture>
-			<h1 class="banner__title">Welcome to haven</h1>
+			</picture> -->
+			<h1 class="banner__main-title animate__animated animate__jello">Greece</h1>
+			<h2 class="banner__sub-title">Welcome to haven</h2>
 			
 			<button class="banner__button button button-shadow" type='button'>Check offer</button>
 
@@ -187,7 +195,7 @@
 
 			<!-- Start: Section Places -->
 				<section class="section popular-places" id="places">
-					<h2 class="section__title ">Most Popular Places</h2>
+					<h3 class="section__title ">Most Popular Places</h3>
 					<div class="popular-places__content">
 
 							<div class="places-card"  id="Thessaloniki">
@@ -332,7 +340,7 @@
 
 	<section class="section hotels" id="hotels">
 
-		<h2 class="section__title">Most Popular Hotels</h2>
+		<h3 class="section__title">Most Popular Hotels</h3>
 
 		<div class="section__content">
 			<div class="cards">
@@ -413,11 +421,11 @@
 
 	<!-- End: Slider -->
 
-	<footer class="footer start-end">
+	<footer class="footer">
 		<div class="footer__content">
-			<div class="footer__logo logo">
-				<p class="logo__text">Atis</p>
-			</div>
+			
+			<p class="footer__logo logo logo_color_grey">Atis</p>
+			
 			<div class="footer__copyright">
 				<svg class="icon" aria-label="copyright">
 					<use xlink:href="images/icons.svg#copyright"/>

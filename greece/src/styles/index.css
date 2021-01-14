@@ -1,5 +1,5 @@
 /* Global */
-
+@import 'blocks/logo.css';
 @import 'blocks/button.css';
 @import 'blocks/icons.css';
 @import 'variables.css';
