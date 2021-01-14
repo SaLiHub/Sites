@@ -48,6 +48,8 @@
 
 .slide-content__title-greece {
     font-family: 'Molle', cursive;
+    font-weight: 400; 
+    font-style: normal;
     color: #0DCFFF;
 }
 

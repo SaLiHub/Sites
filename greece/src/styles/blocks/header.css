@@ -114,6 +114,26 @@
   z-index: 2;
 }
 
+.toggle-menu::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background-color: #fff;
+  left: 10px;
+  top: 0;
+  animation: ;
+}
+
+@keyframes line {
+  from {
+    width: 2px;
+    background-color: #fff;
+  }
+  to {
+    height: 90%;
+  }
+}
+
 .toggle-menu__links {
   display: flex;
   flex-direction: column;
@@ -134,7 +154,6 @@
 
 
 .toggle-menu__link .link{
-
   color: #fff;
 }
 /* //////////////////////////////////////////// */
