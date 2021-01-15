@@ -197,7 +197,7 @@
   align-items: center;
   flex-direction: column;
   z-index: 10;
-  transition: .4s all;
+  transition: 700ms height;
  
 }
 
