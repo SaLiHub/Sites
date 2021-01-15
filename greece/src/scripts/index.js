@@ -137,11 +137,11 @@ let body = document.querySelector('body')
       let ham = document.querySelector('.ham')
       ham.addEventListener('click', ()=> {
         ham.classList.toggle('active')
-        if(ham.classList.contains('active')) {
-          body.style.overflow = 'hidden'
-        } else {
-          body.style.overflow = 'visible'
-        }
+        // if(ham.classList.contains('active')) {
+        //   body.style.overflow = 'hidden'
+        // } else {
+        //   body.style.overflow = 'visible'
+        // }
       })
 
       let toggleMenuLinks = document.querySelectorAll('.link')
@@ -188,14 +188,14 @@ buttonToToggleForm.addEventListener('click', () => {
   setTimeout(() => {  
     shariy.style.opacity = "1"
   }, 3000);
-  body.style.overflow = "hidden"
+  // body.style.overflow = "hidden"
 })
 
 toggleFormCrossSign.addEventListener('click', () => {
   searchToggleForm.classList.remove('active')
   submit.classList.remove('submit_animation_up')
   shariy.style.opacity = "0"
-  body.style.overflow = "visible"
+  // body.style.overflow = "visible"
 })
 
 let shariy = document.querySelector('.shariy')

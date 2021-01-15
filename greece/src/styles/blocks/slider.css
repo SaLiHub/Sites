@@ -1,12 +1,16 @@
+.swiper-container {
+    height: 100vh;
+}
 
 .swiper-slide {
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    display: flex;
     padding: 20% 0;
-   
 }
 
 .swiper-slide__content {
+    margin: auto;
     position: relative;
     display: flex;
     flex-direction: column;

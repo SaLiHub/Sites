@@ -166,7 +166,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 0;
   background-color: var(--blue);
   overflow: hidden; 
@@ -175,8 +175,7 @@
   align-items: center;
   flex-direction: column;
   z-index: 10;
-  /* transition: 700ms height; */
- 
+  /* transition: .7s all; */
 }
 
 .toggle-form__cross-sign {
@@ -276,7 +275,7 @@
   position: absolute;
   top:50px;
   left: 50px;
-  animation: shapran 5s infinite;
+  /* animation: shapran 5s infinite; */
   opacity: 0;
   transition: 4s all;
   background-size: cover;
