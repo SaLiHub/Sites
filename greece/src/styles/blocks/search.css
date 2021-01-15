@@ -275,7 +275,7 @@
   position: absolute;
   top:50px;
   left: 50px;
-  /* animation: shapran 5s infinite; */
+  animation: shapran 5s infinite;
   opacity: 0;
   transition: 4s all;
   background-size: cover;
