@@ -181,8 +181,10 @@ let body = document.querySelector('body')
 let buttonToToggleForm = document.querySelector('.button-to-toggle-form')
 let searchToggleForm = document.querySelector('.search__toggle-form')
 let toggleFormCrossSign = document.querySelector('.toggle-form__cross-sign')
+let submit = document.querySelector('.submit')
 buttonToToggleForm.addEventListener('click', () => {
   searchToggleForm.classList.add('active')
+  submit.classList.add('submit_animation_up')
   setTimeout(() => {  
     shariy.style.opacity = "1"
   }, 3000);
@@ -191,6 +193,7 @@ buttonToToggleForm.addEventListener('click', () => {
 
 toggleFormCrossSign.addEventListener('click', () => {
   searchToggleForm.classList.remove('active')
+  submit.classList.remove('submit_animation_up')
   shariy.style.opacity = "0"
   body.style.overflow = "visible"
 })

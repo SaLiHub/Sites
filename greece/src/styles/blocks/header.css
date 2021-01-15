@@ -110,7 +110,7 @@
   background-color: var(--blue);
   justify-content: center;
   align-items: center;
-  transition: all .7s;
+  /* transition: all .7s; */
   z-index: 2;
 }
 

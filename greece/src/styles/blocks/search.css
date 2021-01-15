@@ -117,29 +117,7 @@
 }
 
 
-/* search button */
 
-.form__submit {
-  margin: auto;
-}
-
-.submit {
-  width: 48px;
-  height: 48px;
-  box-shadow: 0 0 45px rgba(205, 205, 205, 0.85);
-  background-color: #ffffff;
-  border-radius: 50%;
-  border: 0;
-  cursor: pointer;
-  position: relative;
-}
-
-.submit__lupa {
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%, 50%);
-}
 
 
 
@@ -197,7 +175,7 @@
   align-items: center;
   flex-direction: column;
   z-index: 10;
-  transition: 700ms height;
+  /* transition: 700ms height; */
  
 }
 
@@ -256,6 +234,39 @@
 .toggle-form.active {
   height: 100vh;
 }
+
+/* search button toggle form*/
+
+.form__submit {
+  margin: auto;
+}
+
+.submit {
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 0 45px rgba(205, 205, 205, 0.85);
+  background-color: #ffffff;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  top: 500%;
+}
+
+.submit_animation_up {
+  top: 0;
+  transition: 1s all;
+}
+
+.submit__lupa {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+}
+
+
+
 
 /* shariy /////////////////////////////////////*/
 
