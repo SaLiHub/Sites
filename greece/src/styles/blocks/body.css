@@ -6,41 +6,18 @@
 
 .page__body{
 	position: relative;
-	font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  margin: 0 2rem;
 }
  
 a {
 	text-decoration: none;
 }
 
-
-
-.section__title {
-	padding: 55px 0;
-	color: #CFD4DF;
-	display: flex;
-	justify-content: center;
-	font-weight: 500;
-	letter-spacing: 5px;
-	text-transform: uppercase;
-	font-size: 20px;
-}
-
-.section {
-	
-	height: 100%;
-	/* overflow: hidden; */
-}
-
-.section__content {
-	display: flex;
-	justify-content: center;
-    flex-wrap: wrap;
-}
-
-@media screen and (max-width: 1350px) {
-	.section {
-		margin: 0;
-		
-	}
+@media screen and (max-width: 820px) {
+  .page__body {
+    margin: 0;
   }
+}
+
+

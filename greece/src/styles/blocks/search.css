@@ -249,6 +249,9 @@
   border: 0;
   cursor: pointer;
   position: relative;
+}
+
+.submit_animation {
   top: 500%;
 }
 
@@ -256,6 +259,7 @@
   top: 0;
   transition: 1s all;
 }
+
 
 .submit__lupa {
   position: absolute;

@@ -1,4 +1,5 @@
 .popular-places {
+    
 }
 
 .popular-places__content {
@@ -178,6 +179,13 @@
                             'Crete'
                             'Meteora'
                             'Myrtos-Beach';
+    }
+
+  }
+
+  @media (max-width: 430px) {
+    .places-card-buttons__button {
+        font-size: 12px;
     }
 
   }

@@ -4,6 +4,7 @@
 @import 'blocks/icons.css';
 @import 'variables.css';
 @import 'blocks/body.css';
+@import 'blocks/section.css';
 @import 'blocks/banner.css';    
 @import 'blocks/hotels.css';
 @import 'blocks/popular-places.css';
