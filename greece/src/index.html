@@ -25,7 +25,7 @@
 	<section class="section banner" style="background-image: url('images/Banner-background.jpg')">
 		<header class="header">
 
-			<svg class="ham hamRotate ham4" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+			<svg class="ham hamRotate ham4" viewBox="0 0 100 100" width="80">
 				<path
 						class="line top"
 						d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
@@ -103,14 +103,56 @@
 
 	<section class="section search" id="search">
 		<button class="button-to-toggle-form button">Book a flight</button>
-		<form class="search__toggle-form">
-			<input type="text" placeholder="City">
-			<input type="text" placeholder="Check in">
-			<input type="text" placeholder="Check out">
-			<input type="text" placeholder="Rooms">
-			<input type="text" placeholder="Adults">
-			<input type="text" placeholder="Stars">
-			<input type="text" placeholder="Children">
+		<form class="search__toggle-form toggle-form">
+			<div class="shariy" style="background-image: url('images/Sharpyn.jpg');">
+			
+			</div>
+			
+			<a href="#" class="toggle-form__cross-sign"></a>
+			<input type="text" list="city" class="toggle-form__input" placeholder="City">
+			<datalist id="city">
+				<option value="Thessaloniki"></option>
+				<option value="Crete"></option>
+				<option value="Halkidiki"></option>
+				<option value="Athens"></option>
+				<option value="Mykonos"></option>
+				<option value="Meteora"></option>
+				<option value="Myrtos-Beach"></option>
+			</datalist>
+			<input type="text" class="toggle-form__input" placeholder="Check in">
+			
+			<input type="text" class="toggle-form__input" placeholder="Check out">
+			
+			<input type="text" class="toggle-form__input" placeholder="Rooms">
+			<datalist id="city">
+				<option value="One"></option>
+				<option value="Two"></option>
+				<option value="Three"></option>
+				<option value="Four"></option>
+				<option value="Five"></option>
+			</datalist>
+			<input list="men" type="text" class="toggle-form__input" placeholder="Adults">
+			<input list="city" type="text" class="toggle-form__input" placeholder="Stars">
+			<datalist id="city">
+				<option value="One-star"></option>
+				<option value="Two-star"></option>
+				<option value="Three-star"></option>
+				<option value="Four-star"></option>
+				<option value="Five-star"></option>
+			</datalist>
+			<input list="men" type="text" class="toggle-form__input" placeholder="Children">
+			<datalist id="men">
+				<option value="One"></option>
+				<option value="Two"></option>
+				<option value="Three"></option>
+				<option value="Four"></option>
+				<option value="More"></option>
+			</datalist>
+			<button class="submit" name="Search" type="button">
+				<svg class="form__img submit__lupa" aria-label="search">
+					<use xlink:href="images/icons.svg#loupe"/>
+				</svg>
+			</button>
 		</form>
 		<form class="search__form">
 			<!-- 1 -->
@@ -184,9 +226,9 @@
 			</div>
 			<!-- 8 -->
 			<div class="form__field">
-				<button class="form__submit" name="Search" type="button">
+				<button class="form__submit submit" name="Search" type="button">
 					<!-- <img class="form__img" src="images/loupe.svg" alt="Search"> -->
-					<svg class="form__img lupa" aria-label="search">
+					<svg class="form__img submit__lupa" aria-label="search">
 						<use xlink:href="images/icons.svg#loupe"/>
 					</svg>
 				</button>

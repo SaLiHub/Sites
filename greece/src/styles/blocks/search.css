@@ -120,6 +120,10 @@
 /* search button */
 
 .form__submit {
+  margin: auto;
+}
+
+.submit {
   width: 48px;
   height: 48px;
   box-shadow: 0 0 45px rgba(205, 205, 205, 0.85);
@@ -127,11 +131,10 @@
   border-radius: 50%;
   border: 0;
   cursor: pointer;
-  margin: auto;
-  /* position: relative; */
+  position: relative;
 }
 
-.lupa {
+.submit__lupa {
   position: absolute;
   left: 50%;
   bottom: 50%;
@@ -181,14 +184,124 @@
 
 /* toggle form */
 
-.search__toggle-form {
-  display: none;
-  position: relative;
+.toggle-form {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 0;
   background-color: var(--blue);
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+  transition: .4s all;
+ 
 }
 
+.toggle-form__cross-sign {
+  position: absolute;
+  left: 32px;
+  top: 32px;
+  width: 40px;
+  height: 40px;
+}
+
+.toggle-form__cross-sign:hover.toggle-form__cross-sign:before,
+.toggle-form__cross-sign:focus.toggle-form__cross-sign:before
+{
+  transform: rotate(45deg) scale(1.3)
+}
+
+.toggle-form__cross-sign:hover.toggle-form__cross-sign:after,
+.toggle-form__cross-sign:focus.toggle-form__cross-sign:after {
+
+  transform: rotate(-45deg) scale(1.3);
+}
+
+.toggle-form__cross-sign:before, .toggle-form__cross-sign:after {
+  position: absolute;
+  left: 15px;
+  content: '';
+  height: 40px;
+  width: 4px;
+  background-color: #ccc;
+  transition: .3s all;
+}
+.toggle-form__cross-sign:before {
+  transform: rotate(45deg) scale(1);
+}
+.toggle-form__cross-sign:after {
+  transform: rotate(-45deg) scale(1);
+}
+
+.toggle-form__input {
+  margin-top: 40px;
+  border-radius: 30px;
+  background-color: transparent;
+  outline: none;
+  padding: 1.5% 3%;
+  width: 50%;
+  border:  2px solid #ccc;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.toggle-form__input:nth-last-of-type(1) {
+  margin-bottom: 40px;
+}
+
+.toggle-form.active {
+  height: 100vh;
+}
+
+/* shariy /////////////////////////////////////*/
+
+.shariy {
+  width: 50px;
+  height: 80px;
+  position: absolute;
+  top:50px;
+  left: 50px;
+  animation: shapran 5s infinite;
+  opacity: 0;
+  transition: 4s all;
+  background-size: cover;
+}
+
+
+
+@keyframes shapran {
+  0% {
+    top: 0%;
+    left: 0%;
+  }
+  25% {
+    top: 0%;
+    left: 100%;
+    transform: translateX(-125%);
+  }
+  50% {
+    transform: translateX(-125%) translateY(-100%);
+    top: 100%;
+    left: 100%;
+    
+  }
+  75% {
+    top: 100%;
+    left: 0%;
+    transform: translateX(0) translateY(-100%);
+  }
+  100% {
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+  }
+} 
+
+/* //////////////////////////////////////////// */
 
 @media screen and (max-width: 1170px) {
   .button-to-toggle-form {
@@ -200,12 +313,11 @@
   
 }
 
-/* @media screen and (max-width: 1000px) { 
-  .button-to-toggle-form {
-    display: block;
-  }
-  .search__form {
-    display: none ;
+@media screen and (max-width: 616px) { 
+  .toggle-form__input {
+    margin-top: 30px;
+    font-size: 1rem
   }
   
-} */
+  
+}

@@ -56,3 +56,8 @@
     }
     
 }
+@media screen and (max-width: 370px) {
+    .banner__main-title  {
+        font-size: 5rem;
+    }
+}

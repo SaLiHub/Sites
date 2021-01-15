@@ -1,4 +1,6 @@
 
+let body = document.querySelector('body')
+
     let inputs = document.querySelectorAll('input')
 
     inputs.forEach(input => input.setAttribute("autocomplete","off"));
@@ -131,7 +133,16 @@
       viewAllOffers.addEventListener('click', cardCreate)
 
 
-      // toggle menu
+      // toggle menu (hamburger)
+      let ham = document.querySelector('.ham')
+      ham.addEventListener('click', ()=> {
+        ham.classList.toggle('active')
+        // if(ham.classList.contains('active')) {
+        //   body.style.overflow = 'hidden'
+        // } else {
+        //   body.style.overflow = 'visible'
+        // }
+      })
 
       let toggleMenuLinks = document.querySelectorAll('.link')
       let hamRotate = document.querySelector('.hamRotate');
@@ -152,8 +163,8 @@
       function loopingPlacesCards() {
         for (let i = 0; i < placesCard.length; i++) {
           placesCardButons[i].style.fontSize = `${placesCard[i].offsetHeight / 50 + 10}px`
-          placesCardTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 5}px`
-          wraperTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 5}px`
+          placesCardTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 8}px`
+          wraperTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 8}px`
          }
          console.log('luck')
       }
@@ -163,3 +174,27 @@
     
       window.addEventListener('resize', loopingPlacesCards);
       
+
+// search toggle-form  \\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+let buttonToToggleForm = document.querySelector('.button-to-toggle-form')
+let searchToggleForm = document.querySelector('.search__toggle-form')
+let toggleFormCrossSign = document.querySelector('.toggle-form__cross-sign')
+buttonToToggleForm.addEventListener('click', () => {
+  searchToggleForm.classList.add('active')
+  setTimeout(() => {  
+    shariy.style.opacity = "1"
+  }, 3000);
+  // body.style.overflow = "hidden"
+})
+
+toggleFormCrossSign.addEventListener('click', () => {
+  searchToggleForm.classList.remove('active')
+  shariy.style.opacity = "0"
+  // body.style.overflow = "visible"
+})
+
+let shariy = document.querySelector('.shariy')
+
+
