@@ -168,7 +168,7 @@ let body = document.querySelector('body')
       for (let i = 0; i < toggleMenuLinks.length; i++) {
         toggleMenuLinks[i].addEventListener('click', () => {
           hamRotate.classList.remove("active");
-          
+          body.style.overflow = 'visible'
         })
 
         
