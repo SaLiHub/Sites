@@ -118,6 +118,7 @@
     color: #FFF;
     margin-right: 1rem;
     margin-bottom: .2rem;
+    height: 45px;
 }
 
 
@@ -167,10 +168,19 @@
         'Meteora Myrtos-Beach';
     }
 
-    
+  }
+  @media (max-width: 750px) {
+    .popular-places__content {
+        grid-template-areas:'Thessaloniki'
+                            'Halkidiki'
+                            'Athens'
+                            'Mykonos'
+                            'Crete'
+                            'Meteora'
+                            'Myrtos-Beach';
+    }
 
   }
-
 /* 
   @media (max-width: 876px) {
     
