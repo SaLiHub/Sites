@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="preload">
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -123,25 +123,32 @@
 				
 				<input type="text" class="toggle-form__input" placeholder="Check out">
 				
-				<input type="text" class="toggle-form__input" placeholder="Rooms">
-				<datalist id="city">
+				<input list="rooms" type="text" class="toggle-form__input" placeholder="Rooms">
+				<datalist id="rooms">
 					<option value="One"></option>
 					<option value="Two"></option>
 					<option value="Three"></option>
 					<option value="Four"></option>
 					<option value="Five"></option>
 				</datalist>
-				<input list="men" type="text" class="toggle-form__input" placeholder="Adults">
-				<input list="city" type="text" class="toggle-form__input" placeholder="Stars">
-				<datalist id="city">
+				<input list="adults" type="text" class="toggle-form__input" placeholder="Adults">
+				<datalist id="adults">
+					<option value="One"></option>
+					<option value="Two"></option>
+					<option value="Three"></option>
+					<option value="Four"></option>
+					<option value="More"></option>
+				</datalist>
+				<input list="stars" type="text" class="toggle-form__input" placeholder="Stars">
+				<datalist id="stars">
 					<option value="One-star"></option>
 					<option value="Two-star"></option>
 					<option value="Three-star"></option>
 					<option value="Four-star"></option>
 					<option value="Five-star"></option>
 				</datalist>
-				<input list="men" type="text" class="toggle-form__input" placeholder="Children">
-				<datalist id="men">
+				<input list="children" type="text" class="toggle-form__input" placeholder="Children">
+				<datalist id="children">
 					<option value="One"></option>
 					<option value="Two"></option>
 					<option value="Three"></option>
@@ -157,7 +164,16 @@
 		<form class="search__form">
 			<!-- 1 -->
 			<div class="form__field">
-				<input type="text" name="City" class="form__input"  placeholder="City" id="city">
+				<input list="city" type="text" name="City" class="form__input"  placeholder="City" id="city">
+				<datalist id="city">
+					<option value="Thessaloniki"></option>
+					<option value="Crete"></option>
+					<option value="Halkidiki"></option>
+					<option value="Athens"></option>
+					<option value="Mykonos"></option>
+					<option value="Meteora"></option>
+					<option value="Myrtos-Beach"></option>
+				</datalist>
 				<label for="City" class="form__label">
 					<svg class="form__img" aria-label="location">
 						<use xlink:href="images/icons.svg#placeholder"/>
@@ -186,7 +202,14 @@
 			</div>
 			<!-- 4 -->
 			<div class="form__field">
-				<input type="text" name="Rooms" class="form__input" placeholder="Rooms">
+				<input list="rooms" type="text" name="Rooms" class="form__input" placeholder="Rooms">
+				<datalist id="rooms">
+					<option value="One"></option>
+					<option value="Two"></option>
+					<option value="Three"></option>
+					<option value="Four"></option>
+					<option value="Five"></option>
+				</datalist>
 				<label class="form__label">
 					<svg class="form__img" aria-label="house">
 						<use xlink:href="images/icons.svg#home"/>
@@ -196,7 +219,14 @@
 			</div>
 			<!-- 5 -->
 			<div class="form__field">
-				<input type="text" name="Adults" class="form__input" placeholder="Adults"> 
+				<input list="adults" type="text" name="Adults" class="form__input" placeholder="Adults"> 
+				<datalist id="adults">
+					<option value="One"></option>
+					<option value="Two"></option>
+					<option value="Three"></option>
+					<option value="Four"></option>
+					<option value="More"></option>
+				</datalist>
 				<label class="form__label">
 					<svg class="form__img" aria-label="Adult">
 						<use xlink:href="images/icons.svg#user"/>
@@ -206,7 +236,14 @@
 			</div>
 			<!-- 6 -->
 			<div class="form__field">
-				<input type="text" name="Stars" class="form__input" placeholder="Stars">
+				<input list="stars" type="text" name="Stars" class="form__input" placeholder="Stars">
+				<datalist id="stars">
+					<option value="One-star"></option>
+					<option value="Two-star"></option>
+					<option value="Three-star"></option>
+					<option value="Four-star"></option>
+					<option value="Five-star"></option>
+				</datalist>
 				<label class="form__label">
 					<svg class="form__img" aria-label="star">
 						<use xlink:href="images/icons.svg#star"/>
@@ -216,7 +253,14 @@
 			</div>
 			<!-- 7 -->
 			<div class="form__field">
-				<input type="text" name="Children" class="form__input" placeholder="Children">
+				<input list="children" type="text" name="Children" class="form__input" placeholder="Children">
+				<datalist id="children">
+					<option value="One"></option>
+					<option value="Two"></option>
+					<option value="Three"></option>
+					<option value="Four"></option>
+					<option value="More"></option>
+				</datalist>
 				<label class="form__label">
 					<svg class="form__img" aria-label="Chlid">
 						<use xlink:href="images/icons.svg#baby-boy"/>

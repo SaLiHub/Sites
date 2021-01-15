@@ -94,12 +94,12 @@
   
 }
 
-.form__input:focus + .form__label::after {
+.form__input:focus ~ .form__label::after {
   transform: scaleX(1);
 }
 
 
-.form__input:focus + .form__label .form__img{
+.form__input:focus ~ .form__label .form__img{
   transform: translateY(-101%);
   opacity: 0;
 }

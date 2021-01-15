@@ -49,54 +49,72 @@ let body = document.querySelector('body')
             {
                 "title" : "El Grece",
                 "price" : "225$",
+                "star-rating" : "★★★",
+                "vacation-days": "9 days",
                 "button-text" : "View More",
                 "background-image" : "url(images/card1.jpg)"
             },
             {
                 "title" : "Zhytomyr",
                 "price" : "230$",
+                "star-rating" : "★★★★★",
+                "vacation-days": "4 days",
                 "button-text" : "View More",
                 "background-image" : "url(images/card1.jpg)"
             },
             {
                 "title" : "Ioannina",
                 "price" : "235$",
+                "star-rating" : "★★★★",
+                "vacation-days": "7 days",
                 "button-text" : "View More",
                 "background-image" : "url(images/card1.jpg)"
             },
             {
                 "title" : "Peristeri",
                 "price" : "240$",
+                "star-rating" : "★",
+                "vacation-days": "10 days",
                 "button-text" : "View More",
                 "background-image" : "url(images/card1.jpg)"
             },
             {
                 "title" : "Galatsi",
                 "price" : "245$",
+                "star-rating" : "★★",
+                "vacation-days": "5 days",
                 "button-text" : "View More",
                 "background-image" : "url(images/card1.jpg)"
             },
             {
                 "title" : "Palaio Faliro",
                 "price" : "250$",
+                "star-rating" : "★★★★",
+                "vacation-days": "10 days",
                 "button-text" : "View More",
                 "background-image" : "url(images/card1.jpg)"
             },
             {
                 "title" : "Lamia",
                 "price" : "255$",
+                "star-rating" : "★★★",
+                "vacation-days": "8 days",
                 "button-text" : "View More",
                 "background-image" : "url(images/card1.jpg)"
             },
             {
                 "title" : "Katerini",
                 "price" : "260$",
+                "star-rating" : "★★★",
+                "vacation-days": "7 days",
                 "button-text" : "View More",
                 "background-image" : "url(images/card1.jpg)"
             },
-            {
+            {   
                 "title" : "Chania",
                 "price" : "265$",
+                "star-rating" : "★★★★★",
+                "vacation-days": "10 days",
                 "button-text" : "View More",
                 "background-image" : "url(images/card1.jpg)"
             }
@@ -120,9 +138,10 @@ let body = document.querySelector('body')
           element.style.backgroundImage = cardAllInfo.cardInfo[i]['background-image'];
           element.innerHTML = `<div class="card__content">
           <h5 class="card__title">${cardAllInfo.cardInfo[i]['title']}</h5>
-          <span class="card__price">${cardAllInfo.cardInfo[i]['price']}</span></div>
-          <button class="card__button button">${cardAllInfo.cardInfo[i]['button-text']}</button>`
-          
+          <span class="card__price">${cardAllInfo.cardInfo[i]['price']}</span>
+          <div class="card__star-rating">${cardAllInfo.cardInfo[i]['star-rating']}</div>
+          <span class="card__vacation-days">${cardAllInfo.cardInfo[i]['vacation-days']}</span>
+          <button class="card__button button">${cardAllInfo.cardInfo[i]['button-text']}</button></div>`
           cards.appendChild(element)
         }
       }
