@@ -1,7 +1,8 @@
 .logo {
-    font-family: 'Molle', cursive;
-    font-weight: 600; 
-    font-style: normal;
+    /* font-family: 'Molle', cursive; */
+    font-family: 'Dancing Script', cursive;
+
+    font-weight: 400;
     font-size: 2rem;
 }
 
