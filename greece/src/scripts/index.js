@@ -1,5 +1,5 @@
 
-let body = document.querySelector('body')
+let pageBody = document.querySelector('.page__body')
 
     let inputs = document.querySelectorAll('input')
 
@@ -37,12 +37,11 @@ let body = document.querySelector('body')
 
 
 
-      // cards
+      /////////////////////////////////////////// cards ////////////////////////////////////////////////////////////////////
 
   
 
-      let viewAllOffers = document.querySelector('.more-cards__button');
-      let cards = document.querySelector('.cards');
+      
 
       let cardAllInfo = {
         "cardInfo" : [
@@ -124,32 +123,55 @@ let body = document.querySelector('body')
         ]
         
     }
-    
-    let cardIndex = 0;
-
-    let cardCreate = () => {
-      
-      for (let i = cardIndex; i < cardIndex + 4; i++) {
+    let viewAllOffers = document.querySelector('.more-cards__button');
+    let cardsContainer = document.querySelector('.cards');
+    let cardStartIndex = 0;
+    let a = 0;
+    let cardCreate = (count) => {
+      a += count;
+      for (let i = cardStartIndex; i < a; i++) {
         if(!cardAllInfo.cardInfo[i]) {
           viewAllOffers.remove()
         } else {
-          let element = document.createElement('div');
-          element.className = "card"
-          element.style.backgroundImage = cardAllInfo.cardInfo[i]['background-image'];
-          element.innerHTML = `<div class="card__content">
+          let card = document.createElement('div');
+          card.className = "card"
+          card.style.backgroundImage = cardAllInfo.cardInfo[i]['background-image'];
+          card.innerHTML = `<div class="card__content">
           <h5 class="card__title">${cardAllInfo.cardInfo[i]['title']}</h5>
           <span class="card__price">${cardAllInfo.cardInfo[i]['price']}</span>
           <div class="card__star-rating">${cardAllInfo.cardInfo[i]['star-rating']}</div>
           <span class="card__vacation-days">${cardAllInfo.cardInfo[i]['vacation-days']}</span>
           <button class="card__button button">${cardAllInfo.cardInfo[i]['button-text']}</button></div>`
-          cards.appendChild(element)
+          cardsContainer.appendChild(card)
         }
       }
-      cardIndex += 4;
+      cardStartIndex += count;
     }
- cardCreate(cardIndex, cardIndex + 2)
+    // cardCreate(1)
+    
+    let card = document.querySelector('.card');
 
-      viewAllOffers.addEventListener('click', cardCreate)
+    let widthOfPage = document.body.clientWidth
+    console.log(widthOfPage)
+    placingCards()
+    function placingCards() {
+      if(widthOfPage >= 1700) {
+        cardCreate(4)
+      } else if(widthOfPage >= 1294 && widthOfPage <= 1700) {
+        cardCreate(3)
+      } else if(widthOfPage >= 651 && widthOfPage <= 1294) {
+        cardCreate(2)
+      } else if(widthOfPage <= 651){
+        cardCreate(1)
+      }
+    }
+
+    viewAllOffers.addEventListener('click', placingCards)
+   
+
+    
+
+      
 
 
       // toggle menu (hamburger)
@@ -157,9 +179,9 @@ let body = document.querySelector('body')
       ham.addEventListener('click', ()=> {
         ham.classList.toggle('active')
         if(ham.classList.contains('active')) {
-          body.style.overflow = 'hidden'
+          pageBody.style.overflow = 'hidden'
         } else {
-          body.style.overflow = 'visible'
+          pageBody.style.overflow = 'visible'
         }
       })
 
@@ -168,7 +190,7 @@ let body = document.querySelector('body')
       for (let i = 0; i < toggleMenuLinks.length; i++) {
         toggleMenuLinks[i].addEventListener('click', () => {
           hamRotate.classList.remove("active");
-          body.style.overflow = 'visible'
+          pageBody.style.overflow = 'visible'
         })
 
         
@@ -185,12 +207,10 @@ let body = document.querySelector('body')
           placesCardTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 8}px`
           wraperTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 8}px`
          }
-         console.log('luck')
+         
       }
       loopingPlacesCards()
 
-  
-    
       window.addEventListener('resize', loopingPlacesCards);
       
 
@@ -201,24 +221,52 @@ let buttonToToggleForm = document.querySelector('.button-to-toggle-form')
 let searchToggleForm = document.querySelector('.search__toggle-form')
 let toggleFormCrossSign = document.querySelector('.toggle-form__cross-sign')
 let submit = document.querySelector('.submit')
-let toggleMenuCity = document.querySelector('#toggle-menu-city')
 buttonToToggleForm.addEventListener('click', () => {
   searchToggleForm.classList.add('active')
   submit.classList.add('submit_animation_up')
-  setTimeout(() => {  
-    shariy.style.opacity = "1"
-  }, 3000);  
-    
+  pageBody.style.overflow = "hidden"
+  
 })
 
 toggleFormCrossSign.addEventListener('click', () => {
   searchToggleForm.classList.remove('active')
   submit.classList.remove('submit_animation_up')
-  shariy.style.opacity = "0"
-  body.style.overflow = "visible"
-  console.log(toggleMenuCity)
+  pageBody.style.overflow = "visible"
 })
 
-let shariy = document.querySelector('.shariy')
 
+
+// calendar (type=date) toggable
+let calendars = document.querySelectorAll('input[type=date]')
+
+calendars.forEach(el => {
+  el.attributes.type.value = 'text' 
+  el.addEventListener('focus', () => {
+    el.attributes.type.value = 'date'
+  })
+  el.addEventListener('blur', () => {
+    el.attributes.type.value = 'text'
+  })
+});
+
+// //////////////////////////////////////
+
+
+// form input 
+
+let formInput = document.querySelectorAll(".form__input")
+let formField = document.querySelectorAll(".form__field")
+
+formInput.forEach((el,i) => {
+  el.addEventListener("focus", ()=> {
+    formField[i].classList.add('form__field_stretch')
+  })
+  el.addEventListener("blur", ()=> {
+    formField[i].classList.remove('form__field_stretch')
+  })
+})
+
+
+
+// //////////////////////////////////////
 

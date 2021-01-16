@@ -7,11 +7,10 @@
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Roboto:wght@400;500&display=swap" rel="stylesheet"> -->
+	
+	
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 	<link rel="stylesheet" href="styles/index.css">
 	
 	
@@ -59,14 +58,8 @@
 				<use href="#Atis"></use>
 			</svg> -->
 			
-				<p class="header__logo 
-						  animate__animated 
-					      animate__heartBeat 
-						  logo 
-					      logo_color_blue">Atis&thinsp;</p>
-		
-			
 
+			<p class="header__logo logo logo_color_blue">Atis&thinsp;</p>
 			<nav class="header__menu">
 				<ul class="header__links">
 					<li><a href="#places" class="link">Flights</a></li>
@@ -83,13 +76,7 @@
 	
 		</header>
 		<div class="banner__content">
-			<!-- <picture class="banner__image animate__animated animate__jello">
-				<source srcset="images/greece/Greece@0,33x.png" media="(max-width: 500px)">
-				<source srcset="images/greece/Greece@0,5x.png" media="(max-width: 650px)">
-				<source srcset="images/greece/Greece@0,75x.png" media="(max-width: 1000px)">
-				<img src="images/greece/Greece.png" alt="Greece">
-			</picture> -->
-			<h1 class="banner__main-title animate__animated animate__jello">Greece&nbsp;</h1>
+			<h1 class="banner__main-title">Greece&nbsp;</h1>
 			<h2 class="banner__sub-title">Welcome to haven</h2>
 			
 			<button class="banner__button button button-shadow" type='button'>Check offer</button>
@@ -105,12 +92,8 @@
 	<section class="section search" id="search">
 		<button class="button-to-toggle-form button">Book a flight</button>
 		<form class="search__toggle-form toggle-form">
-			<div class="shariy" style="background-image: url('images/Sharpyn.jpg');">
-			
-			</div>
-			
 			<a href="#" class="toggle-form__cross-sign"></a>
-				<input type="text" list="city" class="toggle-form__input" placeholder="City" id="toggle-menu-city">
+				<input type="text" list="city" name="city" class="toggle-form__input" placeholder="City" id="toggle-menu-city">
 				<datalist id="city">
 					<option value="Thessaloniki"></option>
 					<option value="Crete"></option>
@@ -120,11 +103,11 @@
 					<option value="Meteora"></option>
 					<option value="Myrtos-Beach"></option>
 				</datalist>
-				<input type="text" class="toggle-form__input" placeholder="Check in">
+				<input type="date" class="toggle-form__input" name="checkIn" placeholder="Check in">
 				
-				<input type="text" class="toggle-form__input" placeholder="Check out">
+				<input type="date" class="toggle-form__input" placeholder="Check out">
 				
-				<input list="rooms" type="text" class="toggle-form__input" placeholder="Rooms">
+				<input list="rooms" type="text" name="rooms" class="toggle-form__input" placeholder="Rooms">
 				<datalist id="rooms">
 					<option value="One"></option>
 					<option value="Two"></option>
@@ -132,7 +115,7 @@
 					<option value="Four"></option>
 					<option value="Five"></option>
 				</datalist>
-				<input list="adults" type="text" class="toggle-form__input" placeholder="Adults">
+				<input list="adults" type="text" name="adults" class="toggle-form__input" placeholder="Adults">
 				<datalist id="adults">
 					<option value="One"></option>
 					<option value="Two"></option>
@@ -140,7 +123,7 @@
 					<option value="Four"></option>
 					<option value="More"></option>
 				</datalist>
-				<input list="stars" type="text" class="toggle-form__input" placeholder="Stars">
+				<input list="stars" type="text" name="stars" class="toggle-form__input" placeholder="Stars">
 				<datalist id="stars">
 					<option value="One-star"></option>
 					<option value="Two-star"></option>
@@ -148,7 +131,7 @@
 					<option value="Four-star"></option>
 					<option value="Five-star"></option>
 				</datalist>
-				<input list="children" type="text" class="toggle-form__input" placeholder="Children">
+				<input list="children" type="text" name="children" class="toggle-form__input" placeholder="Children">
 				<datalist id="children">
 					<option value="One"></option>
 					<option value="Two"></option>
@@ -156,7 +139,7 @@
 					<option value="Four"></option>
 					<option value="More"></option>
 				</datalist>
-			<button class="submit submit_animation" name="Search" type="button">
+			<button class="submit submit_animation"  name="Search" type="button">
 				<svg class="form__img submit__lupa" aria-label="search">
 					<use xlink:href="images/icons.svg#loupe"/>
 				</svg>
@@ -165,7 +148,7 @@
 		<form class="search__form">
 			<!-- 1 -->
 			<div class="form__field">
-				<input list="city" type="text" name="City" class="form__input"  placeholder="City" id="city">
+				<input list="city" type="text" name="city" class="form__input"  placeholder="City" id="city">
 				<datalist id="city">
 					<option value="Thessaloniki"></option>
 					<option value="Crete"></option>
@@ -183,7 +166,7 @@
 			</div>
 			<!-- 2 -->
 			<div class="form__field">
-				<input type="text" name="CheckIn" class="form__input" placeholder="Check in">
+				<input type="date" name="CheckIn" class="form__input" placeholder="Check in">
 				<label class="form__label">
 					<svg class="form__img" aria-label="calendar">
 						<use xlink:href="images/icons.svg#date"/>
@@ -193,7 +176,7 @@
 			</div>
 			<!-- 3 -->
 			<div class="form__field">
-				<input type="text" name="CheckOut" class="form__input" placeholder="Check out">
+				<input type="date" name="CheckOut" class="form__input" placeholder="Check out">
 				<label class="form__label">
 					<svg class="form__img" aria-label="calendar">
 						<use xlink:href="images/icons.svg#date"/>
@@ -203,7 +186,7 @@
 			</div>
 			<!-- 4 -->
 			<div class="form__field">
-				<input list="rooms" type="text" name="Rooms" class="form__input" placeholder="Rooms">
+				<input list="rooms" type="text" name="rooms" class="form__input" placeholder="Rooms">
 				<datalist id="rooms">
 					<option value="One"></option>
 					<option value="Two"></option>
@@ -220,7 +203,7 @@
 			</div>
 			<!-- 5 -->
 			<div class="form__field">
-				<input list="adults" type="text" name="Adults" class="form__input" placeholder="Adults"> 
+				<input list="adults" type="text" name="adults" class="form__input" placeholder="Adults"> 
 				<datalist id="adults">
 					<option value="One"></option>
 					<option value="Two"></option>
@@ -237,7 +220,7 @@
 			</div>
 			<!-- 6 -->
 			<div class="form__field">
-				<input list="stars" type="text" name="Stars" class="form__input" placeholder="Stars">
+				<input list="stars" type="text" name="stars" class="form__input" placeholder="Stars">
 				<datalist id="stars">
 					<option value="One-star"></option>
 					<option value="Two-star"></option>
@@ -254,7 +237,7 @@
 			</div>
 			<!-- 7 -->
 			<div class="form__field">
-				<input list="children" type="text" name="Children" class="form__input" placeholder="Children">
+				<input list="children" type="text" name="children" class="form__input" placeholder="Children">
 				<datalist id="children">
 					<option value="One"></option>
 					<option value="Two"></option>
@@ -271,7 +254,7 @@
 			</div>
 			<!-- 8 -->
 			<div class="form__field">
-				<button class="form__submit submit" name="Search" type="button">
+				<button class="form__submit submit" name="search" type="button">
 					<!-- <img class="form__img" src="images/loupe.svg" alt="Search"> -->
 					<svg class="form__img submit__lupa" aria-label="search">
 						<use xlink:href="images/icons.svg#loupe"/>

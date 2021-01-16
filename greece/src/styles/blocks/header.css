@@ -16,10 +16,32 @@
 
 .header__logo {
     margin: auto 0 auto 10rem;
+    animation: heartBeat 1.3s;
+    transform-origin: center;
 }
-
-
-
+@keyframes heartBeat{
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  
+  14% {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+  28% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  42% {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+  70% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
 
 /* Button */
 

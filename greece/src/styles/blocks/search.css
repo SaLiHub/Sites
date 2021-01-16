@@ -9,6 +9,7 @@
 }
 
 .search__form {
+  padding-left: 2.5rem;
   position: relative;
   display: grid;
   grid-auto-flow: column;
@@ -16,6 +17,7 @@
   grid-template-columns: repeat(8, 1fr);
   justify-items: center;
   width: 100%;
+  transition: .3s all;
 }
 
 
@@ -26,6 +28,12 @@
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: start;
+    transition: .3s all;
+}
+
+.form__field_stretch {
+  width: 90%;
 }
 
 /* img */
@@ -112,11 +120,6 @@
 	-moz-box-shadow:0 0 0 5px rgba(1, 38, 251, 0.25);
 	box-shadow: 0 0 0 5px rgba(1, 38, 251, 0.25);
 }
-.form__submit:focus .form__img{
-  
-}
-
-
 
 
 
@@ -171,7 +174,7 @@
   background-color: var(--blue);
   overflow: hidden;
   display: flex;
-  justify-content: end;
+
   align-items: center;
   flex-direction: column;
   z-index: 10;
@@ -253,9 +256,6 @@
   position: relative;
 }
 
-.submit_animation {
-  /* top: 500%; */
-}
 
 .submit_animation_up {
   animation: animation_up 1s;
@@ -298,55 +298,18 @@
 }
 
 
-
-
-/* shariy /////////////////////////////////////*/
-
-.shariy {
-  width: 50px;
-  height: 80px;
-  position: absolute;
-  top:50px;
-  left: 50px;
-  animation: shapran 5s infinite;
-  opacity: 0;
-  transition: 4s all;
-  background-size: cover;
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
 }
+/* 
+input::-webkit-calendar-picker-indicator:hover {
+  transform: scale(2);
+} */
 
-
-
-@keyframes shapran {
-  0% {
-    top: 0%;
-    left: 0%;
-  }
-  25% {
-    top: 0%;
-    left: 100%;
-    transform: translateX(-100%);
-  }
-  50% {
-    transform: translateX(-100%) translateY(-100%);
-    top: 100%;
-    left: 100%;
-    
-  }
-  75% {
-    top: 100%;
-    left: 0%;
-    transform: translateX(0) translateY(-100%);
-  }
-  100% {
-    top: 0;
-    left: 0;
-    transform: translateY(0);
-  }
-} 
 
 /* //////////////////////////////////////////// */
 
-@media screen and (max-width: 1170px) {
+@media screen and (max-width: 1650px) {
   .button-to-toggle-form {
     display: block;
   }

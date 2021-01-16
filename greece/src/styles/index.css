@@ -20,7 +20,16 @@
     src: url('../fonts/Molle-Italic.ttf');
 }
 
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/roboto/Roboto-Regular.ttf');
+    
+}
 
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-Light.ttf');
+}
 
 
 
