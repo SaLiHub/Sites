@@ -156,11 +156,11 @@ let body = document.querySelector('body')
       let ham = document.querySelector('.ham')
       ham.addEventListener('click', ()=> {
         ham.classList.toggle('active')
-        // if(ham.classList.contains('active')) {
-        //   body.style.overflow = 'hidden'
-        // } else {
-        //   body.style.overflow = 'visible'
-        // }
+        if(ham.classList.contains('active')) {
+          body.style.overflow = 'hidden'
+        } else {
+          body.style.overflow = 'visible'
+        }
       })
 
       let toggleMenuLinks = document.querySelectorAll('.link')
@@ -201,13 +201,14 @@ let buttonToToggleForm = document.querySelector('.button-to-toggle-form')
 let searchToggleForm = document.querySelector('.search__toggle-form')
 let toggleFormCrossSign = document.querySelector('.toggle-form__cross-sign')
 let submit = document.querySelector('.submit')
+let toggleMenuCity = document.querySelector('#toggle-menu-city')
 buttonToToggleForm.addEventListener('click', () => {
   searchToggleForm.classList.add('active')
   submit.classList.add('submit_animation_up')
-  // setTimeout(() => {  
-  //   shariy.style.opacity = "1"
-  // }, 3000);  
-  // body.style.overflow = "hidden"
+  setTimeout(() => {  
+    shariy.style.opacity = "1"
+  }, 3000);  
+    
 })
 
 toggleFormCrossSign.addEventListener('click', () => {
@@ -215,6 +216,7 @@ toggleFormCrossSign.addEventListener('click', () => {
   submit.classList.remove('submit_animation_up')
   shariy.style.opacity = "0"
   body.style.overflow = "visible"
+  console.log(toggleMenuCity)
 })
 
 let shariy = document.querySelector('.shariy')
