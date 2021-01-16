@@ -156,11 +156,11 @@ let body = document.querySelector('body')
       let ham = document.querySelector('.ham')
       ham.addEventListener('click', ()=> {
         ham.classList.toggle('active')
-        if(ham.classList.contains('active')) {
-          body.style.overflow = 'hidden'
-        } else {
-          body.style.overflow = 'visible'
-        }
+        // if(ham.classList.contains('active')) {
+        //   body.style.overflow = 'hidden'
+        // } else {
+        //   body.style.overflow = 'visible'
+        // }
       })
 
       let toggleMenuLinks = document.querySelectorAll('.link')
@@ -206,8 +206,8 @@ buttonToToggleForm.addEventListener('click', () => {
   submit.classList.add('submit_animation_up')
   // setTimeout(() => {  
   //   shariy.style.opacity = "1"
-  // }, 3000);
-  body.style.overflow = "hidden"
+  // }, 3000);  
+  // body.style.overflow = "hidden"
 })
 
 toggleFormCrossSign.addEventListener('click', () => {
