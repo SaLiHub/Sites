@@ -57,8 +57,16 @@
     }
     
 }
-@media screen and (max-width: 370px) {
+
+
+@media screen and (max-width: 400px) {
     .banner__main-title  {
-        font-size: 5rem;
+        font-size: 6rem;
     }
+}
+
+@media screen and (max-width: 500px) {
+    /* .banner__main-title  {
+        font-size: 6rem;
+    } */
 }
