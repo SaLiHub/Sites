@@ -204,9 +204,9 @@ let submit = document.querySelector('.submit')
 buttonToToggleForm.addEventListener('click', () => {
   searchToggleForm.classList.add('active')
   submit.classList.add('submit_animation_up')
-  setTimeout(() => {  
-    shariy.style.opacity = "1"
-  }, 3000);
+  // setTimeout(() => {  
+  //   shariy.style.opacity = "1"
+  // }, 3000);
   body.style.overflow = "hidden"
 })
 
