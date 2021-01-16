@@ -15,7 +15,10 @@
 @import 'blocks/footer.css';
 
 
-
+@font-face {
+    font-family: 'Molle';
+    src: url('../fonts/Molle-Italic.ttf');
+}
 
 
 

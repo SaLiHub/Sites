@@ -37,6 +37,7 @@
     letter-spacing: 2px;
     font-weight: 500;
     margin-top: 5px;
+    width: 140px;
 }
 .card__price {
     color: #808DA9;
@@ -47,6 +48,7 @@
 
 .card__star-rating {
     margin-top: -10px;
+    margin-left: -3px;
     font-size: 1.5rem;
     color: #FFCE23;
 }
@@ -111,7 +113,7 @@
     }
     .card__vacation-days {
        
-        margin-left: 55px;
+        margin-left: 25px;
         
     }
 }
