@@ -92,6 +92,7 @@
     transition: .7s;
     color: #fff;
     letter-spacing: 1rem;
+    /* max-width: 150%; */
 }
 
 /* PLACES CARD BUTTONS */

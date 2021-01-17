@@ -130,7 +130,17 @@ let pageBody = document.querySelector('.page__body')
     let cardCreate = (count) => {
       a += count;
       for (let i = cardStartIndex; i < a; i++) {
-        if(!cardAllInfo.cardInfo[i]) {
+        if(!cardAllInfo.cardInfo[i+1]) {
+          let card = document.createElement('div');
+          card.className = "card"
+          card.style.backgroundImage = cardAllInfo.cardInfo[i]['background-image'];
+          card.innerHTML = `<div class="card__content">
+          <h5 class="card__title">${cardAllInfo.cardInfo[i]['title']}</h5>
+          <span class="card__price">${cardAllInfo.cardInfo[i]['price']}</span>
+          <div class="card__star-rating">${cardAllInfo.cardInfo[i]['star-rating']}</div>
+          <span class="card__vacation-days">${cardAllInfo.cardInfo[i]['vacation-days']}</span>
+          <button class="card__button button">${cardAllInfo.cardInfo[i]['button-text']}</button></div>`
+          cardsContainer.appendChild(card)
           viewAllOffers.remove()
         } else {
           let card = document.createElement('div');
@@ -147,7 +157,7 @@ let pageBody = document.querySelector('.page__body')
       }
       cardStartIndex += count;
     }
-    // cardCreate(1)
+  
     
     let card = document.querySelector('.card');
 
@@ -157,9 +167,9 @@ let pageBody = document.querySelector('.page__body')
     function placingCards() {
       if(widthOfPage >= 1700) {
         cardCreate(4)
-      } else if(widthOfPage >= 1294 && widthOfPage <= 1700) {
+      } else if(widthOfPage >= 1353 && widthOfPage <= 1700) {
         cardCreate(3)
-      } else if(widthOfPage >= 651 && widthOfPage <= 1294) {
+      } else if(widthOfPage >= 651 && widthOfPage <= 1353) {
         cardCreate(2)
       } else if(widthOfPage <= 651){
         cardCreate(1)
@@ -205,7 +215,7 @@ let pageBody = document.querySelector('.page__body')
         for (let i = 0; i < placesCard.length; i++) {
           placesCardButons[i].style.fontSize = `${placesCard[i].offsetHeight / 50 + 10}px`
           placesCardTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 8}px`
-          wraperTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 8}px`
+          wraperTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 12}px`
          }
          
       }
