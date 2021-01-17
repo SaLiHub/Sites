@@ -5,15 +5,16 @@
   }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 .page__body{
 	position: relative;
   font-family: 'Roboto', sans-serif;
   margin: 0 2rem;
+  overflow: visible;
 }
- 
+
 a {
 	text-decoration: none;
 }

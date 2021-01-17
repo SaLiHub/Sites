@@ -106,3 +106,9 @@
         font-size: 6rem;
     } */
 }
+
+@media screen and (max-width: 375px) {
+    .banner__main-title  {
+        font-size: 5rem;
+    }
+}

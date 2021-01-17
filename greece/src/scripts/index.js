@@ -1,5 +1,10 @@
-
 let pageBody = document.querySelector('.page__body')
+
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+  
+}
 
     let inputs = document.querySelectorAll('input')
 
