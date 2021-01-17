@@ -252,10 +252,10 @@ toggleFormCrossSign.addEventListener('click', () => {
 
 
 // calendar (type=date) toggable
-let calendars = document.querySelectorAll('input[type=date]')
+let calendars = document.querySelectorAll('.form__input_calendar')
 
 calendars.forEach(el => {
-  el.attributes.type.value = 'text' 
+ 
   el.addEventListener('focus', () => {
     el.attributes.type.value = 'date'
   })

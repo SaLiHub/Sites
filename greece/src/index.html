@@ -80,8 +80,9 @@
 			<div class="toggle-form__cross-sign-container">
 				<svg class="toggle-form__cross-sign"  viewBox="0 0 329.26933 329"  xmlns="http://www.w3.org/2000/svg"><path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/></svg>
 			</div>
-				<input type="text" list="city" name="city" class="toggle-form__input" placeholder="City" id="toggle-menu-city">
-				<datalist id="city">
+				<label class="toggle-form__label" for="city">City:</label>
+				<input type="text" list="city-datalist" name="city" class="toggle-form__input" placeholder="City" id="city">
+				<datalist id="city-datalist">
 					<option value="Thessaloniki"></option>
 					<option value="Crete"></option>
 					<option value="Halkidiki"></option>
@@ -90,53 +91,67 @@
 					<option value="Meteora"></option>
 					<option value="Myrtos-Beach"></option>
 				</datalist>
-				<input type="date" class="toggle-form__input" name="checkIn" placeholder="Check in">
+
+				<label class="toggle-form__label" for="checkIn">Check in:</label>
+				<input type="text" class="toggle-form__input" name="checkIn" placeholder="Check in" id="checkIn">
 				
-				<input type="date" class="toggle-form__input" placeholder="Check out">
+				<label class="toggle-form__label" for="checkOut">Check out:</label>
+				<input type="text" class="toggle-form__input" placeholder="Check out" id="checkOut">
 				
-				<input list="rooms" type="text" name="rooms" class="toggle-form__input" placeholder="Rooms">
-				<datalist id="rooms">
+				<label class="toggle-form__label" for="rooms">Rooms:</label>
+				<input list="rooms-datalist" type="text" name="rooms" class="toggle-form__input" placeholder="Rooms" id="rooms">
+				<datalist id="rooms-datalist">
 					<option value="One"></option>
 					<option value="Two"></option>
 					<option value="Three"></option>
 					<option value="Four"></option>
 					<option value="Five"></option>
 				</datalist>
-				<input list="adults" type="text" name="adults" class="toggle-form__input" placeholder="Adults">
-				<datalist id="adults">
+
+				<label class="toggle-form__label" for="adults">Adults:</label>
+				<input list="adults-datalist" type="text" name="adults" class="toggle-form__input" placeholder="Adults" id="adults">
+				<datalist id="adults-datalist">
 					<option value="One"></option>
 					<option value="Two"></option>
 					<option value="Three"></option>
 					<option value="Four"></option>
 					<option value="More"></option>
 				</datalist>
-				<input list="stars" type="text" name="stars" class="toggle-form__input" placeholder="Stars">
-				<datalist id="stars">
+
+				<label class="toggle-form__label" for="stars">Stars:</label>
+				<input list="stars-datalist" type="text" name="stars" class="toggle-form__input" placeholder="Stars" id="stars">
+				<datalist id="stars-datalist">
 					<option value="One-star"></option>
 					<option value="Two-star"></option>
 					<option value="Three-star"></option>
 					<option value="Four-star"></option>
 					<option value="Five-star"></option>
 				</datalist>
-				<input list="children" type="text" name="children" class="toggle-form__input" placeholder="Children">
-				<datalist id="children">
+
+				<label class="toggle-form__label" for="children">Children:</label>
+				<input list="children-datalist" type="text" name="children" class="toggle-form__input" placeholder="Children" id="children">
+				<datalist id="children-datalist">
 					<option value="One"></option>
 					<option value="Two"></option>
 					<option value="Three"></option>
 					<option value="Four"></option>
 					<option value="More"></option>
 				</datalist>
-			<button class="submit submit_animation"  name="Search" type="button">
+			<button class="submit toggle-form__submit"  name="Search" type="button">
 				<svg class="form__img submit__lupa" aria-label="search">
 					<use xlink:href="images/icons.svg#loupe"/>
 				</svg>
 			</button>
+			
 		</form>
+
+		<!-- //////////////////////////SEARCH FORM///////////////////////// -->
+
 		<form class="search__form">
 			<!-- 1 -->
 			<div class="form__field">
-				<input list="city" type="text" name="city" class="form__input"  placeholder="City" id="city">
-				<datalist id="city">
+				<input list="city-datalist" type="text" name="city" class="form__input"  placeholder="City" id="city">
+				<datalist id="city-datalist">
 					<option value="Thessaloniki"></option>
 					<option value="Crete"></option>
 					<option value="Halkidiki"></option>
@@ -153,7 +168,7 @@
 			</div>
 			<!-- 2 -->
 			<div class="form__field">
-				<input type="date" name="CheckIn" class="form__input" placeholder="Check in">
+				<input type="text" name="CheckIn" class="form__input form__input_calendar" placeholder="Check in">
 				<label class="form__label">
 					<svg class="form__img" aria-label="calendar">
 						<use xlink:href="images/icons.svg#date"/>
@@ -163,7 +178,7 @@
 			</div>
 			<!-- 3 -->
 			<div class="form__field">
-				<input type="date" name="CheckOut" class="form__input" placeholder="Check out">
+				<input type="text" name="CheckOut" class="form__input form__input_calendar" placeholder="Check out">
 				<label class="form__label">
 					<svg class="form__img" aria-label="calendar">
 						<use xlink:href="images/icons.svg#date"/>
@@ -173,8 +188,8 @@
 			</div>
 			<!-- 4 -->
 			<div class="form__field">
-				<input list="rooms" type="text" name="rooms" class="form__input" placeholder="Rooms">
-				<datalist id="rooms">
+				<input list="rooms-datalist" type="text" name="rooms" class="form__input" placeholder="Rooms">
+				<datalist id="rooms-datalist">
 					<option value="One"></option>
 					<option value="Two"></option>
 					<option value="Three"></option>
@@ -190,8 +205,8 @@
 			</div>
 			<!-- 5 -->
 			<div class="form__field">
-				<input list="adults" type="text" name="adults" class="form__input" placeholder="Adults"> 
-				<datalist id="adults">
+				<input list="adults-datalist" type="text" name="adults" class="form__input" placeholder="Adults"> 
+				<datalist id="adults-datalist">
 					<option value="One"></option>
 					<option value="Two"></option>
 					<option value="Three"></option>
@@ -207,8 +222,8 @@
 			</div>
 			<!-- 6 -->
 			<div class="form__field">
-				<input list="stars" type="text" name="stars" class="form__input" placeholder="Stars">
-				<datalist id="stars">
+				<input list="stars-datalist" type="text" name="stars" class="form__input" placeholder="Stars">
+				<datalist id="stars-datalist">
 					<option value="One-star"></option>
 					<option value="Two-star"></option>
 					<option value="Three-star"></option>
@@ -224,8 +239,8 @@
 			</div>
 			<!-- 7 -->
 			<div class="form__field">
-				<input list="children" type="text" name="children" class="form__input" placeholder="Children">
-				<datalist id="children">
+				<input list="children-datalist" type="text" name="children" class="form__input" placeholder="Children">
+				<datalist id="children-datalist">
 					<option value="One"></option>
 					<option value="Two"></option>
 					<option value="Three"></option>
@@ -242,7 +257,7 @@
 			<!-- 8 -->
 			<div class="form__field">
 				<button class="form__submit submit" name="search" type="button">
-					<!-- <img class="form__img" src="images/loupe.svg" alt="Search"> -->
+
 					<svg class="form__img submit__lupa" aria-label="search">
 						<use xlink:href="images/icons.svg#loupe"/>
 					</svg>
