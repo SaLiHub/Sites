@@ -185,41 +185,20 @@
   height: 100vh;
 }
 
-.toggle-form__cross-sign {
+.toggle-form__cross-sign-container {
   position: absolute;
   left: 32px;
   top: 32px;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 
-.toggle-form__cross-sign:hover.toggle-form__cross-sign:before,
-.toggle-form__cross-sign:focus.toggle-form__cross-sign:before
-{
-  transform: rotate(45deg) scale(1.3)
+.toggle-form__cross-sign {
+  fill: #ccc;
 }
 
-.toggle-form__cross-sign:hover.toggle-form__cross-sign:after,
-.toggle-form__cross-sign:focus.toggle-form__cross-sign:after {
 
-  transform: rotate(-45deg) scale(1.3);
-}
-
-.toggle-form__cross-sign:before, .toggle-form__cross-sign:after {
-  position: absolute;
-  left: 15px;
-  content: '';
-  height: 40px;
-  width: 4px;
-  background-color: #ccc;
-  transition: .3s all;
-}
-.toggle-form__cross-sign:before {
-  transform: rotate(45deg) scale(1);
-}
-.toggle-form__cross-sign:after {
-  transform: rotate(-45deg) scale(1);
-}
 
 .toggle-form__input {
   margin-bottom: 30px;
