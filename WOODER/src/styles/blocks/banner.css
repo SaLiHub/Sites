@@ -304,7 +304,7 @@
   /* ///////////////// banner-text \\\\\\\\\\\\\\\\\\\\\ */
 .banner__text {
     color: var(--grey);
-    
+    padding: 20px 40px;
 }
 
 /*/////////////////// swiper-pagination \\\\\\\\\\\\\\\\\\\\*/
@@ -322,7 +322,7 @@
 
 @media (max-width: 1000px) {
     #swiper-pagination_id {
-        
+        left: 0;
         top: auto;
     }
 }
@@ -339,7 +339,7 @@
 
 @media (max-width: 1000px) {
     .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
-        margin: 0 10px;
+        margin: 0 4px;
     }
 }
 
