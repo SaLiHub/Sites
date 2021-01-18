@@ -1,0 +1,29 @@
+.arrow {
+    position: relative;
+    height: 2.5px;
+    width: 30px;
+    background-color: #DBDBDB;
+    transition: .4s all;
+    border-radius: 2px;
+    
+}
+
+.arrow::before,
+.arrow:after {
+    content: '';
+    position: absolute;
+    height: 2.5px;
+    width: 10px;
+    background-color: #DBDBDB;
+    transform-origin: right;
+    right: 0;
+    border-radius: 2px;
+}
+
+.arrow::before {
+    
+    transform: rotate(-35deg);
+}
+.arrow:after {  
+    transform: rotate(35deg);
+}

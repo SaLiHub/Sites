@@ -21,10 +21,21 @@
 				<p class="header__hamburger-text">menu</p>
 
 				<div class="header__toggle-menu">
+					
+					<svg class="header__toggle-menu-cross-sign" aria-label="close">
+						<use xlink:href="images/sprite.svg#close"/>
+					</svg>
+					
 					<ul class="header__toggle-menu-container">
-						<li class="header__toggle-menu-link-container"><a class="header__toggle-menu-link">home</a></li>
-						<li class="header__toggle-menu-link-container"><a class="header__toggle-menu-link">products</a></li>
-						<li class="header__toggle-menu-link-container"><a class="header__toggle-menu-link">about</a></li>
+						<li class="header__toggle-menu-link-container">
+							<a href="#"class="header__toggle-menu-link">home</a>
+						</li>
+						<li class="header__toggle-menu-link-container">
+							<a href="#"class="header__toggle-menu-link">products</a>
+						</li>
+						<li class="header__toggle-menu-link-container">
+							<a href="#"class="header__toggle-menu-link">about</a>
+						</li>
 					</ul>
 				</div>
 
@@ -41,9 +52,12 @@
 			<!-- ////////header-navigaion-menu \\\\\\\\\\ -->
 			<nav class="header__nav-menu">
 				<ul class="header__nav-menu-container">
-					<li class="header__nav-menu-link">home</li>
-					<li class="header__nav-menu-link">products</li>
-					<li class="header__nav-menu-link">about</li>
+					<li class="header__nav-menu-link-container">
+						<a href="#"class="header__nav-menu-link">home</a></li>
+					<li class="header__nav-menu-link-container">
+						<a href="#"class="header__nav-menu-link">products</a></li>
+					<li class="header__nav-menu-link-container">
+						<a href="#"class="header__nav-menu-link">about</a></li>
 				</ul>
 			</nav>
 			
@@ -58,7 +72,7 @@
 			<!-- ////////changer-languages \\\\\\\\\\ -->
 			
 			<div class="header__changer-lang-container">
-				<a class="header__changer-lang" href="#">en</a>
+				<a href="#"class="header__changer-lang" href="#">en</a>
 			</div>
 			
 		</div>
@@ -67,17 +81,46 @@
 	<!-- main content -->
 	<main class="main">
 		<section class="banner main__banner">
+			<!--////////////// banner content \\\\\\\\\\\\\\-->
 			<div class="banner__content">
-				<div class="banner__title-container">
-					<h1 class="banner__title">wooder</h1>
-				</div>
+					<div class="banner__title-container">
+						<h1 class="banner__title">wooder</h1>
+					</div>
 
-				<div class="banner__button-container">
-					<button type="button" class="banner__button">
-						learn more
-						<span class="banner__button-arrow"></span>
-					</button>
-				</div>
+					<div class="banner__button-container">
+						<button type="button" class="banner__button">
+							learn more
+							<span class="banner__button-arrow-right arrow"></span>
+						</button>
+					</div>
+
+					<div class="banner__scroll-down">
+						<div class="banner__mouse">
+							<svg class="banner__mouse-svg" aria-label="mouse">
+								<use xlink:href="images/sprite.svg#mouse"/>
+							</svg>
+						</div>
+
+						<div class="banner__arrow-down-container">
+							<span class="banner__arrow-down arrow">
+								
+							</span>
+						</div>
+					
+
+						<div class="banner__text-scroll-container">
+							<p class="banner__text-scroll">
+								scroll
+							</p>
+						</div>
+					</div>
+			</div>
+
+			<!--////////////// banner second background \\\\\\\\\\\\\\-->
+			<div class="banner__second-background" style="background-image: url('images/wood-pile.jpg');">
+				<svg class="banner__second-background-share" aria-label="share">
+					<use xlink:href="images/sprite.svg#share"/>
+				</svg>
 			</div>
 		</section>
 	</main>

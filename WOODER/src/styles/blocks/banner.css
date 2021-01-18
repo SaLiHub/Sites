@@ -2,14 +2,24 @@
     height: 100%;
     /* width: 50%; */
     margin: 0 auto;
+    position: relative;
 }
 
 
 .banner__content {
+    position: relative;
     padding-top: 25rem;
     display: flex;
     flex-direction: column;
+    width: 600px;
+    margin: 0 auto;
+    z-index: 1;
+}
 
+@media (max-width: 540px) {
+    .banner__content {
+        width: 100%
+    }
 }
 
 /* //////////// title \\\\\\\\\\\\\\\ */
@@ -74,40 +84,150 @@
         margin: 0 auto;
     }
 }
+
+
 /* ///////////////arrow\\\\\\\\\\\\\ */
 
-.banner__button-arrow {
-    height: 2.5px;
-    width: 30px;
-    background-color: #DBDBDB;
+.banner__button-arrow-right {
     position: absolute;
     top: 47%;
     right: 40px;
-    transition: .4s all ;
-    border-radius: 2px;
 }
-.banner__button:hover .banner__button-arrow {
+
+
+
+.banner__button:hover .banner__button-arrow-right {
     right: 30px;
 }
 
-.banner__button-arrow::before,
-.banner__button-arrow:after {
-    content: '';
+
+
+
+/* /////////scroll-down\\\\\\\\\\\\\\ */
+
+
+.banner__scroll-down {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+}
+
+@media (max-width: 600px) {
+    .banner__scroll-down {
+        
+        padding-left: 100px;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner__scroll-down {
+        
+        padding-left: 0;
+        align-items: center;
+    }
+}
+.banner__mouse {
+   margin-top: 50px;
+   margin-bottom: 20px;
+}
+
+.banner__mouse-svg {
+    fill: #DBDBDB;
+    width: 40px;
+    height: 50px;
+}
+
+.banner__arrow-down-container {
+    height: 110px;
+    position: relative;
+    width: 40px;
+}
+
+.banner__arrow-down {
+    transform: rotate(90deg);
+    display: block;
+    width: 100px;
     position: absolute;
-    height: 2.5px;
-    width: 10px;
-    background-color: #DBDBDB;
-    transform-origin: right;
+    top: 30%;
+    left: -30px;
+    animation: arrowAnimation 2s infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes arrowAnimation {
+    form  {
+        top: 40%;
+        left: -30px;
+    }
+    to {
+        top: 60%;
+        left: -30px;
+    }
+}
+
+@-moz-keyframes animationName {
+    form  {
+        top: 40%;
+        left: -30px;
+    }
+    to {
+        top: 60%;
+        left: -30px;
+    }
+}
+
+@-webkit-keyframes animationName {
+    form  {
+        top: 40%;
+        left: -30px;
+    }
+    to {
+        top: 60%;
+        left: -30px;
+    }
+}
+
+.banner__text-scroll-container {
+    margin-top: 20px;
+    position: relative;
+    height: 110px;
+    width: 40px;
+
+}
+
+.banner__text-scroll {
+    position: absolute;
+    text-transform: uppercase;
+    color: var(--grey);
+    letter-spacing: .2rem;
+    font-weight: 600;
+    transform: rotate(90deg);
+    left: -19px;
+    top: 30%;
+    opacity: .2;
+}
+
+
+/* ////////////// banner second background \\\\\\\\\\\\\\ */
+.banner__second-background {
+    position: absolute;
+    top: 0;
     right: 0;
-    border-radius: 2px;
+    width: 50%;
+    height: 110%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 
-.banner__button-arrow::before {
-    
-    transform: rotate(-35deg);
+.banner__second-background-share {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 20px;
+    height: 30px;
+    fill: var(--gold);
+    opacity: .5;
 }
-.banner__button-arrow:after {  
-    transform: rotate(35deg);
-}
-
-

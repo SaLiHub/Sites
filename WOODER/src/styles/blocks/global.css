@@ -12,11 +12,22 @@
 }
 
 .page__body {
+	position: relative;
 	width: 100%;
 	background-color: #000;
 	font-family: 'ProximaNova', sans-serif;
+	transition: .3s all;
+	z-index: 1;
 }
 
+.opacity_off {
+	opacity: 0;
+}
+
+
+a {
+	text-decoration: none;
+}
 
 @font-face {
 	font-family: 'ProximaNova';

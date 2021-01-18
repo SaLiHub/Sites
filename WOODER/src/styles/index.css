@@ -1,8 +1,10 @@
 /* Global */
 
 @import 'variables.css';
+@import 'blocks/arrow.css';
 @import 'blocks/global.css';
 @import 'blocks/header.css';
 @import 'blocks/banner.css';
+
 
 
