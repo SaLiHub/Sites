@@ -181,19 +181,18 @@ swiperPaginationBullets.forEach((el,i)=> {
         console.log('luck')
     })
 })
-let sliderDirection = 'vertical'
-window.addEventListener('resize', () => {
-    if(window.innerWidth <= 1000) {
-        sliderDirection = 'horizontal'
-    }
-})
 
-var swiper = new Swiper('.swiper-container', {
+let sliderDirection = 'vertical'
+if(window.innerWidth <= 1000) {
+ sliderDirection = 'horizontal'
+
+}
+
+let swiper = new Swiper('.swiper-container', {
     direction: `${sliderDirection}`,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
     },
   });
-//   swiper.direction = "horizontal"
-console.log(swiper.direction)
+
