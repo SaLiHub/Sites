@@ -18,6 +18,7 @@
 	font-family: 'ProximaNova', sans-serif;
 	transition: .3s all;
 	z-index: 1;
+	font-size: 16px;
 }
 
 .opacity_off {
@@ -28,6 +29,10 @@
 a {
 	text-decoration: none;
 }
+
+/* a {
+	outline: none;
+} */
 
 @font-face {
 	font-family: 'ProximaNova';

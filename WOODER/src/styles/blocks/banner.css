@@ -1,6 +1,6 @@
 .main__banner {
-    height: 100%;
-    /* width: 50%; */
+    height: 100vh;
+    width: 100%;
     margin: 0 auto;
     position: relative;
 }
@@ -16,7 +16,13 @@
     z-index: 1;
 }
 
-@media (max-width: 540px) {
+@media (max-width: 1000px) {
+    .banner__content {
+        padding-top: 15rem;
+    }
+}
+
+@media (max-width: 600px) {
     .banner__content {
         width: 100%
     }
@@ -208,6 +214,48 @@
     opacity: .2;
 }
 
+/* ////////////// banner first background \\\\\\\\\\\\\\ */
+.banner__first-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+/* //////banner__first-background-text\\\\\\\\ */
+.banner__first-background-text {
+    position: absolute;
+    top: 350px;
+    left: 300px;
+    font-size: 4rem;
+    color: var(--gold);
+    transform: rotate(90deg);
+    font-weight: 600;
+    letter-spacing: .4rem;
+}
+
+.banner__first-background-text::before {
+    content: '';
+    position: absolute;
+    top: 35px;
+    left: -80px;
+    height: 5px;
+    width: 60px;
+    background-color: var(--gold);
+}
+
+@media (max-width: 1500px) {
+    .banner__first-background-text {
+        display: none;
+    }
+}
+
+
 
 /* ////////////// banner second background \\\\\\\\\\\\\\ */
 .banner__second-background {
@@ -225,9 +273,56 @@
 .banner__second-background-share {
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    right: 15px;
     width: 20px;
     height: 30px;
     fill: var(--gold);
     opacity: .5;
+}
+
+.bunner__second-background-text {
+    position: absolute;
+    display: block;
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: .5rem;
+    opacity: .1;
+    transform: rotate(90deg);
+    top: 500px;
+    right: 150px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+/*/////////////////////// swipper-container \\\\\\\\\\\\\\\\\\\*/
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ///////////////// banner-text \\\\\\\\\\\\\\\\\\\\\ */
+.banner__text {
+    color: var(--grey);
+    
+}
+
+/*/////////////////// swiper-pagination \\\\\\\\\\\\\\\\\\\\*/
+.swiper-pagination {
+    left: 332px;
+    top: 655px !important;
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--gold);
+    width: 15px;
+    height: 15px;
+    margin-top: 20px !important;
+}
+
+@media (max-width: 1500px) {
+    .swiper-pagination {
+        left: 50px;
+        
+    }
 }
