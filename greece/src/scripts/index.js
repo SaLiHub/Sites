@@ -20,11 +20,7 @@ window.onbeforeunload = function () {
     
 
 
-
-
-
-
-    // import Swiper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
+    ////////////////////Swiper////////////////////////////////// 
 
 
       const swiper = new Swiper('.swiper-container', {
@@ -43,151 +39,85 @@ window.onbeforeunload = function () {
 
 
       /////////////////////////////////////////// cards ////////////////////////////////////////////////////////////////////
-
-  
-
       
+      let firebaseConfig = {
+        apiKey: "AIzaSyA_BlS_0vucMidOD7OzEWND9kwPw7ojg_c",
+        authDomain: "greece-d2a3d.firebaseapp.com",
+        databaseURL: "https://greece-d2a3d-default-rtdb.firebaseio.com",
+        projectId: "greece-d2a3d",
+        storageBucket: "greece-d2a3d.appspot.com",
+        messagingSenderId: "769401518786",
+        appId: "1:769401518786:web:eec291fd613c097c59d95b",
+        measurementId: "G-C8E617QPC4"
+      };
+      
+     
+      firebase.initializeApp(firebaseConfig);
+      
+      // Get a reference to the database service
+      function databaseInit() {
+       return firebase.database().ref('/').once('value')
+      } 
 
-      let cardAllInfo = {
-        "cardInfo" : [
-            {
-                "title" : "El Grece",
-                "price" : "225$",
-                "star-rating" : "★★★",
-                "vacation-days": "9 days",
-                "button-text" : "View More",
-                "background-image" : "url(images/card1.jpg)"
-            },
-            {
-                "title" : "Zhytomyr",
-                "price" : "230$",
-                "star-rating" : "★★★★★",
-                "vacation-days": "4 days",
-                "button-text" : "View More",
-                "background-image" : "url(images/card1.jpg)"
-            },
-            {
-                "title" : "Ioannina",
-                "price" : "235$",
-                "star-rating" : "★★★★",
-                "vacation-days": "7 days",
-                "button-text" : "View More",
-                "background-image" : "url(images/card1.jpg)"
-            },
-            {
-                "title" : "Peristeri",
-                "price" : "240$",
-                "star-rating" : "★",
-                "vacation-days": "10 days",
-                "button-text" : "View More",
-                "background-image" : "url(images/card1.jpg)"
-            },
-            {
-                "title" : "Galatsi",
-                "price" : "245$",
-                "star-rating" : "★★",
-                "vacation-days": "5 days",
-                "button-text" : "View More",
-                "background-image" : "url(images/card1.jpg)"
-            },
-            {
-                "title" : "Palaio Faliro",
-                "price" : "250$",
-                "star-rating" : "★★★★",
-                "vacation-days": "10 days",
-                "button-text" : "View More",
-                "background-image" : "url(images/card1.jpg)"
-            },
-            {
-                "title" : "Lamia",
-                "price" : "255$",
-                "star-rating" : "★★★",
-                "vacation-days": "8 days",
-                "button-text" : "View More",
-                "background-image" : "url(images/card1.jpg)"
-            },
-            {
-                "title" : "Katerini",
-                "price" : "260$",
-                "star-rating" : "★★★",
-                "vacation-days": "7 days",
-                "button-text" : "View More",
-                "background-image" : "url(images/card1.jpg)"
-            },
-            {   
-                "title" : "Chania",
-                "price" : "265$",
-                "star-rating" : "★★★★★",
-                "vacation-days": "10 days",
-                "button-text" : "View More",
-                "background-image" : "url(images/card1.jpg)"
-            }
-           
-            
-    
-        ]
+      databaseInit().then((answer) => {
+
+       let jsonCards = answer.val()
         
-    }
-    let viewAllOffers = document.querySelector('.more-cards__button');
-    let cardsContainer = document.querySelector('.cards');
-    let cardStartIndex = 0;
-    let a = 0;
-    let cardCreate = (count) => {
-      a += count;
-      for (let i = cardStartIndex; i < a; i++) {
-        if(!cardAllInfo.cardInfo[i+1]) {
-          let card = document.createElement('div');
-          card.className = "card"
-          card.style.backgroundImage = cardAllInfo.cardInfo[i]['background-image'];
-          card.innerHTML = `<div class="card__content">
-          <h5 class="card__title">${cardAllInfo.cardInfo[i]['title']}</h5>
-          <span class="card__price">${cardAllInfo.cardInfo[i]['price']}</span>
-          <div class="card__star-rating">${cardAllInfo.cardInfo[i]['star-rating']}</div>
-          <span class="card__vacation-days">${cardAllInfo.cardInfo[i]['vacation-days']}</span>
-          <button class="card__button button">${cardAllInfo.cardInfo[i]['button-text']}</button></div>`
-          cardsContainer.appendChild(card)
-          viewAllOffers.remove()
-        } else {
-          let card = document.createElement('div');
-          card.className = "card"
-          card.style.backgroundImage = cardAllInfo.cardInfo[i]['background-image'];
-          card.innerHTML = `<div class="card__content">
-          <h5 class="card__title">${cardAllInfo.cardInfo[i]['title']}</h5>
-          <span class="card__price">${cardAllInfo.cardInfo[i]['price']}</span>
-          <div class="card__star-rating">${cardAllInfo.cardInfo[i]['star-rating']}</div>
-          <span class="card__vacation-days">${cardAllInfo.cardInfo[i]['vacation-days']}</span>
-          <button class="card__button button">${cardAllInfo.cardInfo[i]['button-text']}</button></div>`
-          cardsContainer.appendChild(card)
+        
+      let viewAllOffers = document.querySelector('.more-cards__button');
+      let cardsContainer = document.querySelector('.cards');
+      let cardStartIndex = 0;
+      let a = 0;
+      let cardCreate = (count) => {
+        a += count;
+        for (let i = cardStartIndex; i < a; i++) {
+          if(!jsonCards.cardInfo[i+1]) {
+            let card = document.createElement('div');
+            card.className = "card"
+            card.style.backgroundImage = jsonCards.cardInfo[i]['background-image'];
+            card.innerHTML = `<div class="card__content">
+            <h5 class="card__title">${jsonCards.cardInfo[i]['title']}</h5>
+            <span class="card__price">${jsonCards.cardInfo[i]['price']}</span>
+            <div class="card__star-rating">${jsonCards.cardInfo[i]['star-rating']}</div>
+            <span class="card__vacation-days">${jsonCards.cardInfo[i]['vacation-days']}</span>
+            <button class="card__button button">${jsonCards.cardInfo[i]['button-text']}</button></div>`
+            cardsContainer.appendChild(card)
+            viewAllOffers.remove()
+          } else {
+            let card = document.createElement('div');
+            card.className = "card"
+            card.style.backgroundImage = jsonCards.cardInfo[i]['background-image'];
+            card.innerHTML = `<div class="card__content">
+            <h5 class="card__title">${jsonCards.cardInfo[i]['title']}</h5>
+            <span class="card__price">${jsonCards.cardInfo[i]['price']}</span>
+            <div class="card__star-rating">${jsonCards.cardInfo[i]['star-rating']}</div>
+            <span class="card__vacation-days">${jsonCards.cardInfo[i]['vacation-days']}</span>
+            <button class="card__button button">${jsonCards.cardInfo[i]['button-text']}</button></div>`
+            cardsContainer.appendChild(card)
+          }
         }
+        cardStartIndex += count;
       }
-      cardStartIndex += count;
-    }
-  
-    
-    let card = document.querySelector('.card');
-
-    let widthOfPage = document.body.clientWidth
-    console.log(widthOfPage)
-    placingCards()
-    function placingCards() {
-      if(widthOfPage >= 1700) {
-        cardCreate(4)
-      } else if(widthOfPage >= 1353 && widthOfPage <= 1700) {
-        cardCreate(3)
-      } else if(widthOfPage >= 651 && widthOfPage <= 1353) {
-        cardCreate(2)
-      } else if(widthOfPage <= 651){
-        cardCreate(1)
-      }
-    }
-
-    viewAllOffers.addEventListener('click', placingCards)
-   
-
-    
-
       
+        let widthOfPage = document.body.clientWidth
+        
+        placingCards()
+        function placingCards() {
+          if(widthOfPage >= 1700) {
+            cardCreate(4)
+          } else if(widthOfPage >= 1353 && widthOfPage <= 1700) {
+            cardCreate(3)
+          } else if(widthOfPage >= 651 && widthOfPage <= 1353) {
+            cardCreate(2)
+          } else if(widthOfPage <= 651){
+            cardCreate(1)
+          }
+        }
+        viewAllOffers.addEventListener('click', placingCards)
+      })
 
+
+  
 
       // toggle menu (hamburger)
       let ham = document.querySelector('.ham')
@@ -222,7 +152,6 @@ window.onbeforeunload = function () {
           placesCardTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 8}px`
           wraperTitles[i].style.fontSize = `${placesCard[i].offsetWidth / 10 - 12}px`
          }
-         
       }
       loopingPlacesCards()
 
