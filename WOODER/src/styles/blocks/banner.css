@@ -309,8 +309,9 @@
 
 /*/////////////////// swiper-pagination \\\\\\\\\\\\\\\\\\\\*/
 #swiper-pagination_id {
-    left: 332px;
+    left: 257px;
     top: 655px;
+    right: auto;
 }
 
 @media (max-width: 1500px) {

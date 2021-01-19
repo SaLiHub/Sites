@@ -97,7 +97,6 @@
     transition: .2s all;
 }
 
-.header__hamburger-text:focus,
 .header__hamburger-text:hover {
     display: block;
     transform: scale(1.2);
@@ -176,7 +175,6 @@
     transition: .2s all;
 }
 
-.header__nav-menu-link:focus,
 .header__nav-menu-link:hover {
     transform: scale(1.2);
 }
@@ -209,8 +207,7 @@
     transition: .2s all;
 }
 
-.header__info-link:hover,
-.header__info-link:focus  {
+.header__info-link:hover  {
     transform: scale(1.3);
 }
 

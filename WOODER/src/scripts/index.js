@@ -1,5 +1,4 @@
 // header
-
 let hamburger = document.querySelector('.header__hamburger'),
     hamburgerMenuText = document.querySelector('.header__hamburger-text'),
     hamburgerMenu = document.querySelector('.header__hamburger-menu'),
@@ -56,133 +55,46 @@ headerToggleMenuLink.forEach((el) => {
 })
 
 // swiper slide
-let info = {
-    'sliderContent' : [
-        {
-            "title" : "lorem",
-            "text" : `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste velit qui vero. Molestiae, reprehenderit. Ex beatae veniam totam tempora cupiditate ipsam mollitia illum eos. A, ipsam. Quos, ex. Saepe, quisquam.
-            Enim aperiam, laborum eos iusto rem id? Sapiente blanditiis dolor vitae perspiciatis modi, natus maiores minus. Rerum molestiae magnam ducimus qui. Numquam consequuntur dolor quis assumenda itaque reiciendis nobis ipsum.
-            Voluptates minima nulla, harum dolorum, delectus similique laborum sed ratione blanditiis corrupti possimus quasi officiis illo perferendis. Nihil voluptatem voluptate reprehenderit nam eaque possimus repellendus laboriosam minus, deleniti necessitatibus sint!
-            Culpa quos omnis, sequi earum aliquam quidem voluptates obcaecati quaerat, odit explicabo nesciunt iste blanditiis expedita soluta at deleniti eos maiores animi! Eos excepturi tempore laboriosam molestias suscipit voluptatum dicta?
-            Enim deleniti necessitatibus, explicabo voluptatibus inventore adipisci dolorum est! Temporibus commodi, optio minima minus magnam nobis animi, ducimus pariatur quidem, dicta libero? Error, aliquid atque. Deserunt dolorum a at provident?`
-        },
 
-        {
-            "title" : "lorem",
-            "text" : `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste velit qui vero. Molestiae, reprehenderit. Ex beatae veniam totam tempora cupiditate ipsam mollitia illum eos. A, ipsam. Quos, ex. Saepe, quisquam.
-            Enim aperiam, laborum eos iusto rem id? Sapiente blanditiis dolor vitae perspiciatis modi, natus maiores minus. Rerum molestiae magnam ducimus qui. Numquam consequuntur dolor quis assumenda itaque reiciendis nobis ipsum.
-            Voluptates minima nulla, harum dolorum, delectus similique laborum sed ratione blanditiis corrupti possimus quasi officiis illo perferendis. Nihil voluptatem voluptate reprehenderit nam eaque possimus repellendus laboriosam minus, deleniti necessitatibus sint!
-            Culpa quos omnis, sequi earum aliquam quidem voluptates obcaecati quaerat, odit explicabo nesciunt iste blanditiis expedita soluta at deleniti eos maiores animi! Eos excepturi tempore laboriosam molestias suscipit voluptatum dicta?
-            Enim deleniti necessitatibus, explicabo voluptatibus inventore adipisci dolorum est! Temporibus commodi, optio minima minus magnam nobis animi, ducimus pariatur quidem, dicta libero? Error, aliquid atque. Deserunt dolorum a at provident?`
-        },
-        {
-            "title" : "lorem",
-            "text" : `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste velit qui vero. Molestiae, reprehenderit. Ex beatae veniam totam tempora cupiditate ipsam mollitia illum eos. A, ipsam. Quos, ex. Saepe, quisquam.
-            Enim aperiam, laborum eos iusto rem id? Sapiente blanditiis dolor vitae perspiciatis modi, natus maiores minus. Rerum molestiae magnam ducimus qui. Numquam consequuntur dolor quis assumenda itaque reiciendis nobis ipsum.
-            Voluptates minima nulla, harum dolorum, delectus similique laborum sed ratione blanditiis corrupti possimus quasi officiis illo perferendis. Nihil voluptatem voluptate reprehenderit nam eaque possimus repellendus laboriosam minus, deleniti necessitatibus sint!
-            Culpa quos omnis, sequi earum aliquam quidem voluptates obcaecati quaerat, odit explicabo nesciunt iste blanditiis expedita soluta at deleniti eos maiores animi! Eos excepturi tempore laboriosam molestias suscipit voluptatum dicta?
-            Enim deleniti necessitatibus, explicabo voluptatibus inventore adipisci dolorum est! Temporibus commodi, optio minima minus magnam nobis animi, ducimus pariatur quidem, dicta libero? Error, aliquid atque. Deserunt dolorum a at provident?`
-        },
-        {
-            "title" : "lorem",
-            "text" : `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste velit qui vero. Molestiae, reprehenderit. Ex beatae veniam totam tempora cupiditate ipsam mollitia illum eos. A, ipsam. Quos, ex. Saepe, quisquam.
-            Enim aperiam, laborum eos iusto rem id? Sapiente blanditiis dolor vitae perspiciatis modi, natus maiores minus. Rerum molestiae magnam ducimus qui. Numquam consequuntur dolor quis assumenda itaque reiciendis nobis ipsum.
-            Voluptates minima nulla, harum dolorum, delectus similique laborum sed ratione blanditiis corrupti possimus quasi officiis illo perferendis. Nihil voluptatem voluptate reprehenderit nam eaque possimus repellendus laboriosam minus, deleniti necessitatibus sint!
-            Culpa quos omnis, sequi earum aliquam quidem voluptates obcaecati quaerat, odit explicabo nesciunt iste blanditiis expedita soluta at deleniti eos maiores animi! Eos excepturi tempore laboriosam molestias suscipit voluptatum dicta?
-            Enim deleniti necessitatibus, explicabo voluptatibus inventore adipisci dolorum est! Temporibus commodi, optio minima minus magnam nobis animi, ducimus pariatur quidem, dicta libero? Error, aliquid atque. Deserunt dolorum a at provident?`
-        },
-        {
-            "title" : "lorem",
-            "text" : `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste velit qui vero. Molestiae, reprehenderit. Ex beatae veniam totam tempora cupiditate ipsam mollitia illum eos. A, ipsam. Quos, ex. Saepe, quisquam.
-            Enim aperiam, laborum eos iusto rem id? Sapiente blanditiis dolor vitae perspiciatis modi, natus maiores minus. Rerum molestiae magnam ducimus qui. Numquam consequuntur dolor quis assumenda itaque reiciendis nobis ipsum.
-            Voluptates minima nulla, harum dolorum, delectus similique laborum sed ratione blanditiis corrupti possimus quasi officiis illo perferendis. Nihil voluptatem voluptate reprehenderit nam eaque possimus repellendus laboriosam minus, deleniti necessitatibus sint!
-            Culpa quos omnis, sequi earum aliquam quidem voluptates obcaecati quaerat, odit explicabo nesciunt iste blanditiis expedita soluta at deleniti eos maiores animi! Eos excepturi tempore laboriosam molestias suscipit voluptatum dicta?
-            Enim deleniti necessitatibus, explicabo voluptatibus inventore adipisci dolorum est! Temporibus commodi, optio minima minus magnam nobis animi, ducimus pariatur quidem, dicta libero? Error, aliquid atque. Deserunt dolorum a at provident?`
-        },
-        {
-            "title" : "lorem",
-            "text" : `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste velit qui vero. Molestiae, reprehenderit. Ex beatae veniam totam tempora cupiditate ipsam mollitia illum eos. A, ipsam. Quos, ex. Saepe, quisquam.
-            Enim aperiam, laborum eos iusto rem id? Sapiente blanditiis dolor vitae perspiciatis modi, natus maiores minus. Rerum molestiae magnam ducimus qui. Numquam consequuntur dolor quis assumenda itaque reiciendis nobis ipsum.
-            Voluptates minima nulla, harum dolorum, delectus similique laborum sed ratione blanditiis corrupti possimus quasi officiis illo perferendis. Nihil voluptatem voluptate reprehenderit nam eaque possimus repellendus laboriosam minus, deleniti necessitatibus sint!
-            Culpa quos omnis, sequi earum aliquam quidem voluptates obcaecati quaerat, odit explicabo nesciunt iste blanditiis expedita soluta at deleniti eos maiores animi! Eos excepturi tempore laboriosam molestias suscipit voluptatum dicta?
-            Enim deleniti necessitatibus, explicabo voluptatibus inventore adipisci dolorum est! Temporibus commodi, optio minima minus magnam nobis animi, ducimus pariatur quidem, dicta libero? Error, aliquid atque. Deserunt dolorum a at provident?`
-        },
+const firebaseConfig = {
+    apiKey: "AIzaSyA4apyHWSRjMvYyvrzegqNv5weVktk-XMs",
+    authDomain: "wooder-1fb11.firebaseapp.com",
+    projectId: "wooder-1fb11",
+    storageBucket: "wooder-1fb11.appspot.com",
+    messagingSenderId: "852775924188",
+    appId: "1:852775924188:web:5107a8944b53cc1a705f19"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-        {
-            "title" : "lorem",
-            "text" : `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste velit qui vero. Molestiae, reprehenderit. Ex beatae veniam totam tempora cupiditate ipsam mollitia illum eos. A, ipsam. Quos, ex. Saepe, quisquam.
-            Enim aperiam, laborum eos iusto rem id? Sapiente blanditiis dolor vitae perspiciatis modi, natus maiores minus. Rerum molestiae magnam ducimus qui. Numquam consequuntur dolor quis assumenda itaque reiciendis nobis ipsum.
-            Voluptates minima nulla, harum dolorum, delectus similique laborum sed ratione blanditiis corrupti possimus quasi officiis illo perferendis. Nihil voluptatem voluptate reprehenderit nam eaque possimus repellendus laboriosam minus, deleniti necessitatibus sint!
-            Culpa quos omnis, sequi earum aliquam quidem voluptates obcaecati quaerat, odit explicabo nesciunt iste blanditiis expedita soluta at deleniti eos maiores animi! Eos excepturi tempore laboriosam molestias suscipit voluptatum dicta?
-            Enim deleniti necessitatibus, explicabo voluptatibus inventore adipisci dolorum est! Temporibus commodi, optio minima minus magnam nobis animi, ducimus pariatur quidem, dicta libero? Error, aliquid atque. Deserunt dolorum a at provident?`
-        },
-        {
-            "title" : "lorem",
-            "text" : `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste velit qui vero. Molestiae, reprehenderit. Ex beatae veniam totam tempora cupiditate ipsam mollitia illum eos. A, ipsam. Quos, ex. Saepe, quisquam.
-            Enim aperiam, laborum eos iusto rem id? Sapiente blanditiis dolor vitae perspiciatis modi, natus maiores minus. Rerum molestiae magnam ducimus qui. Numquam consequuntur dolor quis assumenda itaque reiciendis nobis ipsum.
-            Voluptates minima nulla, harum dolorum, delectus similique laborum sed ratione blanditiis corrupti possimus quasi officiis illo perferendis. Nihil voluptatem voluptate reprehenderit nam eaque possimus repellendus laboriosam minus, deleniti necessitatibus sint!
-            Culpa quos omnis, sequi earum aliquam quidem voluptates obcaecati quaerat, odit explicabo nesciunt iste blanditiis expedita soluta at deleniti eos maiores animi! Eos excepturi tempore laboriosam molestias suscipit voluptatum dicta?
-            Enim deleniti necessitatibus, explicabo voluptatibus inventore adipisci dolorum est! Temporibus commodi, optio minima minus magnam nobis animi, ducimus pariatur quidem, dicta libero? Error, aliquid atque. Deserunt dolorum a at provident?`
-        },
-        {
-            "title" : "lorem",
-            "text" : `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste velit qui vero. Molestiae, reprehenderit. Ex beatae veniam totam tempora cupiditate ipsam mollitia illum eos. A, ipsam. Quos, ex. Saepe, quisquam.
-            Enim aperiam, laborum eos iusto rem id? Sapiente blanditiis dolor vitae perspiciatis modi, natus maiores minus. Rerum molestiae magnam ducimus qui. Numquam consequuntur dolor quis assumenda itaque reiciendis nobis ipsum.
-            Voluptates minima nulla, harum dolorum, delectus similique laborum sed ratione blanditiis corrupti possimus quasi officiis illo perferendis. Nihil voluptatem voluptate reprehenderit nam eaque possimus repellendus laboriosam minus, deleniti necessitatibus sint!
-            Culpa quos omnis, sequi earum aliquam quidem voluptates obcaecati quaerat, odit explicabo nesciunt iste blanditiis expedita soluta at deleniti eos maiores animi! Eos excepturi tempore laboriosam molestias suscipit voluptatum dicta?
-            Enim deleniti necessitatibus, explicabo voluptatibus inventore adipisci dolorum est! Temporibus commodi, optio minima minus magnam nobis animi, ducimus pariatur quidem, dicta libero? Error, aliquid atque. Deserunt dolorum a at provident?`
-        },
-        {
-            "title" : "lorem",
-            "text" : `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste velit qui vero. Molestiae, reprehenderit. Ex beatae veniam totam tempora cupiditate ipsam mollitia illum eos. A, ipsam. Quos, ex. Saepe, quisquam.
-            Enim aperiam, laborum eos iusto rem id? Sapiente blanditiis dolor vitae perspiciatis modi, natus maiores minus. Rerum molestiae magnam ducimus qui. Numquam consequuntur dolor quis assumenda itaque reiciendis nobis ipsum.
-            Voluptates minima nulla, harum dolorum, delectus similique laborum sed ratione blanditiis corrupti possimus quasi officiis illo perferendis. Nihil voluptatem voluptate reprehenderit nam eaque possimus repellendus laboriosam minus, deleniti necessitatibus sint!
-            Culpa quos omnis, sequi earum aliquam quidem voluptates obcaecati quaerat, odit explicabo nesciunt iste blanditiis expedita soluta at deleniti eos maiores animi! Eos excepturi tempore laboriosam molestias suscipit voluptatum dicta?
-            Enim deleniti necessitatibus, explicabo voluptatibus inventore adipisci dolorum est! Temporibus commodi, optio minima minus magnam nobis animi, ducimus pariatur quidem, dicta libero? Error, aliquid atque. Deserunt dolorum a at provident?`
-        }
-    ]
-}
-let bannerFirstBackgroundText = document.querySelector('.banner__first-background-text')
-let swiperWrapper = document.querySelector('.swiper-wrapper')
-for (let i = 0; i < info['sliderContent'].length; i++) {
-    let swiperSlide = document.createElement('div')
-    swiperSlide.classList.add('swiper-slide')
-    let bannerContent = document.createElement('div')
-    bannerContent.classList.add('banner__content')
-    bannerContent.innerHTML = `
-    <div class="banner__title-container">
-        <h1 class="banner__title">${info['sliderContent'][i]['title']}</h1>
-    </div>
-    <div class="banner__text-container">
-        <p class="banner__text">${info['sliderContent'][i]['text']}</p>
-    </div>
-    `
-    swiperSlide.appendChild(bannerContent)
-    swiperWrapper.appendChild(swiperSlide)
-}
+// Get a reference to the database service
+  function databaseInit() {
+    return firebase.database().ref('/').once('value')
+   } 
 
-let swiperSliders = document.querySelectorAll('.swiper-slide')
+databaseInit().then((answer) => {
 
+    let jsonBanner = answer.val()
+    console.log(jsonBanner)
 
-
-
-let swiperPaginationBullets = document.querySelectorAll('swiper-pagination-bullet')
-bannerFirstBackgroundText.innerHTML = '01'
-// for (let i = 0; i < swiperPaginationBullet.length; i++) {
-//     swiperPaginationBullet[i].addEventListener('click', () => {
-//         bannerFirstBackgroundText.innerHTML = `0${i+1}`
-//     })
-    
-// }
-console.log('luck1')
-swiperPaginationBullets.forEach((el,i)=> {
-    el.addEventListener('click', () => {
-        bannerFirstBackgroundText.innerHTML = `0${i+1}`
-        console.log('luck')
-    })
-})
-
-let sliderDirection = 'vertical'
+    let swiperWrapper = document.querySelector('.swiper-wrapper')
+    for (let i = 0; i < jsonBanner['sliderContent'].length; i++) {
+        let swiperSlide = document.createElement('div')
+        swiperSlide.classList.add('swiper-slide')
+        let bannerContent = document.createElement('div')
+        bannerContent.classList.add('banner__content')
+        bannerContent.innerHTML = `
+        <div class="banner__title-container">
+            <h1 class="banner__title">${jsonBanner['sliderContent'][i]['title']}</h1>
+        </div>
+        <div class="banner__text-container">
+            <p class="banner__text">${jsonBanner['sliderContent'][i]['text']}</p>
+        </div>
+        `
+        swiperSlide.appendChild(bannerContent)
+        swiperWrapper.appendChild(swiperSlide)
+    }
+    let sliderDirection = 'vertical';
 if(window.innerWidth <= 1000) {
  sliderDirection = 'horizontal'
 
@@ -195,4 +107,26 @@ let swiper = new Swiper('.swiper-container', {
       clickable: true,
     },
   });
+
+    
+})
+
+
+
+
+
+
+// let swiperPaginationBullets = document.querySelectorAll('swiper-pagination-bullet')
+// bannerFirstBackgroundText.innerHTML = '01'
+
+
+
+// console.log('luck1')
+// swiperPaginationBullets.forEach((el,i)=> {
+//     el.addEventListener('click', () => {
+//         bannerFirstBackgroundText.innerHTML = `0${i+1}`
+//         console.log('luck')
+//     })
+// })
+
 
