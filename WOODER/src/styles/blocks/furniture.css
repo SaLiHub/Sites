@@ -1,0 +1,164 @@
+.page__furniture {
+    padding: 15% 0;
+    background-color: #FFF;
+    position: relative;
+    z-index: -1;
+}
+
+@media (max-width: 1100px) {
+    .page__furniture {
+        padding: 20% 0;
+    }
+}
+/*///////////////////// furniture content \\\\\\\\\\\\\\\\\\ */
+
+.furniture__content {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+  
+}
+@media (max-width: 1100px) {
+    .furniture__content {
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+    }
+}
+
+
+@media (max-width: 720px) {
+    .furniture__content {
+        align-items: stretch;
+    }
+}
+/*///////////////////// furniture photo \\\\\\\\\\\\\\\\\\ */
+
+.furniture__photo {
+    object-fit: cover;
+    width: 50%;
+    margin-left: 30px;
+    height: 100%;
+    box-shadow:  0px 0px 15px -2px #000;
+}
+
+@media (max-width: 1100px) {
+    .furniture__photo {
+        margin-top: 40px;
+        width: 400px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 570px) {
+    .furniture__photo {
+        width: 100%;
+    }
+}
+
+/*///////////////////// furniture description \\\\\\\\\\\\\\\\\\ */
+
+
+.furniture__description {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15%;
+}
+
+@media (max-width: 1100px) {
+    .furniture__description {
+        padding-left: 0;
+        width: 90%;
+        margin-left: 150px;
+    }
+}
+
+@media (max-width: 720px) {
+    .furniture__description {
+        padding-left: 0;
+        width: 90%;
+        margin-left: 0;
+    }
+}
+
+
+/*///////////////////// furniture title \\\\\\\\\\\\\\\\\\ */
+
+.furniture__title {
+    position: relative;
+    font-size: 2.5rem;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+}
+
+.furniture__title::before {
+    content: "";
+    position: absolute;
+    left: -180px;
+    top: 50%;
+    height: 2px;
+    width: 150px;
+    background-color: var(--grey);
+    transform: translateY(-50%)
+    
+}
+
+@media (max-width: 720px) {
+    .furniture__title::before {
+       display: none;
+    }
+}
+
+/*///////////////////// furniture text \\\\\\\\\\\\\\\\\\ */
+
+.furniture__text {
+    position: relative;
+    margin-top: 20px;
+    font-family: 'ProximaNova', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.furniture__text::before {
+    content: '';
+    position: absolute;
+    left: -80px;
+    top: 5px;
+    height: 5px;
+    width: 50px;
+    background-color: var(--gold);
+}
+
+@media (max-width: 720px) {
+    .furniture__text::before {
+       display: none;
+    }
+}
+/*///////////////////// learn more \\\\\\\\\\\\\\\\\\ */
+
+.furniture__learn-more {
+    position: relative;
+    margin-top: 20px;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    font-size: .8rem;
+}
+
+.furniture__learn-more-arrow {
+    fill: var(--gold);
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 25px;
+    transition: .4s all;
+}
+
+.furniture__learn-more:hover .furniture__learn-more-arrow {
+    left: 130px;
+}

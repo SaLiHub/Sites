@@ -15,10 +15,11 @@
 	position: relative;
 	width: 100%;
 	background-color: #000;
-	font-family: 'ProximaNova', sans-serif;
+	font-family: 'ProximaNova-bold', sans-serif;
 	transition: .3s all;
 	z-index: 1;
 	font-size: 16px;
+	
 }
 
 .opacity_off {
@@ -37,4 +38,9 @@ a {
 @font-face {
 	font-family: 'ProximaNova';
     src: url('../fonts/ProximaNova-Regular.woff');
+}
+
+@font-face {
+	font-family: 'ProximaNova-bold';
+    src: url('../fonts/ProximaNova-Bold.woff');
 }

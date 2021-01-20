@@ -4,11 +4,13 @@ let hamburger = document.querySelector('.header__hamburger'),
     hamburgerMenu = document.querySelector('.header__hamburger-menu'),
     headerCloseSign = document.querySelector('.header__toggle-menu-cross-sign'),
     pageBody = document.querySelector('.page__body'),
-    headerToggleMenuLink = document.querySelectorAll('.header__toggle-menu-link')
+    headerToggleMenuLink = document.querySelectorAll('.header__toggle-menu-link'),
+    headerToggleMenu = document.querySelector('.header__toggle-menu')
 
 // hamburger\\\\\\\\\\\\\\\\\\\\\\\\\
 hamburger.addEventListener('click', ()=> {
     pageBody.style.overflow = "hidden"
+    
     pageBody.classList.add('opacity_off')
     hamburgerMenu.style.cursor = "auto"
     setTimeout(() => {
@@ -22,6 +24,7 @@ hamburger.addEventListener('click', ()=> {
 // hamburger menu\\\\\\\\\\\\\\\\\\\\\\\\\\
 hamburgerMenuText.addEventListener('click', ()=> {
     pageBody.style.overflow = "hidden"
+    
     pageBody.classList.add('opacity_off')
     hamburgerMenu.style.cursor = "auto"
     setTimeout(() => {
@@ -35,9 +38,11 @@ hamburgerMenuText.addEventListener('click', ()=> {
 function closeMenu() {
     pageBody.style.overflow = "visible"
     pageBody.classList.add('opacity_off')
+    
     setTimeout(() => {
         hamburgerMenu.classList.remove('active')
         pageBody.classList.remove('opacity_off')
+        
         }, 500);
     hamburgerMenu.style.cursor = "pointer"
 }
@@ -53,6 +58,15 @@ headerToggleMenuLink.forEach((el) => {
         closeMenu()
     })
 })
+
+
+
+
+
+
+
+
+
 
 // swiper slide
 
@@ -85,7 +99,7 @@ databaseInit().then((answer) => {
         bannerContent.classList.add('banner__content')
         bannerContent.innerHTML = `
         <div class="banner__title-container">
-            <h1 class="banner__title">${jsonBanner['sliderContent'][i]['title']}</h1>
+            <h2 class="banner__title">${jsonBanner['sliderContent'][i]['title']}</h2>
         </div>
         <div class="banner__text-container">
             <p class="banner__text">${jsonBanner['sliderContent'][i]['text']}</p>
@@ -111,10 +125,11 @@ databaseInit().then((answer) => {
       });
       
       window.addEventListener('resize' , () => {
-          console.log(window.innerWidth)
+          
         if(window.innerWidth < 1010) {
             
             if(smallWindow == false) {
+                console.log('small')
                 smallWindow = true
                 location = location
             }
@@ -122,7 +137,9 @@ databaseInit().then((answer) => {
             // set direction to drag
 
         } else {
+            
             if(smallWindow == true) {
+                console.log('big')
                 smallWindow = false
                 location = location
             }
