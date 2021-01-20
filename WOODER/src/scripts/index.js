@@ -75,7 +75,7 @@ const firebaseConfig = {
 databaseInit().then((answer) => {
 
     let jsonBanner = answer.val()
-    console.log(jsonBanner)
+   
 
     let swiperWrapper = document.querySelector('.swiper-wrapper')
     for (let i = 0; i < jsonBanner['sliderContent'].length; i++) {
@@ -94,39 +94,42 @@ databaseInit().then((answer) => {
         swiperSlide.appendChild(bannerContent)
         swiperWrapper.appendChild(swiperSlide)
     }
-    let sliderDirection = 'vertical';
-if(window.innerWidth <= 1000) {
- sliderDirection = 'horizontal'
-
-}
-
-let swiper = new Swiper('.swiper-container', {
-    direction: `${sliderDirection}`,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
-
+   
     
+    let sliderDirection = 'vertical';
+    let smallWindow = false;
+    if(window.innerWidth < 1010) {
+        sliderDirection = 'horizontal'
+        smallWindow = true;
+    }
+    let swiper = new Swiper('.swiper-container', {
+        direction: `${sliderDirection}`,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+      
+      window.addEventListener('resize' , () => {
+          console.log(window.innerWidth)
+        if(window.innerWidth < 1010) {
+            
+            if(smallWindow == false) {
+                smallWindow = true
+                location = location
+            }
+
+            // set direction to drag
+
+        } else {
+            if(smallWindow == true) {
+                smallWindow = false
+                location = location
+            }
+        }
+    })
 })
 
 
-
-
-
-
-// let swiperPaginationBullets = document.querySelectorAll('swiper-pagination-bullet')
-// bannerFirstBackgroundText.innerHTML = '01'
-
-
-
-// console.log('luck1')
-// swiperPaginationBullets.forEach((el,i)=> {
-//     el.addEventListener('click', () => {
-//         bannerFirstBackgroundText.innerHTML = `0${i+1}`
-//         console.log('luck')
-//     })
-// })
 
 
