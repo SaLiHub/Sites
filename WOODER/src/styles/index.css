@@ -2,6 +2,7 @@
 
 @import 'variables.css';
 @import 'blocks/global.css';
+@import 'blocks/main.css';
 @import 'blocks/header.css';
 @import 'blocks/banner.css';
 @import 'blocks/furniture.css';

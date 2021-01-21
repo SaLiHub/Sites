@@ -19,7 +19,7 @@
 	transition: .3s all;
 	z-index: 1;
 	font-size: 16px;
-	
+	filter: grayscale(10%)
 }
 
 .opacity_off {
