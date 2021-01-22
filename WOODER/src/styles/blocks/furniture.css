@@ -16,7 +16,7 @@
     display: flex;
     width: 70%;
     margin: 0 auto;
-  
+    position: relative;
 }
 @media (max-width: 1100px) {
     .furniture__content {
@@ -71,7 +71,7 @@
 @media (max-width: 1100px) {
     .furniture__description {
         padding-left: 0;
-        width: 90%;
+        width: 70%;
         margin-left: 150px;
     }
 }
@@ -79,7 +79,7 @@
 @media (max-width: 720px) {
     .furniture__description {
         padding-left: 0;
-        width: 90%;
+        width: 100%;
         margin-left: 0;
     }
 }
@@ -169,7 +169,40 @@
     left: 130px;
 }
 
+/*////////////////////// furniture number\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
+
+.furniture__number {
+    color: #000;
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.furniture__number::after {
+    content: '';
+    position: absolute;
+    left: 40%;
+    bottom: -30px;
+    height: 5px;
+    width: 50px;
+    transform-origin: left;
+    transform: rotate(90deg) translateY(-50%);
+    background-color: var(--gold);
+}
+
+.furniture__dot {
+    color: var(--gold);
+    font-size: 2rem;
+}
+
+@media (max-width: 789px) {
+    .furniture__number {
+        display: none;
+    }
+}
 
 /* ///////////////////////////////////////////////////////furniture modifier decor\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
@@ -182,6 +215,18 @@
     flex-direction: row-reverse;
 }
 
+@media (max-width: 1100px) {
+    .furniture__content_decor {
+        flex-direction: column;
+    
+    }
+}
+
+@media (max-width: 720px) {
+    .furniture__content_decor {
+        align-items:  flex-end;
+    }
+}
 
 /* ////////////////////decor description\\\\\\\\\\\\\\\\\ */
 
@@ -190,6 +235,22 @@
     padding-right: 15%;
     padding-left: 0;
 }
+
+
+@media (max-width: 1100px) {
+    .furniture__description {
+        padding-right: 0;
+        margin-right: 150px;
+    }
+}
+
+@media (max-width: 720px) {
+    .furniture__description {
+        padding-right: 0;
+        margin-right: 0;
+    }
+}
+
 
 /* ////////////////////decor title\\\\\\\\\\\\\\\\\ */
 
@@ -201,6 +262,7 @@
 
 
 
+
 /* //////////////////decor photo\\\\\\\\\\\\\\\\\ */
 
 .furniture__photo_decor {
@@ -208,6 +270,11 @@
     margin-right: 30px;
 }
 
+@media (max-width: 1100px) {
+    .furniture__photo {
+        margin-right: 0;
+    }
+}
 
 
 /* //////////////////decor text\\\\\\\\\\\\\\\\\ */
@@ -234,4 +301,13 @@
 .furniture__learn-more_decor:hover .furniture__learn-more-arrow_decor {
     left: auto;
     right: -90px;
+}
+
+
+
+/*/////////////////////// decor number\\\\\\\\\\\\\\\\\\\\ */
+
+.furniture__number_decor {
+    left: auto;
+    right: 0;
 }
