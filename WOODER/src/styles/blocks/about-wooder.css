@@ -114,6 +114,7 @@
     transform: translateX(-50%);
     color: #000;
     font-weight: 600;
+    width: 100%;
 }
 
 .about-wooder__video-description::before {
