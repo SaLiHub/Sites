@@ -1,7 +1,7 @@
 
 .main__about-wooder {
     background-color: #fff;
-    padding: 10% 0;
+    padding: 0  0 10%;
 }
 .about-wooder {
     display: flex;
@@ -53,23 +53,14 @@
 
 .about-wooder__videos {
     display: flex;
-    gap: 80px;
     margin-top: 50px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-@media (max-width: 1040px) {
-    .about-wooder__videos {
-        gap: 50px;
-    }
-}
 
-@media (max-width: 960px) {
-    .about-wooder__videos {
-        gap: 30px;
-        justify-content: center;
-    }
-}
+
+
 
 
 
@@ -77,15 +68,33 @@
 
 .about-wooder__video {
     position: relative;
+    margin: 40px;
 }
 
 
-@media (max-width: 561px) {
-    .about-wooder__video  {
-        margin-bottom: 50px;
+@media (max-width: 1040px) {
+    .about-wooder__video {
+        margin: 30px;
+        
     }
-    
+} 
+
+/* @media (max-width: 960px) {
+    .about-wooder__video {
+        margin: 10px;
+    }
+}  */
+
+@media (max-width: 652px) {
+    .about-wooder__video  {
+        margin-bottom: 60px;
+    }
 }
+
+
+/* .about-wooder__video:nth-last-of-type(1) {
+    margin-right: 0;
+} */
 
 /*///////////////// photo \\\\\\\\\\\\\\\\\\\ */
 
