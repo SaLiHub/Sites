@@ -70,7 +70,7 @@
 }
 
 
-@media (max-width: 1040px) {
+/* @media (max-width: 1040px) {
     .about-wooder__video {
         margin: 30px;
         
@@ -81,13 +81,13 @@
     .about-wooder__video {
         margin: 10px;
     }
-}  */
+}   
 
 @media (max-width: 652px) {
     .about-wooder__video  {
         margin-bottom: 60px;
     }
-}
+} */
 
 /*///////////////// photo \\\\\\\\\\\\\\\\\\\ */
 
