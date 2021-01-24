@@ -1,6 +1,5 @@
 .main__furniture {
     padding: 15% 0;
-    
     position: relative;
     z-index: -1;
 }
@@ -13,65 +12,43 @@
 /*/////////////////////  content \\\\\\\\\\\\\\\\\\ */
 
 .furniture__content {
-    display: flex;
-    width: 70%;
     margin: 0 auto;
-    position: relative;
 }
-@media (max-width: 1100px) {
-    .furniture__content {
-        flex-direction: column;
-        align-items: center;
-        margin: 0 auto;
-    }
-}
-
 
 @media (max-width: 720px) {
     .furniture__content {
-        align-items: stretch;
+        
+        align-items: flex-start;
     }
 }
+
 /*/////////////////////  photo \\\\\\\\\\\\\\\\\\ */
 
 .furniture__photo {
-    object-fit: cover;
-    width: 50%;
     margin-left: 30px;
-    height: 100%;
-    box-shadow:  0px 0px 15px -2px #000;
-    filter: grayscale(40%)
 }
 
 @media (max-width: 1100px) {
     .furniture__photo {
         margin-top: 40px;
-        width: 400px;
         margin-left: 0;
     }
 }
 
-@media (max-width: 570px) {
-    .furniture__photo {
-        width: 100%;
-    }
-}
+
+
+
 
 /*/////////////////////  description \\\\\\\\\\\\\\\\\\ */
 
 
 .furniture__description {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     padding-left: 15%;
 }
 
 @media (max-width: 1100px) {
     .furniture__description {
         padding-left: 0;
-        width: 70%;
         margin-left: 150px;
     }
 }
@@ -79,7 +56,6 @@
 @media (max-width: 720px) {
     .furniture__description {
         padding-left: 0;
-        width: 100%;
         margin-left: 0;
     }
 }
@@ -87,16 +63,6 @@
 
 /*/////////////////////  title \\\\\\\\\\\\\\\\\\ */
 
-/* .furniture__title::before {
-    content: "";
-    position: absolute;
-    left: -180px;
-    top: 50%;
-    height: 2px;
-    width: 150px;
-    background-color: var(--grey);
-    transform: translateY(-50%)
-} */
 
 @media (max-width: 720px) {
     .furniture__title::before {
@@ -107,50 +73,28 @@
 /*/////////////////////  text \\\\\\\\\\\\\\\\\\ */
 
 .furniture__text {
-    position: relative;
     margin-top: 20px;
 }
 
-/* .furniture__text::before {
-    content: '';
-    position: absolute;
-    left: -80px;
-    top: 5px;
-    height: 5px;
-    width: 50px;
-    background-color: var(--gold);
-} */
 
 @media (max-width: 720px) {
     .furniture__text::before {
        display: none;
     }
 }
+
 /*///////////////////// learn more \\\\\\\\\\\\\\\\\\ */
 
 .furniture__learn-more-container {
     margin-top: 20px;
-   
 }
 
-.furniture__learn-more {
-    position: relative;
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: .1rem;
-    font-size: .8rem;
-}
 
 .furniture__learn-more-arrow {
-    fill: var(--gold);
     position: absolute;
     top: 50%;
     left: 100px;
     transform: translateY(-50%);
-    width: 50px;
-    height: 25px;
-    transition: .4s all;
-    pointer-events: none;
 }
 
 .furniture__learn-more:hover .furniture__learn-more-arrow {
@@ -161,64 +105,46 @@
 
 
 .furniture__number {
-    color: #000;
-    font-size: 2rem;
-    letter-spacing: .2rem;
     position: absolute;
     left: 0;
     bottom: 0;
 }
 
 .furniture__number::after {
-    content: '';
     position: absolute;
     left: 40%;
     bottom: -30px;
-    height: 5px;
-    width: 50px;
     transform-origin: left;
     transform: rotate(90deg) translateY(-50%);
-    background-color: var(--gold);
 }
 
-.furniture__dot {
-    color: var(--gold);
-    font-size: 2rem;
-}
 
-@media (max-width: 789px) {
-    .furniture__number {
-        display: none;
-    }
-}
-
-/* ///////////////////////////////////////////////////////furniture modifier decor\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+/* /////////////////////////////////////////////////////// decor\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
 
 
 /* ///////////////////decor content\\\\\\\\\\\\\\\\\\\\\ */
 
-.furniture__content_decor {
-    margin-top: 150px;
+.decor__content {
+    margin: 150px auto 0;
     flex-direction: row-reverse;
 }
 
 @media (max-width: 1100px) {
-    .furniture__content_decor {
+    .decor__content {
         flex-direction: column;
-    
     }
 }
 
 @media (max-width: 720px) {
-    .furniture__content_decor {
+    .decor__content {
         align-items:  flex-end;
     }
 }
 
 /* ////////////////////decor description\\\\\\\\\\\\\\\\\ */
 
-.furniture__description_decor {
+.decor__description {
     text-align: right;
     padding-right: 15%;
     padding-left: 0;
@@ -226,14 +152,14 @@
 
 
 @media (max-width: 1100px) {
-    .furniture__description {
+    .decor__description {
         padding-right: 0;
         margin-right: 150px;
     }
 }
 
 @media (max-width: 720px) {
-    .furniture__description {
+    .decor__description {
         padding-right: 0;
         margin-right: 0;
     }
@@ -243,51 +169,72 @@
 /* ////////////////////decor title\\\\\\\\\\\\\\\\\ */
 
 
-.furniture__title_decor::before {
+.decor__title::before {
     left: auto;
     right: -180px;
 }
 
-
-
+@media (max-width: 720px) {
+    .decor__title::before {
+       display: none;
+    }
+}
 
 /* //////////////////decor photo\\\\\\\\\\\\\\\\\ */
 
-.furniture__photo_decor {
+.decor__photo {
     margin-left: 0;
     margin-right: 30px;
 }
 
 @media (max-width: 1100px) {
-    .furniture__photo {
+    .decor__photo {
+        margin-top: 40px;
         margin-right: 0;
     }
 }
 
 
+
+
 /* //////////////////decor text\\\\\\\\\\\\\\\\\ */
 
+.decor__text {
+    margin-top: 20px;
+}
 
+@media (max-width: 720px) {
+    .decor__text::before {
+        display: none;
+    }
+}
 
-.furniture__text_decor::before {
+.decor__text::before {
+    position: absolute;
     left: auto;
     right: -80px;
 }
 
 
-/*///////////////// decor learnmore \\\\\\\\\\\\\\\\*/
-.furniture__learn-more_decor {
+/*///////////////// decor learn more \\\\\\\\\\\\\\\\*/
+
+.decor__learn-more-container {
+    margin-top: 20px;
+}
+
+.decor__learn-more {
     margin-right: 50px;
 }
 
-
-.furniture__learn-more-arrow_decor {
+.decor__learn-more-arrow {
+    position: absolute;
     right: -60px;
     left: auto;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.furniture__learn-more_decor:hover .furniture__learn-more-arrow_decor {
-    left: auto;
+.decor__learn-more:hover .decor__learn-more-arrow {
     right: -90px;
 }
 
@@ -295,7 +242,17 @@
 
 /*/////////////////////// decor number\\\\\\\\\\\\\\\\\\\\ */
 
-.furniture__number_decor {
+.decor__number {
+    position: absolute;
     left: auto;
     right: 0;
+    bottom: 0;
+}
+
+.decor__number::after {
+    position: absolute;
+    left: 40%;
+    bottom: -30px;
+    transform-origin: left;
+    transform: rotate(90deg) translateY(-50%);
 }

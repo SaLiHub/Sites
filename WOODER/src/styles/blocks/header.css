@@ -118,25 +118,6 @@
     margin-left: 30%;
 }
 
-.header__logo {
-    position: relative;
-    font-size: 2rem;
-    color: #fff;
-    text-transform: uppercase;
-    
-    letter-spacing: .5rem;
-}
-
-.header__logo::after {
-    content: '';
-    height: 3px;
-    width: 54.7px;
-    position: absolute;
-    top: 17.5px;
-    left: 37.8px;
-    background-color: var(--gold);
-    border-radius: 1px;
-}
 
 @media (max-width: 1150px) {
     .header__logo-container {

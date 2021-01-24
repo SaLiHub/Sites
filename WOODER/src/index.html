@@ -53,7 +53,7 @@
 
 			<!-- ////////header-logo \\\\\\\\\\ -->
 			<div class="header__logo-container">
-				<p class="header__logo">wooder</p>
+				<span class="logo">wooder</span>
 			</div>
 			
 			
@@ -104,7 +104,7 @@
 							</div>
 						
 							<div class="banner__button-container">
-								<button type="button" class="banner__button">
+								<button type="button" class="banner__button wooder-button">
 									learn more
 										<svg class="banner__button-arrow-right" aria-label="close">
 											<use xlink:href="images/sprite.svg#right-arrow"/>
@@ -158,16 +158,16 @@
 		</section>
 
 		<!-- S///////////////////// SECTION page__furniture\\\\\\\\\\\\\\\\\\\\\\S-->
-		<section class="furniture main__furniture">
-			<div class="furniture__content">
-				<div class="furniture__description">
+		<section class="furniture decor main__furniture">
+			<div class="furniture__content wooder-block-content">
+				<div class="furniture__description wooder-block-content__description">
 					<h3 class="furniture__title wooder-title">furniture</h3>
 					<p class="furniture__text wooder-text">Wooder utilizes materials otherwise left behind, rendered useless in their original intent. By creating new pieces made of reclaimed barnwood</p>
 					
 					<div class="furniture__learn-more-container">
-						<a href="#" class="furniture__learn-more">learn more
-						
-							<svg class="furniture__learn-more-arrow" aria-label="close">
+						<a href="#" class="furniture__learn-more wooder-block-content__learn-more">
+							learn more
+							<svg class="furniture__learn-more-arrow wooder-block-content__learn-more-arrow" aria-label="close">
 								<use xlink:href="images/sprite.svg#right-arrow"/>
 							</svg>
 							
@@ -175,28 +175,28 @@
 					</div>
 					
 				</div>
-				<img class="furniture__photo" src="images/furniture.jpg">
+				<img class="furniture__photo wooder-block-content__photo" src="images/furniture.jpg">
 
 				</img>
-				<span class="furniture__number">01<span class="furniture__dot">.</span></span>
+				<span class="furniture__number wooder-block-content__number">01<span class="wooder-block-content__dot">.</span></span>
 			</div>
-			<div class="furniture__content furniture__content_decor">
-				<div class="furniture__description furniture__description_decor">
-					<h3 class="furniture__title furniture__title_decor wooder-title">decor</h3>
-					<p class="furniture__text furniture__text_decor wooder-text">We make all types of wooden decor as per design given by Architect, Interior designer, contractor which is suitable</p>
-					<div class="furniture__learn-more-container">
-						<a href="#" class="furniture__learn-more furniture__learn-more_decor">learn more
-							<svg class="furniture__learn-more-arrow furniture__learn-more-arrow_decor" aria-label="close">
+			<div class="wooder-block-content decor__content">
+				<div class="wooder-block-content__description decor__description">
+					<h3 class="decor__title wooder-title">decor</h3>
+					<p class="decor__text wooder-text">We make all types of wooden decor as per design given by Architect, Interior designer, contractor which is suitable</p>
+					<div class="decor__learn-more-container">
+						<a href="#" class="wooder-block-content__learn-more decor__learn-more">learn more
+							<svg class="wooder-block-content__learn-more-arrow decor__learn-more-arrow" aria-label="learn more">
 								<use xlink:href="images/sprite.svg#right-arrow"/>
 							</svg>
 						</a>
 					</div>
 				</div>
 
-				<img class="furniture__photo furniture__photo_decor" src="images/decor.jpg">
+				<img class="decor__photo wooder-block-content__photo" src="images/decor.jpg">
 
 				</img>
-				<span class="furniture__number furniture__number_decor">02<span class="furniture__dot">.</span></span>
+				<span class="decor__number wooder-block-content__number">02<span class="wooder-block-content__dot">.</span></span>
 			</div>
 		</section>
 
@@ -241,20 +241,63 @@
 		<section class="wooder-video main__wooder-video" style="background-image: url('images/video-background.jpg');">
 			<div class="wooder-video__content">
 				<div class="wooder-video__description">
+
 					<h3 class="wooder-video__title wooder-title">
 						we do the design of any complexity
 					</h3>
+
 					<p class="wooder-video__text wooder-text">
 						This is a team of professionals that make the furniture and 
 						wood décor high standard. Creating modern designs. 
 						Adhering to the global quality standards. And we are 
-						doing work with love.</p>
+						doing work with love.
+					</p>
+
+					<button class="wooder-video__button wooder-button" type="button" aria-label="watch">
+						<svg class="wooder-video__button-play-icon" aria-label="play">
+							<use xlink:href="images/sprite.svg#play-button-1"/>
+						</svg>
+						watch video
+					</button>
 				</div>
 			</div>
+			<svg class="wooder-video__play-icon">
+				<use xlink:href="images/sprite.svg#play-button-1"/>
+			</svg>
 		</section>
+
+		<!-- S/////////////////////// about us \\\\\\\\\\\\\\\\\\\\\\\\\\\\\S -->
+		<section class="about-us main__about-us">
+			<div class="about-us__content wooder-block-content">
+				<div class="about-us__description wooder-block-content__description">
+					<h3 class="about-us__title wooder-title">furniture</h3>
+					<p class="about-us__text wooder-text">Wooder utilizes materials otherwise left behind, rendered useless in their original intent. By creating new pieces made of reclaimed barnwood</p>
+					
+					<div class="about-us__learn-more-container">
+						<a href="#" class="about-us__learn-more wooder-block-content__learn-more">
+							learn more
+							<svg class="about-us__learn-more-arrow wooder-block-content__learn-more-arrow" aria-label="close">
+								<use xlink:href="images/sprite.svg#right-arrow"/>
+							</svg>
+						</a>
+					</div>
+					
+				</div>
+
+				<img class="about-us__photo wooder-block-content__photo" src="images/about-us-photo.jpg">
+				</img>
+
+			</div>
 	</main>
 
-	<footer class="footer">
+	<footer class="footer" style="background-image: url('images/footer-back.jpg')">
+
+		<div class="footer__content">
+			<span class="footer__copyright">© 2020 wooder</span>
+			<div class="footer__logo-container">
+				<span class="footer__logo logo">wooder</span>
+			</div>
+		</div>
 		
 	</footer>
 	
