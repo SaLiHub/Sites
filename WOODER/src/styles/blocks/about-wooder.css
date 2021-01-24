@@ -109,7 +109,7 @@
 
 .about-wooder__video-description {
     position: absolute;
-    top: 110%;
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
     color: #000;
