@@ -1,16 +1,16 @@
-.page__furniture {
+.main__furniture {
     padding: 15% 0;
-    background-color: #FFF;
+    
     position: relative;
     z-index: -1;
 }
 
 @media (max-width: 1100px) {
-    .page__furniture {
+    .main__furniture {
         padding: 20% 0;
     }
 }
-/*///////////////////// furniture content \\\\\\\\\\\\\\\\\\ */
+/*/////////////////////  content \\\\\\\\\\\\\\\\\\ */
 
 .furniture__content {
     display: flex;
@@ -32,7 +32,7 @@
         align-items: stretch;
     }
 }
-/*///////////////////// furniture photo \\\\\\\\\\\\\\\\\\ */
+/*/////////////////////  photo \\\\\\\\\\\\\\\\\\ */
 
 .furniture__photo {
     object-fit: cover;
@@ -57,7 +57,7 @@
     }
 }
 
-/*///////////////////// furniture description \\\\\\\\\\\\\\\\\\ */
+/*/////////////////////  description \\\\\\\\\\\\\\\\\\ */
 
 
 .furniture__description {
@@ -85,17 +85,9 @@
 }
 
 
-/*///////////////////// furniture title \\\\\\\\\\\\\\\\\\ */
+/*/////////////////////  title \\\\\\\\\\\\\\\\\\ */
 
-.furniture__title {
-    position: relative;
-    font-size: 2.5rem;
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: .3rem;
-}
-
-.furniture__title::before {
+/* .furniture__title::before {
     content: "";
     position: absolute;
     left: -180px;
@@ -104,8 +96,7 @@
     width: 150px;
     background-color: var(--grey);
     transform: translateY(-50%)
-    
-}
+} */
 
 @media (max-width: 720px) {
     .furniture__title::before {
@@ -113,17 +104,14 @@
     }
 }
 
-/*///////////////////// furniture text \\\\\\\\\\\\\\\\\\ */
+/*/////////////////////  text \\\\\\\\\\\\\\\\\\ */
 
 .furniture__text {
     position: relative;
     margin-top: 20px;
-    font-family: 'ProximaNova', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
 }
 
-.furniture__text::before {
+/* .furniture__text::before {
     content: '';
     position: absolute;
     left: -80px;
@@ -131,7 +119,7 @@
     height: 5px;
     width: 50px;
     background-color: var(--gold);
-}
+} */
 
 @media (max-width: 720px) {
     .furniture__text::before {
@@ -169,7 +157,7 @@
     left: 130px;
 }
 
-/*////////////////////// furniture number\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+/*//////////////////////  number\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
 
 .furniture__number {

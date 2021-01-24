@@ -1,0 +1,38 @@
+.wooder-video {
+
+}
+
+.main__wooder-video {
+    padding: 5% 10%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* /////////////// content \\\\\\\\\\\\\ */
+.wooder-video__content {
+    padding: 10% 20%;
+    border: 1px solid var(--gold);
+    height: 100%;
+    display: flex;
+}
+
+/* ////////// descrption \\\\\\\\\\\\\\\\\\ */
+
+.wooder-video__description {
+    margin: auto auto auto 40px;
+    width: 55%;
+}
+
+/* ////////// title \\\\\\\\\\\\\\\\\\ */
+
+.wooder-video__title {
+    color: var(--gold)
+}
+
+/* //////////////// text \\\\\\\\\\\\\\\\\\ */
+
+.wooder-video__text {
+    margin-top: 20px;
+}

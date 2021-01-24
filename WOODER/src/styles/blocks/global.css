@@ -6,10 +6,7 @@
 	padding: 0;
 }
 
-.main {
-	height: 100%;
-	width: 100%;
-}
+
 
 .page__body {
 	position: relative;
@@ -27,13 +24,23 @@
 }
 
 
+.main {
+	height: 100%;
+	width: 100%;
+}
+
+.main_back-color {
+	background-color: #fff;
+}
+
+/* link global */
+
 a {
 	text-decoration: none;
 }
 
-/* a {
-	outline: none;
-} */
+
+/* fonts */
 
 @font-face {
 	font-family: 'ProximaNova';

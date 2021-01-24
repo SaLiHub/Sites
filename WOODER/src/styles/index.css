@@ -2,10 +2,16 @@
 
 @import 'variables.css';
 @import 'blocks/global.css';
+@import 'blocks/wooder-title.css';
+@import 'blocks/wooder-text.css';
 @import 'blocks/main.css';
 @import 'blocks/header.css';
 @import 'blocks/banner.css';
 @import 'blocks/furniture.css';
+@import 'blocks/about-wooder.css';
+@import 'blocks/wooder-video.css';
+
+
 
 
 
