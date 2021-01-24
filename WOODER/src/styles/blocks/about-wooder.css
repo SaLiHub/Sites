@@ -85,14 +85,9 @@
 
 @media (max-width: 652px) {
     .about-wooder__video  {
-        margin-bottom: 60px;
+        margin: 60px;
     }
 }
-
-
-/* .about-wooder__video:nth-last-of-type(1) {
-    margin-right: 0;
-} */
 
 /*///////////////// photo \\\\\\\\\\\\\\\\\\\ */
 
