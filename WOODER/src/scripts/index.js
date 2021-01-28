@@ -86,6 +86,8 @@ const firebaseConfig = {
     return firebase.database().ref('/').once('value')
    } 
 
+   
+
 databaseInit().then((answer) => {
 
     let jsonBanner = answer.val()
@@ -145,8 +147,50 @@ databaseInit().then((answer) => {
             }
         }
     })
+
+    let swiperPaginationBullets = document.querySelectorAll('.swiper-pagination-bullet')
+    let swiperPaginationNumber = document.querySelector('.swiper-container__count-number')
+    let swiperPagination = document.querySelector('.swiper-pagination')
+   
+
+
+    swiperPaginationBullets.forEach((el) => {
+        el.addEventListener('click', () => {
+            swiperPagination.classList.add('changed')
+        })
+    })
+    function changingNumberBullet() {
+        swiperPaginationBullets.forEach((el,i)=> {
+            if(el.classList.contains('swiper-pagination-bullet-active')) {
+                if((i+1 +'').length === 2) {
+                    swiperPaginationNumber.innerHTML = `${i+1}`
+                } else {
+                    swiperPaginationNumber.innerHTML = `0${i+1}`
+                }
+                
+            }
+        })
+    }
+    changingNumberBullet()
+
+    function callback(mutationsList) {
+        console.log(mutationsList,'luck')
+        mutationsList.forEach(mutation => {
+            if (mutation.attributeName === 'class') {
+                
+                changingNumberBullet()
+            }
+        })
+    }
+    
+    
+    const mutationObserver = new MutationObserver(callback) 
+   
+    mutationObserver.observe(
+        swiperPagination,
+        { attributes: true }
+    )
+    
 })
-
-
 
 
