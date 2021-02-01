@@ -343,11 +343,30 @@
     z-index: 10;
   }
 
+
   /* ///////////////// banner-text \\\\\\\\\\\\\\\\\\\\\ */
+
+.banner__text-container {
+
+}
+
+@media (max-width: 550px) {
+    .banner__text-container {
+        height: 480px;
+        overflow: auto;
+    }
+}
+
 .banner__text {
     color: var(--grey);
     padding: 20px 40px;
     font-family: 'ProximaNova', sans-serif;
+}
+
+@media (max-width: 550px) {
+    .banner__text {
+        padding-right: 20px;
+    }
 }
 
 /*/////////////////// swiper-pagination \\\\\\\\\\\\\\\\\\\\*/
