@@ -1,0 +1,158 @@
+
+.main__about-wooder {
+    background-color: #fff;
+    padding: 0  0 10%;
+}
+.about-wooder {
+    display: flex;
+    justify-content: center;
+}
+/*//////////// content \\\\\\\\\\\\\\*/
+
+.about-wooder__content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* ///////////////title\\\\\\\\\\\\\\ */
+
+.about-wooder__title {
+    position: relative;
+}
+
+.about-wooder__title::after {
+    position: absolute;
+    content: '';
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    height: 5px;
+    width: 50px;
+    background-color: var(--gold);
+}
+
+.about-wooder__title::before {
+    display: none;
+}
+
+/*///////////// text \\\\\\\\\\\\\\\\\*/
+
+.about-wooder__text {
+    margin-top: 40px;
+    width: 70%;
+    align-self: center;
+}
+
+.about-wooder__text::before {
+    display: none;
+}
+/*//////////////// videos\\\\\\\\\\\\\\\\ */
+
+.about-wooder__videos {
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+/*///////////////// video \\\\\\\\\\\\\\\\\\\ */
+
+.about-wooder__video {
+    position: relative;
+    margin: 40px;
+}
+
+
+/* @media (max-width: 1040px) {
+    .about-wooder__video {
+        margin: 30px;
+        
+    }
+} 
+
+/* @media (max-width: 960px) {
+    .about-wooder__video {
+        margin: 10px;
+    }
+}   
+
+@media (max-width: 652px) {
+    .about-wooder__video  {
+        margin-bottom: 60px;
+    }
+} */
+
+/*///////////////// photo \\\\\\\\\\\\\\\\\\\ */
+
+.about-wooder__photo {
+    border: 1px solid #E8E8E8;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.about-wooder__photo:hover + .about-wooder__video-play-container{
+    transform: translate(-50%,-50%) scale(1.2);
+}
+
+
+
+
+/*/////////// video description \\\\\\\\\\\\\\\\\\*/
+
+.about-wooder__video-description {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000;
+    font-weight: 600;
+    width: 100%;
+}
+
+.about-wooder__video-description::before {
+    position: absolute;
+    content: '';
+    left: 50%;
+    transform: translateX(-50%);
+    top: -15px;
+    height: 1px;
+    width: 30px;
+    background-color: var(--gold);
+}
+
+/* ////////////////// video play \\\\\\\\\\\\\\\\ */
+
+.about-wooder__video-play-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 27%;
+    width: 27%;
+    display: flex;
+    border-radius: 50%;
+    background-color: rgba(190, 166, 124, .8);
+    transition: .4s all;
+    cursor: pointer;
+    border: none;
+}
+
+.about-wooder__video-play-container:hover{
+    transform: translate(-50%,-50%) scale(1.2);
+}
+
+
+.about-wooder__video-play {
+    margin: auto auto auto 24px;
+    width: 40%;
+    height: 40%;
+    fill: #fff;
+}

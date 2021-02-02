@@ -1,0 +1,45 @@
+*,
+::after,
+::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+.page__body {
+	position: relative;
+	width: 100%;
+	background-color: #000;
+	font-family: 'ProximaNova-bold', sans-serif;
+	transition: .3s all;
+	z-index: 1;
+	font-size: 16px;
+	filter: grayscale(10%)
+}
+
+.opacity_off {
+	opacity: 0;
+}
+
+
+
+/* link global */
+
+a {
+	text-decoration: none;
+}
+
+
+/* fonts */
+
+@font-face {
+	font-family: 'ProximaNova';
+    src: url('../fonts/ProximaNova-Regular.woff');
+}
+
+@font-face {
+	font-family: 'ProximaNova-bold';
+    src: url('../fonts/ProximaNova-Bold.woff');
+}

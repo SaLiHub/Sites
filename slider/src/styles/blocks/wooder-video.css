@@ -1,0 +1,126 @@
+.wooder-video {
+
+}
+
+.main__wooder-video {
+    position: relative;
+    padding: 5% 10%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* /////////////// content icon \\\\\\\\\\\\\\\ */
+.wooder-video__play-icon {
+    position: absolute;
+    right: -200px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: var(--grey);
+    opacity: .1;
+    height: 95%;
+    width: 70%;
+}
+
+@media (max-width: 900px) {
+    .wooder-video__play-icon {
+        display: none;
+    } 
+}
+/* /////////////// content \\\\\\\\\\\\\ */
+.wooder-video__content {
+    padding: 10% 20%;
+    border: 1px solid var(--gold);
+    height: 100%;
+    display: flex;
+}
+
+@media (max-width: 530px) {
+    .wooder-video__content{
+        padding: 10% 10%;
+    } 
+}
+
+
+
+/* ////////// descrption \\\\\\\\\\\\\\\\\\ */
+
+.wooder-video__description {
+    margin: auto auto auto 40px;
+    width: 50%;
+}
+
+@media (max-width: 1300px) {
+    .wooder-video__description {
+    width: 70%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .wooder-video__description {
+    width: 80%;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .wooder-video__description {
+    width: 100%;
+    margin-left: 0;
+    }
+}
+/* ////////// title \\\\\\\\\\\\\\\\\\ */
+
+.wooder-video__title {
+    color: var(--gold)
+}
+
+@media (max-width: 910px) {
+    .wooder-video__title::before {
+        display: none;
+    } 
+}
+
+/* //////////////// text \\\\\\\\\\\\\\\\\\ */
+
+.wooder-video__text {
+    margin-top: 20px;
+}
+
+@media (max-width: 910px) {
+    .wooder-video__text::before {
+        display: none;
+    } 
+}
+
+/* //////////////// button \\\\\\\\\\\\\\\\\\ */
+
+.wooder-video__button {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+@media (max-width: 645px) {
+    .wooder-video__button {
+        width: 100%;
+    }
+}
+
+/* ////////////// play icon  \\\\\\\\\\\\\\\\\\*/
+
+.wooder-video__button-play-icon {
+    fill: #fff;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    
+}
+
+
+
+
