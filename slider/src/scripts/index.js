@@ -1,47 +1,91 @@
 (() => {
-    let sliderSlides = document.querySelectorAll('.slider__slide'),
-        sliderPagination = document.querySelector('.slider__pagination'),
-        slides = document.querySelector('#slides'),
-        slider = document.querySelector('.slider'),
+    let slider = document.querySelector('.slider'),
+        sliderContainer = document.querySelector('.slider-container'),
+        sliderWrapper = document.querySelector('#slider-wrapper'),
+        slides = document.querySelectorAll('#slide'),
         pressed = false,
         startX,
-        scrollLeft
+        x,
+        slidePosition = 0,
+        numberOfSlide = 0,
+        prevSliderButton = document.querySelector('#prev'),
+        nextSliderButton = document.querySelector('#next')
      
+    // setting active slide
+        slides[0].classList.add('active-slide')
 
-
+    const slideWidth = slides[0].offsetWidth
 
     const end = (e) => {
+
+       if(pressed && x < 0 && numberOfSlide < slides.length -1) {
+        nextSlider()
+       } else if(pressed && x > 0 && numberOfSlide > 0) {
+        prevSlider()
+       }
        pressed = false;
-       slides.classList.remove('active')
+       sliderContainer.style.cursor = 'pointer';
     }
 
     const start = (e) => {
-        slides.classList.add('active')
         pressed = true;
-        startX = e.offsetX;
-        scrollLeft = slides.scrollLeft;
+        startX = e.pageX;
+        sliderContainer.style.cursor = 'grab'
+    
     }
 
     const move = (e) => {
         if(!pressed) return;
         e.preventDefault();
-       const  x = e.pageX;
-       const dist = x - startX;
-        slides.scrollLeft = scrollLeft - dist;
         
+        const dist = e.pageX - startX;
+        if(dist > 0 && slides[0].classList.contains('active-slide')) return;
+        if(dist < 0 && slides[slides.length - 1].classList.contains('active-slide')) return;
+        x = dist;
+        
+        sliderWrapper.style.transform = `translate(-${slidePosition - dist}px)`
     }
 
+    const prevSlider = () => {
+        numberOfSlide--
+        slides[numberOfSlide+1].classList.remove('active-slide');
+        slides[numberOfSlide].classList.add('active-slide');
+        slidePosition -= slideWidth;
+        sliderWrapper.style.transform = `translate(-${slidePosition}px)`;
+        sliderWrapper.style.transitionDuration  = '300ms';
+    }
+
+    const nextSlider = () => {
+        numberOfSlide++
+        slidePosition += slideWidth;
+        sliderWrapper.style.transform = `translate(-${slidePosition}px)`;
+        sliderWrapper.style.transitionDuration  = '300ms';
+        slides[numberOfSlide-1].classList.remove('active-slide');
+        slides[numberOfSlide].classList.add('active-slide');
+    }
 
     (() => {
-        slider.addEventListener('mousedown', start);
-        slider.addEventListener('touchstart', start);
-    
-        slider.addEventListener('mousemove', move);
-        slider.addEventListener('touchmove', move);
-    
-        slider.addEventListener('mouseleave', end);
-        slider.addEventListener('mouseup', end);
-        slider.addEventListener('touchend', end);
+        sliderWrapper.addEventListener('transitionend', () => {
+            sliderWrapper.style.transitionDuration  = '0ms';
+          });
+        sliderContainer.addEventListener('mousedown', start);
+     
+        sliderContainer.addEventListener('mousemove', move);
+
+        sliderContainer.addEventListener('mouseleave', end);
+        sliderContainer.addEventListener('mouseup', end);
+
+
+        prevSliderButton.addEventListener('click', () => {
+            if(!slides[0].classList.contains('active-slide')) {
+                prevSlider()
+            }
+        })
+        nextSliderButton.addEventListener('click', () => {
+            if(!slides[slides.length-1].classList.contains('active-slide')) {
+                nextSlider()
+            }
+        })
     })();
     
 })()
