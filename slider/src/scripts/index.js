@@ -1,8 +1,8 @@
 (() => {
-    let slider = document.querySelector('.slider'),
-        sliderContainer = document.querySelector('.slider-container'),
-        sliderWrapper = document.querySelector('#slider-wrapper'),
+    let sliderContainer = document.querySelector('#sliderContainer'),
+        sliderWrapper = document.querySelector('#sliderWrapper'),
         slides = document.querySelectorAll('#slide'),
+        sliderPagination = document.querySelector('#sliderPagination'),
         pressed = false,
         startX,
         x,
@@ -15,6 +15,43 @@
         slides[0].classList.add('active-slide')
 
     const slideWidth = slides[0].offsetWidth
+
+    // pagination
+
+    for (let i = 0; i < slides.length; i++) {
+        let el = document.createElement('span')
+        el.classList.add('bullet')
+        sliderPagination.appendChild(el)
+    }
+
+    const bullets = document.querySelectorAll('.bullet')
+    
+        for (let i = 0; i < bullets.length; i++) {
+            bullets[i].addEventListener('click', () => {
+                slidePosition = slideWidth*i;
+                sliderWrapper.style.transform = `translate(-${slidePosition}px)`;
+                sliderWrapper.style.transitionDuration  = '300ms';
+                document.querySelector('.active-slide').classList.remove('active-slide');
+               
+                slides[i].classList.add('active-slide');
+                numberOfSlide = i;
+            })
+        }
+   
+        
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
 
     const end = (e) => {
 
@@ -47,21 +84,22 @@
     }
 
     const prevSlider = () => {
+        console.log('luck')
         numberOfSlide--
+        slidePosition = slideWidth*numberOfSlide;
         slides[numberOfSlide+1].classList.remove('active-slide');
         slides[numberOfSlide].classList.add('active-slide');
-        slidePosition -= slideWidth;
         sliderWrapper.style.transform = `translate(-${slidePosition}px)`;
         sliderWrapper.style.transitionDuration  = '300ms';
     }
 
     const nextSlider = () => {
         numberOfSlide++
-        slidePosition += slideWidth;
-        sliderWrapper.style.transform = `translate(-${slidePosition}px)`;
-        sliderWrapper.style.transitionDuration  = '300ms';
+        slidePosition = slideWidth*numberOfSlide;
         slides[numberOfSlide-1].classList.remove('active-slide');
         slides[numberOfSlide].classList.add('active-slide');
+        sliderWrapper.style.transform = `translate(-${slidePosition}px)`;
+        sliderWrapper.style.transitionDuration  = '300ms';
     }
 
     (() => {

@@ -80,3 +80,24 @@ body {
     background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronRight-512.png);
     right: -20px;
   }
+
+  /* pagination */
+  .slider__pagination {
+    position: absolute;
+    display: flex;
+    bottom: 5px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bullet {
+    width: 20px;
+    height: 20px;
+    background-color: #7656d6;
+    border-radius: 50%;
+    margin: 10px 5px;
+  }
+
+  /* .bullet:nth-last-of-type(1) {
+    margin: 10px;
+  } */
