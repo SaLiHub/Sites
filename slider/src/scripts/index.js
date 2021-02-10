@@ -13,7 +13,7 @@
      
     // setting active slide
         slides[0].classList.add('active-slide')
-
+       
     const slideWidth = slides[0].offsetWidth
 
     // pagination
@@ -24,16 +24,18 @@
         sliderPagination.appendChild(el)
     }
 
-    const bullets = document.querySelectorAll('.bullet')
-    
+    const bullets = document.querySelectorAll('.bullet');
+
+    bullets[0].classList.add('active-bullet');
         for (let i = 0; i < bullets.length; i++) {
             bullets[i].addEventListener('click', () => {
                 slidePosition = slideWidth*i;
                 sliderWrapper.style.transform = `translate(-${slidePosition}px)`;
                 sliderWrapper.style.transitionDuration  = '300ms';
                 document.querySelector('.active-slide').classList.remove('active-slide');
-               
+                document.querySelector('.active-bullet').classList.remove('active-bullet');
                 slides[i].classList.add('active-slide');
+                bullets[i].classList.add('active-bullet');
                 numberOfSlide = i;
             })
         }
@@ -89,6 +91,8 @@
         slidePosition = slideWidth*numberOfSlide;
         slides[numberOfSlide+1].classList.remove('active-slide');
         slides[numberOfSlide].classList.add('active-slide');
+        bullets[numberOfSlide+1].classList.remove('active-bullet');
+        bullets[numberOfSlide].classList.add('active-bullet');
         sliderWrapper.style.transform = `translate(-${slidePosition}px)`;
         sliderWrapper.style.transitionDuration  = '300ms';
     }
@@ -98,6 +102,8 @@
         slidePosition = slideWidth*numberOfSlide;
         slides[numberOfSlide-1].classList.remove('active-slide');
         slides[numberOfSlide].classList.add('active-slide');
+        bullets[numberOfSlide-1].classList.remove('active-bullet');
+        bullets[numberOfSlide].classList.add('active-bullet');
         sliderWrapper.style.transform = `translate(-${slidePosition}px)`;
         sliderWrapper.style.transitionDuration  = '300ms';
     }
