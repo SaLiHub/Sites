@@ -90,13 +90,15 @@ const firebaseConfig = {
 
 databaseInit().then((answer) => {
 
-    let jsonBanner = answer.val()
-   
+    let jsonBanner = answer.val(),
+        sliderWrapper = document.querySelector('#sliderWrapper'),
+        sliderDirection = 'vertical',
+        smallWindow = false;
 
-    let swiperWrapper = document.querySelector('.swiper-wrapper')
     for (let i = 0; i < jsonBanner['sliderContent'].length; i++) {
         let swiperSlide = document.createElement('div')
-        swiperSlide.classList.add('swiper-slide')
+        swiperSlide.classList.add('slider-slide')
+        swiperSlide.id = "slide"
         let bannerContent = document.createElement('div')
         bannerContent.classList.add('banner__content')
         bannerContent.innerHTML = `
@@ -108,89 +110,313 @@ databaseInit().then((answer) => {
         </div>
         `
         swiperSlide.appendChild(bannerContent)
-        swiperWrapper.appendChild(swiperSlide)
+        sliderWrapper.appendChild(swiperSlide)
     }
    
     
-    let sliderDirection = 'vertical';
-    let smallWindow = false;
+    
     if(window.innerWidth < 1010) {
         sliderDirection = 'horizontal'
         smallWindow = true;
     }
-    let swiper = new Swiper('.swiper-container', {
-        direction: `${sliderDirection}`,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      });
-      
-      window.addEventListener('resize' , () => {
+
+
+
+    
+const sliderWooder = (() => {
+    let sliderContainer = document.querySelector('#sliderContainer'),
+    sliderWrapper = document.querySelector('#sliderWrapper'),
+    slides = document.querySelectorAll('#slide'),
+    sliderPagination = document.querySelector('#sliderPagination'),
+    pressed = false,
+    slidePosition = 0,
+    numberOfSlide = 0,
+    prevSliderButton = document.querySelector('#prev'),
+    nextSliderButton = document.querySelector('#next'),
+    startY,
+    y,
+    slideHeight = slides[0].offsetHeight,
+    startX,
+    x,
+    slideWidth = slides[0].offsetWidth;
+
+    
+    
+
+    
+    // setting active slide
+    (() => {
+        slides[numberOfSlide].classList.add('active-slide');
+        if(sliderDirection === "horizontal") {
+            slidePosition = slideWidth*numberOfSlide;
+            sliderWrapper.style.transform = `translate3d(-${slidePosition}px, 0, 0)`;
+        } else if (sliderDirection === "vertical") {
+            slidePosition = slideHeight*numberOfSlide;
+            sliderWrapper.style.transform = `translate3d(0, -${slidePosition}px, 0)`;
+        }
+        
+    })();
+
+
+    const end = (e) => {
+
+    if(pressed && y < 0 && numberOfSlide < slides.length -1) {
+        nextSlider()
+    } else if(pressed && y > 0 && numberOfSlide > 0) {
+        prevSlider()
+    }
+    pressed = false;
+    sliderContainer.style.cursor = 'pointer';
+    }
+
+    const start = (e) => {
+        pressed = true;
+        startY = e.pageY;
+        sliderContainer.style.cursor = 'grab'
+    
+    }
+
+    const move = (e) => {
+        if(!pressed) return;
+        e.preventDefault();
+
+        if(sliderDirection === "horizontal") {
+            const dist = e.pageX - startX;
+            if(dist > 0 && slides[0].classList.contains('active-slide')) return;
+            if(dist < 0 && slides[slides.length - 1].classList.contains('active-slide')) return;
+            x = dist;
+            sliderWrapper.style.transform = `translate3d(-${slidePosition - dist}px, 0, 0)`
+        } else if (sliderDirection === "vertical") {
+            const dist = e.pageY - startY;
+            if(dist > 0 && slides[0].classList.contains('active-slide')) return;
+            if(dist < 0 && slides[slides.length - 1].classList.contains('active-slide')) return;
+            y = dist;
+            sliderWrapper.style.transform = `translate3d(0, -${slidePosition - dist}px, 0)`
+        }
+    }
+
+    const prevSlider = () => {
+        numberOfSlide--
+        if(sliderDirection === "horizontal") {
+            slidePosition = slideWidth*numberOfSlide;
+            sliderWrapper.style.transform = `translate3d(-${slidePosition}px, 0, 0)`;
+        } else if (sliderDirection === "vertical") {
+            slidePosition = slideHeight*numberOfSlide;
+            sliderWrapper.style.transform = `translate3d(0, -${slidePosition}px, 0)`;
+        }
+        slides[numberOfSlide+1].classList.remove('active-slide');
+        slides[numberOfSlide].classList.add('active-slide');
+        bullets[numberOfSlide+1].classList.remove('active-bullet');
+        bullets[numberOfSlide].classList.add('active-bullet');
+        sliderWrapper.style.transitionDuration  = '300ms';
+    }
+
+    const nextSlider = () => {
+        numberOfSlide++
+        if(sliderDirection === "horizontal") {
+            slidePosition = slideWidth*numberOfSlide;
+            sliderWrapper.style.transform = `translate3d(-${slidePosition}px, 0, 0)`;
+        } else if (sliderDirection === "vertical") {
+            slidePosition = slideHeight*numberOfSlide;
+            sliderWrapper.style.transform = `translate3d(0, -${slidePosition}px, 0)`;
+        }
+        slides[numberOfSlide-1].classList.remove('active-slide');
+        slides[numberOfSlide].classList.add('active-slide');
+        bullets[numberOfSlide-1].classList.remove('active-bullet');
+        bullets[numberOfSlide].classList.add('active-bullet');
+        sliderWrapper.style.transitionDuration  = '300ms';
+    }
+
+    sliderWrapper.addEventListener('transitionend', () => {
+        sliderWrapper.style.transitionDuration  = '0ms';
+    });
+    sliderContainer.addEventListener('mousedown', start);
+
+    sliderContainer.addEventListener('mousemove', move);
+
+    sliderContainer.addEventListener('mouseleave', end);
+    sliderContainer.addEventListener('mouseup', end);
+
+    // arrows
+
+    // prevSliderButton.addEventListener('click', () => {
+    //     if(!slides[0].classList.contains('active-slide')) {
+    //         prevSlider()
+    //     }
+    // })
+    // nextSliderButton.addEventListener('click', () => {
+    //     if(!slides[slides.length-1].classList.contains('active-slide')) {
+    //         nextSlider()
+    //     }
+    // })
+
+    
+
+    // pagination 
+
+    for (let i = 0; i < slides.length; i++) {
+        let el = document.createElement('span')
+        el.classList.add('slider-pagination-bullet')
+        sliderPagination.appendChild(el)
+    }
+
+    // creating pagination bullets
+    const bullets = document.querySelectorAll('.slider-pagination-bullet');
+    bullets[numberOfSlide].classList.add('active-bullet');
+
+    // adding eventListeners for pagination bullets
+    for (let i = 0; i < bullets.length; i++) {
+        bullets[i].addEventListener('click', () => {
+            
+            if(sliderDirection === "horizontal") {
+                slidePosition = slideWidth*i;
+                sliderWrapper.style.transform = `translate3d(-${slidePosition}px, 0, 0)`;
+            } else if (sliderDirection === "vertical") {
+                slidePosition = slideHeight*i;
+                sliderWrapper.style.transform = `translate3d(0, -${slidePosition}px, 0)`;
+            }
+            sliderWrapper.style.transitionDuration  = '300ms';
+            document.querySelector('.active-slide').classList.remove('active-slide');
+            document.querySelector('.active-bullet').classList.remove('active-bullet');
+            slides[i].classList.add('active-slide');
+            bullets[i].classList.add('active-bullet');
+            numberOfSlide = i;
+        })
+    }
+
+})()
+
+    // function changingNumberBullet() {
+    //     swiperPaginationBullets.forEach((el,i)=> {
+    //         if(el.classList.contains('swiper-pagination-bullet-active')) {
+    //             if((i+1 +'').length === 2) {
+    //                 swiperPaginationNumber.innerHTML = `${i+1}`
+    //             } else {
+    //                 swiperPaginationNumber.innerHTML = `0${i+1}`
+    //             }
+                
+    //         }
+    //     })
+    // }
+    // changingNumberBullet()
+
+    // function callback(mutationsList) {
+       
+    //     mutationsList.forEach(mutation => {
+    //         if (mutation.attributeName === 'class') {
+                
+    //             changingNumberBullet()
+    //         }
+    //     })
+    // }
+    
+    
+    // const mutationObserver = new MutationObserver(callback) 
+   
+    // mutationObserver.observe(
+    //     swiperPagination,
+    //     { attributes: true }
+    // )
+    
+
+    
+    window.addEventListener('resize' , () => {
           
         if(window.innerWidth < 1010) {
             
             if(smallWindow == false) {
-                console.log('small')
+              
                 smallWindow = true
                 location = location
             }
 
-            // set direction to drag
+            
 
         } else {
             
             if(smallWindow == true) {
-                console.log('big')
+               
                 smallWindow = false
                 location = location
             }
         }
     })
 
-    let swiperPaginationBullets = document.querySelectorAll('.swiper-pagination-bullet')
-    let swiperPaginationNumber = document.querySelector('.swiper-container__count-number')
-    let swiperPagination = document.querySelector('.swiper-pagination')
-   
 
 
-    swiperPaginationBullets.forEach((el) => {
-        el.addEventListener('click', () => {
-            swiperPagination.classList.add('changed')
-        })
-    })
-    function changingNumberBullet() {
-        swiperPaginationBullets.forEach((el,i)=> {
-            if(el.classList.contains('swiper-pagination-bullet-active')) {
-                if((i+1 +'').length === 2) {
-                    swiperPaginationNumber.innerHTML = `${i+1}`
-                } else {
-                    swiperPaginationNumber.innerHTML = `0${i+1}`
-                }
-                
-            }
-        })
-    }
-    changingNumberBullet()
 
-    function callback(mutationsList) {
-        console.log(mutationsList,'luck')
-        mutationsList.forEach(mutation => {
-            if (mutation.attributeName === 'class') {
-                
-                changingNumberBullet()
-            }
-        })
-    }
-    
-    
-    const mutationObserver = new MutationObserver(callback) 
-   
-    mutationObserver.observe(
-        swiperPagination,
-        { attributes: true }
-    )
-    
 })
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+
+    // let swiperPaginationBullets = document.querySelectorAll('.swiper-pagination-bullet')
+    // let swiperPaginationNumber = document.querySelector('.swiper-container__count-number')
+    // let swiperPagination = document.querySelector('.swiper-pagination')
+   
+
+
+    // swiperPaginationBullets.forEach((el) => {
+    //     el.addEventListener('click', () => {
+    //         swiperPagination.classList.add('changed')
+    //     })
+    // })
+    // function changingNumberBullet() {
+    //     swiperPaginationBullets.forEach((el,i)=> {
+    //         if(el.classList.contains('swiper-pagination-bullet-active')) {
+    //             if((i+1 +'').length === 2) {
+    //                 swiperPaginationNumber.innerHTML = `${i+1}`
+    //             } else {
+    //                 swiperPaginationNumber.innerHTML = `0${i+1}`
+    //             }
+                
+    //         }
+    //     })
+    // }
+    // changingNumberBullet()
+
+    // function callback(mutationsList) {
+    //    
+    //     mutationsList.forEach(mutation => {
+    //         if (mutation.attributeName === 'class') {
+                
+    //             changingNumberBullet()
+    //         }
+    //     })
+    // }
+    
+    
+    // const mutationObserver = new MutationObserver(callback) 
+   
+    // mutationObserver.observe(
+    //     swiperPagination,
+    //     { attributes: true }
+    // )

@@ -4,8 +4,7 @@
     <title>WOODER</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- swiper -->
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	
 	<!-- main css -->
     <link rel="stylesheet" href="styles/index.css">
 </head>
@@ -94,9 +93,9 @@
 
 		<section class="banner main__banner">
 			
-			<div class="swiper-container">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
+			<div id="sliderContainer" class="slider-container">
+				<div id="sliderWrapper" class="slider-wrapper">
+					<div id="slide" class="slider-slide">
 						<!--////////////// banner content \\\\\\\\\\\\\\-->
 						<div class="banner__content">
 							<div class="banner__title-container">
@@ -136,15 +135,16 @@
 						</div>
 
 					</div>
+
 					
 				</div>	
 
-				
-					<span class="swiper-container__count-number"></span>
+				<!-- slider count -->
+				<span class="swiper-container__count-number"></span>
 					
 				
-				<!-- Add Pagination -->
-				<div class="swiper-pagination" id="swiper-pagination_id"></div>
+				<!-- pagination -->
+				<div id="sliderPagination" class="slider-pagination"></div>
 			</div>
 			
 			<!--////////////// banner fitst background \\\\\\\\\\\\\\-->
@@ -304,8 +304,7 @@
 		
 	</footer>
 	
-	<!-- swiper -->
-	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	
 	
 	<!-- firebase datebase -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.3/firebase-app.min.js"></script>
