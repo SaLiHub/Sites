@@ -192,11 +192,17 @@ sliderWrapper.addEventListener('transitionend', () => {
     sliderWrapper.style.transitionDuration  = '0ms';
 });
 sliderContainer.addEventListener('mousedown', start);
+sliderContainer.addEventListener('touchstart', start);
 
 sliderContainer.addEventListener('mousemove', move);
+sliderContainer.addEventListener('touchend', move);
 
 sliderContainer.addEventListener('mouseleave', end);
+sliderContainer.addEventListener('touchcancel', end);
+
 sliderContainer.addEventListener('mouseup', end);
+sliderContainer.addEventListener('touchmove', end);
+
 
 // arrows
 
