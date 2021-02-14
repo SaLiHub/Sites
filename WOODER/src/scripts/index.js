@@ -320,11 +320,16 @@ const sliderWooder = (() => {
         sliderWrapper.style.transitionDuration  = '0ms';
     });
     sliderContainer.addEventListener('mousedown', start);
+    sliderContainer.addEventListener('touchstart', start);
 
     sliderContainer.addEventListener('mousemove', move);
+    sliderContainer.addEventListener('touchmove', move);
 
     sliderContainer.addEventListener('mouseleave', end);
+    sliderContainer.addEventListener('touchend', end);
+
     sliderContainer.addEventListener('mouseup', end);
+    sliderContainer.addEventListener('touchcancel', end);
 
     // arrows
 
