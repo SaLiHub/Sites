@@ -12,17 +12,17 @@
     transition-duration: 0ms;
     white-space: nowrap;
     height: 100%;
-    width: 100%;
-    /* backface-visibility: hidden; */
-    
+    width: 100%;  
   } 
    .slider-slide {
     height: 100%;
     cursor: inherit;
     display: inline-block;
     white-space: normal;
-
     min-width: 100%;
+    backface-visibility: hidden;
+    transform: translateZ(0) scale(1, 1);
+    -webkit-transform: translateZ(0) scale(1, 1);
   } 
  
   .slider-pagination {
@@ -60,9 +60,10 @@
     min-height: 100%;
     cursor: inherit;
     display: block;
-    background: #FFCF47;
     width: 100%;
-    font-size: 36px;
+    backface-visibility: hidden;
+    transform: translateZ(0) scale(1, 1);
+    -webkit-transform: translateZ(0) scale(1, 1);
   }  
   
   .slider__pagination {
@@ -93,6 +94,16 @@
 
 
 
+/* counter */
+
+.count-number {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  font-size: 20px;
+  text-align: center;
+  color: var(--gold);
+}
 
 
 

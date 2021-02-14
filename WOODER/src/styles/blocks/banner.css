@@ -380,23 +380,27 @@
 /*/////////////////// slider-pagination \\\\\\\\\\\\\\\\\\\\*/
 .slider-pagination {
     position: absolute;
-    left: 100px;
+    left: 110px;
     top: 50%;
-    transform: translate3d(0, -50%, 0);
-    height: 100%;
+    transform: translate3d(0, -20%, 0);
+    bottom: auto;
 }
 
 @media (max-width: 1500px) {
     .slider-pagination {
-        left: 50px;
+        left: 60px;
         
     }
 }
 
 @media (max-width: 1009px) {
     .slider-pagination {
-        left: 0;
+        left: 50%;
         top: auto;
+        bottom: 0;
+        transform: translate3d(-50%, 0, 0);
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -406,75 +410,59 @@
     height: 15px;  
     background-color: var(--gold);
     border-radius: 50%;
-    margin: 5px 10px;
+    margin: 50px 10px;
     transition: 300ms all;
     cursor: pointer;
     opacity: .2;
-  }
+}
 
-  .active-bullet {
+@media (max-width: 1009px) {
+    .slider-pagination-bullet {
+        margin: 10px 50px;
+        display: inline-block;
+    }
+}
+
+.active-bullet {
     opacity: 1;
     transform: scale(1.2);
-  }
-
-
-
-/* .swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet {    
-    margin-top: 20px;
-}
-
-@media (max-width: 1009px) {
-    .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
-        margin: 0 4px;
-    }
 }
 
 
-.swiper-slide {
-    opacity: 0;
-    transition: .3s all;
-}
 
-.swiper-slide-active {
-    opacity: 1;
-}
+/* counter */
 
-/* swiper pagination number */
-
-/* .swiper-container__count-number {
-    display: inline-block;
+.count-number {
     position: absolute;
-    top: 300px;
-    left: 210px;
-    font-size: 4rem;
-    color: var(--gold);
-    transform: rotate(90deg);
-    letter-spacing: .4rem;
-    line-height: 30px;
-    width: 100px;
-    height: 40px;
+    right: auto;
+    bottom: auto;
+    left: 100px;
+    top: 25%;
+    transform: translate3d(0, -50%, 0) rotate(90deg);
+    font-size: 5rem;
+    max-width: 50px;
 }
 
-.swiper-container__count-number::before {
+.count-number::after {
     content: '';
     position: absolute;
-    top: 30%;
-    left: -80px;
+    right: -120px;
+    width: 50px;
     height: 5px;
-    width: 60px;
     background-color: var(--gold);
-
-}
+    top: 50%;
+    transform: translateY(-50%);
+} 
 
 @media (max-width: 1500px) {
-    .swiper-container__count-number {
-        left: 0;
+    .count-number {
+        left: 50px;
+        
     }
 }
 
-
 @media (max-width: 1009px) {
-    .swiper-container__count-number {
+    .count-number {
         display: none;
     }
-}  */
+}
