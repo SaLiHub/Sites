@@ -1,14 +1,12 @@
 (() => {
-    const sliderDirection = "vertical",
+    const sliderDirection = "horizontal",
     sliderContainer = document.querySelector('#sliderContainer'),
     sliderWrapper = document.querySelector('#sliderWrapper'),
     slides = document.querySelectorAll('#slide'),
     sliderPagination = document.querySelector('#sliderPagination'),
     counter = document.querySelector('#countNumber'),
     prevSliderButton = document.querySelector('#prev'),
-    nextSliderButton = document.querySelector('#next'),
-    slideHeight = slides[0].offsetHeight,
-    slideWidth = slides[0].offsetWidth;
+    nextSliderButton = document.querySelector('#next');
 
     let pressed = false,
     slidePosition = 0,
@@ -16,7 +14,9 @@
     startY,
     y,
     startX,
-    x;
+    x,
+    slideHeight = slides[0].offsetHeight,
+    slideWidth = slides[0].offsetWidth;
     
 
 // counter
@@ -108,7 +108,7 @@ sliderContainer.style.cursor = 'pointer';
 }
 
 const start = (e) => {
-   
+   if(e.buttons === 2) return;
     pressed = true;
     if(sliderDirection === "horizontal") { 
         startX = e.pageX;
@@ -211,4 +211,9 @@ sliderContainer.addEventListener('mouseup', end);
 //     }
 // })
 
+    window.addEventListener('resize', () => {
+        slideHeight = slides[0].offsetHeight,
+        slideWidth = slides[0].offsetWidth;
+    })
+   
 })()
