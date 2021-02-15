@@ -19,15 +19,19 @@
     slideWidth = slides[0].offsetWidth;
     
 
-// counter
+    // adding transparent highlight
+   
+        sliderContainer.classList.add('highlight-transparent');
+    
+    // counter
 
-(() => {
-    if(numberOfSlide+1 >= 10) {
-        counter.innerHTML = `${numberOfSlide+1}`
-    } else {
-        counter.innerHTML = `0${numberOfSlide+1}`
-    }
-})()
+    (() => {
+        if(numberOfSlide+1 >= 10) {
+            counter.innerHTML = `${numberOfSlide+1}`
+        } else {
+            counter.innerHTML = `0${numberOfSlide+1}`
+        }
+    })()
 
     
 // pagination
@@ -81,6 +85,9 @@ for (let i = 0; i < slides.length; i++) {
     
  })();
 
+
+
+
  const start = (e) => {
      
     if(e.buttons === 2) return;
@@ -118,7 +125,7 @@ for (let i = 0; i < slides.length; i++) {
 }
 
  const end = (e) => {
-    
+   
     if(sliderDirection === "horizontal") {
         if(pressed && x < 0) {
             
@@ -134,14 +141,23 @@ for (let i = 0; i < slides.length; i++) {
             prevSlider() 
         }
     }
-
-
-
-
-
-pressed = false;
-sliderContainer.style.cursor = 'pointer';
+    pressed = false;
+    sliderContainer.style.cursor = 'pointer';
 }
+
+
+window.addEventListener('resize', () => {
+    slideHeight = slides[0].offsetHeight;
+    if(sliderDirection === "horizontal") {
+        slideWidth = slides[0].offsetWidth;
+        slidePosition = slideWidth*numberOfSlide;
+        sliderWrapper.style.transform = `translate3d(-${slidePosition}px, 0, 0)`
+    } else {
+        slideHeight = slides[0].offsetHeight;
+        slidePosition = slideHeight*numberOfSlide;
+        sliderWrapper.style.transform = `translate3d(0, -${slidePosition}px, 0)`
+    }
+})
 
 
 const prevSlider = () => {
@@ -191,37 +207,35 @@ const nextSlider = () => {
     }
 }
 
+
+
 sliderWrapper.addEventListener('transitionend', () => {
     sliderWrapper.style.transitionDuration  = '0ms';
 });
 
-if(window.PointerEvent) {
-    console.log('luck')
-    sliderContainer.addEventListener('pointerdown', start);
+
     
+    sliderContainer.addEventListener('pointerdown', start);
+    sliderContainer.addEventListener('mousedown', start);
+    // sliderContainer.addEventListener('touchstart', start);
     
     sliderContainer.addEventListener('pointermove', move);
-    
+    sliderContainer.addEventListener('mousemove', move);
+    // sliderContainer.addEventListener('touchmove', move);
    
     sliderContainer.addEventListener('pointerup', end);
-    
-    
-    sliderContainer.addEventListener('pointercancel', end);
-} else {
-    sliderContainer.addEventListener('mousedown', start);
-    sliderContainer.addEventListener('touchstart', start);
-    
-    sliderContainer.addEventListener('mousemove', move);
-    sliderContainer.addEventListener('touchmove', move);
-    
-    sliderContainer.addEventListener('mouseleave', end);
-    sliderContainer.addEventListener('touchend', end);
-    
     sliderContainer.addEventListener('mouseup', end);
-    sliderContainer.addEventListener('touchcancel', end);
-}
+    // sliderContainer.addEventListener('touchcancel', end);
+
+    sliderContainer.addEventListener('mouseleave', end);
+    sliderContainer.addEventListener('pointercancel', end);
+    // sliderContainer.addEventListener('touchend', end);
+   
+    
 
 
+
+ 
 // arrows
 
 // prevSliderButton.addEventListener('click', () => {
@@ -235,9 +249,6 @@ if(window.PointerEvent) {
 //     }
 // })
 
-    window.addEventListener('resize', () => {
-        slideHeight = slides[0].offsetHeight,
-        slideWidth = slides[0].offsetWidth;
-    })
+    
    
 })()
