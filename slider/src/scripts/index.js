@@ -81,46 +81,22 @@ for (let i = 0; i < slides.length; i++) {
     
  })();
 
- const end = (e) => {
-    console.log('scroll')
-    if(sliderDirection === "horizontal") {
-        if(pressed && x < 0) {
-            console.log(pressed)
-            nextSlider()
-        } else if((pressed && x > 0)){
-            console.log(pressed)
-            prevSlider() 
-        }
-    } else if (sliderDirection === "vertical") {
-        if(pressed && y < 0) {
-            nextSlider()
-        } else if((pressed && y > 0)){
-            prevSlider() 
-        }
-    }
-
-
-
-
-
-pressed = false;
-sliderContainer.style.cursor = 'pointer';
-}
-
-const start = (e) => {
-   if(e.buttons === 2) return;
-    pressed = true;
-    if(sliderDirection === "horizontal") { 
-        startX = e.pageX;
-    } else if (sliderDirection === "vertical") {
-        startY = e.pageY;
-    }
+ const start = (e) => {
+     
+    if(e.buttons === 2) return;
+     pressed = true;
+     if(sliderDirection === "horizontal") { 
+         startX = e.pageX;
+     } else if (sliderDirection === "vertical") {
+         startY = e.pageY;
+     }
+     
+     sliderContainer.style.cursor = 'grab'
     
-    sliderContainer.style.cursor = 'grab'
-   
-}
+ }
 
-const move = (e) => {
+
+ const move = (e) => {
     if(!pressed) return;
     e.preventDefault();
 
@@ -140,6 +116,33 @@ const move = (e) => {
         sliderWrapper.style.transform = `translate3d(0, -${slidePosition - dist}px, 0)`
     }
 }
+
+ const end = (e) => {
+    
+    if(sliderDirection === "horizontal") {
+        if(pressed && x < 0) {
+            
+            nextSlider()
+        } else if((pressed && x > 0)){
+            
+            prevSlider() 
+        }
+    } else if (sliderDirection === "vertical") {
+        if(pressed && y < 0) {
+            nextSlider()
+        } else if((pressed && y > 0)){
+            prevSlider() 
+        }
+    }
+
+
+
+
+
+pressed = false;
+sliderContainer.style.cursor = 'pointer';
+}
+
 
 const prevSlider = () => {
     if(slides[0].classList.contains('active-slide')) return;
@@ -191,17 +194,32 @@ const nextSlider = () => {
 sliderWrapper.addEventListener('transitionend', () => {
     sliderWrapper.style.transitionDuration  = '0ms';
 });
-sliderContainer.addEventListener('mousedown', start);
-sliderContainer.addEventListener('touchstart', start);
 
-sliderContainer.addEventListener('mousemove', move);
-sliderContainer.addEventListener('touchmove', move);
-
-sliderContainer.addEventListener('mouseleave', end);
-sliderContainer.addEventListener('touchend', end);
-
-sliderContainer.addEventListener('mouseup', end);
-sliderContainer.addEventListener('touchcancel', end);
+if(window.PointerEvent) {
+    console.log('luck')
+    sliderContainer.addEventListener('pointerdown', start);
+    
+    
+    sliderContainer.addEventListener('pointermove', move);
+    
+   
+    sliderContainer.addEventListener('pointerup', end);
+    
+    
+    sliderContainer.addEventListener('pointercancel', end);
+} else {
+    sliderContainer.addEventListener('mousedown', start);
+    sliderContainer.addEventListener('touchstart', start);
+    
+    sliderContainer.addEventListener('mousemove', move);
+    sliderContainer.addEventListener('touchmove', move);
+    
+    sliderContainer.addEventListener('mouseleave', end);
+    sliderContainer.addEventListener('touchend', end);
+    
+    sliderContainer.addEventListener('mouseup', end);
+    sliderContainer.addEventListener('touchcancel', end);
+}
 
 
 // arrows
