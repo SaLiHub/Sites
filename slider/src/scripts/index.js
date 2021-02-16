@@ -5,8 +5,9 @@
     slides = document.querySelectorAll('#slide'),
     sliderPagination = document.querySelector('#sliderPagination'),
     counter = document.querySelector('#countNumber'),
-    prevSliderButton = document.querySelector('#prev'),
-    nextSliderButton = document.querySelector('#next');
+    prevSlideButton = document.querySelector('#prev'),
+    nextSlideButton = document.querySelector('#next');
+    
 
     let pressed = false,
     slidePosition = 0,
@@ -16,8 +17,7 @@
     startX,
     x,
     slideHeight = sliderContainer.offsetHeight,
-    slideWidth = sliderContainer.offsetWidth,
-    decrement = 0.2;
+    slideWidth = sliderContainer.offsetWidth;
     
     
     
@@ -110,64 +110,82 @@ for (let i = 0; i < slides.length; i++) {
  const move = (e) => {
     if(!pressed) return;
     e.preventDefault();
-   
+   console.log(pressed)
     if(sliderDirection === "horizontal") {
         const dist = e.pageX - startX;
-        if(dist > 0 && slides[0].classList.contains('active-slide')) {
-            decrement += 0.576;
-            // console.log(decrement)
-            sliderWrapper.style.transform = `translate3d(${-(slidePosition - (dist - decrement))}px, 0, 0)`
+
+        
+        if(dist > 0 && slides[0].classList.contains('active-slide') || dist < 0 && slides[slides.length - 1].classList.contains('active-slide')) {
+            const decrement = 2.2;
+            sliderWrapper.style.transform = `translate3d(${-(slidePosition - dist / decrement)}px, 0, 0)`
+            x = dist;
         } else {
             x = dist;
         
             sliderWrapper.style.transform = `translate3d(${-(slidePosition - dist)}px, 0, 0)`
         }
-        // if(dist < 0 && slides[slides.length - 1].classList.contains('active-slide')) return;
        
        
     } else if (sliderDirection === "vertical") {
         const dist = e.pageY - startY;
    
-        if(dist < 0 && slides[slides.length - 1].classList.contains('active-slide')) {
-            decrement += 0.576;
-            console.log(decrement)
-            sliderWrapper.style.transform = `translate3d(0,${-(slidePosition - (dist - decrement))}px, 0)`
+        if(dist > 0 && slides[0].classList.contains('active-slide') || dist < 0 && slides[slides.length - 1].classList.contains('active-slide')) {
+
+            const decrement = 2.2;
+            sliderWrapper.style.transform = `translate3d(0,${-(slidePosition - dist / decrement)}px, 0)`
+            y = dist;
         }else {
             y = dist;
             sliderWrapper.style.transform = `translate3d(0, ${-(slidePosition - dist)}px, 0)`
         };
-        
-        y = dist;
-        sliderWrapper.style.transform = `translate3d(0, ${-(slidePosition - dist)}px, 0)`
     }
+    
 }
 
  const end = (e) => {
-     if(!pressed) return;
-   
+    if(!pressed) return;
+   console.log("luck")
 
-    if(numberOfSlide + 1 === slides.length || numberOfSlide === 0) {
-        
-        currentSlide()
-    }
+    
+    
     
     if(sliderDirection === "horizontal") {
-        if(pressed && x > 0 && !slides[0].classList.contains('active-slide')){
-    
-            prevSlider() 
-        } else if(pressed && x < 0 && !slides[slides.length - 1].classList.contains('active-slide')) {
-            nextSlider()
+        if(Math.abs(x) < (slideWidth / 4)) {
+            currentSlide()
+            pressed = false;
+            console.log('0')
+            return
+            
+       }
+
+        if(x > 0 && !slides[0].classList.contains('active-slide')){
+            prevSlide();
+            console.log('1')
+             
+        } else if(x > 0 && slides[0].classList.contains('active-slide')) {
+            currentSlide()
+            console.log('2')
+           
+        }
+        if(x < 0 && !slides[slides.length - 1].classList.contains('active-slide')) {
+            nextSlide()
+            console.log('3')
+           
+        } else if(x < 0 && slides[slides.length - 1].classList.contains('active-slide')) {
+            currentSlide()
+            console.log('4')
+            
         }
     } else if (sliderDirection === "vertical") {
-        if(pressed && y > 0 && !slides[0].classList.contains('active-slide')) {
-            prevSlider() 
-        } else if((pressed && y < 0 && !slides[slides.length - 1].classList.contains('active-slide'))){
-            nextSlider()
+        if(y > 0 && !slides[0].classList.contains('active-slide')) {
+            prevSlide() 
+        } else if((y < 0 && !slides[slides.length - 1].classList.contains('active-slide'))){
+            nextSlide()
         }
     }
     
     pressed = false;
-    decrement = 0.2;
+    // console.log(pressed)
 }
 
 
@@ -197,7 +215,7 @@ const currentSlide = () => {
     
 }
 
-const prevSlider = () => {
+const prevSlide = () => {
     
     numberOfSlide--
     if(sliderDirection === "horizontal") {
@@ -221,7 +239,7 @@ const prevSlider = () => {
     }
 }
 
-const nextSlider = () => {
+const nextSlide = () => {
     
     numberOfSlide++
     if(sliderDirection === "horizontal") {
@@ -285,14 +303,14 @@ sliderWrapper.addEventListener('transitionend', () => {
  
 // arrows
 
-// prevSliderButton.addEventListener('click', () => {
+// prevSlideButton.addEventListener('click', () => {
 //     if(!slides[0].classList.contains('active-slide')) {
-//         prevSlider()
+//         prevSlide()
 //     }
 // })
-// nextSliderButton.addEventListener('click', () => {
+// nextSlideButton.addEventListener('click', () => {
 //     if(!slides[slides.length-1].classList.contains('active-slide')) {
-//         nextSlider()
+//         nextSlide()
 //     }
 // })
 
