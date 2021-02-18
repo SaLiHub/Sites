@@ -10,6 +10,7 @@
     
 
     let pressed = false,
+    slideDuplicate,
     slidePosition = 0,
     numberOfSlide = 0,
     startY,
@@ -17,7 +18,17 @@
     startX,
     x,
     slideHeight = sliderContainer.offsetHeight,
-    slideWidth = sliderContainer.offsetWidth;
+    slideWidth = sliderContainer.offsetWidth,
+    startOfHolding,
+    endOfHolding,
+    moved = false,
+    interruption = false,
+    interruptionCount = 0,
+    nextSlideExecution,
+    prevSlideExecution,
+    transition,
+    nextSlideExecuted = false,
+    prevSlideExecuted = false;
     
     
     
@@ -88,22 +99,41 @@ for (let i = 0; i < slides.length; i++) {
  })();
 
 
-let startTime,
-    endingTime; 
+
 
  const start = (e) => {
-    sliderWrapper.style.transitionDuration  = '0ms';
-    startTime = new Date().getTime();
     if(e.buttons === 2) return;
+    console.log('start')
+    
+    startOfHolding = new Date().getTime();
+    
+    interruption = false;
+    if(slideDuplicate === numberOfSlide) {
+        interruption
+    }
      pressed = true;
     
      if(sliderDirection === "horizontal") { 
          startX = e.pageX;
+         const timeStop = startOfHolding - endOfHolding;
+         if(transition) {
+             console.log(numberOfSlide)
+             interruption = true;
+             const speed = (slideWidth - Math.abs(x)) / 300;
+             const distance = timeStop * speed;
+            if(nextSlideExecution) {
+                slidePosition = slidePosition + (distance + Math.abs(x)) - slideWidth;
+            } else if(prevSlideExecution){
+                slidePosition = slidePosition - (distance + Math.abs(x)) + slideWidth;
+            }
+             sliderWrapper.style.transform = `translate3d(${-(slidePosition)}px, 0, 0)`;
+         }
+
      } else if (sliderDirection === "vertical") {
          startY = e.pageY;
      }
      
-    
+     sliderWrapper.style.transitionDuration  = '0ms';
     
  }
 
@@ -111,7 +141,7 @@ let startTime,
  const move = (e) => {
     if(!pressed) return;
     e.preventDefault();
-  
+    
     if(sliderDirection === "horizontal") {
         const dist = e.pageX - startX;
 
@@ -122,7 +152,7 @@ let startTime,
             x = dist;
         } else {
             x = dist;
-        
+            
             sliderWrapper.style.transform = `translate3d(${-(slidePosition - dist)}px, 0, 0)`
         }
        
@@ -140,79 +170,84 @@ let startTime,
             sliderWrapper.style.transform = `translate3d(0, ${-(slidePosition - dist)}px, 0)`
         };
     }
-    
+    moved = true;
 }
 
  const end = (e) => {
+    console.log('end1')
     if(!pressed) return;
+    pressed = false;
+    endOfHolding = new Date().getTime();
+    console.log('end2')
+    if(!moved && !interruption) return;
+    moved = false;
+    transition = true;
+    console.log('end')
    
-   endingTime = new Date().getTime();
-   const timeDiff = Math.floor(((endingTime - startTime) % (1000 * 60)) / 100);
-   
+   const timeDiff = endOfHolding - startOfHolding;
+  
     
     if(sliderDirection === "horizontal") {
-        if(Math.abs(x) < (slideWidth / 2) && timeDiff > 5) {
+        if(Math.abs(x) < (slideWidth / 2) && timeDiff > 200 && !interruption) {
+            console.log('end3')
             currentSlide()
             pressed = false;
-            ('1')
             return
        }
+       if(interruption && prevSlideExecuted && x > 0 ) {
+            currentSlide()
+            return
+       } else if(interruption && nextSlideExecuted && x < 0) {
+            currentSlide()
+            return
+       }
+            
 
         if(x > 0 && !slides[0].classList.contains('active-slide')){
-            ('2')
+            console.log('end4')
+           
             prevSlide();
-            
              
         } else if(x > 0 && slides[0].classList.contains('active-slide')) {
-            ('3')
+
             currentSlide()
             
+        } else if(x < 0 && !slides[slides.length - 1].classList.contains('active-slide')) {
+            console.log('end5')
            
-        }
-        if(x < 0 && !slides[slides.length - 1].classList.contains('active-slide')) {
-            ('4')
             nextSlide()
-            
            
         } else if(x < 0 && slides[slides.length - 1].classList.contains('active-slide')) {
-            ('5')
             currentSlide()
-            
             
         }
+
     } else if (sliderDirection === "vertical") {
-        if(Math.abs(y) < (slideHeight / 2) && timeDiff > 5) {
+        if(Math.abs(y) < (slideHeight / 2) && timeDiff > 200) {
             currentSlide()
             pressed = false;
-            
             return
        }
 
         if(y > 0 && !slides[0].classList.contains('active-slide')){
-            
             prevSlide();
             
              
         } else if(y > 0 && slides[0].classList.contains('active-slide')) {
-            
             currentSlide()
             
            
-        }
-        if(y < 0 && !slides[slides.length - 1].classList.contains('active-slide')) {
-            
+        } else if(y < 0 && !slides[slides.length - 1].classList.contains('active-slide')) {
             nextSlide()
             
            
         } else if(y < 0 && slides[slides.length - 1].classList.contains('active-slide')) {
-            
             currentSlide()
-            
-            
+    
         }
     }
     
-    pressed = false;
+    
     
 }
 
@@ -258,7 +293,11 @@ const prevSlide = () => {
     bullets[numberOfSlide+1].classList.remove('active-bullet');
     bullets[numberOfSlide].classList.add('active-bullet');
     sliderWrapper.style.transitionDuration  = '300ms';
-
+    endOfHolding = new Date().getTime();
+    prevSlideExecution = true;
+    prevSlideExecuted = true;
+    nextSlideExecution = false;
+    nextSlideExecuted = false;
     // counter
     if(numberOfSlide+1 >= 10) {
         counter.innerHTML = `${numberOfSlide+1}`
@@ -282,7 +321,12 @@ const nextSlide = () => {
     bullets[numberOfSlide-1].classList.remove('active-bullet');
     bullets[numberOfSlide].classList.add('active-bullet');
     sliderWrapper.style.transitionDuration  = '300ms';
-
+    endOfHolding = new Date().getTime();
+    prevSlideExecution = false;
+    prevSlideExecuted = false;
+    nextSlideExecution = true;
+    nextSlideExecuted = true;
+  
     // counter
     if(numberOfSlide+1 >= 10) {
         counter.innerHTML = `${numberOfSlide+1}`

@@ -46,7 +46,8 @@ body {
    .slider-wrapper {
 
     display: flex;
-    transition-duration: 0ms;
+    transition-timing-function: linear;
+    transition-property: transform;
     white-space: nowrap;
     height: 100%;
     width: 100%;
