@@ -71,7 +71,7 @@ for (let i = 0; i < slides.length; i++) {
                 slidePosition = slideHeight*i;
                 sliderWrapper.style.transform = `translate3d(0, ${-slidePosition}px, 0)`;
             }
-            sliderWrapper.style.transitionDuration  = '301ms';
+            sliderWrapper.style.transitionDuration  = '300ms';
             document.querySelector('.active-slide').classList.remove('active-slide');
             document.querySelector('.active-bullet').classList.remove('active-bullet');
             slides[i].classList.add('active-slide');
@@ -103,7 +103,7 @@ for (let i = 0; i < slides.length; i++) {
 let numberOFInterceptions = 0;
  const start = (e) => {
     if(e.buttons === 2) return;
-//     console.log(numberOFInterceptions)
+    
 //     console.log(slidePosition," slidePosition")
 // console.log(slideWidth,numberOfSlide ," slidePosition*numberOfSlide")
     
@@ -119,7 +119,7 @@ let numberOFInterceptions = 0;
     } else {
         transition = false;
         if(slidePosition === slideWidth*numberOfSlide) {
-            // console.log("bad luck")
+            
             numberOFInterceptions = 0;
         }
         
@@ -134,15 +134,35 @@ let numberOFInterceptions = 0;
          startX = e.pageX;
          const timeStop = startOfHolding - endOfHolding;
          if(transition) {
+            console.log("transition true")
+            console.log(prevSlideExecution, "prev")
+            console.log(nextSlideExecution, "next")
+
+
              interception = true;
              const speed = (slideWidth - Math.abs(x)) / 300;
              const distance = timeStop * speed;
-            if(nextSlideExecution && !slides[slides.length - 1].classList.contains('active-slide')) {
-                console.log('right')
-                slidePosition = slidePosition + (distance + Math.abs(x)) - slideWidth;
-            } else if(prevSlideExecution && !slides[0].classList.contains('active-slide')){
-                console.log('left')
-                slidePosition = slidePosition - (distance + Math.abs(x)) + slideWidth;
+            if(nextSlideExecution) {
+
+                if(slides[slides.length - 1].classList.contains('active-slide')) {
+                    console.log(x)
+                     slidePosition = slidePosition + (Math.abs(x) - (Math.abs(x) / 300) * timeStop);
+                     console.log(slidePosition)
+                 } else {
+                     console.log('luck')
+                    slidePosition = slidePosition + (distance + Math.abs(x)) - slideWidth;
+                 }
+                
+            } else if(prevSlideExecution){
+                
+                if(slides[0].classList.contains('active-slide')) {
+                   console.log(x)
+                    slidePosition =  (Math.abs(x) / 300) * timeStop - Math.abs(x) ;
+                    
+                } else {
+                    slidePosition = slidePosition - (distance + Math.abs(x)) + slideWidth;
+                }
+                
             }
             
              sliderWrapper.style.transform = `translate3d(${-(slidePosition)}px, 0, 0)`;
@@ -164,12 +184,18 @@ let numberOFInterceptions = 0;
     
     if(sliderDirection === "horizontal") {
         const dist = e.pageX - startX;
-
-        
+      
+        if(dist > 0) {
+            prevSlideExecution  = true;
+            nextSlideExecution = false;
+        } else {
+            prevSlideExecution  = false;
+            nextSlideExecution = true;
+        }
         if(dist > 0 && slides[0].classList.contains('active-slide') || dist < 0 && slides[slides.length - 1].classList.contains('active-slide')) {
             const decrement = 2.2;
             sliderWrapper.style.transform = `translate3d(${-(slidePosition - dist / decrement)}px, 0, 0)`
-            x = dist;
+            x = dist / decrement;
         } else {
             x = dist;
             
