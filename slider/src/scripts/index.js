@@ -22,8 +22,8 @@
     startOfHolding,
     endOfHolding,
     moved = false,
-    interruption = false,
-    interruptionCount = 0,
+    interception = false,
+    interceptionCount = 0,
     nextSlideExecution,
     prevSlideExecution,
     transition,
@@ -71,7 +71,7 @@ for (let i = 0; i < slides.length; i++) {
                 slidePosition = slideHeight*i;
                 sliderWrapper.style.transform = `translate3d(0, ${-slidePosition}px, 0)`;
             }
-            sliderWrapper.style.transitionDuration  = '300ms';
+            sliderWrapper.style.transitionDuration  = '301ms';
             document.querySelector('.active-slide').classList.remove('active-slide');
             document.querySelector('.active-bullet').classList.remove('active-bullet');
             slides[i].classList.add('active-slide');
@@ -100,35 +100,55 @@ for (let i = 0; i < slides.length; i++) {
 
 
 
-
+let numberOFInterceptions = 0;
  const start = (e) => {
     if(e.buttons === 2) return;
-    console.log('start')
+//     console.log(numberOFInterceptions)
+//     console.log(slidePosition," slidePosition")
+// console.log(slideWidth,numberOfSlide ," slidePosition*numberOfSlide")
     
+    if(sliderWrapper.style.transitionDuration  === '300ms') {
+        
+        numberOFInterceptions += 1;
+            
+            if(numberOFInterceptions === 2) {
+                return
+            } 
+        transition = true;
+        
+    } else {
+        transition = false;
+        if(slidePosition === slideWidth*numberOfSlide) {
+            // console.log("bad luck")
+            numberOFInterceptions = 0;
+        }
+        
+
+    }
     startOfHolding = new Date().getTime();
     
-    interruption = false;
-    if(slideDuplicate === numberOfSlide) {
-        interruption
-    }
-     pressed = true;
+    interception = false;
+    pressed = true;
     
      if(sliderDirection === "horizontal") { 
          startX = e.pageX;
          const timeStop = startOfHolding - endOfHolding;
          if(transition) {
-             console.log(numberOfSlide)
-             interruption = true;
+             interception = true;
              const speed = (slideWidth - Math.abs(x)) / 300;
              const distance = timeStop * speed;
-            if(nextSlideExecution) {
+            if(nextSlideExecution && !slides[slides.length - 1].classList.contains('active-slide')) {
+                console.log('right')
                 slidePosition = slidePosition + (distance + Math.abs(x)) - slideWidth;
-            } else if(prevSlideExecution){
+            } else if(prevSlideExecution && !slides[0].classList.contains('active-slide')){
+                console.log('left')
                 slidePosition = slidePosition - (distance + Math.abs(x)) + slideWidth;
             }
+            
              sliderWrapper.style.transform = `translate3d(${-(slidePosition)}px, 0, 0)`;
          }
 
+         
      } else if (sliderDirection === "vertical") {
          startY = e.pageY;
      }
@@ -174,37 +194,38 @@ for (let i = 0; i < slides.length; i++) {
 }
 
  const end = (e) => {
-    console.log('end1')
+   
+   
     if(!pressed) return;
     pressed = false;
     endOfHolding = new Date().getTime();
-    console.log('end2')
-    if(!moved && !interruption) return;
+    
+    if(!moved && !interception) return;
     moved = false;
     transition = true;
-    console.log('end')
+    
    
    const timeDiff = endOfHolding - startOfHolding;
   
     
     if(sliderDirection === "horizontal") {
-        if(Math.abs(x) < (slideWidth / 2) && timeDiff > 200 && !interruption) {
-            console.log('end3')
+        if(Math.abs(x) < (slideWidth / 2) && timeDiff > 200 && !interception) {
+            
             currentSlide()
             pressed = false;
             return
        }
-       if(interruption && prevSlideExecuted && x > 0 ) {
+       if(interception && prevSlideExecuted && x > 0 ) {
             currentSlide()
             return
-       } else if(interruption && nextSlideExecuted && x < 0) {
+       } else if(interception && nextSlideExecuted && x < 0) {
             currentSlide()
             return
        }
             
 
         if(x > 0 && !slides[0].classList.contains('active-slide')){
-            console.log('end4')
+           
            
             prevSlide();
              
@@ -213,7 +234,7 @@ for (let i = 0; i < slides.length; i++) {
             currentSlide()
             
         } else if(x < 0 && !slides[slides.length - 1].classList.contains('active-slide')) {
-            console.log('end5')
+           
            
             nextSlide()
            
