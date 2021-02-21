@@ -1,8 +1,8 @@
 (() => {
-    const sliderDirection = "horizontal",
+    const sliderDirection = "vertical",
     sliderContainer = document.querySelector('#sliderContainer'),
     sliderWrapper = document.querySelector('#sliderWrapper'),
-    slides = document.querySelectorAll('#slide'),
+    slides = document.querySelectorAll('.slider-slide'),
     sliderPagination = document.querySelector('#sliderPagination'),
     counter = document.querySelector('#countNumber'),
     prevSlideButton = document.querySelector('#prev'),
@@ -28,7 +28,9 @@
     prevSlideExecution,
     transition,
     nextSlideExecuted = false,
-    prevSlideExecuted = false;
+    prevSlideExecuted = false,
+    prevActiveSlide,
+    nextActiveSlide;
     
     
     
@@ -103,60 +105,61 @@ for (let i = 0; i < slides.length; i++) {
 let numberOFInterceptions = 0;
  const start = (e) => {
     if(e.buttons === 2) return;
-    
-//     console.log(slidePosition," slidePosition")
-// console.log(slideWidth,numberOfSlide ," slidePosition*numberOfSlide")
-    
-    if(sliderWrapper.style.transitionDuration  === '300ms') {
-        
-        numberOFInterceptions += 1;
-            
-            if(numberOFInterceptions === 2) {
-                return
-            } 
-        transition = true;
-        
-    } else {
-        transition = false;
-        if(slidePosition === slideWidth*numberOfSlide) {
-            
-            numberOFInterceptions = 0;
-        }
-        
-
-    }
     startOfHolding = new Date().getTime();
-    
     interception = false;
     pressed = true;
     
+    
+    if(sliderWrapper.style.transitionDuration  === '300ms') {
+        numberOFInterceptions += 1;
+            if(numberOFInterceptions >= 2 
+                && !slides[0].classList.contains('active-slide') 
+                && !slides[slides.length - 1].classList.contains('active-slide')
+            ) return
+            
+        transition = true;
+        
+    } else {
+       
+        transition = false;
+        if(slidePosition === slideWidth*numberOfSlide 
+        || slidePosition === slideHeight*numberOfSlide)
+        {
+            numberOFInterceptions = 0; 
+            nextActiveSlide = false;
+            prevActiveSlide = false;
+        }
+         
+        
+        
+
+    }
+    
+    
      if(sliderDirection === "horizontal") { 
+         
          startX = e.pageX;
          const timeStop = startOfHolding - endOfHolding;
          if(transition) {
-            console.log("transition true")
-            console.log(prevSlideExecution, "prev")
-            console.log(nextSlideExecution, "next")
-
-
+            
              interception = true;
              const speed = (slideWidth - Math.abs(x)) / 300;
              const distance = timeStop * speed;
             if(nextSlideExecution) {
 
-                if(slides[slides.length - 1].classList.contains('active-slide')) {
-                    console.log(x)
+                if(slides[slides.length - 1].classList.contains('active-slide') && !nextActiveSlide) {
+                    
                      slidePosition = slidePosition + (Math.abs(x) - (Math.abs(x) / 300) * timeStop);
-                     console.log(slidePosition)
+                    
                  } else {
-                     console.log('luck')
+                     
                     slidePosition = slidePosition + (distance + Math.abs(x)) - slideWidth;
                  }
                 
             } else if(prevSlideExecution){
-                
-                if(slides[0].classList.contains('active-slide')) {
-                   console.log(x)
+               
+                if(slides[0].classList.contains('active-slide') && !prevActiveSlide) {
+                 
                     slidePosition =  (Math.abs(x) / 300) * timeStop - Math.abs(x) ;
                     
                 } else {
@@ -170,20 +173,52 @@ let numberOFInterceptions = 0;
 
          
      } else if (sliderDirection === "vertical") {
+         console.log('luck')
          startY = e.pageY;
+         const timeStop = startOfHolding - endOfHolding;
+         if(transition) {
+            
+             interception = true;
+             const speed = (slideHeight - Math.abs(y)) / 300;
+             const distance = timeStop * speed;
+            if(nextSlideExecution) {
+
+                if(slides[slides.length - 1].classList.contains('active-slide') && !nextActiveSlide) {
+                    
+                     slidePosition = slidePosition + (Math.abs(y) - (Math.abs(y) / 300) * timeStop);
+                    
+                 } else {
+                     
+                    slidePosition = slidePosition + (distance + Math.abs(y)) - slideHeight;
+                 }
+                
+            } else if(prevSlideExecution){
+               
+                if(slides[0].classList.contains('active-slide') && !prevActiveSlide) {
+                 
+                    slidePosition =  (Math.abs(y) / 300) * timeStop - Math.abs(y) ;
+                    
+                } else {
+                    slidePosition = slidePosition - (distance + Math.abs(y)) + slideHeight;
+                }
+                
+            }
+            console.log("end")
+             sliderWrapper.style.transform = `translate3d(0, ${-(slidePosition)}px, 0)`;
+         }
      }
      
      sliderWrapper.style.transitionDuration  = '0ms';
-    
  }
 
 
  const move = (e) => {
     if(!pressed) return;
     e.preventDefault();
-    
+  
     if(sliderDirection === "horizontal") {
         const dist = e.pageX - startX;
+        if(dist === 0) return
       
         if(dist > 0) {
             prevSlideExecution  = true;
@@ -192,7 +227,8 @@ let numberOFInterceptions = 0;
             prevSlideExecution  = false;
             nextSlideExecution = true;
         }
-        if(dist > 0 && slides[0].classList.contains('active-slide') || dist < 0 && slides[slides.length - 1].classList.contains('active-slide')) {
+        if(dist > 0 && slides[0].classList.contains('active-slide') && !prevActiveSlide 
+        || dist < 0 && slides[slides.length - 1].classList.contains('active-slide') && !nextActiveSlide ) {
             const decrement = 2.2;
             sliderWrapper.style.transform = `translate3d(${-(slidePosition - dist / decrement)}px, 0, 0)`
             x = dist / decrement;
@@ -206,15 +242,25 @@ let numberOFInterceptions = 0;
     } else if (sliderDirection === "vertical") {
         const dist = e.pageY - startY;
    
-        if(dist > 0 && slides[0].classList.contains('active-slide') || dist < 0 && slides[slides.length - 1].classList.contains('active-slide')) {
-
+        if(dist === 0) return
+      
+        if(dist > 0) {
+            prevSlideExecution  = true;
+            nextSlideExecution = false;
+        } else {
+            prevSlideExecution  = false;
+            nextSlideExecution = true;
+        }
+        if(dist > 0 && slides[0].classList.contains('active-slide') && !prevActiveSlide 
+        || dist < 0 && slides[slides.length - 1].classList.contains('active-slide') && !nextActiveSlide ) {
             const decrement = 2.2;
-            sliderWrapper.style.transform = `translate3d(0,${-(slidePosition - dist / decrement)}px, 0)`
+            sliderWrapper.style.transform = `translate3d(0, ${-(slidePosition - dist / decrement)}px, 0)`
+            y = dist / decrement;
+        } else {
             y = dist;
-        }else {
-            y = dist;
+            
             sliderWrapper.style.transform = `translate3d(0, ${-(slidePosition - dist)}px, 0)`
-        };
+        }
     }
     moved = true;
 }
@@ -224,35 +270,43 @@ let numberOFInterceptions = 0;
    
     if(!pressed) return;
     pressed = false;
-    endOfHolding = new Date().getTime();
+   
     
     if(!moved && !interception) return;
     moved = false;
     transition = true;
-    
    
+    endOfHolding = new Date().getTime();
    const timeDiff = endOfHolding - startOfHolding;
   
     
     if(sliderDirection === "horizontal") {
         if(Math.abs(x) < (slideWidth / 2) && timeDiff > 200 && !interception) {
             
+            if(slides[0].classList.contains('active-slide') && x > 0 || slides[slides.length - 1].classList.contains('active-slide') && x < 0) {
+                numberOFInterceptions = 0;
+                currentSlide()
+                pressed = false;
+                return
+            }
+            numberOFInterceptions = 2;
             currentSlide()
             pressed = false;
             return
        }
        if(interception && prevSlideExecuted && x > 0 ) {
+            prevActiveSlide = false;
             currentSlide()
             return
        } else if(interception && nextSlideExecuted && x < 0) {
+            nextActiveSlide = false;
             currentSlide()
             return
        }
             
 
         if(x > 0 && !slides[0].classList.contains('active-slide')){
-           
-           
+            prevActiveSlide = true;
             prevSlide();
              
         } else if(x > 0 && slides[0].classList.contains('active-slide')) {
@@ -260,8 +314,7 @@ let numberOFInterceptions = 0;
             currentSlide()
             
         } else if(x < 0 && !slides[slides.length - 1].classList.contains('active-slide')) {
-           
-           
+            nextActiveSlide = true;
             nextSlide()
            
         } else if(x < 0 && slides[slides.length - 1].classList.contains('active-slide')) {
@@ -270,27 +323,46 @@ let numberOFInterceptions = 0;
         }
 
     } else if (sliderDirection === "vertical") {
-        if(Math.abs(y) < (slideHeight / 2) && timeDiff > 200) {
+        if(Math.abs(y) < (slideHeight / 2) && timeDiff > 200 && !interception) {
+            
+            if(slides[0].classList.contains('active-slide') && y > 0 
+            || slides[slides.length - 1].classList.contains('active-slide') && y < 0) {
+                numberOFInterceptions = 0;
+                currentSlide()
+                pressed = false;
+                return
+            }
+            numberOFInterceptions = 2;
             currentSlide()
             pressed = false;
             return
        }
+       if(interception && prevSlideExecuted && y > 0 ) {
+            prevActiveSlide = false;
+            currentSlide()
+            return
+       } else if(interception && nextSlideExecuted && y < 0) {
+            nextActiveSlide = false;
+            currentSlide()
+            return
+       }
+            
 
         if(y > 0 && !slides[0].classList.contains('active-slide')){
+            prevActiveSlide = true;
             prevSlide();
-            
              
         } else if(y > 0 && slides[0].classList.contains('active-slide')) {
+
             currentSlide()
             
-           
         } else if(y < 0 && !slides[slides.length - 1].classList.contains('active-slide')) {
+            nextActiveSlide = true;
             nextSlide()
-            
            
         } else if(y < 0 && slides[slides.length - 1].classList.contains('active-slide')) {
             currentSlide()
-    
+            
         }
     }
     
@@ -354,7 +426,7 @@ const prevSlide = () => {
 }
 
 const nextSlide = () => {
-    
+   
     numberOfSlide++
     if(sliderDirection === "horizontal") {
         slidePosition = slideWidth*numberOfSlide;
@@ -390,7 +462,7 @@ sliderWrapper.addEventListener('transitionend', () => {
 
 
     if(window.PointerEvent) {
-        ('pointer')
+        
         sliderContainer.addEventListener('pointerdown', start);
         sliderContainer.addEventListener('pointermove', move);
         sliderContainer.addEventListener('pointerup', end);
@@ -401,7 +473,7 @@ sliderWrapper.addEventListener('transitionend', () => {
         sliderContainer.addEventListener('mouseleave', end);
         
     } else {
-        ('mouse')
+        
         sliderContainer.addEventListener('mousedown', start);
         sliderContainer.addEventListener('mousemove', move);
         sliderContainer.addEventListener('mouseup', end);
