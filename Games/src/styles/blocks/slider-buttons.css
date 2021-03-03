@@ -1,0 +1,39 @@
+.slider-buttons {
+    display: flex;
+    align-items: center;
+
+}
+
+.slider-button-prev,
+.slider-button-next {
+    /* align-content: center; */
+    padding: 5px 10px 3px 8px;
+    border: 1px solid #1C1E22;
+    transition: all .3s;
+    cursor: pointer;
+
+}
+
+
+.slider-button-prev:hover,
+.slider-button-next:hover {
+    background-color: cornsilk;
+    transition: all .3s;
+}
+
+.slider-button-next {
+    margin-left: 20px;
+}
+
+.slider-button-prev .card__icon {
+    transform: rotate(90deg);
+    height: 15px;
+    width: 10px;
+}
+
+.slider-button-next .card__icon {
+    margin: 0;
+    transform: rotate(-90deg);
+    height: 15px;
+    width: 10px;
+}

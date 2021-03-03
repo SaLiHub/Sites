@@ -1,0 +1,27 @@
+/* Global */
+
+@import 'variables.css';
+
+/* Blocks */
+
+@import 'blocks/grid.css';
+@import 'blocks/header.css';
+@import 'blocks/footer.css';
+@import 'blocks/body.css';
+
+@import 'blocks/cards.css';
+
+@import 'blocks/section.css';
+@import 'blocks/main-card.css';
+@import 'blocks/gallery-cards.css';
+@import 'blocks/icons.css';
+@import 'blocks/upcoming-cards.css';
+
+@import 'blocks/slider-buttons.css';
+
+
+
+/*@import 'blocks/header.css';*/
+/*@import 'blocks/logo.css';*/
+/*@import 'blocks/menu.css';*/
+/*@import 'blocks/main.css';*/
