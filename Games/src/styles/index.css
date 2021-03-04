@@ -3,23 +3,22 @@
 @import 'variables.css';
 
 /* Blocks */
-
-@import 'blocks/grid.css';
-@import 'blocks/header.css';
-@import 'blocks/footer.css';
-@import 'blocks/body.css';
-
-@import 'blocks/cards.css';
-
-@import 'blocks/section.css';
-@import 'blocks/main-card.css';
-@import 'blocks/gallery-cards.css';
-@import 'blocks/icons.css';
-@import 'blocks/upcoming-cards.css';
-
 @import 'blocks/slider-buttons.css';
+@import 'blocks/icons.css';
+@import 'blocks/body.css';
+@import 'blocks/header.css';
 
 
+@import 'blocks/main.css';
+
+@import 'blocks/banner.css';
+@import 'blocks/cards-1/cards.css';
+@import 'blocks/cards-2/section-cards-2.css';
+@import 'blocks/cards-2/upcoming-cards.css';
+@import 'blocks/cards-3/gallery-cards.css';
+
+
+@import 'blocks/footer.css';
 
 /*@import 'blocks/header.css';*/
 /*@import 'blocks/logo.css';*/

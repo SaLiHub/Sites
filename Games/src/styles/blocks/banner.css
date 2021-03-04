@@ -1,11 +1,11 @@
+.banner__wrapper{
+    height: 700px;
+}
+
 .main-card {
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-.main-card__wrapper{
-    height: 700px;
 }
 
 
@@ -50,35 +50,40 @@
 
 
 .main-card__link {
+    display: block;
+    position: relative;
     padding: 15px;
     color: white;
     border: 1px solid white;
     text-decoration: none;
     font-size: 18px;
-    width: 130.5px;
+    width: 160px;
     margin: 0 auto;
-    display: block;
+    transition: all .5s ease;
+    text-transform: capitalize;
 }
 
 .main-card__link:hover {
     background-color: whitesmoke;
     color: #2E2F29;
     border-color: #2E2F29;
-    transition: all .5s ease;
-}
-
-.main-card__link .link-arrow:hover {
-    box-shadow: 0 0 7px 0 #000000;
+    
 }
 
 
-.link-arrow {
-    border: 1px solid white;
+
+
+.main-card__link-arrow {
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    bottom: -1px;
+    border: 1px solid rgb(255, 255, 255);
     font-size: 18px;
     padding: 15px;
+    transition: box-shadow 300ms;
 }
 
-.main-card__link .link-arrow {
-    margin-right: -16px;
-    margin-left: 15px;
+.main-card__link-arrow:hover{
+    box-shadow: 0 0 7px 0 #000000;
 }
