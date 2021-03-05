@@ -1,22 +1,26 @@
 .section-cards-2 {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
-
 
 .section-cards-2::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    content: '';
-    pointer-events: none;
-    background: linear-gradient(90deg, rgba(3,4,9,1) 5%, rgba(3,4,9,0) 50%, rgba(3,4,9,1) 95%);
-    z-index: 4;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(3, 4, 9, 1) 5%,
+    rgba(3, 4, 9, 0) 50%,
+    rgba(3, 4, 9, 1) 95%
+  );
+  z-index: 4;
 }
 
-.section-cards-2__title {
-    position: relative;
-    z-index: 5;
+.section-cards-2__header {
+  position: relative;
+  z-index: 5;
 }
