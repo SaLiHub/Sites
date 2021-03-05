@@ -58,7 +58,9 @@
     z-index: 0;
 } */
 
-
+#swiper-container-2 .swiper-slide-active .upcoming-card__content {
+    z-index: 5;
+}
 .upcoming-card__content {
     /* position: absolute;
     bottom: 0;
@@ -71,7 +73,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    z-index: 5;
+    z-index: 0;
 }
 
 .upcoming-card__title {
