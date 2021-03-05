@@ -1,0 +1,77 @@
+.upcoming-card {
+  transform: translateZ(0);
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  border-radius: 10px;
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: height 300ms;
+  z-index: 0;
+}
+
+.upcoming-card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: all 1s;
+  z-index: 5;
+  pointer-events: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    0deg,
+    #111518 13%,
+    rgba(17, 21, 24, 0.87718837535014) 33%,
+    rgba(17, 21, 24, 0.22172619047619047) 71%
+  );
+}
+
+#swiper-container-2 .swiper-slide-active .upcoming-card__content {
+  z-index: 5;
+}
+.upcoming-card__content {
+  position: relative;
+  height: 240px;
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  z-index: 0;
+}
+
+.upcoming-card__title {
+  font-size: 50px;
+  color: #ebe0dc;
+}
+
+.upcoming-card__release-date {
+  color: #ebe0dc;
+  text-align: center;
+  margin-top: 0;
+}
+
+.upcoming-card__platforms {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}
+
+.upcoming-card__description {
+  margin: 0 10px 0 0;
+  color: #7c7c7c;
+}
+
+#swiper-container-2 {
+  overflow: visible;
+}
+
+#swiper-container-2 .swiper-slide-prev,
+#swiper-container-2 .swiper-slide-next {
+  height: 350px;
+}
