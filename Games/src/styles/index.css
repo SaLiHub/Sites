@@ -3,8 +3,8 @@
 @import 'variables.css';
 
 /* Blocks */
-@import 'blocks/slider-buttons.css';
 @import 'blocks/icons.css';
+@import 'blocks/slider-buttons.css';
 @import 'blocks/body.css';
 @import 'blocks/header.css';
 
