@@ -1,0 +1,12 @@
+.learn-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.learn-more__text {
+  font-size: 50px;
+  color: var(--grey);
+  letter-spacing: 0.4rem;
+}

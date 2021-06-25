@@ -7,13 +7,17 @@
 	
 	<!-- main css -->
     <link rel="stylesheet" href="styles/index.css">
+	<!-- main script -->
+	<script src="scripts/index.js" defer></script>	
 </head>
-<body class="page__body">
+<body class="wooder">
+
+
 
 	<header class="header page__header">
 		<div class="header__content">
 
-			<!-- ////////hamburger-menu \\\\\\\\\\ -->
+			<!-- hamburger-menu  -->
 			<div class="header__hamburger-menu">
 				
 				
@@ -50,14 +54,14 @@
 			</div>
 			
 
-			<!-- ////////header-logo \\\\\\\\\\ -->
+			<!-- header-logo  -->
 			<div class="header__logo-container">
 				<span class="logo">wooder</span>
 			</div>
 			
 			
 
-			<!-- ////////header-navigaion-menu \\\\\\\\\\ -->
+			<!-- header-navigaion-menu  -->
 			<nav class="header__nav-menu">
 				<ul class="header__nav-menu-container">
 					<li class="header__nav-menu-link-container">
@@ -70,7 +74,7 @@
 			</nav>
 			
 
-			<!-- ////////header-info \\\\\\\\\\ -->
+			<!-- header-info  -->
 			<div class="header__info">
 				<a class="header__info-link" href="#">
 					<svg class="header__info-icon" aria-label="info">
@@ -79,7 +83,7 @@
 				</a>
 			</div>
 			
-			<!-- ////////changer-languages \\\\\\\\\\ -->
+			<!-- changer-languages  -->
 			
 			<div class="header__changer-lang-container">
 				<a href="#"class="header__changer-lang" href="#">en</a>
@@ -96,22 +100,22 @@
 			<div id="sliderContainer" class="slider-container">
 				<div id="sliderWrapper" class="slider-wrapper">
 					<div class="slider-slide">
-						<!--////////////// banner content \\\\\\\\\\\\\\-->
+						<!-- banner content -->
 						<div class="banner__content">
 							<div class="banner__title-container">
 								<h1 class="banner__title">wooder</h1>
 							</div>
 						
 							<div class="banner__button-container">
-								<button type="button" class="banner__button wooder-button">
+								<a href="learn-more.html" type="text/html" class="banner__button wooder-button">
 									learn more
 										<svg class="banner__button-arrow-right" aria-label="close">
 											<use xlink:href="images/sprite.svg#right-arrow"/>
 										</svg>
-								</button>
+								</a>
 							</div>
 						
-							<!--///////////// drag  \\\\\\\\\\\\\\\-->
+							<!-- drag  -->
 							<div class="banner__drag">
 								<!-- <div class="banner__mouse">
 									<svg class="banner__mouse-svg" aria-label="mouse">
@@ -147,10 +151,10 @@
 				<div id="sliderPagination" class="slider-pagination"></div>
 			</div>
 			
-			<!--////////////// banner fitst background \\\\\\\\\\\\\\-->
+			<!-- banner fitst background -->
 			<div class="banner__first-background" style="background-image: url('images/fallen-tree.jpg');">
 			</div>
-			<!--////////////// banner second background \\\\\\\\\\\\\\-->
+			<!-- banner second background -->
 			<div class="banner__second-background" style="background-image: url('images/wood-pile.jpg');">
 				<svg class="banner__second-background-share" aria-label="share">
 					<use xlink:href="images/sprite.svg#share"/>
@@ -159,7 +163,7 @@
 			</div>
 		</section>
 
-		<!-- S///////////////////// SECTION page__furniture\\\\\\\\\\\\\\\\\\\\\\S-->
+		<!-- furniture -->
 		<section class="furniture decor main__furniture">
 			<div class="furniture__content wooder-block-content">
 				<div class="furniture__description wooder-block-content__description">
@@ -202,7 +206,7 @@
 			</div>
 		</section>
 
-		<!-- /////////////////// about wooder \\\\\\\\\\\\\\\\ -->
+		<!-- about wooder -->
 		<section class="about-wooder main__about-wooder">
 			<div class="about-wooder__content">
 				<h3 class="about-wooder__title wooder-title">wooder – is quality</h3>
@@ -211,36 +215,50 @@
 
 					<div class="about-wooder__video">
 						<img src="images/about-wooder/1.png" alt="" class="about-wooder__photo">
-						<button class="about-wooder__video-play-container">
+						<button  class="about-wooder__video-play-button">
 							<svg class="about-wooder__video-play" aria-label="play">
 								<use xlink:href="images/sprite.svg#play"/>
 							</svg>
 						</button>
 						<span class="about-wooder__video-description wooder-text">Innovative Design</span>
+						<div class="about-wooder__video-player-wrapper">
+							<video class="about-wooder__video-player" src='#' controls></video>
+						</div>
+						
 					</div>
 					<div class="about-wooder__video">
 						<img src="images/about-wooder/2.png" alt="" class="about-wooder__photo">
-						<button class="about-wooder__video-play-container">
+						<button  class="about-wooder__video-play-button">
 							<svg class="about-wooder__video-play" aria-label="play">
 								<use xlink:href="images/sprite.svg#play"/>
 							</svg>
 						</button>
 						<span class="about-wooder__video-description wooder-text">High-level Skills</span>
+						<div class="about-wooder__video-player-wrapper">
+							<video class="about-wooder__video-player" src="#" controls></video>
+						</div>
 					</div>
 					<div class="about-wooder__video">
 						<img src="images/about-wooder/3.png" alt="" class="about-wooder__photo">
-						<button class="about-wooder__video-play-container">
+						<button  class="about-wooder__video-play-button">
 							<svg class="about-wooder__video-play" aria-label="play">
 								<use xlink:href="images/sprite.svg#play"/>
 							</svg>
 						</button>
 						<span class="about-wooder__video-description wooder-text">Quality Products</span>
+						<div class="about-wooder__video-player-wrapper">
+							<video class="about-wooder__video-player" src='#' controls>
+								Sorry, there is no video available at the moment
+							</video>
+							<!-- <iframe class="about-wooder__video-player" src="https://www.youtube.com/embed/JVwtBGm2x_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	 -->
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- //////////////////  wooder video \\\\\\\\\\\\\\\\ -->
+		<!-- wooder video -->
 		<section class="wooder-video main__wooder-video" style="background-image: url('images/video-background.jpg');">
 			<div class="wooder-video__content">
 				<div class="wooder-video__description">
@@ -269,8 +287,8 @@
 			</svg>
 		</section>
 
-		<!-- S/////////////////////// about us \\\\\\\\\\\\\\\\\\\\\\\\\\\\\S -->
-		<section class="about-us main__about-us">
+		<!-- about us -->
+		<Section class="about-us main__about-us">
 			<div class="about-us__content wooder-block-content">
 				<div class="about-us__description wooder-block-content__description">
 					<h3 class="about-us__title wooder-title">about us</h3>
@@ -309,6 +327,6 @@
 	<!-- firebase datebase -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.3/firebase-app.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.3/firebase-database.min.js"></script>
-    <script src="scripts/index.js"></script>
+   
 </body>
 </html>

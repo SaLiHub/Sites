@@ -1,118 +1,158 @@
- import gulp from 'gulp';
+// import plugins
+import gulp from 'gulp';
 import babel from 'gulp-babel';
-import postcss from 'gulp-postcss';
-import replace from 'gulp-replace';
-import htmlmin from 'gulp-htmlmin';
-import terser from 'gulp-terser';
-import pimport from 'postcss-import';
-import minmax from 'postcss-media-minmax';
-import autoprefixer from 'autoprefixer';
-import csso from 'postcss-csso';
 import sync from 'browser-sync';
 
-// HTML
+// css
+import postcss from 'gulp-postcss';
+import pimport from 'postcss-import';
+import autoprefixer from 'autoprefixer';
+import csso from 'postcss-csso';
 
-export const html = () => {
-    return gulp.src('src/*.html')
-        .pipe(htmlmin({
-            removeComments: true,
-            collapseWhitespace: true,
-        }))
-        .pipe(gulp.dest('dist'))
-        .pipe(sync.stream());
+// js
+import eslint from 'gulp-eslint';
+import terser from 'gulp-terser';
+import prettier from 'gulp-prettier';
+
+// html
+import htmlmin from 'gulp-htmlmin';
+
+// dirrections
+const TEST = 'test',
+  DIST = 'dist',
+  SRC = 'src';
+
+// copy html files from SRC to TEST
+const html = () => {
+  return gulp
+    .src(`${SRC}/*.html`)
+    .pipe(gulp.dest(`${TEST}`))
+    .pipe(sync.stream());
 };
 
-// Styles
-
-export const styles = () => {
-    return gulp.src('src/styles/index.css')
-        .pipe(postcss([
-            pimport,
-            minmax,
-            autoprefixer,
-            csso,
-        ]))
-        .pipe(replace(/\.\.\//g, ''))
-        .pipe(gulp.dest('dist'))
-        .pipe(sync.stream());
+// copy styles from SRC to TEST with few modifications
+const styles = () => {
+  return gulp
+    .src(`${SRC}/styles/index.css`)
+    .pipe(postcss([pimport, autoprefixer]))
+    .pipe(gulp.dest(`${TEST}/styles`))
+    .pipe(sync.stream());
 };
 
-// Scripts
-
-export const scripts = () => {
-    return gulp.src('src/scripts/index.js')
-        .pipe(babel({
-            presets: ['@babel/preset-env']
-        }))
-        .pipe(terser())
-        .pipe(gulp.dest('dist'))
-        .pipe(sync.stream());
+// copy scripts and modify with bubel
+const scripts = () => {
+  return (
+    gulp
+      .src(`${SRC}/scripts/index.js`)
+      // .pipe(babel())
+      // .pipe(prettier())
+      .pipe(gulp.dest(`${TEST}/scripts`))
+      .pipe(sync.stream())
+  );
 };
 
-// Copy
-
-export const copy = () => {
-    return gulp.src([
-            'src/fonts/**/*',
-            'src/images/**/*',
-        ], {
-            base: 'src'
-        })
-        .pipe(gulp.dest('dist'))
-        .pipe(sync.stream({
-            once: true
-        }));
+const imagesMain = (dir) => {
+  return function images() {
+    return gulp
+      .src(`${SRC}/images/**/*`)
+      .pipe(gulp.dest(`${dir}/images`))
+      .pipe(sync.stream());
+  };
 };
 
-// Paths
-
-export const paths = () => {
-    return gulp.src('dist/*.html')
-        .pipe(replace(
-            /(<link rel="stylesheet" href=")styles\/(index.css">)/, '$1$2'
-        ))
-        .pipe(replace(
-            /(<script src=")scripts\/(index.js">)/, '$1$2'
-        ))
-        .pipe(gulp.dest('dist'));
+const fontsMain = (dir) => {
+  return function fonts() {
+    return gulp
+      .src(`${SRC}/fonts/**/*`)
+      .pipe(gulp.dest(`${dir}/fonts`))
+      .pipe(sync.stream());
+  };
 };
 
-// Server
-
-export const server = () => {
-    sync.init({
-        ui: false,
-        notify: false,
-        server: {
-            baseDir: 'dist'
-        }
-    });
+// browser sync
+const server = () => {
+  sync.init({
+    // more info https://browsersync.io/docs/options#option-ui
+    ui: false,
+    // shows any notifications in the browser if true
+    notify: false,
+    // dirrectory wich will be displayed in browser
+    server: {
+      baseDir: TEST,
+    },
+  });
 };
 
-// Watch
-
-export const watch = () => {
-    gulp.watch('src/*.html', gulp.series(html, paths));
-    gulp.watch('src/styles/**/*.css', gulp.series(styles));
-    gulp.watch('src/scripts/**/*.js', gulp.series(scripts));
-    gulp.watch([
-        'src/fonts/**/*',
-        'src/images/**/*',
-    ], gulp.series(copy));
+// change "test" files according to src's when any changes occur
+const watch = () => {
+  gulp.watch(`${SRC}/*.html`, html);
+  gulp.watch(`${SRC}/styles/**/*.css`, styles);
+  gulp.watch(`${SRC}/scripts/**/*.js`, scripts);
+  gulp.watch(`${SRC}/fonts/**/*`, fontsMain(TEST));
+  gulp.watch(`${SRC}/images/**/*`, imagesMain(TEST));
 };
 
-// Default
+// executes when you run "gulp build" in console
+export const build = () => {
+  return new Promise(function (res, rej) {
+    buildMain();
+    res();
+  });
+};
 
+// build function
+function buildMain() {
+  // check with eslint by config rules in ".eslintrc.json"
+  linterMain(TEST);
+  // minify js, css, html
+  htmlMinify();
+  cssMinify();
+  jsMinify();
+  // transfer images and fonts into folder in variable DIST
+  imagesMain(DIST)();
+  fontsMain(DIST)();
+}
+
+// minifying funtions
+function htmlMinify() {
+  gulp
+    .src(`${TEST}/*.html`)
+    .pipe(
+      htmlmin({
+        removeComments: true,
+        collapseWhitespace: true,
+      })
+    )
+    .pipe(gulp.dest(DIST));
+}
+function cssMinify() {
+  gulp
+    .src(`${TEST}/styles/index.css`)
+    .pipe(postcss([csso]))
+    .pipe(gulp.dest(`${DIST}/styles`));
+}
+function jsMinify() {
+  gulp
+    .src(`${TEST}/scripts/index.js`)
+    .pipe(terser())
+    .pipe(gulp.dest(`${DIST}/js`));
+}
+
+export const linter = () => {
+  return new Promise(function (res, rej) {
+    linterMain();
+    res();
+  });
+};
+
+// linter function
+function linterMain(dir) {
+  if (!dir) dir = SRC;
+  gulp.src(`${dir}/scripts/index.js`).pipe(eslint()).pipe(eslint.format());
+}
+
+// gulp
 export default gulp.series(
-    gulp.parallel(
-        html,
-        styles,
-        scripts,
-        copy,
-    ),
-    paths,
-    gulp.parallel(
-        watch,
-        server,
-    ),
+  gulp.parallel(scripts, styles, html, imagesMain(TEST), fontsMain(TEST)),
+  gulp.parallel(watch, server)
 );

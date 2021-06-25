@@ -1,4 +1,3 @@
-
 .slider-container {
   overflow: hidden;
   width: 100%;
@@ -13,18 +12,16 @@
 .highlight-transparent {
   -webkit-tap-highlight-color: transparent;
 }
-  /* horizontal */
+/* horizontal */
 
 .slider-wrapper {
-
   display: flex;
   transition-timing-function: linear;
   transition-property: transform;
- 
+
   height: 100%;
   width: 100%;
-} 
-
+}
 
 .slider-slide {
   min-height: 100%;
@@ -38,11 +35,7 @@
   justify-content: center;
   -webkit-align-items: center;
   align-items: center;
-} 
-
-  
-  
-
+}
 
 .slider-pagination-bullet {
   width: 20px;
@@ -52,11 +45,11 @@
   margin: 10px 5px;
   transition: 300ms transform;
   cursor: pointer;
-}   
+}
 
-  /* vertical */
+/* vertical */
 
-  /* .slider-wrapper {
+/* .slider-wrapper {
    
     display: flex;
     flex-direction: column;
@@ -103,14 +96,6 @@
     cursor: pointer;
     display: block;
   }   */
-  
-
-
-
-
-
-
-
 
 /* counter */
 
@@ -123,16 +108,7 @@
   color: var(--gold);
 }
 
-
-
-
-
-
-
-
-
-
-  /* arrows */
+/* arrows */
 
 /* 
 .control {
@@ -164,10 +140,3 @@
     background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronRight-512.png);
     right: -20px;
   } */
-
-  
-
-
- 
-
- 

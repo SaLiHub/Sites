@@ -1,0 +1,17 @@
+.wooder {
+  position: relative;
+  width: 100%;
+  background-color: #000;
+  font-family: 'ProximaNova-bold', sans-serif;
+  transition: 0.3s all;
+  z-index: 1;
+  font-size: 16px;
+}
+
+/* .wooder__grey-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+} */

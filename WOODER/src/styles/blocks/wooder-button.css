@@ -1,12 +1,12 @@
 .wooder-button {
-    padding: 20px 0;
-    width: 300px;
-    background-color: transparent;
-    color: #DBDBDB;
-    border: 2px solid #DBDBDB;
-    text-transform: uppercase;
-    letter-spacing: .2rem;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 1rem;
+  padding: 20px 0;
+  width: 300px;
+  background-color: transparent;
+  color: #dbdbdb;
+  border: 2px solid #dbdbdb;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
 }
