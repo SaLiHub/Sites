@@ -151,20 +151,6 @@
 
 /* player */
 
-.about-wooder__video-player-wrapper {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.712);
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  z-index: 9999;
-}
-
 .about-wooder__video-player {
   width: 70%;
   height: 50%;

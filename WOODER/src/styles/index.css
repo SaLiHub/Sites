@@ -2,7 +2,7 @@
 
 @import 'variables.css';
 @import 'blocks/global.css';
-@import 'blocks/wooder-block.css';
+@import 'blocks/wooder-block-content.css';
 @import 'blocks/wooder-title.css';
 @import 'blocks/wooder-text.css';
 @import 'blocks/wooder-button.css';
@@ -15,6 +15,7 @@
 @import 'blocks/banner.css';
 @import 'blocks/furniture.css';
 @import 'blocks/about-wooder.css';
+@import 'blocks/video.css';
 @import 'blocks/wooder-video.css';
 @import 'blocks/about-us.css';
 @import 'blocks/footer.css';
