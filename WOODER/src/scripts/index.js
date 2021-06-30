@@ -1,4 +1,5 @@
 'use strict';
+
 // header
 const hamburger = document.querySelector('.header__hamburger'),
   hamburgerMenuText = document.querySelector('.header__hamburger-text'),
@@ -62,77 +63,78 @@ function databaseInit() {
   return firebase.database().ref('/').once('value');
 }
 
-databaseInit().then((answer) => {
-  const jsonBanner = answer.val(),
-    sliderWrapper = document.querySelector('#sliderWrapper');
-  let sliderDirection = 'vertical',
-    smallWindow = false;
+(async function sliderInit() {
+  let jsonBanner;
 
-  for (let i = 0; i < jsonBanner['sliderContent'].length; i++) {
+  // get data of banner content from db and assign it to jsonBanner
+  await databaseInit().then((answer) => (jsonBanner = answer.val()));
+  // call function wich creates sliders filling each with data
+  createSlide(jsonBanner.sliderContent);
+  // call function wich sets horizontal or vertical direction
+  // according to the size of user viewport and returns the direction
+
+  const dir = setDirToSlider();
+  // call function that creates slider by virtue of slides
+  // that were created earlier in code by function createSlide
+  sliderWooder(dir);
+})();
+
+function createSlide(sliderContent) {
+  // iterate through each slide that came from db
+  for (let i = 0; i < sliderContent.length; i++) {
+    // each iteration create slider(banner) and fill it with content from db
     const swiperSlide = document.createElement('div');
     swiperSlide.classList.add('slider-slide');
     const bannerContent = document.createElement('div');
     bannerContent.classList.add('banner__content');
     bannerContent.innerHTML = `
-        <div class="banner__title-container">
-            <h2 class="banner__title">${jsonBanner['sliderContent'][i]['title']}</h2>
-        </div>
-        <div class="banner__text-container">
-            <p class="banner__text">${jsonBanner['sliderContent'][i]['text']}</p>
-        </div>
-        `;
+          <div class="banner__title-container">
+              <h2 class="banner__title">${sliderContent[i].title}</h2>
+          </div>
+          <div class="banner__text-container">
+              <p class="banner__text">${sliderContent[i].text}</p>
+          </div>
+          `;
     swiperSlide.appendChild(bannerContent);
     sliderWrapper.appendChild(swiperSlide);
   }
+}
 
+function setDirToSlider() {
+  let sliderDirection = 'vertical',
+    smallWindow = false;
   if (window.innerWidth < 1010) {
     sliderDirection = 'horizontal';
     smallWindow = true;
   }
 
+  // add resize listener and dirrection of slider
+  // in accordance with the size of user viewport
   window.addEventListener('resize', () => {
     if (window.innerWidth < 1010) {
-      if (smallWindow == false) {
+      if (smallWindow === false) {
         smallWindow = true;
         location.reload();
       }
     } else {
-      if (smallWindow == true) {
+      if (smallWindow === true) {
         smallWindow = false;
         location.reload();
       }
     }
   });
 
-  sliderWooder(sliderDirection);
-});
-
-function triggerVideo(e) {
-  console.log(e.target);
-
-  // show wrapper when button or img was clicked
-  if (e.target.classList.contains('video__button') || e.target.classList.contains('about-wooder__photo')) {
-    e.target.parentElement.querySelector('.video__wrapper').style.display = 'flex';
-  }
-  // hide wrapper if click was on it
-  if (e.target.classList.contains('video__wrapper')) {
-    e.target.style.display = 'none';
-  }
+  return sliderDirection;
 }
-
-pageBody.addEventListener('click', triggerVideo);
 
 function sliderWooder(sliderDirection) {
   const sliderContainer = document.querySelector('#sliderContainer'),
     sliderWrapper = document.querySelector('#sliderWrapper'),
     slides = document.querySelectorAll('.slider-slide'),
     sliderPagination = document.querySelector('#sliderPagination'),
-    counter = document.querySelector('#countNumber'),
-    prevSlideButton = document.querySelector('#prev'),
-    nextSlideButton = document.querySelector('#next');
+    counter = document.querySelector('#countNumber');
 
   let pressed = false,
-    slideDuplicate,
     slidePosition = 0,
     numberOfSlide = 0,
     startY,
@@ -145,7 +147,6 @@ function sliderWooder(sliderDirection) {
     endOfHolding,
     moved = false,
     interception = false,
-    interceptionCount = 0,
     nextSlideExecution,
     prevSlideExecution,
     transition,
@@ -559,3 +560,17 @@ function sliderWooder(sliderDirection) {
   //     }
   // })
 }
+
+// //////////////////
+function triggerVideo(e) {
+  // show wrapper when button or img was clicked
+  if (e.target.classList.contains('video__button') || e.target.classList.contains('about-wooder__photo')) {
+    e.target.parentElement.querySelector('.video__wrapper').style.display = 'flex';
+  }
+  // hide wrapper if click was on it
+  if (e.target.classList.contains('video__wrapper')) {
+    e.target.style.display = 'none';
+  }
+}
+
+pageBody.addEventListener('click', triggerVideo);
