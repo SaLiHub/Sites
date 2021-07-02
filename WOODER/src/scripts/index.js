@@ -155,11 +155,11 @@ function sliderWooder(sliderDirection) {
     prevActiveSlide,
     nextActiveSlide;
 
-  // adding transparent highlight
+  // add transparent highlight
 
   sliderContainer.classList.add('highlight-transparent');
 
-  // counter
+  // create counter
 
   (() => {
     if (numberOfSlide + 1 >= 10) {
@@ -169,7 +169,7 @@ function sliderWooder(sliderDirection) {
     }
   })();
 
-  // pagination
+  // create pagination
 
   for (let i = 0; i < slides.length; i++) {
     let el = document.createElement('span');
