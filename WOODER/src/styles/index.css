@@ -1,7 +1,7 @@
 /* Global */
 
 @import 'variables.css';
-@import 'blocks/global.css';
+@import 'global.css';
 @import 'blocks/wooder-block-content.css';
 @import 'blocks/wooder-title.css';
 @import 'blocks/wooder-text.css';

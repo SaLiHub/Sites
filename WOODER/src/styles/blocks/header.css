@@ -30,7 +30,7 @@
 
 .header__hamburger {
   fill: var(--gold);
-  width: 100px;
+  width: 70px;
   height: 50px;
   transition: 0.2s all;
 }

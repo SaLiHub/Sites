@@ -1,0 +1,29 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.opacity_off {
+  opacity: 0;
+}
+
+/* link global */
+
+a {
+  text-decoration: none;
+}
+
+/* fonts */
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('../fonts/ProximaNova-Regular.woff');
+}
+
+@font-face {
+  font-family: 'ProximaNova-bold';
+  src: url('../fonts/ProximaNova-Bold.woff');
+}
