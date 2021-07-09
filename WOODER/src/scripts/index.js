@@ -1,7 +1,7 @@
 'use strict';
 
 // header
-const hamburger = document.querySelector('.header__hamburger-svg'),
+const hamburger = document.querySelector('.header__hamburger'),
   hamburgerMenuText = document.querySelector('.header__hamburger-text'),
   hamburgerMenu = document.querySelector('.header__hamburger-menu'),
   headerCloseSign = document.querySelector('.header__toggle-menu-cross-sign'),
