@@ -27,3 +27,7 @@ a {
   font-family: 'ProximaNova-bold';
   src: url('../fonts/ProximaNova-Bold.woff');
 }
+
+svg:not(.header__hamburger):not(.header__toggle-menu-cross-sign) {
+  pointer-events: none;
+}

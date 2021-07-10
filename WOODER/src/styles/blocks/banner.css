@@ -87,7 +87,7 @@
 
 @media (max-width: 550px) {
   .banner__text-container {
-    height: 480px;
+    max-height: 480px;
     overflow: auto;
     white-space: wrap;
   }

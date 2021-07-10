@@ -55,6 +55,10 @@ a {
   src: url('../fonts/ProximaNova-Bold.woff');
 }
 
+svg:not(.header__hamburger):not(.header__toggle-menu-cross-sign) {
+  pointer-events: none;
+}
+
 /*/////////////////////  content \\\\\\\\\\\\\\\\\\ */
 
 .wooder-block-content {
@@ -482,10 +486,11 @@ a {
 
 .header__hamburger {
   fill: var(--gold);
-  width: 70px;
+  width: 50px;
   height: 50px;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
+  margin-right: 15px;
 }
 
 .header__hamburger:hover {
@@ -803,7 +808,7 @@ a {
 
 @media (max-width: 550px) {
   .banner__text-container {
-    height: 480px;
+    max-height: 480px;
     overflow: auto;
     white-space: wrap;
   }

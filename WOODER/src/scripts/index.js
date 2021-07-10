@@ -46,6 +46,14 @@ headerToggleMenuLink.forEach((el) => {
   });
 });
 
+// header end ///////////////////////////////////
+
+// banner
+
+const bannerBtn = document.querySelector('.banner__button');
+
+// banner end /////////////////////////////
+
 // swiper slide
 const firebaseConfig = {
   apiKey: 'AIzaSyA4apyHWSRjMvYyvrzegqNv5weVktk-XMs',
@@ -69,17 +77,17 @@ function databaseInit() {
   // get data of banner content from db and assign it to jsonBanner
   await databaseInit().then((answer) => (jsonBanner = answer.val()));
   // call function wich creates sliders filling each with data
-  createSlide(jsonBanner.sliderContent);
+  createSlides(jsonBanner.sliderContent);
   // call function wich sets horizontal or vertical direction
   // according to the size of user viewport and returns the direction
 
-  const dir = setDirToSlider();
+  const dir = setDirForSlider();
   // call function that creates slider by virtue of slides
-  // that were created earlier in code by function createSlide
-  sliderWooder(dir);
+  // that were created earlier in code by function createSlides
+  createSlider(dir);
 })();
 
-function createSlide(sliderContent) {
+function createSlides(sliderContent) {
   // iterate through each slide that came from db
   for (let i = 0; i < sliderContent.length; i++) {
     // each iteration create slider(banner) and fill it with content from db
@@ -100,7 +108,7 @@ function createSlide(sliderContent) {
   }
 }
 
-function setDirToSlider() {
+function setDirForSlider() {
   let sliderDirection = 'vertical',
     smallWindow = false;
   if (window.innerWidth < 1010) {
@@ -127,7 +135,7 @@ function setDirToSlider() {
   return sliderDirection;
 }
 
-function sliderWooder(sliderDirection) {
+function createSlider(sliderDirection) {
   const sliderContainer = document.querySelector('#sliderContainer'),
     sliderWrapper = document.querySelector('#sliderWrapper'),
     slides = document.querySelectorAll('.slider-slide'),
@@ -145,7 +153,7 @@ function sliderWooder(sliderDirection) {
     slideWidth = sliderContainer.offsetWidth,
     startOfHolding,
     endOfHolding,
-    moved = false,
+    moving = false,
     interception = false,
     nextSlideExecution,
     prevSlideExecution,
@@ -221,7 +229,7 @@ function sliderWooder(sliderDirection) {
   let numberOFInterceptions = 0;
   const start = (e) => {
     // if click was on pagination bar or right click was used
-    // then slider-dragging is not get triggered
+    // then slider-dragging is not getting triggered
     const elementsClickedId = [e.target.id, e.target.parentElement.id];
 
     if (elementsClickedId.includes('sliderPagination') || e.buttons === 2) return;
@@ -298,12 +306,13 @@ function sliderWooder(sliderDirection) {
     }
 
     sliderWrapper.style.transitionDuration = '0ms';
+    e.preventDefault();
   };
 
   const move = (e) => {
     if (!pressed) return;
     e.preventDefault();
-
+    moving = true;
     if (sliderDirection === 'horizontal') {
       const dist = e.pageX - startX;
       if (dist === 0) return;
@@ -352,15 +361,18 @@ function sliderWooder(sliderDirection) {
         sliderWrapper.style.transform = `translate3d(0, ${-(slidePosition - dist)}px, 0)`;
       }
     }
-    moved = true;
   };
 
   const end = (e) => {
     if (!pressed) return;
     pressed = false;
-
-    if (!moved && !interception) return;
-    moved = false;
+    e.stopImmediatePropagation();
+    if (!moving && !interception) {
+      bannerBtn.setAttribute('href', 'learn-more.html');
+      return;
+    }
+    bannerBtn.removeAttribute('href');
+    moving = false;
     transition = true;
 
     endOfHolding = new Date().getTime();
