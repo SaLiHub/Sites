@@ -1,18 +1,29 @@
 .video__wrapper {
-  display: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.712);
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
+
   height: 100%;
   width: 100%;
-  z-index: 9999;
+  z-index: 20;
 }
-
-.video__wrapper video {
+.video__player {
+  position: relative;
   width: 70%;
   height: 50%;
+  z-index: 21;
+}
+
+.video__container {
+  position: relative;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
 }

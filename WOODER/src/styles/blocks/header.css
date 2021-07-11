@@ -16,7 +16,13 @@
 
 @media (max-width: 700px) {
   .header__content {
-    padding-left: 10px;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header__content {
+    padding-top: 15px;
   }
 }
 
@@ -81,6 +87,18 @@
   left: 50px;
   top: 50px;
   cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .header__toggle-menu-cross-sign {
+    left: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header__toggle-menu-cross-sign {
+    top: 20px;
+  }
 }
 
 /*  /////////////hamburger-text\\\\\\\\ */

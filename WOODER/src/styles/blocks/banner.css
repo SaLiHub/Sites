@@ -87,8 +87,8 @@
 
 @media (max-width: 550px) {
   .banner__text-container {
-    max-height: 480px;
-    overflow: auto;
+    max-height: 430px;
+
     white-space: wrap;
   }
 }
@@ -400,6 +400,12 @@
   .slider-pagination-bullet {
     margin: 10px 50px;
     display: inline-block;
+  }
+}
+
+@media (max-width: 700px) {
+  .slider-pagination-bullet {
+    margin: 10px 30px;
   }
 }
 
