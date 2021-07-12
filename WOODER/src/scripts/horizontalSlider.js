@@ -5,24 +5,14 @@ export default function createHorizontalSlider() {
     sliderPagination = document.querySelector('#sliderPagination'),
     counter = document.querySelector('#countNumber');
 
-  let holding = false,
+  let wasPressed = false,
     slidePosition = 0,
     indexOfActiveSlide = 0,
-    startX,
-    x,
+    startPointOfDragging,
     slideWidth,
-    startOfHolding,
-    endOfHolding,
-    moved = false,
-    intercepted = false,
-    nextSlideExecution,
-    prevSlideExecution,
-    nextSlideExecuted = false,
-    prevSlideExecuted = false,
-    prevActiveSlide,
-    nextActiveSlide,
     bullets,
-    numberOfInterceptions = 0;
+    timeOfStartDragging,
+    timeOfEndDragging;
 
   (function init() {
     initBullets();
@@ -64,7 +54,6 @@ export default function createHorizontalSlider() {
       bulletClickTriger(numberBulletIndex);
     }
   }
-
   function createBullet(index) {
     let el = document.createElement('span');
     el.classList.add('slider-pagination-bullet');
@@ -75,15 +64,16 @@ export default function createHorizontalSlider() {
   function changeSliderPosition(indexOfNewActiveSlide) {
     setSliderPosition(indexOfNewActiveSlide);
     // add transition durration durring changing slides
-    addTransitionDuration();
+    startSliding();
   }
 
-  function addTransitionDuration() {
+  function startSliding() {
     sliderWrapper.style.transitionDuration = '300ms';
   }
 
-  function removeTransitionDuration() {
+  function endSliding() {
     sliderWrapper.style.transitionDuration = '0ms';
+    removeSlidingStatus();
   }
 
   function bulletClickTriger(indexOfNewActiveSlide) {
@@ -92,8 +82,8 @@ export default function createHorizontalSlider() {
     setCurrentSlideNumber();
   }
 
-  function setSliderPosition(indexOfSlide) {
-    slidePosition = slideWidth * indexOfSlide;
+  function setSliderPosition(indexOfSlide, draggedDistance = 0, slowingCoeff = 1) {
+    slidePosition = slideWidth * indexOfSlide + draggedDistance / slowingCoeff;
     sliderWrapper.style.transform = `translate3d(${-slidePosition}px, 0, 0)`;
   }
 
@@ -118,150 +108,100 @@ export default function createHorizontalSlider() {
   }
 
   function startOfDragging(e) {
-    // do not triger dragging with right click and pagination click
+    // if click was on pagination bar or right click was used
+    // then slider-dragging is not getting triggered
     const elementsClickedId = [e.target.id, e.target.parentElement.id];
-    if (elementsClickedId.includes('sliderPagination') || e.buttons === 2) return;
-
-    startOfHolding = new Date().getTime();
-    intercepted = false;
-    holding = true;
-
-    if (sliderWrapper.style.transitionDuration === '300ms') {
-      numberOfInterceptions += 1;
-      if (
-        numberOfInterceptions >= 2 &&
-        !slides[0].classList.contains('active-slide') &&
-        !slides[slides.length - 1].classList.contains('active-slide')
-      )
-        return;
-
-      intercepted = true;
-    } else {
-      intercepted = false;
-      if (slidePosition === slideWidth * indexOfActiveSlide) {
-        numberOfInterceptions = 0;
-        nextActiveSlide = false;
-        prevActiveSlide = false;
-      }
-    }
-
-    startX = e.pageX;
-
-    const timeStop = startOfHolding - endOfHolding;
-    if (intercepted) {
-      const speed = (slideWidth - Math.abs(x)) / 300;
-      const distance = timeStop * speed;
-      if (nextSlideExecution) {
-        if (slides[slides.length - 1].classList.contains('active-slide') && !nextActiveSlide) {
-          slidePosition = slidePosition + (Math.abs(x) - (Math.abs(x) / 300) * timeStop);
-        } else {
-          slidePosition = slidePosition + (distance + Math.abs(x)) - slideWidth;
-        }
-      } else if (prevSlideExecution) {
-        if (slides[0].classList.contains('active-slide') && !prevActiveSlide) {
-          slidePosition = (Math.abs(x) / 300) * timeStop - Math.abs(x);
-        } else {
-          slidePosition = slidePosition - (distance + Math.abs(x)) + slideWidth;
-        }
-      }
-
-      sliderWrapper.style.transform = `translate3d(${-slidePosition}px, 0, 0)`;
-    }
-
-    removeTransitionDuration();
+    if (elementsClickedId.includes('sliderPagination') || e.buttons === 2 || isSliding()) return;
+    wasPressed = true;
+    startPointOfDragging = e.pageX;
+    timeOfStartDragging = new Date().getTime();
+    endSliding();
     e.preventDefault();
+  }
+
+  function isSliding() {
+    return sliderWrapper.classList.contains('sliding');
   }
 
   function dragging(e) {
-    // if user move mouse without holding slider won't get triggered
-    if (!holding) return;
-    e.preventDefault();
-
-    const dist = e.pageX - startX;
-
-    if (dist === 0 && !moved) {
-      holding = false;
-      return;
+    // if user move mouse without wasPressed slider won't get triggered
+    if (!wasPressed) return;
+    const currentPointOfDragging = e.pageX,
+      draggedDistance = startPointOfDragging - currentPointOfDragging,
+      slowingCoeff = 2;
+    if (draggedDistance < 0) {
+      draggingUp(draggedDistance, slowingCoeff);
+    } else if (draggedDistance > 0) {
+      draggingDown(draggedDistance, slowingCoeff);
     }
-
-    if (dist > 0) {
-      prevSlideExecution = true;
-      nextSlideExecution = false;
-    } else {
-      prevSlideExecution = false;
-      nextSlideExecution = true;
-    }
-    if (
-      (dist > 0 && slides[0].classList.contains('active-slide') && !prevActiveSlide) ||
-      (dist < 0 && slides[slides.length - 1].classList.contains('active-slide') && !nextActiveSlide)
-    ) {
-      const decrement = 2.2;
-      sliderWrapper.style.transform = `translate3d(${-(slidePosition - dist / decrement)}px, 0, 0)`;
-      x = dist / decrement;
-    } else {
-      x = dist;
-
-      sliderWrapper.style.transform = `translate3d(${-(slidePosition - dist)}px, 0, 0)`;
-    }
-
-    moved = true;
   }
 
   function endOfDragging(e) {
-    if (!holding) return;
-    holding = false;
-    e.stopImmediatePropagation();
-    if (!moved && !intercepted) {
-      //   bannerBtn.setAttribute('href', 'learn-more.html');
-      return;
-    }
-    // bannerBtn.removeAttribute('href');
-    moved = false;
+    if (!wasPressed) return;
+    wasPressed = false;
 
-    endOfHolding = new Date().getTime();
-    const timeDiff = endOfHolding - startOfHolding;
+    const endPointOfDragging = e.pageX,
+      draggedDistance = startPointOfDragging - endPointOfDragging;
 
-    if (Math.abs(x) < slideWidth / 2 && timeDiff > 200 && !intercepted) {
-      if (
-        (slides[0].classList.contains('active-slide') && x > 0) ||
-        (slides[slides.length - 1].classList.contains('active-slide') && x < 0)
-      ) {
-        numberOfInterceptions = 0;
-        currentSlide();
-        holding = false;
-        return;
-      }
-      numberOfInterceptions = 2;
-      currentSlide();
-      holding = false;
-      return;
-    }
-    if (intercepted && prevSlideExecuted && x > 0) {
-      prevActiveSlide = false;
-      currentSlide();
-      return;
-    } else if (intercepted && nextSlideExecuted && x < 0) {
-      nextActiveSlide = false;
-      currentSlide();
-      return;
-    }
+    timeOfEndDragging = new Date().getTime();
+    chooseNextSLide(draggedDistance, timeOfDragging());
+    startSliding();
+    addSlidingStatus();
+  }
 
-    if (x > 0 && !slides[0].classList.contains('active-slide')) {
-      prevActiveSlide = true;
-      prevSlide();
-    } else if (x > 0 && slides[0].classList.contains('active-slide')) {
-      currentSlide();
-    } else if (x < 0 && !slides[slides.length - 1].classList.contains('active-slide')) {
-      nextActiveSlide = true;
-      nextSlide();
-    } else if (x < 0 && slides[slides.length - 1].classList.contains('active-slide')) {
-      currentSlide();
+  function draggingUp(draggedDistance, slowingCoeff) {
+    if (isFirstSlide()) {
+      setSliderPosition(indexOfActiveSlide, draggedDistance, slowingCoeff);
+    } else {
+      setSliderPosition(indexOfActiveSlide, draggedDistance);
     }
+  }
+  function draggingDown(draggedDistance, slowingCoeff) {
+    if (isLastSlide()) {
+      setSliderPosition(indexOfActiveSlide, draggedDistance, slowingCoeff);
+    } else {
+      setSliderPosition(indexOfActiveSlide, draggedDistance);
+    }
+  }
+
+  function timeOfDragging() {
+    return timeOfEndDragging - timeOfStartDragging;
+  }
+
+  function chooseNextSLide(draggedDistance, timeOfDraging) {
+    if (!isEnoughTimePassed(timeOfDraging)) {
+      currentSlide();
+    } else if (draggedDistance < 0) {
+      isFirstSlide() ? currentSlide() : prevSlide();
+    } else if (draggedDistance > 0) {
+      isLastSlide() ? currentSlide() : nextSlide();
+    } else {
+      return;
+    }
+  }
+
+  function isEnoughTimePassed(timeOfDraging) {
+    return timeOfDraging < 250 ? true : false;
+  }
+
+  function addSlidingStatus() {
+    sliderWrapper.classList.add('sliding');
+  }
+
+  function removeSlidingStatus() {
+    sliderWrapper.classList.remove('sliding');
+  }
+
+  function isFirstSlide() {
+    return indexOfActiveSlide === 0;
+  }
+
+  function isLastSlide() {
+    return indexOfActiveSlide === slides.length - 1;
   }
 
   function currentSlide() {
     setSliderPosition(indexOfActiveSlide);
-    addTransitionDuration();
   }
 
   function prevSlide() {
@@ -269,12 +209,6 @@ export default function createHorizontalSlider() {
       prevActiveSlide = indexOfActiveSlide;
     setSliderPosition(newActiveSlide);
     setNewActiveSlideAndBullet(newActiveSlide, prevActiveSlide);
-    addTransitionDuration();
-
-    prevSlideExecution = true;
-    prevSlideExecuted = true;
-    nextSlideExecution = false;
-    nextSlideExecuted = false;
 
     setCurrentSlideNumber();
   }
@@ -284,12 +218,6 @@ export default function createHorizontalSlider() {
       prevActiveSlide = indexOfActiveSlide;
     setSliderPosition(newActiveSlide);
     setNewActiveSlideAndBullet(newActiveSlide, prevActiveSlide);
-    addTransitionDuration();
-
-    prevSlideExecution = false;
-    prevSlideExecuted = false;
-    nextSlideExecution = true;
-    nextSlideExecuted = true;
 
     setCurrentSlideNumber();
   }
@@ -317,7 +245,7 @@ export default function createHorizontalSlider() {
     }
     // set transitionDuration as 0ms when sliding transition ended
     // so we can drag without any transition
-    sliderWrapper.addEventListener('transitionend', removeTransitionDuration);
+    sliderWrapper.addEventListener('transitionend', endSliding);
     // change size of slide according to the size of viewport
     window.addEventListener('resize', () => {
       setSizeOfSlide();
