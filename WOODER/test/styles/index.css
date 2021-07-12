@@ -468,7 +468,13 @@ svg:not(.header__hamburger):not(.header__toggle-menu-cross-sign) {
 
 @media (max-width: 700px) {
   .header__content {
-    padding-left: 10px;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header__content {
+    padding-top: 15px;
   }
 }
 
@@ -550,6 +556,18 @@ svg:not(.header__hamburger):not(.header__toggle-menu-cross-sign) {
   left: 50px;
   top: 50px;
   cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .header__toggle-menu-cross-sign {
+    left: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header__toggle-menu-cross-sign {
+    top: 20px;
+  }
 }
 
 /*  /////////////hamburger-text\\\\\\\\ */
@@ -808,8 +826,8 @@ svg:not(.header__hamburger):not(.header__toggle-menu-cross-sign) {
 
 @media (max-width: 550px) {
   .banner__text-container {
-    max-height: 480px;
-    overflow: auto;
+    max-height: 430px;
+
     white-space: wrap;
   }
 }
@@ -1184,6 +1202,12 @@ svg:not(.header__hamburger):not(.header__toggle-menu-cross-sign) {
   .slider-pagination-bullet {
     margin: 10px 50px;
     display: inline-block;
+  }
+}
+
+@media (max-width: 700px) {
+  .slider-pagination-bullet {
+    margin: 10px 30px;
   }
 }
 
@@ -1676,34 +1700,39 @@ svg:not(.header__hamburger):not(.header__toggle-menu-cross-sign) {
   pointer-events: none;
 }
 
-/* player */
-
-.about-wooder__video-player {
-  width: 70%;
-  height: 50%;
-}
-
 .video__wrapper {
-  display: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.712);
-  /* display: flex; */
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+
+  height: 100%;
+  width: 100%;
+  z-index: 20;
+}
+
+.video__player {
+  position: relative;
+  width: 70%;
+  height: 50%;
+  z-index: 21;
+}
+
+.video__container {
+  position: relative;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
   z-index: 9999;
-}
-
-.video__wrapper video {
-  width: 70%;
-  height: 50%;
 }
 
 .main__wooder-video {
@@ -2028,6 +2057,7 @@ svg:not(.header__hamburger):not(.header__toggle-menu-cross-sign) {
 }
 
 .learn-more__text {
+  text-align: center;
   font-size: 50px;
   color: var(--grey);
   letter-spacing: 0.4rem;
