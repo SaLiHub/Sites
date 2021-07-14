@@ -9,9 +9,10 @@ export default function createVerticalSlider() {
     slidePosition = 0,
     indexOfActiveSlide = 0,
     startPointOfDragging,
-    draggedDistance,
     slideHeight,
-    bullets;
+    bullets,
+    timeOfStartDragging,
+    timeOfEndDragging;
 
   (function init() {
     initBullets();
@@ -110,14 +111,10 @@ export default function createVerticalSlider() {
     // if click was on pagination bar or right click was used
     // then slider-dragging is not getting triggered
     const elementsClickedId = [e.target.id, e.target.parentElement.id];
-    if (elementsClickedId.includes('sliderPagination') || e.buttons === 2) return;
-    if (isSliding()) {
-      return;
-    }
+    if (elementsClickedId.includes('sliderPagination') || e.buttons === 2 || isSliding()) return;
     wasPressed = true;
-
     startPointOfDragging = e.pageY;
-
+    timeOfStartDragging = new Date().getTime();
     endSliding();
     e.preventDefault();
   }
@@ -129,29 +126,13 @@ export default function createVerticalSlider() {
   function dragging(e) {
     // if user move mouse without wasPressed slider won't get triggered
     if (!wasPressed) return;
-
-    const currentPointOfDragging = e.pageY;
-    draggedDistance = startPointOfDragging - currentPointOfDragging;
-    const slowingCoeff = 2;
+    const currentPointOfDragging = e.pageY,
+      draggedDistance = startPointOfDragging - currentPointOfDragging,
+      slowingCoeff = 2;
     if (draggedDistance < 0) {
-      draggingUp(slowingCoeff);
+      draggingUp(draggedDistance, slowingCoeff);
     } else if (draggedDistance > 0) {
-      draggingDown(slowingCoeff);
-    }
-  }
-
-  function draggingUp(slowingCoeff) {
-    if (isFirstSlide()) {
-      setSliderPosition(indexOfActiveSlide, draggedDistance, slowingCoeff);
-    } else {
-      setSliderPosition(indexOfActiveSlide, draggedDistance);
-    }
-  }
-  function draggingDown(slowingCoeff) {
-    if (isLastSlide()) {
-      setSliderPosition(indexOfActiveSlide, draggedDistance, slowingCoeff);
-    } else {
-      setSliderPosition(indexOfActiveSlide, draggedDistance);
+      draggingDown(draggedDistance, slowingCoeff);
     }
   }
 
@@ -159,18 +140,48 @@ export default function createVerticalSlider() {
     if (!wasPressed) return;
     wasPressed = false;
 
-    const endPointOfDragging = e.pageY;
-    draggedDistance = startPointOfDragging - endPointOfDragging;
+    const endPointOfDragging = e.pageY,
+      draggedDistance = startPointOfDragging - endPointOfDragging;
 
-    if (draggedDistance < 0) {
+    timeOfEndDragging = new Date().getTime();
+    chooseNextSLide(draggedDistance, timeOfDragging());
+    startSliding();
+    addSlidingStatus();
+  }
+
+  function draggingUp(draggedDistance, slowingCoeff) {
+    if (isFirstSlide()) {
+      setSliderPosition(indexOfActiveSlide, draggedDistance, slowingCoeff);
+    } else {
+      setSliderPosition(indexOfActiveSlide, draggedDistance);
+    }
+  }
+  function draggingDown(draggedDistance, slowingCoeff) {
+    if (isLastSlide()) {
+      setSliderPosition(indexOfActiveSlide, draggedDistance, slowingCoeff);
+    } else {
+      setSliderPosition(indexOfActiveSlide, draggedDistance);
+    }
+  }
+
+  function timeOfDragging() {
+    return timeOfEndDragging - timeOfStartDragging;
+  }
+
+  function chooseNextSLide(draggedDistance, timeOfDraging) {
+    if (!isEnoughTimePassed(timeOfDraging)) {
+      currentSlide();
+    } else if (draggedDistance < 0) {
       isFirstSlide() ? currentSlide() : prevSlide();
     } else if (draggedDistance > 0) {
       isLastSlide() ? currentSlide() : nextSlide();
     } else {
       return;
     }
-    startSliding();
-    addSlidingStatus();
+  }
+
+  function isEnoughTimePassed(timeOfDraging) {
+    return timeOfDraging < 250 ? true : false;
   }
 
   function addSlidingStatus() {
