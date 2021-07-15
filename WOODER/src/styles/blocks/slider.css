@@ -3,7 +3,7 @@
   width: 100%;
   height: 100%;
   position: relative;
-  touch-action: none;
+  touch-action: pan-y;
   z-index: 1;
   user-select: none;
   margin: auto;
@@ -16,7 +16,7 @@
 
 .slider-wrapper {
   display: flex;
-  transition-timing-function: linear;
+
   transition-property: transform;
 
   height: 100%;
@@ -33,8 +33,7 @@
   -webkit-transform: translateZ(0) scale(1, 1);
   -webkit-justify-content: center;
   justify-content: center;
-  -webkit-align-items: center;
-  align-items: center;
+  padding-top: 160px;
 }
 
 .slider-pagination-bullet {
@@ -47,58 +46,6 @@
   cursor: pointer;
 }
 
-/* vertical */
-
-/* .slider-wrapper {
-   
-    display: flex;
-    flex-direction: column;
-    transition-timing-function: linear;
-    transition-property: transform;
-    white-space: nowrap;
-    height: 100%;
-    width: 100%;
-  }
-
-  .slider-slide {
-    display: flex;
-    min-height: 100%;
-    width: 100%;
-  
-   
-    font-size: 36px;
-    background-color: #fff;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: translateZ(0) scale(1, 1);
-    -webkit-transform: translateZ(0) scale(1, 1);
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
-    
-  }  
-  
-  .slider-pagination {
-    position: absolute;
-    left: 5px;
-    top: 50%;
-    transform: translate3d(0, -50%, 0);
-  }
-
-  .slider-pagination-bullet {
-    width: 20px;
-    height: 20px;
-    background-color: #7656d6;
-    border-radius: 50%;
-    margin: 5px 10px;
-    transition: 300ms transform;
-    cursor: pointer;
-    display: block;
-  }   */
-
-/* counter */
-
 .count-number {
   position: absolute;
   right: 5px;
@@ -107,36 +54,3 @@
   text-align: center;
   color: var(--gold);
 }
-
-/* arrows */
-
-/* 
-.control {
-    position: absolute;
-    top: 50%;
-    width: 50px;
-    height: 50px;
-    background: #fff;
-    border-radius: 50px;
-    margin-top: -20px;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-  }
-  
-  .prev,
-  .next {
-    background-size: 22px;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-  }
-  
-  .prev {
-    background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronLeft-512.png);
-    left: -20px;
-  }
-  
-  .next {
-    background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronRight-512.png);
-    right: -20px;
-  } */

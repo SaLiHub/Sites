@@ -409,6 +409,12 @@
   }
 }
 
+@media (max-width: 500px) {
+  .slider-pagination-bullet {
+    margin: 10px 20px;
+  }
+}
+
 .active-bullet {
   opacity: 1;
   transform: scale(1.2);
