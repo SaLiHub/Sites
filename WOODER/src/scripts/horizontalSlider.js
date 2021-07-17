@@ -115,7 +115,6 @@ export default function createHorizontalSlider() {
   function startOfDragging(e) {
     // if click was on pagination bar or right click was used
     // then slider-dragging is not getting triggered
-    console.log('start');
     const elementsClickedId = [e.target.id, e.target.parentElement.id];
     if (elementsClickedId.includes('sliderPagination') || e.buttons === 2 || isSliding()) return;
 
@@ -183,23 +182,14 @@ export default function createHorizontalSlider() {
     if (draggedDistance === 0) {
       return;
     } else if (timeLimitBreached(timeOfDraging)) {
-      console.log('1');
-      console.log(draggedDistance);
-
       goToCurrentSlide();
       startSliding();
       return;
     } else if (directionOfDragging(draggedDistance) === 'left') {
-      console.log('2');
-      console.log(draggedDistance);
-
       isFirstSlide() ? goToCurrentSlide() : goToPrevSlide();
       startSliding();
       return;
     } else if (directionOfDragging(draggedDistance) === 'right') {
-      console.log('3');
-      console.log(draggedDistance);
-
       isLastSlide() ? goToCurrentSlide() : goToNextSlide();
       startSliding();
       return;
@@ -251,12 +241,6 @@ export default function createHorizontalSlider() {
 
     setCurrentSlideNumber();
   }
-
-  // function cancelSliding() {
-  //   console.log('luck');
-  //   wasPressed = false;
-  //   goToCurrentSlide();
-  // }
 
   function initEventListeners() {
     if (window.PointerEvent) {

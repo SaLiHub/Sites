@@ -12,7 +12,7 @@ export default function createHorizontalSlider() {
     slideHeight,
     bullets,
     timeOfStartDragging,
-    timeOfEndDragging;
+    draggingStopped;
 
   (function init() {
     initBullets();
@@ -108,10 +108,14 @@ export default function createHorizontalSlider() {
     indexOfActiveSlide = newIndex;
   }
 
+  function isSliding() {
+    return sliderWrapper.classList.contains('sliding');
+  }
+
   function startOfDragging(e) {
     // if click was on pagination bar or right click was used
     // then slider-dragging is not getting triggered
-
+    console.log('start');
     const elementsClickedId = [e.target.id, e.target.parentElement.id];
     if (elementsClickedId.includes('sliderPagination') || e.buttons === 2 || isSliding()) return;
 
@@ -122,12 +126,8 @@ export default function createHorizontalSlider() {
     e.preventDefault();
   }
 
-  function isSliding() {
-    return sliderWrapper.classList.contains('sliding');
-  }
-
   function dragging(e) {
-    // if user move mouse without earlier click slider won't get triggered
+    // if user move mouse without wasPressed slider won't get triggered
     if (!wasPressed) return;
 
     const currentPointOfDragging = e.pageY,
@@ -138,15 +138,6 @@ export default function createHorizontalSlider() {
     } else if (draggedDistance > 0) {
       draggingDown(draggedDistance, slowingCoeff);
     }
-  }
-
-  function endOfDragging(e) {
-    if (!wasPressed) return;
-    wasPressed = false;
-    const endPointOfDragging = e.pageY,
-      draggedDistance = startPointOfDragging - endPointOfDragging;
-    timeOfEndDragging = new Date().getTime();
-    chooseNextSlide(draggedDistance, timeOfDragging());
   }
 
   function draggingUp(draggedDistance, slowingCoeff) {
@@ -164,31 +155,45 @@ export default function createHorizontalSlider() {
     }
   }
 
+  function endOfDragging(e) {
+    if (!wasPressed) return;
+    wasPressed = false;
+
+    const endPointOfDragging = e.pageY,
+      draggedDistance = startPointOfDragging - endPointOfDragging;
+
+    draggingStopped = new Date().getTime();
+
+    chooseNextSlide(draggedDistance, timeOfDragging());
+  }
+
   function timeOfDragging() {
-    return timeOfEndDragging - timeOfStartDragging;
+    return draggingStopped - timeOfStartDragging;
   }
 
   function chooseNextSlide(draggedDistance, timeOfDraging) {
     if (draggedDistance === 0) {
       return;
-    } else if (timeLimitPassed(timeOfDraging)) {
-      console.log('timeLimitPassed');
-      currentSlide();
+    } else if (timeLimitBreached(timeOfDraging)) {
+      goToCurrentSlide();
       startSliding();
       return;
-    } else if (draggedDistance < 0) {
-      isFirstSlide() ? currentSlide() : prevSlide();
+    } else if (directionOfDragging(draggedDistance) === 'down') {
+      isFirstSlide() ? goToCurrentSlide() : goToPrevSlide();
       startSliding();
       return;
-    } else if (draggedDistance > 0) {
-      console.log('changeSlide');
-      isLastSlide() ? currentSlide() : nextSlide();
+    } else if (directionOfDragging(draggedDistance) === 'up') {
+      isLastSlide() ? goToCurrentSlide() : goToNextSlide();
       startSliding();
       return;
     }
   }
 
-  function timeLimitPassed(timeOfDraging) {
+  function directionOfDragging(draggedDistance) {
+    return draggedDistance > 0 ? 'up' : 'down';
+  }
+
+  function timeLimitBreached(timeOfDraging) {
     return timeOfDraging > 250 ? true : false;
   }
 
@@ -208,11 +213,11 @@ export default function createHorizontalSlider() {
     return indexOfActiveSlide === slides.length - 1;
   }
 
-  function currentSlide() {
+  function goToCurrentSlide() {
     setSliderPosition(indexOfActiveSlide);
   }
 
-  function prevSlide() {
+  function goToPrevSlide() {
     const newActiveSlide = indexOfActiveSlide - 1,
       prevActiveSlide = indexOfActiveSlide;
     setSliderPosition(newActiveSlide);
@@ -221,7 +226,7 @@ export default function createHorizontalSlider() {
     setCurrentSlideNumber();
   }
 
-  function nextSlide() {
+  function goToNextSlide() {
     const newActiveSlide = indexOfActiveSlide + 1,
       prevActiveSlide = indexOfActiveSlide;
     setSliderPosition(newActiveSlide);

@@ -132,13 +132,8 @@
   border-radius: 50%;
   background-color: rgba(190, 166, 124, 0.8);
   transition: 0.2s all ease-out;
-  cursor: pointer;
+  pointer-events: none;
   border: none;
-}
-
-.about-wooder__video-play-button:hover {
-  transform: translate(-50%, -50%) scale3d(1.3, 1.3, 1.3) rotate(0.01deg);
-  transition: 150ms all;
 }
 
 .about-wooder__video-play {
