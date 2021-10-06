@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="page" lang="en">
+  <head>
+    <title>WOODER</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+  <body class="wooder">
+    <header class="header page__header">
+      <div class="header__content">
+        <!-- hamburger-menu  -->
+        <div class="header__hamburger-menu">
+          <svg class="header__hamburger" aria-label="menu">
+            <use xlink:href="images/sprite.svg#menu" />
+          </svg>
+
+          <a class="header__hamburger-text" href="#">menu</a>
+
+          <div class="header__toggle-menu">
+            <svg class="header__toggle-menu-cross-sign" aria-label="close">
+              <use xlink:href="images/sprite.svg#close" />
+            </svg>
+
+            <ul class="header__toggle-menu-container">
+              <li class="header__toggle-menu-link-container">
+                <a href="#" class="header__toggle-menu-link">home</a>
+              </li>
+              <li class="header__toggle-menu-link-container">
+                <a href="#" class="header__toggle-menu-link">products</a>
+              </li>
+              <li class="header__toggle-menu-link-container">
+                <a href="#" class="header__toggle-menu-link">about</a>
+              </li>
+              <li class="header__toggle-menu-link-container">
+                <a href="#" class="header__toggle-menu-link">...</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- header-logo  -->
+        <div class="header__logo-container">
+          <span class="logo">wooder</span>
+        </div>
+
+        <!-- header-navigation-menu  -->
+        <nav class="header__nav-menu">
+          <ul class="header__nav-menu-container">
+            <li class="header__nav-menu-link-container">
+              <a href="#" class="header__nav-menu-link">home</a>
+            </li>
+            <li class="header__nav-menu-link-container">
+              <a href="#" class="header__nav-menu-link">products</a>
+            </li>
+            <li class="header__nav-menu-link-container">
+              <a href="#" class="header__nav-menu-link">about</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- header-info  -->
+        <div class="header__info">
+          <a class="header__info-link" href="#">
+            <svg class="header__info-icon" aria-label="info">
+              <use xlink:href="images/sprite.svg#information" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- changer-languages  -->
+
+        <div class="header__changer-lang-container">
+          <a href="#" class="header__changer-lang" href="#">en</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- main content -->
+    <main class="main main_back-color">
+      <section class="banner main__banner">
+        <div id="sliderContainer" class="slider-container">
+          <div id="sliderWrapper" class="slider-wrapper">
+            <div id="main-slide" class="slider-slide">
+              <!-- banner content -->
+              <div class="banner__content">
+                <div class="banner__title-container">
+                  <h1 class="banner__title">wooder</h1>
+                </div>
+
+                <div class="banner__button-container">
+                  <a
+                    href="learn-more.html"
+                    type="text/html"
+                    class="banner__button wooder-button"
+                  >
+                    learn more
+                    <svg class="banner__button-arrow-right" aria-label="close">
+                      <use xlink:href="images/sprite.svg#right-arrow" />
+                    </svg>
+                  </a>
+                </div>
+
+                <!-- drag  -->
+                <div class="banner__drag">
+                  <div class="banner__arrow-up-container">
+                    <svg
+                      viewBox="0 0 100 100"
+                      class="banner__arrow-up"
+                      aria-label="close"
+                    >
+                      <use xlink:href="images/sprite.svg#right-arrow" />
+                    </svg>
+                  </div>
+
+                  <div class="banner__text-drag-container">
+                    <p class="banner__text-drag">drag</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- slider count -->
+          <span
+            id="countNumber"
+            class="slider-container__count-number count-number"
+          ></span>
+
+          <!-- pagination -->
+          <div id="sliderPagination" class="slider-pagination"></div>
+        </div>
+
+        <!-- banner first background -->
+        <div class="banner__first-background"></div>
+        <!-- banner second background -->
+        <div class="banner__second-background">
+          <svg class="banner__second-background-share" aria-label="share">
+            <use xlink:href="images/sprite.svg#share" />
+          </svg>
+          <p class="bunner__second-background-text">furniture & decor</p>
+        </div>
+      </section>
+
+      <!-- furniture -->
+      <section class="furniture decor main__furniture">
+        <div class="furniture__content wooder-block-content">
+          <div class="furniture__description wooder-block-content__description">
+            <h3 class="furniture__title wooder-title">furniture</h3>
+            <p class="furniture__text wooder-text">
+              Wooder utilizes materials otherwise left behind, rendered useless
+              in their original intent. By creating new pieces made of reclaimed
+              barnwood
+            </p>
+
+            <div class="furniture__learn-more-container">
+              <a
+                href="learn-more.html"
+                type="text/html"
+                class="furniture__learn-more wooder-block-content__learn-more"
+              >
+                learn more
+                <svg
+                  class="
+                    furniture__learn-more-arrow
+                    wooder-block-content__learn-more-arrow
+                  "
+                  aria-label="close"
+                >
+                  <use xlink:href="images/sprite.svg#right-arrow" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img
+            class="furniture__photo wooder-block-content__photo"
+            src="images/furniture.jpg"
+          />
+
+          <span class="furniture__number wooder-block-content__number"
+            >01<span class="wooder-block-content__dot">.</span></span
+          >
+        </div>
+        <div class="wooder-block-content decor__content">
+          <div class="wooder-block-content__description decor__description">
+            <h3 class="decor__title wooder-title">decor</h3>
+            <p class="decor__text wooder-text">
+              We make all types of wooden decor as per design given by
+              Architect, Interior designer, contractor which is suitable
+            </p>
+            <div class="decor__learn-more-container">
+              <a
+                href="learn-more.html"
+                type="text/html"
+                class="wooder-block-content__learn-more decor__learn-more"
+                >learn more
+                <svg
+                  class="
+                    wooder-block-content__learn-more-arrow
+                    decor__learn-more-arrow
+                  "
+                  aria-label="learn more"
+                >
+                  <use xlink:href="images/sprite.svg#right-arrow" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <img
+            class="decor__photo wooder-block-content__photo"
+            src="images/decor.jpg"
+          />
+
+          <span class="decor__number wooder-block-content__number"
+            >02<span class="wooder-block-content__dot">.</span></span
+          >
+        </div>
+      </section>
+
+      <!-- about wooder -->
+      <section class="about-wooder main__about-wooder">
+        <div class="about-wooder__content">
+          <h3 class="about-wooder__title wooder-title">wooder – is quality</h3>
+          <p class="about-wooder__text wooder-text">
+            We create unique design objects made of rare wood, specially under
+            the order. Look at the short video about our work
+          </p>
+          <div class="about-wooder__videos">
+            <div class="about-wooder__video video">
+              <img
+                src="images/1.png"
+                alt=""
+                class="about-wooder__photo"
+              />
+              <button class="video__button about-wooder__video-play-button">
+                <svg class="about-wooder__video-play" aria-label="play">
+                  <use xlink:href="images/sprite.svg#play" />
+                </svg>
+              </button>
+              <span class="about-wooder__video-description wooder-text"
+                >Innovative Design</span
+              >
+              <div class="video__container">
+                <div class="video__wrapper about-wooder__video-wrapper"></div>
+                <video class="video__player" src="#" controls>
+                  Sorry, there is no video available at the moment
+                </video>
+              </div>
+            </div>
+            <div class="about-wooder__video video">
+              <img
+                src="images/2.png"
+                alt=""
+                class="about-wooder__photo"
+              />
+              <button class="video__button about-wooder__video-play-button">
+                <svg class="about-wooder__video-play" aria-label="play">
+                  <use xlink:href="images/sprite.svg#play" />
+                </svg>
+              </button>
+              <span class="about-wooder__video-description wooder-text"
+                >High-level Skills</span
+              >
+              <div class="video__container">
+                <div class="video__wrapper about-wooder__video-wrapper"></div>
+                <video class="video__player" src="#" controls>
+                  Sorry, there is no video available at the moment
+                </video>
+              </div>
+            </div>
+            <div class="about-wooder__video video">
+              <img
+                src="images/3.png"
+                alt=""
+                class="about-wooder__photo"
+              />
+              <button class="video__button about-wooder__video-play-button">
+                <svg class="about-wooder__video-play" aria-label="play">
+                  <use xlink:href="images/sprite.svg#play" />
+                </svg>
+              </button>
+              <span class="about-wooder__video-description wooder-text"
+                >Quality Products</span
+              >
+              <div class="video__container">
+                <div class="video__wrapper about-wooder__video-wrapper"></div>
+                <video class="video__player" src="#" controls>
+                  Sorry, there is no video available at the moment
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- wooder video -->
+      <section class="wooder-video main__wooder-video">
+        <div class="wooder-video__content">
+          <div class="wooder-video__description video">
+            <h3 class="wooder-video__title wooder-title">
+              we do the design of any complexity
+            </h3>
+
+            <p class="wooder-video__text wooder-text">
+              This is a team of professionals that make the furniture and wood
+              décor high standard. Creating modern designs. Adhering to the
+              global quality standards. And we are doing work with love.
+            </p>
+
+            <button
+              class="wooder-video__button wooder-button video__button"
+              type="button"
+              aria-label="watch"
+            >
+              <svg class="wooder-video__button-play-icon" aria-label="play">
+                <use xlink:href="images/sprite.svg#play-button-1" />
+              </svg>
+              watch video
+            </button>
+            <div class="video__container">
+              <div class="video__wrapper wooder-video__wrapper"></div>
+              <video class="video__player" src="#" controls>
+                Sorry, there is no video available at the moment
+              </video>
+            </div>
+          </div>
+        </div>
+        <svg class="wooder-video__play-icon">
+          <use xlink:href="images/sprite.svg#play-button-1" />
+        </svg>
+      </section>
+
+      <!-- about us -->
+      <section class="about-us main__about-us">
+        <div class="about-us__content wooder-block-content">
+          <div class="about-us__description wooder-block-content__description">
+            <h3 class="about-us__title wooder-title">about us</h3>
+            <p class="about-us__text wooder-text">
+              Wooder utilizes materials otherwise left behind, rendered useless
+              in their original intent. By creating new pieces made of reclaimed
+              barnwood
+            </p>
+
+            <div class="about-us__learn-more-container">
+              <a
+                href="learn-more.html"
+                type="text/html"
+                class="about-us__learn-more wooder-block-content__learn-more"
+              >
+                learn more
+                <svg
+                  class="
+                    about-us__learn-more-arrow
+                    wooder-block-content__learn-more-arrow
+                  "
+                  aria-label="close"
+                >
+                  <use xlink:href="images/sprite.svg#right-arrow" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <img
+            class="about-us__photo wooder-block-content__photo"
+            src="images/about-us-photo.jpg"
+          />
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__content">
+        <span class="footer__copyright">© 2020 wooder</span>
+        <div class="footer__logo-container">
+          <span class="footer__logo logo">wooder</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- firebase database -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.3/firebase-app.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.3/firebase-database.min.js"></script>
+  </body>
+</html>
