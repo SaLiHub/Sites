@@ -1,18 +1,18 @@
-export default function createHorizontalSlider() {
-  const sliderContainer = document.querySelector('#sliderContainer'),
-    sliderWrapper = document.querySelector('#sliderWrapper'),
-    slides = document.querySelectorAll('.slider-slide'),
-    sliderPagination = document.querySelector('#sliderPagination'),
-    counter = document.querySelector('#countNumber');
+export default function createVerticalSlider() {
+  const sliderContainer = document.querySelector('#sliderContainer');
+  const sliderWrapper = document.querySelector('#sliderWrapper');
+  const slides = document.querySelectorAll('.slider-slide');
+  const sliderPagination = document.querySelector('#sliderPagination');
+  const counter = document.querySelector('#countNumber');
 
-  let wasPressed = false,
-    slidePosition = 0,
-    indexOfActiveSlide = 0,
-    startPointOfDragging,
-    slideHeight,
-    bullets,
-    timeOfStartDragging,
-    draggingStopped;
+  let wasPressed = false;
+  let slidePosition = 0;
+  let indexOfActiveSlide = 0;
+  let startPointOfDragging;
+  let slideHeight;
+  let bullets;
+  let timeOfStartDragging;
+  let draggingStopped;
 
   (function init() {
     initBullets();
@@ -42,6 +42,7 @@ export default function createHorizontalSlider() {
 
   function initBullets() {
     for (let i = 0; i < slides.length; i++) {
+      console.log('2');
       createBullet(i);
     }
 
@@ -51,11 +52,11 @@ export default function createHorizontalSlider() {
   function triggerBullets(e) {
     if (e.target.classList.contains('slider-pagination-bullet')) {
       const numberBulletIndex = Number(e.target.dataset.bulletIndex);
-      bulletClickTriger(numberBulletIndex);
+      bulletClickTrigger(numberBulletIndex);
     }
   }
   function createBullet(index) {
-    let el = document.createElement('span');
+    const el = document.createElement('span');
     el.classList.add('slider-pagination-bullet');
     el.dataset.bulletIndex = index;
     sliderPagination.appendChild(el);
@@ -63,7 +64,7 @@ export default function createHorizontalSlider() {
 
   function changeSliderPosition(indexOfNewActiveSlide) {
     setSliderPosition(indexOfNewActiveSlide);
-    // add transition durration durring changing slides
+    // Add transition duration during changing slides.
     startSliding();
   }
 
@@ -77,13 +78,17 @@ export default function createHorizontalSlider() {
     removeSlidingStatus();
   }
 
-  function bulletClickTriger(indexOfNewActiveSlide) {
+  function bulletClickTrigger(indexOfNewActiveSlide) {
     changeSliderPosition(indexOfNewActiveSlide);
     setNewActiveSlideAndBullet(indexOfNewActiveSlide);
     setCurrentSlideNumber();
   }
 
-  function setSliderPosition(indexOfSlide, draggedDistance = 0, slowingCoeff = 1) {
+  function setSliderPosition(
+    indexOfSlide,
+    draggedDistance = 0,
+    slowingCoeff = 1,
+  ) {
     slidePosition = slideHeight * indexOfSlide + draggedDistance / slowingCoeff;
     sliderWrapper.style.transform = `translate3d(0, ${-slidePosition}px, 0)`;
   }
@@ -98,7 +103,10 @@ export default function createHorizontalSlider() {
     bullets[i].classList.add('active-bullet');
   }
 
-  function setNewActiveSlideAndBullet(newIndex, prevIndex = indexOfActiveSlide) {
+  function setNewActiveSlideAndBullet(
+    newIndex,
+    prevIndex = indexOfActiveSlide,
+  ) {
     removePrevActiveSlideAndBullet(prevIndex);
     addActiveSlideAndBullet(newIndex);
     setNewIndexOfActiveSlide(newIndex);
@@ -113,11 +121,14 @@ export default function createHorizontalSlider() {
   }
 
   function startOfDragging(e) {
-    // if click was on pagination bar or right click was used
-    // then slider-dragging is not getting triggered
-    console.log('start');
+    // If click was on pagination bar or right click was used
+    // then slider-dragging is not getting triggered.
     const elementsClickedId = [e.target.id, e.target.parentElement.id];
-    if (elementsClickedId.includes('sliderPagination') || e.buttons === 2 || isSliding()) return;
+    if (
+      elementsClickedId.includes('sliderPagination')
+      || e.buttons === 2
+      || isSliding()
+    ) return;
 
     wasPressed = true;
     startPointOfDragging = e.pageY;
@@ -127,12 +138,12 @@ export default function createHorizontalSlider() {
   }
 
   function dragging(e) {
-    // if user move mouse without wasPressed slider won't get triggered
+    // If user move mouse without wasPressed slider won't get triggered.
     if (!wasPressed) return;
 
-    const currentPointOfDragging = e.pageY,
-      draggedDistance = startPointOfDragging - currentPointOfDragging,
-      slowingCoeff = 2;
+    const currentPointOfDragging = e.pageY;
+    const draggedDistance = startPointOfDragging - currentPointOfDragging;
+    const slowingCoeff = 2;
     if (draggedDistance < 0) {
       draggingUp(draggedDistance, slowingCoeff);
     } else if (draggedDistance > 0) {
@@ -159,8 +170,8 @@ export default function createHorizontalSlider() {
     if (!wasPressed) return;
     wasPressed = false;
 
-    const endPointOfDragging = e.pageY,
-      draggedDistance = startPointOfDragging - endPointOfDragging;
+    const endPointOfDragging = e.pageY;
+    const draggedDistance = startPointOfDragging - endPointOfDragging;
 
     draggingStopped = new Date().getTime();
 
@@ -171,21 +182,18 @@ export default function createHorizontalSlider() {
     return draggingStopped - timeOfStartDragging;
   }
 
-  function chooseNextSlide(draggedDistance, timeOfDraging) {
+  function chooseNextSlide(draggedDistance, dragTime) {
     if (draggedDistance === 0) {
-      return;
-    } else if (timeLimitBreached(timeOfDraging)) {
+      // Nothing happens.
+    } else if (timeLimitBreached(dragTime)) {
       goToCurrentSlide();
       startSliding();
-      return;
     } else if (directionOfDragging(draggedDistance) === 'down') {
       isFirstSlide() ? goToCurrentSlide() : goToPrevSlide();
       startSliding();
-      return;
     } else if (directionOfDragging(draggedDistance) === 'up') {
       isLastSlide() ? goToCurrentSlide() : goToNextSlide();
       startSliding();
-      return;
     }
   }
 
@@ -193,8 +201,8 @@ export default function createHorizontalSlider() {
     return draggedDistance > 0 ? 'up' : 'down';
   }
 
-  function timeLimitBreached(timeOfDraging) {
-    return timeOfDraging > 250 ? true : false;
+  function timeLimitBreached(dragTime) {
+    return dragTime > 250;
   }
 
   function addSlidingStatus() {
@@ -218,8 +226,8 @@ export default function createHorizontalSlider() {
   }
 
   function goToPrevSlide() {
-    const newActiveSlide = indexOfActiveSlide - 1,
-      prevActiveSlide = indexOfActiveSlide;
+    const newActiveSlide = indexOfActiveSlide - 1;
+    const prevActiveSlide = indexOfActiveSlide;
     setSliderPosition(newActiveSlide);
     setNewActiveSlideAndBullet(newActiveSlide, prevActiveSlide);
 
@@ -227,8 +235,8 @@ export default function createHorizontalSlider() {
   }
 
   function goToNextSlide() {
-    const newActiveSlide = indexOfActiveSlide + 1,
-      prevActiveSlide = indexOfActiveSlide;
+    const newActiveSlide = indexOfActiveSlide + 1;
+    const prevActiveSlide = indexOfActiveSlide;
     setSliderPosition(newActiveSlide);
     setNewActiveSlideAndBullet(newActiveSlide, prevActiveSlide);
 
@@ -256,15 +264,15 @@ export default function createHorizontalSlider() {
       sliderContainer.addEventListener('touchcancel', endOfDragging);
       sliderContainer.addEventListener('touchend', endOfDragging);
     }
-    // set transitionDuration as 0ms when sliding transition ended
-    // so we can drag without any transition
+    // Set transitionDuration as 0ms when sliding transition ended
+    // so we can drag without any transition.
     sliderWrapper.addEventListener('transitionend', endSliding);
-    // change size of slide according to the size of viewport
+    // Change size of slide according to the size of viewport.
     window.addEventListener('resize', () => {
       setSizeOfSlide();
       setSliderPosition(indexOfActiveSlide);
     });
-    // listen click on each bulet
+    // Listen click on each bullet.
     sliderPagination.addEventListener('click', triggerBullets);
   }
 }
