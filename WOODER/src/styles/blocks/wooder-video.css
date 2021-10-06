@@ -6,6 +6,7 @@
   background-size: cover;
   height: 100vh;
   overflow: hidden;
+  background-image: url('../images/video-background.jpg');
 }
 
 /* /////////////// content icon \\\\\\\\\\\\\\\ */

@@ -283,6 +283,7 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-image: url('../images/fallen-tree.jpg');
   z-index: -1;
 }
 
@@ -297,6 +298,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 1;
+  background-image: url('../images/wood-pile.jpg');
 }
 
 .banner__second-background-share {
