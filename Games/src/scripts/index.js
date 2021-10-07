@@ -1,8 +1,8 @@
 'use strict';
 
 (function executeAllSliders() {
-  // slider1
-  Swiper('#swiper-banner', {
+  // eslint-disable-next-line no-new
+  new Swiper('#swiper-banner', {
     direction: 'vertical',
     slidesPerView: 1,
     slidesPerGroup: 1,
@@ -18,8 +18,8 @@
     },
   });
 
-  // slider2
-  Swiper('#swiper-container-1', {
+  // eslint-disable-next-line no-new
+  new Swiper('#swiper-container-1', {
     slidesPerView: 4,
     spaceBetween: 10,
     slidesPerGroup: 1,
@@ -29,8 +29,8 @@
     },
   });
 
-  // section 3
-  Swiper('#swiper-container-2', {
+  // eslint-disable-next-line no-new
+  new Swiper('#swiper-container-2', {
     slidesPerView: 'auto',
     centeredSlides: true,
     spaceBetween: 130,
