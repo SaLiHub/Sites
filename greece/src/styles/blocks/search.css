@@ -3,9 +3,6 @@
   background-color: #017dfb;
   margin-bottom: 0;
   position: relative;
-  
-
-
 }
 
 .search__form {
@@ -17,19 +14,17 @@
   grid-template-columns: repeat(8, 1fr);
   justify-items: center;
   width: 100%;
-  transition: .3s all;
+  transition: 0.3s all;
 }
 
-
-
 .form__field {
-    position: relative;
-    width: 70%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    transition: .3s all;
+  position: relative;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: 0.3s all;
 }
 
 .form__field_stretch {
@@ -61,19 +56,18 @@
 
 .form__label::after {
   display: block;
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   height: 2px;
-  background-color: #1B8AFB;
+  background-color: #1b8afb;
   width: 100%;
   align-self: center;
   transform: scaleX(0);
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 /* label end */
-
 
 /* input start */
 
@@ -90,78 +84,65 @@
 
 /* input end */
 
-::placeholder { 
+::placeholder {
   color: #fff;
-  opacity: 1; 
+  opacity: 1;
 }
 
 /* focus */
 
-.form__input:focus{
+.form__input:focus {
   outline: none;
-  
 }
 
 .form__input:focus ~ .form__label::after {
   transform: scaleX(1);
 }
 
-
-.form__input:focus ~ .form__label .form__img{
+.form__input:focus ~ .form__label .form__img {
   transform: translateY(-101%);
   opacity: 0;
 }
 
-
-
-.form__submit:focus {
+.form__submit:hover {
   outline: none;
-	-webkit-box-shadow: 0 0 0 5px rgba(1, 38, 251, 0.25);
-	-moz-box-shadow:0 0 0 5px rgba(1, 38, 251, 0.25);
-	box-shadow: 0 0 0 5px rgba(1, 38, 251, 0.25);
+  -webkit-box-shadow: 0 0 0 5px rgba(1, 38, 251, 0.25);
+  -moz-box-shadow: 0 0 0 5px rgba(1, 38, 251, 0.25);
+  box-shadow: 0 0 0 5px rgba(1, 38, 251, 0.25);
 }
-
-
-
 
 /* button-to-toggle-form */
 
-  .button-to-toggle-form {
-    border: 1px solid rgba(255, 255, 255, .5);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    background-color: transparent;
-    outline: 1px solid;
-    outline-color: rgba(255, 255, 255, .5);
-    outline-offset: 0;
-    border-radius: 0;
-    width: 90%;
-    color: #fff;
-    transition: 400ms;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-    letter-spacing: 1px;
-  }
+.button-to-toggle-form {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  background-color: transparent;
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, 0.5);
+  outline-offset: 0;
+  border-radius: 0;
+  width: 90%;
+  color: #fff;
+  transition: 300ms ease;
+  transition-property: box-shadow, border, outline-offset, outline-color;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
 
-  .button-to-toggle-form:hover {
-    border: 1px solid rgba(255, 255, 255, .5);
-    outline-offset: 15px;
-    outline-color:  rgba(255, 255, 255, 0);
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
-  }
-  
-
-  /* .button-to-toggle-form:focus ~ .search__toggle-form {
-    display: block;
-
-  } */
+.button-to-toggle-form:hover {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 15px;
+  outline-color: rgba(255, 255, 255, 0);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+}
 
 /* ///////////////////////////// */
-
 
 /* toggle form */
 
@@ -198,11 +179,10 @@
   fill: #ccc;
 }
 
-.toggle-form__input::placeholder { 
+.toggle-form__input::placeholder {
   color: #ccc;
-  opacity: .5; 
+  opacity: 0.5;
 }
-
 
 .toggle-form__input {
   margin-bottom: 30px;
@@ -211,7 +191,7 @@
   outline: none;
   padding: 1.5% 3%;
   width: 50%;
-  border:  2px solid #ccc;
+  border: 2px solid #ccc;
   font-size: 1.2rem;
   color: #fff;
 }
@@ -238,13 +218,11 @@
   margin-top: 100px;
 }
 
-
-
-
 /* search button toggle form*/
 
 .form__submit {
   margin: auto;
+  transition: box-shadow 300ms ease-out;
 }
 
 .submit {
@@ -274,39 +252,41 @@
   animation: animation_up 1s;
 }
 
-
-@keyframes animation_up  {
-  0%, 60%, 75%, 90%, 100% {
-      -webkit-animation-timing-function: cubic-bezier(.215,.61,.355,1);
-      animation-timing-function: cubic-bezier(.215,.61,.355,1);
+@keyframes animation_up {
+  0%,
+  60%,
+  75%,
+  90%,
+  100% {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
   0% {
-      opacity: 0;
-      -webkit-transform: translate3d(0,3000px,0) scaleY(5);
-      transform: translate3d(0,3000px,0) scaleY(5);
+    opacity: 0;
+    -webkit-transform: translate3d(0, 3000px, 0) scaleY(5);
+    transform: translate3d(0, 3000px, 0) scaleY(5);
   }
   60% {
-      opacity: 1;
-      -webkit-transform: translate3d(0,-20px,0) scaleY(.9);
-      transform: translate3d(0,-20px,0) scaleY(.9);
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0) scaleY(0.9);
+    transform: translate3d(0, -20px, 0) scaleY(0.9);
   }
   75% {
-      -webkit-transform: translate3d(0,10px,0) scaleY(.95);
-      transform: translate3d(0,10px,0) scaleY(.95);
+    -webkit-transform: translate3d(0, 10px, 0) scaleY(0.95);
+    transform: translate3d(0, 10px, 0) scaleY(0.95);
   }
   90% {
-      -webkit-transform: translate3d(0,-5px,0) scaleY(.985);
-      transform: translate3d(0,-5px,0) scaleY(.985);
+    -webkit-transform: translate3d(0, -5px, 0) scaleY(0.985);
+    transform: translate3d(0, -5px, 0) scaleY(0.985);
   }
   100% {
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-}
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
 }
 
-
-input[type="date"]::-webkit-calendar-picker-indicator {
+input[type='date']::-webkit-calendar-picker-indicator {
   filter: invert(100%);
 }
 /* 
@@ -314,27 +294,20 @@ input::-webkit-calendar-picker-indicator:hover {
   transform: scale(2);
 } */
 
-
 /* //////////////////////////////////////////// */
-
-
 
 @media screen and (max-width: 1650px) {
   .button-to-toggle-form {
     display: block;
   }
   .search__form {
-    display: none ;
+    display: none;
   }
-  
 }
 
-@media screen and (max-width: 416px) { 
+@media screen and (max-width: 416px) {
   .toggle-form__input {
     margin-bottom: 20px;
-    font-size: 1rem
+    font-size: 1rem;
   }
-  
-  
 }
-

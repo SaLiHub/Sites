@@ -1,29 +1,27 @@
 .button {
-	color: #017dfb;
-	background-color: #ffffff;
-	border-radius: 30px;
-	border: 0;
-	height: 50px;
-	width: 190px;
-	font-size: 1em;
-	font-weight: 600;
-    cursor: pointer;
-    transition: .7s;
+  color: #017dfb;
+  background-color: #ffffff;
+  border-radius: 30px;
+  border: 0;
+  height: 50px;
+  width: 190px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 300ms ease-out;
 }
 
-.button-shadow {
-    -webkit-box-shadow: 0px 0px 20px 2px rgba(1,125,251,0.25);
-    -moz-box-shadow: 0px 0px 20px 2px rgba(1,125,251,0.25);
-    box-shadow: 0px 0px 20px 2px rgba(1,125,251,0.25);
+.button_shadow {
+  -webkit-box-shadow: 0px 0px 20px 2px rgba(1, 125, 251, 0.25);
+  -moz-box-shadow: 0px 0px 20px 2px rgba(1, 125, 251, 0.25);
+  box-shadow: 0px 0px 20px 2px rgba(1, 125, 251, 0.25);
 }
 
-.button:focus {
-	outline: none;
-	-webkit-box-shadow: 0 0 0 5px rgba(1,125,251,0.25);
-	-moz-box-shadow:0 0 0 5px rgba(1,125,251,0.25);
-	box-shadow: 0 0 0 5px rgba(1,125,251,0.25);
-	transition: .7s;
-	border-radius: 1px;
+.button:hover {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 5px rgba(1, 125, 251, 0.25);
+  -moz-box-shadow: 0 0 0 5px rgba(1, 125, 251, 0.25);
+  box-shadow: 0 0 0 5px rgba(1, 125, 251, 0.25);
 }
 
 /* .button:hover {
