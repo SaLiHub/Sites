@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html class="page" lang="en">
+
+<head>
+  <title>Greece</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+
+<body class="page__body">
+  <header class="header">
+    <button class="ham" onclick="this.blur();">
+      <svg class="ham__icon ham4" viewBox="0 0 100 100" preserveAspectRatio="xMaxYMid meet">
+        <path class="ham__path-line ham__path-top"
+          d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+        <path class="ham__path-line ham__path-middle" d="m 70,50 h -40" />
+        <path class="ham__path-line ham__path-bottom"
+          d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+      </svg>
+    </button>
+
+    <nav class="small-menu">
+      <ul class="small-menu__items">
+        <li class="small-menu__item">
+          <a href="#places" class="small-menu__link">Flights</a>
+        </li>
+        <li class="small-menu__item">
+          <a href="#places" class="small-menu__link">Hotels</a>
+        </li>
+        <li class="small-menu__item">
+          <a href="#search" class="small-menu__link">Explore</a>
+        </li>
+        <li class="small-menu__item">
+          <a href="#places" class="small-menu__link">Restaurants</a>
+        </li>
+        <li class="small-menu__item">
+          <a href="#slider" class="small-menu__link">Things to do</a>
+        </li>
+        <li class="small-menu__item">
+          <a href="#slider" class="small-menu__link">About Greece</a>
+        </li>
+      </ul>
+    </nav>
+
+    <p class="header__logo logo logo_color_blue">Atis&thinsp;</p>
+    <nav class="header__menu">
+      <ul class="header__items">
+        <li class="header__item">
+          <a href="#places" class="header__link">Flights</a>
+        </li>
+        <li class="header__item">
+          <a href="#places" class="header__link">Hotels</a>
+        </li>
+        <li class="header__item">
+          <a href="#search" class="header__link">Explore</a>
+        </li>
+        <li class="header__item">
+          <a href="#places" class="header__link">Restaurants</a>
+        </li>
+        <li class="header__item">
+          <a href="#slider" class="header__link">Things to do</a>
+        </li>
+        <li class="header__item">
+          <a href="#slider" class="header__link">About Greece</a>
+        </li>
+      </ul>
+    </nav>
+    <button class="header__button button button_shadow" type="button">
+      Become a host
+    </button>
+  </header>
+
+  <!-- End: header -->
+
+  <!-- Start: Section Greece -->
+  <section class="section banner">
+    <div class="banner__content">
+      <h1 class="banner__main-title">Greece&nbsp;</h1>
+      <h2 class="banner__sub-title">Welcome to haven</h2>
+
+      <button class="banner__button button button_shadow" type="button">
+        Check offer
+      </button>
+    </div>
+  </section>
+
+  <!-- End: Section Greece -->
+
+  <!-- Start: Section Search -->
+
+  <section class="section search" id="search">
+    <button class="search__show-small-form button">Book a flight</button>
+
+    <!-- Form for small viewport -->
+    <div class="search__small-form-wrapper">
+      <button class="search__small-form-cross-sign">
+        <svg viewBox="0 0 329.26933 329" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" />
+        </svg>
+      </button>
+      <form class="search__small-form small-form">
+        <label class="small-form__label" for="sf-city">City:</label>
+        <input type="text" list="sf-city-datalist" name="city" class="small-form__input" placeholder="City"
+          id="sf-city" />
+        <datalist id="sf-city-datalist">
+          <option value="Thessaloniki"></option>
+          <option value="Crete"></option>
+          <option value="Halkidiki"></option>
+          <option value="Athens"></option>
+          <option value="Mykonos"></option>
+          <option value="Meteora"></option>
+          <option value="Myrtos-Beach"></option>
+        </datalist>
+
+        <label class="small-form__label" for="sf-check-in">Check in:</label>
+        <input type="text" class="small-form__input search__calendar" name="check-in" placeholder="Check in"
+          id="sf-check-in" />
+
+        <label class="small-form__label" for="sf-check-out">Check out:</label>
+        <input type="text" class="small-form__input search__calendar" placeholder="Check out" id="sf-check-out" />
+
+        <label class="small-form__label" for="sf-rooms">Rooms:</label>
+        <input list="sf-rooms-datalist" type="text" name="rooms" class="small-form__input" placeholder="Rooms"
+          id="sf-rooms" />
+        <datalist id="sf-rooms-datalist">
+          <option value="One"></option>
+          <option value="Two"></option>
+          <option value="Three"></option>
+          <option value="Four"></option>
+          <option value="Five"></option>
+        </datalist>
+
+        <label class="small-form__label" for="sf-adults">Adults:</label>
+        <input list="sf-adults-datalist" type="text" name="adults" class="small-form__input" placeholder="Adults"
+          id="sf-adults" />
+        <datalist id="sf-adults-datalist">
+          <option value="One"></option>
+          <option value="Two"></option>
+          <option value="Three"></option>
+          <option value="Four"></option>
+          <option value="More"></option>
+        </datalist>
+
+        <label class="small-form__label" for="sf-stars">Stars:</label>
+        <input list="sf-stars-datalist" type="text" name="stars" class="small-form__input" placeholder="Stars"
+          id="sf-stars" />
+        <datalist id="sf-stars-datalist">
+          <option value="One-star"></option>
+          <option value="Two-star"></option>
+          <option value="Three-star"></option>
+          <option value="Four-star"></option>
+          <option value="Five-star"></option>
+        </datalist>
+
+        <label class="small-form__label" for="sf-children">Children:</label>
+        <input list="sf-children-datalist" type="text" name="children" class="small-form__input" placeholder="Children"
+          id="sf-children" />
+        <datalist id="sf-children-datalist">
+          <option value="One"></option>
+          <option value="Two"></option>
+          <option value="Three"></option>
+          <option value="Four"></option>
+          <option value="More"></option>
+        </datalist>
+        <button class="submit small-form__submit" name="Search" type="button">
+          <svg class="form__img submit__lupa" aria-label="search">
+            <use xlink:href="../images/icons.svg#loupe" />
+          </svg>
+        </button>
+      </form>
+    </div>
+    <!-- Form for big viewport -->
+    <form class="search__form form">
+      <!-- 1 -->
+      <div class="form__field">
+        <input list="city-datalist" type="text" name="city" class="form__input" placeholder="City" id="city" />
+
+        <datalist id="city-datalist">
+          <option value="Thessaloniki"></option>
+          <option value="Crete"></option>
+          <option value="Halkidiki"></option>
+          <option value="Athens"></option>
+          <option value="Mykonos"></option>
+          <option value="Meteora"></option>
+          <option value="Myrtos-Beach"></option>
+        </datalist>
+        <label for="city" class="form__label">
+          <svg class="form__img" aria-label="location">
+            <use xlink:href="../images/icons.svg#placeholder" />
+          </svg>
+        </label>
+      </div>
+      <!-- 2 -->
+      <div class="form__field">
+        <input id="check-in" type="text" name="check-in" class="form__input
+        search__calendar" placeholder="Check in" id= />
+        <label class="form__label">
+          <svg class="form__img" aria-label="calendar">
+            <use xlink:href="../images/icons.svg#date" />
+          </svg>
+        </label>
+      </div>
+      <!-- 3 -->
+      <div class="form__field">
+        <input type="text" name="CheckOut" class="form__input search__calendar" placeholder="Check out" />
+        <label class="form__label">
+          <svg class="form__img" aria-label="calendar">
+            <use xlink:href="../images/icons.svg#date" />
+          </svg>
+        </label>
+      </div>
+      <!-- 4 -->
+      <div class="form__field">
+        <input list="rooms-datalist" type="text" name="rooms" class="form__input" placeholder="Rooms" />
+        <datalist id="rooms-datalist">
+          <option value="One"></option>
+          <option value="Two"></option>
+          <option value="Three"></option>
+          <option value="Four"></option>
+          <option value="Five"></option>
+        </datalist>
+        <label class="form__label">
+          <svg class="form__img" aria-label="house">
+            <use xlink:href="../images/icons.svg#home" />
+          </svg>
+        </label>
+      </div>
+      <!-- 5 -->
+      <div class="form__field">
+        <input list="adults-datalist" type="text" name="adults" class="form__input" placeholder="Adults" />
+        <datalist id="adults-datalist">
+          <option value="One"></option>
+          <option value="Two"></option>
+          <option value="Three"></option>
+          <option value="Four"></option>
+          <option value="More"></option>
+        </datalist>
+        <label class="form__label">
+          <svg class="form__img" aria-label="Adult">
+            <use xlink:href="../images/icons.svg#user" />
+          </svg>
+        </label>
+      </div>
+      <!-- 6 -->
+      <div class="form__field">
+        <input list="stars-datalist" type="text" name="stars" class="form__input" placeholder="Stars" />
+        <datalist id="stars-datalist">
+          <option value="One-star"></option>
+          <option value="Two-star"></option>
+          <option value="Three-star"></option>
+          <option value="Four-star"></option>
+          <option value="Five-star"></option>
+        </datalist>
+        <label class="form__label">
+          <svg class="form__img" aria-label="star">
+            <use xlink:href="../images/icons.svg#star" />
+          </svg>
+        </label>
+      </div>
+      <!-- 7 -->
+      <div class="form__field">
+        <input list="children-datalist" type="text" name="children" class="form__input" placeholder="Children" />
+        <datalist id="children-datalist">
+          <option value="One"></option>
+          <option value="Two"></option>
+          <option value="Three"></option>
+          <option value="Four"></option>
+          <option value="More"></option>
+        </datalist>
+        <label class="form__label">
+          <svg class="form__img" aria-label="Chlid">
+            <use xlink:href="../images/icons.svg#baby-boy" />
+          </svg>
+        </label>
+      </div>
+      <!-- 8 -->
+      <div class="form__field">
+        <button class="form__submit submit" name="search" type="button">
+          <svg class="form__img submit__lupa" aria-label="search">
+            <use xlink:href="../images/icons.svg#loupe" />
+          </svg>
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <!-- End: Section Search -->
+
+  <!-- Start: Section Places -->
+  <section class="section popular-places" id="places">
+    <h3 class="section__title">Most Popular Places</h3>
+    <div class="popular-places__content">
+      <div class="places-card" id="Thessaloniki">
+        <a href="#" class="places-card__background">
+          <img src="../images/Thessaloniki.jpg" alt="" />
+        </a>
+        <h3 class="places-card__title">Thessaloniki</h3>
+        <div class="places-card-wrapper">
+          <h3 class="places-card-wrapper__title"></h3>
+          <div class="places-card-buttons">
+            <button class="button places-card-buttons__button">
+              <span id="Thessaloniki-flights">11</span> Flights
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Thessaloniki-restaurants">48</span>
+              Restaurants
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Thessaloniki-hotels">32</span> Hotels
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="places-card" id="Crete">
+        <a href="#" class="places-card__background">
+          <picture style="width: 100%; height: 100%">
+            <source srcset="../images/Crete-small.webp" media="(max-width: 600px)" style="width: 100%; height: 100%" />
+            <img src="../images/Crete.jpg" alt="Crete" />
+          </picture>
+        </a>
+
+        <h3 class="places-card__title">Crete</h3>
+        <div class="places-card-wrapper">
+          <h3 class="places-card-wrapper__title"></h3>
+          <div class="places-card-buttons">
+            <button class="button places-card-buttons__button">
+              <span id="Crete-flights">11</span> Flights
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Crete-restaurants">48</span>
+              Restaurants
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Crete-hotels">32</span> Hotels
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="places-card" id="Halkidiki">
+        <a href="#" class="places-card__background">
+          <img src="../images/Halkidiki.jpg" class="stretch" alt="" />
+        </a>
+        <h3 class="places-card__title">Halkidiki</h3>
+        <div class="places-card-wrapper">
+          <h3 class="places-card-wrapper__title"></h3>
+          <div class="places-card-buttons">
+            <button class="button places-card-buttons__button">
+              <span id="Halkidiki-flights">11</span> Flights
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Halkidiki-restaurants">48</span>
+              Restaurants
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Halkidiki-hotels">32</span> Hotels
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="places-card" id="Athens">
+        <a href="#" class="places-card__background">
+          <img src="../images/Athens.jpg" alt="" />
+        </a>
+        <h3 class="places-card__title">Athens</h3>
+        <div class="places-card-wrapper">
+          <h3 class="places-card-wrapper__title"></h3>
+          <div class="places-card-buttons">
+            <button class="button places-card-buttons__button">
+              <span id="Athens-flights">11</span> Flights
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Athens-restaurants">48</span>
+              Restaurants
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Athens-hotels">32</span> Hotels
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="places-card" id="Mykonos">
+        <a href="#" class="places-card__background">
+          <img src="../images/Mykonos.jpg" alt="" />
+        </a>
+        <h3 class="places-card__title">Mykonos</h3>
+        <div class="places-card-wrapper">
+          <h3 class="places-card-wrapper__title"></h3>
+          <div class="places-card-buttons">
+            <button class="button places-card-buttons__button">
+              <span id="Mykonos-flights">11</span> Flights
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Mykonos-restaurants">48</span>
+              Restaurants
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Mykonos-hotels">32</span> Hotels
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="places-card" id="Meteora">
+        <a href="#" class="places-card__background">
+          <img src="../images/Meteora.jpg" alt="" />
+        </a>
+        <h3 class="places-card__title">Meteora</h3>
+        <div class="places-card-wrapper">
+          <h3 class="places-card-wrapper__title"></h3>
+          <div class="places-card-buttons">
+            <button class="button places-card-buttons__button">
+              <span id="Meteora-flights">11</span> Flights
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Meteora-restaurants">48</span>
+              Restaurants
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Meteora-hotels">32</span> Hotels
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="places-card" id="Myrtos-Beach">
+        <a href="#" class="places-card__background">
+          <img src="../images/Myrtos.jpg" alt="" />
+        </a>
+        <h3 class="places-card__title">Myrtos Beach</h3>
+        <div class="places-card-wrapper">
+          <h3 class="places-card-wrapper__title"></h3>
+          <div class="places-card-buttons">
+            <button class="button places-card-buttons__button">
+              <span id="Myrtos-Beach-flights">11</span> Flights
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Myrtos-Beach-restaurants">48</span>
+              Restaurants
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Myrtos-Beach-hotels">32</span> Hotels
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End: Section Places -->
+
+  <!-- Start: Section Hotels -->
+
+  <section class="section hotels" id="hotels">
+    <h3 class="section__title">Most Popular Hotels</h3>
+
+    <div class="section__content">
+      <div class="cards"></div>
+      <div class="more-cards">
+        <button class="more-cards__button button">View all offers</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- End: Section Hotels -->
+
+  <!-- Start: Slider -->
+
+  <section class="section swiper-container" id="slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="swiper-slide__wrapper"></div>
+        <div class="swiper-slide__content">
+          <h3 class="slide-content__title">
+            And then God said<br />
+            let there be a
+            <span class="slide-content__title-greece">Greece</span>
+          </h3>
+          <p class="slide-content__description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+            sequi consequuntur nemo tempore voluptate beatae consectetur hic
+            rem repellendus impedit. Aliquid odit eos ev eniet unde fugiat
+            ratione nesciunt consectetur rerum.
+          </p>
+          <p class="slide-content__info">
+            <span class="slide-content__info-name">Joun Doe</span>,
+            <span class="slide-content__info-site">Mytravels.com</span>
+          </p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-slide__wrapper"></div>
+        <div class="slide-content swiper-slide__content">
+          <h3 class="slide-content__title">
+            And then God said<br />
+            let there be a
+            <span class="slide-content__title-greece">Greece</span>
+          </h3>
+          <p class="slide-content__description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+            sequi consequuntur nemo tempore voluptate beatae consectetur hic
+            rem repellendus impedit. Aliquid odit eos ev eniet unde fugiat
+            ratione nesciunt consectetur rerum. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Aperiam maxime eius beatae
+            aspernatur corporis et totam, magni, tenetur tempora animi vel,
+            qui nulla enim! Repellat eius beatae quasi ratione ad.
+          </p>
+          <p class="slide-content__info">
+            <span class="name">Joun Doe</span>,
+            <span class="site">Mytravels.com</span>
+          </p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-slide__wrapper"></div>
+        <div class="slide-content swiper-slide__content">
+          <h3 class="slide-content__title">
+            And then God said<br />
+            let there be a
+            <span class="slide-content__title-greece">Greece</span>
+          </h3>
+          <p class="slide-content__description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+            sequi consequuntur nemo tempore voluptate beatae consectetur hic
+            rem repellendus impedit. Aliquid odit eos ev eniet unde fugiat
+            ratione nesciunt consectetur rerum.
+          </p>
+          <p class="slide-content__info">
+            <span class="name">Joun Doe</span>,
+            <span class="site">Mytravels.com</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </section>
+
+  <!-- End: Slider -->
+
+  <footer class="footer">
+    <div class="footer__content">
+      <p class="footer__logo logo logo_color_grey">Atis&thinsp;</p>
+
+      <div class="footer__copyright">
+        <svg class="icon" aria-label="copyright">
+          <use xlink:href="../images/icons.svg#copyright" />
+        </svg>
+        <p class="copyright-text">2016 Acis</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- swiper -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- firebase datebase -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.3/firebase-app.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.3/firebase-database.min.js"></script>
+</body>
+
+</html>
