@@ -1,0 +1,77 @@
+.ham {
+  position: absolute;
+  transform: scale(1.4);
+  top: 0;
+  bottom: 0;
+  left: 0.5rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 10;
+  display: none;
+  background-color: transparent;
+  border: none;
+  transition: transform 300ms ease-out;
+  outline: none;
+}
+
+@media screen and (max-width: 1350px) {
+  .ham {
+    display: block;
+    left: 2rem;
+  }
+}
+
+.ham:focus {
+  box-shadow: 0px 0px 2px 4px #ccc;
+}
+
+.ham:hover {
+  transform: scale(1.6);
+}
+
+.ham__icon {
+  transition: transform 400ms ease-out;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ham.active .ham__icon {
+  transform: rotate(45deg);
+}
+
+/* .ham.active ~ .small-menu {
+  height: 100vh;
+} */
+
+.ham__path-line {
+  fill: none;
+  stroke: #017dfb;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+  transition: 0.4s;
+}
+
+.ham.active .ham__path-line {
+  stroke: #ccc;
+}
+
+.ham__path-top {
+  stroke-dasharray: 40 121;
+}
+
+.ham__path-bottom {
+  stroke-dasharray: 40 121;
+}
+
+.ham.active .ham__path-top {
+  stroke-dashoffset: -68px;
+}
+
+.ham.active .ham__path-bottom {
+  stroke-dashoffset: -68px;
+}
