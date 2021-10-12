@@ -6,41 +6,35 @@
 @import 'variables.css';
 @import 'blocks/body.css';
 @import 'blocks/section.css';
-@import 'blocks/banner.css';    
+@import 'blocks/banner.css';
 @import 'blocks/hotels.css';
 @import 'blocks/popular-places.css';
 @import 'blocks/search.css';
+@import 'blocks/form.css';
+@import 'blocks/submit.css';
+
 @import 'blocks/header.css';
+@import 'blocks/ham.css';
+@import 'blocks/small-menu.css';
+@import 'blocks/small-form.css';
+
 @import 'blocks/slider.css';
 @import 'blocks/footer.css';
 
-
 @font-face {
-    font-family: 'Molle';
-    src: url('../fonts/Molle-Italic.ttf');
-    font-display: swap;
+  font-family: 'Molle';
+  src: url('../fonts/Molle-Italic.ttf');
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/roboto/Roboto-Regular.ttf');
-    font-display: swap;
+  font-family: 'Roboto';
+  src: url('../fonts/roboto/Roboto-Regular.ttf');
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Quicksand';
-    src: url('../fonts/Quicksand-Light.ttf');
-    font-display: swap;
+  font-family: 'Quicksand';
+  src: url('../fonts/Quicksand-Light.ttf');
+  font-display: swap;
 }
-
-
-
-/*@import 'blocks/header-nav.css';
-@import 'blocks/social.css';
-@import 'blocks/search.css';
-@import 'blocks/btn.css';
-@import 'blocks/copy.css';
-@import 'blocks/text.css';
-@import 'blocks/btn-to-top.css';
-@import 'blocks/logo.css';*/
-
