@@ -1,10 +1,10 @@
-import connectBD from './connectBD.mjs';
+import connectDB from './connectDB.mjs';
 import domElements from './domElements.mjs';
 
 let data;
 
 function createCards() {
-  connectBD()
+  connectDB()
     .then((content) => {
       data = content;
       createRowOfCards();
