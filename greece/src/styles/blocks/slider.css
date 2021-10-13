@@ -1,5 +1,4 @@
 .swiper-container {
-  height: 100vh;
   position: relative;
 }
 
@@ -8,7 +7,7 @@
   background-repeat: no-repeat;
   display: flex;
   padding: 20% 0;
-  background-image: url('../images/slider-background.webp');
+  background-image: url('../../images/slider-background.webp');
 }
 
 .swiper-slide__content {
@@ -49,6 +48,7 @@
   margin-top: 1rem;
   font-weight: 500;
   font-size: 0.9rem;
+  color: #ccc;
 }
 
 .slide-content__title-greece {
@@ -59,8 +59,8 @@
 }
 
 .swiper-pagination-bullet {
-  width: 4px;
-  height: 4px;
+  width: 10px;
+  height: 10px;
   display: inline-block;
   border-radius: 100%;
   background: #fff;
@@ -74,6 +74,15 @@
 .swiper-button-next,
 .swiper-button-prev {
   color: #fff;
+}
+
+.swiper-notification {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1000;
 }
 
 @media screen and (max-width: 789px) {
