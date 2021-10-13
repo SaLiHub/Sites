@@ -7,7 +7,7 @@ function createCards() {
   connectDB()
     .then((content) => {
       data = content;
-      createRowOfCards();
+      addCards();
     });
   const { viewAllOffers } = domElements;
   viewAllOffers.addEventListener('click', addCards);
@@ -16,7 +16,8 @@ function createCards() {
 function createOneCard(content) {
   const card = document.createElement('div');
   card.classList.add('card');
-  card.style.backgroundImage = content['background-image'];
+  // Uncomment if you have background-image in db.
+  // card.style.backgroundImage = content['background-image'];
   card.innerHTML = `<div class="card__content">
           <h5 class="card__title">${content.title}</h5>
           <span class="card__price">${content.price}</span>
@@ -26,19 +27,29 @@ function createOneCard(content) {
   return card;
 }
 
-function createRowOfCards() {
+function renderedCards() {
+  let addedCards = 0;
   const { viewAllOffers, cardsContainer } = domElements;
-  for (let i = 0; i < 4; i++) {
-    if (!data.cardInfo[i + 1]) {
-      const card = createOneCard(data.cardInfo[i]);
-      cardsContainer.appendChild(card);
-      viewAllOffers.remove();
-    } else {
-      const card = createOneCard(data.cardInfo[i]);
-      cardsContainer.appendChild(card);
+  return function createRowOfCards(quantity) {
+    const cardsToCreate = addedCards + quantity;
+    for (let i = addedCards; i < cardsToCreate; i++) {
+      if (!data.cardInfo[i + 1]) {
+        const card = createOneCard(data.cardInfo[i]);
+        cardsContainer.appendChild(card);
+        viewAllOffers.remove();
+        break;
+      } else {
+        const card = createOneCard(data.cardInfo[i]);
+        cardsContainer.appendChild(card);
+      }
     }
-  }
+
+    // Save quantity of created cards.
+    addedCards += quantity;
+  };
 }
+
+const createRowOfCards = renderedCards();
 
 function addCards() {
   const widthOfPage = document.body.clientWidth;
