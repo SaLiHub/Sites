@@ -1,0 +1,23 @@
+.more-cards {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.more-cards__button {
+  color: #cccccc;
+  border: 2px solid #e9e9e9;
+  background-color: #f9f9f9;
+}
+
+.more-cards__button:hover,
+.more-cards__button:focus {
+  border: none;
+
+  outline: none;
+  -webkit-box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.25);
+}

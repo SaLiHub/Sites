@@ -1,0 +1,77 @@
+.places-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.places-card__background img {
+  width: 100%;
+  height: 100%;
+}
+
+.places-card__background {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.places-card__wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.places-card:hover .places-card__wrapper,
+.places-card:focus .places-card__wrapper {
+  opacity: 1;
+}
+
+.places-card:focus {
+  outline: none;
+}
+
+.places-card__wrapper {
+  transition: opacity 300ms ease-out;
+  background-color: rgb(1, 125, 251, 0.5);
+}
+
+.places-card__title {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  transition: opacity 300ms ease-out;
+}
+
+.places-card:hover .places-card__title,
+.places-card:focus .places-card__title {
+  opacity: 0;
+}
+
+.places-card__wrapper-title {
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  transition: 300ms ease-out;
+  transition-property: top, letter-spacing;
+  color: #fff;
+  letter-spacing: 1rem;
+}
+
+.places-card:hover .places-card__wrapper-title,
+.places-card:focus .places-card__wrapper-title {
+  top: 45%;
+  letter-spacing: normal;
+}
+
+.places-card:hover .places-card-buttons,
+.places-card:focus .places-card-buttons {
+  bottom: 50%;
+}
