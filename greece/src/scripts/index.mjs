@@ -1,5 +1,6 @@
 import createCards from './createCards.mjs';
 import domElements from './domElements.mjs';
+import './Slider.jsx';
 
 (function innit() {
   createCards(domElements);
@@ -8,6 +9,7 @@ import domElements from './domElements.mjs';
   // setScrollToTop();
   addEventListeners();
   setFontSize();
+  preserveFocusOnCard();
 })();
 
 // Uncomment line (8, 15-19), if you want viewport be at top of the page after reloading.
@@ -20,6 +22,7 @@ import domElements from './domElements.mjs';
 
 function setAutocompleteOffToInputs() {
   const { inputs } = domElements;
+
   inputs.forEach((input) => input.setAttribute('autocomplete', 'off'));
 }
 
@@ -30,36 +33,54 @@ function setCardTitles() {
   }
 }
 
-// Enable Swiper-slider.
-// eslint-disable-next-line no-unused-vars
-const swiper = new Swiper('.swiper-container', {
-  cssMode: true,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-  },
-  mousewheel: true,
-  keyboard: true,
-});
-
 // Set font size according to size of user viewport
 function setFontSize() {
   const {
-    wrapperTitles, placesCardTitles, placesCardButtons, placesCard,
+    wrapperTitles, placesCardTitles, placesCardButtons, placesCards,
   } = domElements;
-  for (let i = 0; i < placesCard.length; i++) {
-    placesCardButtons[i].style.fontSize = `${
-      placesCard[i].offsetHeight / 50 + 10
-    }px`;
-    placesCardTitles[i].style.fontSize = `${
-      placesCard[i].offsetWidth / 10 - 8
-    }px`;
-    wrapperTitles[i].style.fontSize = `${
-      placesCard[i].offsetWidth / 10 - 12
-    }px`;
+  placesCards.forEach((card, i) => {
+    setTimeout(() => {
+      placesCardButtons[i].style.fontSize = `${
+        placesCards[i].offsetHeight / 50 + 10
+      }px`;
+      placesCardTitles[i].style.fontSize = `${
+        placesCards[i].offsetWidth / 10 - 8
+      }px`;
+      wrapperTitles[i].style.fontSize = `${
+        placesCards[i].offsetWidth / 10 - 12
+      }px`;
+    }, 0);
+  });
+}
+
+function preserveFocusOnCard() {
+  const {
+    placesCards, placesCardTitles, wrapperTitles, placesCardButtons, wrappers,
+  } = domElements;
+  placesCards.forEach((button, i) => {
+    button.addEventListener('focusin', () => {
+      addStyles(i);
+    });
+
+    button.addEventListener('focusout', () => {
+      clearStyles(i);
+    });
+  });
+
+  function clearStyles(i) {
+    placesCardTitles[i].style.removeProperty('opacity');
+    wrapperTitles[i].style.removeProperty('top');
+    wrapperTitles[i].style.removeProperty('letter-spacing');
+    placesCardButtons[i].style.removeProperty('bottom');
+    wrappers[i].style.removeProperty('opacity');
+  }
+
+  function addStyles(i) {
+    placesCardTitles[i].style.opacity = '0';
+    wrapperTitles[i].style.top = '45%';
+    wrapperTitles[i].style.letterSpacing = 'normal';
+    placesCardButtons[i].style.bottom = '50%';
+    wrappers[i].style.opacity = '1';
   }
 }
 
@@ -73,6 +94,8 @@ function addEventListeners() {
     formInputs,
     calendars,
   } = domElements;
+
+  // To keep focus when tabbing.
 
   smallFormButton.addEventListener('click', showSmallForm);
 
@@ -107,21 +130,12 @@ function handleCalendars(calendar) {
   });
 }
 
-// function hideSmallMenu() {
-//   const { ham } = domElements;
-//   ham.classList.remove('active');
-//   document.body.style.overflow = 'visible';
-// }
-
-// function showSmallMenu() {
-//   const { ham } = domElements;
-//   ham.classList.add('active');
-//   document.body.style.overflow = 'visible';
-// }
-
 function showSmallForm() {
   const { smallScreenFormWrapper, submit } = domElements;
-  slideDown(smallScreenFormWrapper);
+  const config = {
+    duration: 200,
+  };
+  slideDown(smallScreenFormWrapper, config);
   smallScreenFormWrapper.classList.add('active');
   submit.classList.add('submit_animation_up');
 }
@@ -135,68 +149,44 @@ function hideSmallForm() {
 
 function handleSmallMenu() {
   const { ham, smallMenu } = domElements;
+  const config = {
+    initialDisplay: 'flex',
+  };
   ham.classList.toggle('active');
   if (ham.classList.contains('active')) {
-    slideDown(smallMenu);
+    slideDown(smallMenu, config);
   } else {
     slideUp(smallMenu);
-    document.body.style.overflow = 'visible';
   }
 }
 
-function slideDown(target, duration = 300) {
+function slideDown(target, { duration = 300, initialDisplay = 'block' }) {
   target.style.removeProperty('display');
   let { display } = window.getComputedStyle(target);
   if (display === 'none') {
-    display = 'flex';
+    display = initialDisplay;
   }
   target.style.display = display;
   const height = target.offsetHeight;
   target.style.height = 0;
-  target.style.paddingTop = 0;
-  target.style.paddingBottom = 0;
-  target.style.marginTop = 0;
-  target.style.marginBottom = 0;
-  target.style.overflow = 'hidden';
   // eslint-disable-next-line no-unused-expressions
   target.offsetHeight;
-  target.style.boxSizing = 'border-box';
-  target.style.transitionProperty = 'height, margin, padding';
-  target.style.transitionDuration = `${duration}ms`;
+  target.style.transition = `height ${duration}ms ease`;
   target.style.height = `${height}px`;
-  target.style.removeProperty('padding-top');
-  target.style.removeProperty('padding-bottom');
-  target.style.removeProperty('margin-top');
-  target.style.removeProperty('margin-bottom');
   window.setTimeout(() => {
     target.style.removeProperty('height');
-    target.style.removeProperty('overflow');
-    target.style.removeProperty('transition-duration');
-    target.style.removeProperty('transition-property');
+    target.style.removeProperty('transition');
     document.body.style.overflow = 'hidden';
   }, duration);
 }
 
 function slideUp(target, duration = 300) {
-  target.style.transitionProperty = 'height, margin, padding';
-  target.style.transitionDuration = `${duration}ms`;
-  target.style.boxSizing = 'border-box';
-  target.style.height = `${target.offsetHeight}px`;
   target.style.height = 0;
-  target.style.paddingTop = 0;
-  target.style.paddingBottom = 0;
-  target.style.marginTop = 0;
-  target.style.marginBottom = 0;
-  target.style.overflow = 'hidden';
+  target.style.transition = `height ${duration}ms ease`;
+  document.body.style.overflow = 'visible';
   window.setTimeout(() => {
     target.style.display = 'none';
     target.style.removeProperty('height');
-    target.style.removeProperty('padding-top');
-    target.style.removeProperty('padding-bottom');
-    target.style.removeProperty('margin-top');
-    target.style.removeProperty('margin-bottom');
-    target.style.removeProperty('overflow');
-    target.style.removeProperty('transition-duration');
-    target.style.removeProperty('transition-property');
+    target.style.removeProperty('transition');
   }, duration);
 }
