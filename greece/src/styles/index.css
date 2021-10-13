@@ -7,18 +7,18 @@
 @import 'blocks/body.css';
 @import 'blocks/section.css';
 @import 'blocks/banner.css';
-@import 'blocks/hotels.css';
+@import 'blocks/card.css';
+@import 'blocks/more-cards.css';
 @import 'blocks/popular-places.css';
+@import 'blocks/places-card.css';
+@import 'blocks/places-card-buttons.css';
 @import 'blocks/search.css';
 @import 'blocks/form.css';
 @import 'blocks/submit.css';
-
 @import 'blocks/header.css';
 @import 'blocks/ham.css';
 @import 'blocks/small-menu.css';
 @import 'blocks/small-form.css';
-
-@import 'blocks/slider.css';
 @import 'blocks/footer.css';
 
 @font-face {

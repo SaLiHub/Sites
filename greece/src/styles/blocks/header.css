@@ -82,9 +82,12 @@
   overflow: hidden;
 }
 
-.header__link:hover {
+.header__link:hover,
+.header__link:focus {
+  outline: none;
   color: #017dfb;
 }
+
 @keyframes bounceInDown {
   0%,
   60%,
@@ -120,7 +123,8 @@
 
 /* links animation */
 
-.header__link:hover::after {
+.header__link:hover::after,
+.header__link:focus::after {
   transform: translateX(103%);
 }
 
@@ -143,7 +147,6 @@
 
 /* //////////////////////////////////////////// */
 
-
 .line {
   fill: none;
   /* transition: stroke-dasharray 400ms, stroke-dashoffset 400ms; */
@@ -152,8 +155,6 @@
   stroke-linecap: round;
   transition: 0.4s;
 }
-
-
 
 /* /////////////////////////// */
 

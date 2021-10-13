@@ -21,13 +21,14 @@
 
 .search__small-form-wrapper {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: var(--blue);
   z-index: 999;
   overflow: hidden;
+  display: none;
 }
 
 .search__small-form {

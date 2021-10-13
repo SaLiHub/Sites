@@ -13,8 +13,8 @@
   z-index: 10;
   display: none;
   background-color: transparent;
-  border: none;
-  transition: transform 300ms ease-out;
+  border-radius: 50%;
+  border-color: transparent;
   outline: none;
 }
 
@@ -26,11 +26,7 @@
 }
 
 .ham:focus {
-  box-shadow: 0px 0px 2px 4px #ccc;
-}
-
-.ham:hover {
-  transform: scale(1.6);
+  background-color: rgb(221, 215, 215);
 }
 
 .ham__icon {
