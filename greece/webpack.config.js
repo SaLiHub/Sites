@@ -28,7 +28,7 @@ const config = {
   plugins: [
     new MiniCssExtractPlugin(),
     new ESLintPlugin({
-      extensions: ['mjs', 'js'],
+      extensions: ['mjs', 'js', 'jsx'],
       failOnError: true,
       fix: false,
       emitError: true,
@@ -84,7 +84,15 @@ const config = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: [
+              '@babel/preset-env',
+              [
+                '@babel/preset-react',
+                {
+                  runtime: 'automatic',
+                },
+              ],
+            ],
           },
         },
       },
