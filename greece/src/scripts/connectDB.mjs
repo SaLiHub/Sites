@@ -1,3 +1,7 @@
+// eslint-disable-next-line import/no-unresolved
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/database';
+
 function connectDB() {
   const firebaseConfig = {
     apiKey: 'AIzaSyA_BlS_0vucMidOD7OzEWND9kwPw7ojg_c',
