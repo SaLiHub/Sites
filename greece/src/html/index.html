@@ -5,7 +5,6 @@
   <title>Greece</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
 <body class="page__body">
@@ -292,13 +291,13 @@
   <section class="section popular-places" id="places">
     <h3 class="section__title">Most Popular Places</h3>
     <div class="popular-places__content">
-      <div class="places-card" id="Thessaloniki">
-        <a href="#" class="places-card__background">
+      <a href="#" class="places-card" id="Thessaloniki">
+        <div class="places-card__background">
           <img src="../images/Thessaloniki.jpg" alt="" />
-        </a>
+        </div>
         <h3 class="places-card__title">Thessaloniki</h3>
-        <div class="places-card-wrapper">
-          <h3 class="places-card-wrapper__title"></h3>
+        <div class="places-card__wrapper">
+          <h3 class="places-card__wrapper-title"></h3>
           <div class="places-card-buttons">
             <button class="button places-card-buttons__button">
               <span id="Thessaloniki-flights">11</span> Flights
@@ -312,40 +311,15 @@
             </button>
           </div>
         </div>
-      </div>
-      <div class="places-card" id="Crete">
-        <a href="#" class="places-card__background">
-          <picture style="width: 100%; height: 100%">
-            <source srcset="../images/Crete-small.webp" media="(max-width: 600px)" style="width: 100%; height: 100%" />
-            <img src="../images/Crete.jpg" alt="Crete" />
-          </picture>
-        </a>
+      </a>
 
-        <h3 class="places-card__title">Crete</h3>
-        <div class="places-card-wrapper">
-          <h3 class="places-card-wrapper__title"></h3>
-          <div class="places-card-buttons">
-            <button class="button places-card-buttons__button">
-              <span id="Crete-flights">11</span> Flights
-            </button>
-            <button class="button places-card-buttons__button">
-              <span id="Crete-restaurants">48</span>
-              Restaurants
-            </button>
-            <button class="button places-card-buttons__button">
-              <span id="Crete-hotels">32</span> Hotels
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="places-card" id="Halkidiki">
-        <a href="#" class="places-card__background">
+      <a href="#" class="places-card" id="Halkidiki">
+        <div class="places-card__background">
           <img src="../images/Halkidiki.jpg" class="stretch" alt="" />
-        </a>
+        </div>
         <h3 class="places-card__title">Halkidiki</h3>
-        <div class="places-card-wrapper">
-          <h3 class="places-card-wrapper__title"></h3>
+        <div class="places-card__wrapper">
+          <h3 class="places-card__wrapper-title"></h3>
           <div class="places-card-buttons">
             <button class="button places-card-buttons__button">
               <span id="Halkidiki-flights">11</span> Flights
@@ -359,15 +333,15 @@
             </button>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="places-card" id="Athens">
-        <a href="#" class="places-card__background">
+      <a href="#" class="places-card" id="Athens">
+        <div class="places-card__background">
           <img src="../images/Athens.jpg" alt="" />
-        </a>
+        </div>
         <h3 class="places-card__title">Athens</h3>
-        <div class="places-card-wrapper">
-          <h3 class="places-card-wrapper__title"></h3>
+        <div class="places-card__wrapper">
+          <h3 class="places-card__wrapper-title"></h3>
           <div class="places-card-buttons">
             <button class="button places-card-buttons__button">
               <span id="Athens-flights">11</span> Flights
@@ -381,15 +355,15 @@
             </button>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="places-card" id="Mykonos">
-        <a href="#" class="places-card__background">
+      <a href="#" class="places-card" id="Mykonos">
+        <div class="places-card__background">
           <img src="../images/Mykonos.jpg" alt="" />
-        </a>
+        </div>
         <h3 class="places-card__title">Mykonos</h3>
-        <div class="places-card-wrapper">
-          <h3 class="places-card-wrapper__title"></h3>
+        <div class="places-card__wrapper">
+          <h3 class="places-card__wrapper-title"></h3>
           <div class="places-card-buttons">
             <button class="button places-card-buttons__button">
               <span id="Mykonos-flights">11</span> Flights
@@ -403,15 +377,41 @@
             </button>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="places-card" id="Meteora">
-        <a href="#" class="places-card__background">
+      <a href="#" class="places-card" id="Crete">
+        <div class="places-card__background">
+          <picture style="width: 100%; height: 100%">
+            <source srcset="../images/Crete-small.webp" media="(max-width: 600px)" style="width: 100%; height: 100%" />
+            <img src="../images/Crete.jpg" alt="Crete" />
+          </picture>
+        </div>
+        <h3 class="places-card__title">Crete</h3>
+        <div class="places-card__wrapper">
+          <h3 class="places-card__wrapper-title"></h3>
+          <div class="places-card-buttons">
+            <button class="button places-card-buttons__button">
+              <span id="Crete-flights">11</span> Flights
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Crete-restaurants">48</span>
+              Restaurants
+            </button>
+            <button class="button places-card-buttons__button">
+              <span id="Crete-hotels">32</span> Hotels
+            </button>
+          </div>
+        </div>
+
+      </a>
+
+      <a href="#" class="places-card" id="Meteora">
+        <div class="places-card__background">
           <img src="../images/Meteora.jpg" alt="" />
-        </a>
+        </div>
         <h3 class="places-card__title">Meteora</h3>
-        <div class="places-card-wrapper">
-          <h3 class="places-card-wrapper__title"></h3>
+        <div class="places-card__wrapper">
+          <h3 class="places-card__wrapper-title"></h3>
           <div class="places-card-buttons">
             <button class="button places-card-buttons__button">
               <span id="Meteora-flights">11</span> Flights
@@ -425,15 +425,15 @@
             </button>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="places-card" id="Myrtos-Beach">
-        <a href="#" class="places-card__background">
+      <a href="#" class="places-card" id="Myrtos-Beach">
+        <div class="places-card__background">
           <img src="../images/Myrtos.jpg" alt="" />
-        </a>
+        </div>
         <h3 class="places-card__title">Myrtos Beach</h3>
-        <div class="places-card-wrapper">
-          <h3 class="places-card-wrapper__title"></h3>
+        <div class="places-card__wrapper">
+          <h3 class="places-card__wrapper-title"></h3>
           <div class="places-card-buttons">
             <button class="button places-card-buttons__button">
               <span id="Myrtos-Beach-flights">11</span> Flights
@@ -447,20 +447,20 @@
             </button>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </section>
   <!-- End: Section Places -->
 
   <!-- Start: Section Hotels -->
 
-  <section class="section hotels" id="hotels">
+  <section class="section section_hotels" id="hotels">
     <h3 class="section__title">Most Popular Hotels</h3>
 
     <div class="section__content">
       <div class="cards"></div>
       <div class="more-cards">
-        <button class="more-cards__button button">View all offers</button>
+        <button class="more-cards__button button" onclick="this.blur()">View all offers</button>
       </div>
     </div>
   </section>
@@ -470,76 +470,6 @@
   <!-- Start: Slider -->
 
   <section class="section swiper-container" id="slider">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="swiper-slide__wrapper"></div>
-        <div class="swiper-slide__content">
-          <h3 class="slide-content__title">
-            And then God said<br />
-            let there be a
-            <span class="slide-content__title-greece">Greece</span>
-          </h3>
-          <p class="slide-content__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-            sequi consequuntur nemo tempore voluptate beatae consectetur hic
-            rem repellendus impedit. Aliquid odit eos ev eniet unde fugiat
-            ratione nesciunt consectetur rerum.
-          </p>
-          <p class="slide-content__info">
-            <span class="slide-content__info-name">Joun Doe</span>,
-            <span class="slide-content__info-site">Mytravels.com</span>
-          </p>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="swiper-slide__wrapper"></div>
-        <div class="slide-content swiper-slide__content">
-          <h3 class="slide-content__title">
-            And then God said<br />
-            let there be a
-            <span class="slide-content__title-greece">Greece</span>
-          </h3>
-          <p class="slide-content__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-            sequi consequuntur nemo tempore voluptate beatae consectetur hic
-            rem repellendus impedit. Aliquid odit eos ev eniet unde fugiat
-            ratione nesciunt consectetur rerum. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Aperiam maxime eius beatae
-            aspernatur corporis et totam, magni, tenetur tempora animi vel,
-            qui nulla enim! Repellat eius beatae quasi ratione ad.
-          </p>
-          <p class="slide-content__info">
-            <span class="name">Joun Doe</span>,
-            <span class="site">Mytravels.com</span>
-          </p>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="swiper-slide__wrapper"></div>
-        <div class="slide-content swiper-slide__content">
-          <h3 class="slide-content__title">
-            And then God said<br />
-            let there be a
-            <span class="slide-content__title-greece">Greece</span>
-          </h3>
-          <p class="slide-content__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-            sequi consequuntur nemo tempore voluptate beatae consectetur hic
-            rem repellendus impedit. Aliquid odit eos ev eniet unde fugiat
-            ratione nesciunt consectetur rerum.
-          </p>
-          <p class="slide-content__info">
-            <span class="name">Joun Doe</span>,
-            <span class="site">Mytravels.com</span>
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-    <!-- Add Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
   </section>
 
   <!-- End: Slider -->
@@ -556,13 +486,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- swiper -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-  <!-- firebase datebase -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.3/firebase-app.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.3/firebase-database.min.js"></script>
 </body>
 
 </html>
