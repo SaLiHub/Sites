@@ -58,6 +58,7 @@ export default function createVerticalSlider() {
   function createBullet(index) {
     const el = document.createElement('span');
     el.classList.add('slider-pagination-bullet');
+    el.setAttribute('tabindex', '0');
     el.dataset.bulletIndex = index;
     sliderPagination.appendChild(el);
   }
@@ -274,5 +275,16 @@ export default function createVerticalSlider() {
     });
     // Listen click on each bullet.
     sliderPagination.addEventListener('click', triggerBullets);
+    sliderPagination.addEventListener('keydown', handleBulletPress);
+  }
+
+  function handleBulletPress(e) {
+    console.log(e.code);
+    if (e.code === 'Enter' || e.code === 'Space') {
+      // Prevent prevent space bar from scrolling page.
+      e.preventDefault();
+
+      triggerBullets(e);
+    }
   }
 }
