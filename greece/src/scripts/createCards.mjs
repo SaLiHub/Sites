@@ -49,9 +49,8 @@ function renderedCards() {
   };
 }
 
-const createRowOfCards = renderedCards();
-
 function addCards() {
+  const createRowOfCards = renderedCards();
   const widthOfPage = document.body.clientWidth;
   if (widthOfPage >= 1700) {
     createRowOfCards(4);
