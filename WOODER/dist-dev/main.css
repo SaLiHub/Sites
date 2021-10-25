@@ -246,13 +246,19 @@ svg:not(.header__hamburger):not(.header__toggle-menu-cross-sign) {
   width: 100%;
   height: 100%;
   position: relative;
-  touch-action: pan-y;
+  touch-action: pan-x;
   z-index: 1;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   margin: auto;
+}
+
+@media (max-width: 1009px) {
+  .slider-container {
+    touch-action: pan-y;
+  }
 }
 
 .highlight-transparent {
