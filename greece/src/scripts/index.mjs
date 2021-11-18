@@ -55,7 +55,11 @@ function setFontSize() {
 
 function preserveFocusOnCard() {
   const {
-    placesCards, placesCardTitles, wrapperTitles, placesCardButtons, wrappers,
+    placesCards,
+    placesCardTitles,
+    wrapperTitles,
+    placesCardButtons,
+    wrappers,
   } = domElements;
   placesCards.forEach((button, i) => {
     button.addEventListener('focusin', () => {
@@ -89,13 +93,13 @@ function addEventListeners() {
     smallFormButton,
     smallFormCrossSign,
     smallMenuLinks,
+    smallMenu,
     ham,
+    smallScreenFormWrapper,
     formField,
     formInputs,
     calendars,
   } = domElements;
-
-  // To keep focus when tabbing.
 
   smallFormButton.addEventListener('click', showSmallForm);
 
@@ -104,6 +108,14 @@ function addEventListeners() {
   smallMenuLinks.forEach((link) => {
     link.addEventListener('click', handleSmallMenu);
   });
+
+  smallMenu.addEventListener('transitionend', () => {
+    ham.focus();
+  });
+
+  smallScreenFormWrapper.addEventListener('transitionend', (e) => {
+    if (e.propertyName === 'background-color')smallFormCrossSign.focus();
+  }, { capture: true });
 
   ham.addEventListener('click', handleSmallMenu);
 
@@ -136,14 +148,14 @@ function showSmallForm() {
     duration: 200,
   };
   slideDown(smallScreenFormWrapper, config);
-  smallScreenFormWrapper.classList.add('active');
+  smallScreenFormWrapper.classList.add('is-active');
   submit.classList.add('submit_animation_up');
 }
 
 function hideSmallForm() {
   const { smallScreenFormWrapper, submit } = domElements;
   slideUp(smallScreenFormWrapper);
-  smallScreenFormWrapper.classList.remove('active');
+  smallScreenFormWrapper.classList.remove('is-active');
   submit.classList.remove('submit_animation_up');
 }
 
@@ -152,8 +164,11 @@ function handleSmallMenu() {
   const config = {
     initialDisplay: 'flex',
   };
-  ham.classList.toggle('active');
-  if (ham.classList.contains('active')) {
+
+  ham.classList.toggle('is-active');
+  smallMenu.classList.toggle('is-active');
+
+  if (smallMenu.classList.contains('is-active')) {
     slideDown(smallMenu, config);
   } else {
     slideUp(smallMenu);

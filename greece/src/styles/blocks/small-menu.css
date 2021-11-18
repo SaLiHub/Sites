@@ -4,12 +4,17 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: var(--blue);
+  background-color: rgb(1, 125, 251);
   justify-content: center;
   align-items: center;
   z-index: 2;
   background-color: var(--blue);
   display: none;
+}
+
+.small-menu.is-active:not(:focus-within) {
+  background-color: rgb(1, 125, 250);
+  transition: background-color 0.01s;
 }
 
 .small-menu__items {

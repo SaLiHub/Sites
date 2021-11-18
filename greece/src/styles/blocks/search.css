@@ -25,10 +25,15 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--blue);
+  background-color: rgb(1, 125, 251);
   z-index: 999;
   overflow: hidden;
   display: none;
+}
+
+.search__small-form-wrapper.is-active:not(:focus-within) {
+  background-color: rgb(1, 125, 250);
+  transition: background-color 0.01s;
 }
 
 .search__small-form {

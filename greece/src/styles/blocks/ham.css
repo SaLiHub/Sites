@@ -36,11 +36,11 @@
   height: 100%;
 }
 
-.ham.active .ham__icon {
+.ham.is-active .ham__icon {
   transform: rotate(45deg);
 }
 
-/* .ham.active ~ .small-menu {
+/* .ham.is-active ~ .small-menu {
   height: 100vh;
 } */
 
@@ -52,7 +52,7 @@
   transition: 0.4s;
 }
 
-.ham.active .ham__path-line {
+.ham.is-active .ham__path-line {
   stroke: #ccc;
 }
 
@@ -64,10 +64,10 @@
   stroke-dasharray: 40 121;
 }
 
-.ham.active .ham__path-top {
+.ham.is-active .ham__path-top {
   stroke-dashoffset: -68px;
 }
 
-.ham.active .ham__path-bottom {
+.ham.is-active .ham__path-bottom {
   stroke-dashoffset: -68px;
 }
