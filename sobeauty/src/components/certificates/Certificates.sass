@@ -1,14 +1,27 @@
 .certificates
-  &__button
-    display: inline-block
-    width: 10px
-    height: 10px
+  .container
+    overflow: hidden
   &__title
-    margin-top: 20px
-    margin-bottom: 20px
+    margin: 40px 0
     color: #ccc
     font-size: 30px
     text-align: left
   &__card
-    height: 150px
+    height: 250px
     background-color: #ccc
+  .swiper
+    overflow: visible
+    .swiper-button-next,
+    .swiper-button-prev
+      left: auto
+      top: -55px
+      &::after
+        font-size: 40px
+        color: #000
+    .swiper-button-next
+      right: 100px
+    .swiper-button-prev
+      right: 170px
+    .swiper-notification
+      display: none
+      // visibility: hidden
