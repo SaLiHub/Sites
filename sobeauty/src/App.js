@@ -6,12 +6,13 @@ import Certificates from './components/certificates/Certificates'
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Header />
       <Banner />
       <Certificates/>
     </div>
   );
+  
 }
 
 export default App;
