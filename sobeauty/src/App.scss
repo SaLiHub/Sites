@@ -1,0 +1,9 @@
+// @import "~bootstrap/scss/bootstrap";
+
+.app {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  &__certificates {
+    margin-bottom: 10px;
+  }
+}
