@@ -1,0 +1,19 @@
+// @import url(https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/css/mdb.min.css);
+
+.order {
+  @import '~mdbreact/dist/css/mdb';
+
+  padding: 40px 0;
+  // @import url(https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/css/mdb.min.css);
+  &__wrapper {
+    background-color: #cdf;
+    padding: 20px;
+  }
+  &__title-wrapper {
+    display: flex;
+    align-items: center;
+    p {
+      font-size: 30px;
+    }
+  }
+}
