@@ -1,7 +1,21 @@
 .banner {
   &__slide {
-    
-    height: 500px;
-    // background-image: url(./slide.jpg);
+    height: 100vh;
+    padding: 300px 400px
+  }
+  &__title {
+    font-weight: bold;
+  }
+
+  .parallax-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 130%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
   }
 }
+

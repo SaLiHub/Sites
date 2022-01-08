@@ -1,6 +1,6 @@
 .certificates {
   .container {
-    overflow: hidden;
+    // overflow: hidden;
   }
   &__title {
     margin: 40px 0;
@@ -11,6 +11,7 @@
   &__card {
     height: 250px;
     background-color: #ccc;
+    text-align: center;
   }
   .swiper {
     overflow: visible;
