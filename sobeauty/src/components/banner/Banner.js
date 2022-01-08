@@ -1,10 +1,100 @@
-import Carousel from 'react-bootstrap/Carousel';
-import './Banner.sass';
+import './Banner.scss';
+
+// import 'swiper/swiper-bundle.min.css'
+// import 'swiper/swiper.min.css'
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
+
+// Import Swiper core and required modules
+import SwiperCore, { Parallax, Pagination, Navigation } from 'swiper';
+
+import backgroundImg from './slide.jpg';
+
+// install Swiper modules
+SwiperCore.use([Parallax, Pagination, Navigation]);
 
 function Banner() {
   return (
     <section className="banner">
-      <Carousel interval={null}>
+      <Swiper
+        style={{
+          '--swiper-navigation-color': '#fff',
+          '--swiper-pagination-color': '#fff',
+        }}
+        speed={600}
+        parallax
+        pagination={{
+          clickable: true,
+        }}
+        navigation
+        className="mySwiper"
+      >
+        <div
+          slot="container-start"
+          className="parallax-bg"
+          style={{'background-image': `url(${backgroundImg})`}}
+          data-swiper-parallax="-23%"
+        ></div>
+        <SwiperSlide className="banner__slide" >
+          <h2 className="banner__title title" data-swiper-parallax="-500">
+            Slide 1
+          </h2>
+          {/* <div className="subtitle" data-swiper-parallax="-200">
+            Subtitle
+          </div> */}
+          <div className="text" data-swiper-parallax="-100">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+              laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+              Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+              Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+              ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+              tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+            </p>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="banner__slide">
+          <h2 className="banner__title title" data-swiper-parallax="-500">
+            Slide 2
+          </h2>
+          {/* <div className="subtitle" data-swiper-parallax="-200">
+            Subtitle
+          </div> */}
+          <div className="text" data-swiper-parallax="-100">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+              laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+              Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+              Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+              ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+              tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+            </p>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="banner__slide">
+          <h2 className="banner__title title" data-swiper-parallax="-500">
+            Slide 3
+          </h2>
+          {/* <div className="subtitle" data-swiper-parallax="-200">
+            Subtitle
+          </div> */}
+          <div className="text" data-swiper-parallax="-100">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+              laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+              Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+              Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+              ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+              tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+            </p>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+
+      {/* <Carousel interval={null}>
         <Carousel.Item className="banner__item">
           <img
             className="banner__image d-block w-100"
@@ -42,7 +132,7 @@ function Banner() {
             </p>
           </Carousel.Caption>
         </Carousel.Item>
-      </Carousel>
+      </Carousel> */}
     </section>
   );
 }
