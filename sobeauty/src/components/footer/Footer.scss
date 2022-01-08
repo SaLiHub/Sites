@@ -1,0 +1,11 @@
+.footer {
+  // @import 'mdbreact/dist/css/mdb';
+  background-color: rgb(63, 71, 79);
+  &__list {
+    padding-left: 0;
+  }
+  &__copyright {
+    background-color: rgb(33, 37, 41);
+    color: rgb(191, 192, 193)
+  }
+}
