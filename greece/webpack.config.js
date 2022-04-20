@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-
+const FontPreloadPlugin = require('webpack-font-preload-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -23,9 +23,10 @@ const config = {
     static: {
       directory: path.join(__dirname, dist),
     },
-    port: process.env.PORT ?? 3000,
+    port: process.env.PORT ?? 3002,
   },
   plugins: [
+    new FontPreloadPlugin(),
     new MiniCssExtractPlugin(),
     new ESLintPlugin({
       extensions: ['mjs', 'js', 'jsx'],
