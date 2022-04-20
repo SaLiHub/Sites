@@ -1,23 +1,40 @@
 import connectDB from './connectDB.mjs';
 import domElements from './domElements.mjs';
 
-let data;
-
 function createCards() {
+  // Connect to database and get data
   connectDB()
-    .then((content) => {
-      data = content;
-      addCards();
+    .then((data) => {
+      // Assign newly created function, for creating cards using closure,
+      // to createRowOfCards variable
+      const createRowOfCards = renderedCards(data);
+      // Render cards
+      addCards(createRowOfCards);
+      // Add click event for further adding cards using viewAllOffers button
+      const { viewAllOffers } = domElements;
+      viewAllOffers.addEventListener('click', () => addCards(createRowOfCards));
     });
-  const { viewAllOffers } = domElements;
-  viewAllOffers.addEventListener('click', addCards);
+}
+
+// Add cards according to user viewport
+function addCards(createRowOfCards) {
+  const widthOfPage = document.body.clientWidth;
+  if (widthOfPage >= 1700) {
+    createRowOfCards(4);
+  } else if (widthOfPage >= 1353 && widthOfPage <= 1700) {
+    createRowOfCards(3);
+  } else if (widthOfPage >= 651 && widthOfPage <= 1353) {
+    createRowOfCards(2);
+  } else if (widthOfPage <= 651) {
+    createRowOfCards(1);
+  }
 }
 
 function createOneCard(content) {
   const card = document.createElement('div');
   card.classList.add('card');
-  // Uncomment if you have background-image in db.
-  // card.style.backgroundImage = content['background-image'];
+  // Uncomment code below if you have background-image in db
+  // card.style.backgroundImage = content['background-image']
   card.innerHTML = `<div class="card__content">
           <h5 class="card__title">${content.title}</h5>
           <span class="card__price">${content.price}</span>
@@ -27,7 +44,8 @@ function createOneCard(content) {
   return card;
 }
 
-function renderedCards() {
+function renderedCards(data) {
+  // Save quantity of added cards
   let addedCards = 0;
   const { viewAllOffers, cardsContainer } = domElements;
   return function createRowOfCards(quantity) {
@@ -43,24 +61,12 @@ function renderedCards() {
         cardsContainer.appendChild(card);
       }
     }
+    console.log(addedCards);
 
-    // Save quantity of created cards.
+    // Refresh quantity of added cards
     addedCards += quantity;
+    console.log(addedCards);
   };
-}
-
-function addCards() {
-  const createRowOfCards = renderedCards();
-  const widthOfPage = document.body.clientWidth;
-  if (widthOfPage >= 1700) {
-    createRowOfCards(4);
-  } else if (widthOfPage >= 1353 && widthOfPage <= 1700) {
-    createRowOfCards(3);
-  } else if (widthOfPage >= 651 && widthOfPage <= 1353) {
-    createRowOfCards(2);
-  } else if (widthOfPage <= 651) {
-    createRowOfCards(1);
-  }
 }
 
 export default createCards;
