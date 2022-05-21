@@ -4,37 +4,39 @@
   left: 0;
   width: 100%;
   z-index: 10;
-}
-
-/* ///////////////header__content\\\\\\\\\\\\\\\\\\\\\\ */
-
-.header__content {
   display: flex;
   padding-top: 50px;
   padding-left: 50px;
 }
 
+.page__header button {
+  background-color: transparent;
+}
+
 @media (max-width: 700px) {
-  .header__content {
+  .page__header {
     padding-left: 20px;
   }
 }
 
 @media (max-width: 500px) {
-  .header__content {
+  .page__header {
     padding-top: 15px;
   }
 }
 
 /* //////////hamburger\\\\\\\\\\\\\\\ */
 
-.header__hamburger-menu {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
 
 .header__hamburger {
+  background-color: transparent;;
+  border: none;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+}
+
+.header__hamburger-icon {
   fill: var(--gold);
   width: 50px;
   height: 50px;
@@ -42,9 +44,10 @@
   margin-right: 15px;
 }
 
-.header__hamburger:hover {
+.header__hamburger-icon:hover {
   transform: scale(1.2);
 }
+
 
 /* //////////// toggle-menu \\\\\\\\\\\ */
 
@@ -61,9 +64,14 @@
   display: none;
 }
 
-.header__hamburger-menu.active .header__toggle-menu {
+.header__toggle-menu.active  {
   z-index: 10;
   display: flex;
+}
+
+.header__toggle-menu.active:not(:focus-within) {
+  opacity: .99999;
+  transition: opacity 0.01s;
 }
 
 .header__toggle-menu-container {
@@ -77,26 +85,28 @@
   color: var(--grey);
   letter-spacing: 0.4rem;
 }
-/* ///////////header__toggle-menu-cross-sign\\\\\\\\\\\\\ */
+/* ///////////header__cross\\\\\\\\\\\\\ */
 
-.header__toggle-menu-cross-sign {
+.header__cross {
   position: absolute;
-  fill: var(--gold);
-  width: 50px;
-  height: 50px;
   left: 50px;
   top: 50px;
-  cursor: pointer;
+}
+
+.header__cross-icon {
+  width: 50px;
+  height: 50px;
+  fill: var(--gold);
 }
 
 @media (max-width: 700px) {
-  .header__toggle-menu-cross-sign {
+  .header__cross {
     left: 20px;
   }
 }
 
 @media (max-width: 500px) {
-  .header__toggle-menu-cross-sign {
+  .header__cross {
     top: 20px;
   }
 }
@@ -106,14 +116,14 @@
   text-transform: uppercase;
   color: var(--grey);
   letter-spacing: 0.1rem;
-
+  
   font-size: inherit;
-  transition: 0.2s all;
+  transition: 200ms transform;
 }
 
 .header__hamburger-text:hover {
   display: block;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 @media (max-width: 1150px) {

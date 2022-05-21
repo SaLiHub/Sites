@@ -3,19 +3,14 @@ import createVerticalSlider from './verticalSlider.js';
 
 // header
 const hamburger = document.querySelector('.header__hamburger');
-const hamburgerMenuText = document.querySelector('.header__hamburger-text');
-const hamburgerMenu = document.querySelector('.header__hamburger-menu');
+const hamburgerMenu = document.querySelector('.header__toggle-menu');
 const headerCloseSign = document.querySelector(
-  '.header__toggle-menu-cross-sign',
+  '.header__cross',
 );
 const pageBody = document.querySelector('.wooder');
-const headerToggleMenuLink = document.querySelectorAll(
-  '.header__toggle-menu-link',
-);
 
-function hamburgerToggle() {
+function openMobileMenu() {
   pageBody.classList.add('opacity_off');
-  hamburgerMenu.style.cursor = 'auto';
   setTimeout(() => {
     hamburgerMenu.classList.add('active');
     pageBody.style.overflow = 'hidden';
@@ -23,29 +18,23 @@ function hamburgerToggle() {
   }, 500);
 }
 
-hamburger.addEventListener('click', hamburgerToggle);
-hamburgerMenuText.addEventListener('click', hamburgerToggle);
+hamburger.addEventListener('click', openMobileMenu);
 
-function closeMenu() {
+function closeMobileMenu() {
   pageBody.classList.add('opacity_off');
-
   setTimeout(() => {
     hamburgerMenu.classList.remove('active');
     pageBody.classList.remove('opacity_off');
     pageBody.style.overflow = 'visible';
   }, 500);
-  hamburgerMenu.style.cursor = 'pointer';
 }
 
-headerCloseSign.addEventListener('click', () => {
-  closeMenu();
-});
+hamburgerMenu.addEventListener('transitionend', (e) => {
+  console.log('lus');
+  if (e.propertyName === 'opacity') headerCloseSign.focus();
+}, { capture: true });
 
-headerToggleMenuLink.forEach((el) => {
-  el.addEventListener('click', () => {
-    closeMenu();
-  });
-});
+headerCloseSign.addEventListener('click', closeMobileMenu);
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA4apyHWSRjMvYyvrzegqNv5weVktk-XMs',
